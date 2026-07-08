@@ -1,0 +1,6794 @@
+const QUESTIONS = [
+  {
+    "id": 1,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ガイが鬼鮫と再会したときにいった言葉は",
+    "answer": "お前は…誰だ？"
+  },
+  {
+    "id": 2,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "鬼鮫とイタチがナルト達を足止めするために使った術は",
+    "answer": "象転の術"
+  },
+  {
+    "id": 3,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "マイトガイが鬼鮫と戦うときに出した道具は",
+    "answer": "ぬんちゃく"
+  },
+  {
+    "id": 4,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "マイトガイが鬼鮫と戦ったときに開いたはちもんとんこうは",
+    "answer": "六門　景門\n朝孔雀"
+  },
+  {
+    "id": 5,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "イタチの変わり身の術で使うのは何か",
+    "answer": "カラス"
+  },
+  {
+    "id": 6,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "易",
+    "question": "大玉螺旋玉を初めて使った相手は",
+    "answer": "イタチ"
+  },
+  {
+    "id": 7,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "象転の術でイタチの中の人物は誰だったのか",
+    "answer": "由良（ゆうら）"
+  },
+  {
+    "id": 8,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "象転の術で身代わりになった人を食べたのは誰か",
+    "answer": "ゼツ"
+  },
+  {
+    "id": 9,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "があらに守鶴をひょういさせたのは",
+    "answer": "チヨバア"
+  },
+  {
+    "id": 10,
+    "volume": "ナルト34巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "おろち丸とナルトの戦いで失ったカブトの人ストックは何才の人か",
+    "answer": "15歳、16歳の男の死体"
+  },
+  {
+    "id": 11,
+    "volume": "ナルト34巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カブトはなに型か",
+    "answer": "ab型"
+  },
+  {
+    "id": 12,
+    "volume": "ナルト34巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サイがおろち丸等に手渡した封筒に入ってたものは",
+    "answer": "火影直轄部隊のリスト"
+  },
+  {
+    "id": 13,
+    "volume": "ナルト34巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ヤマトの追跡用の発信機はどのような形をしていたか",
+    "answer": "種"
+  },
+  {
+    "id": 14,
+    "volume": "ナルト34巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "サイにナルトがいった言葉",
+    "answer": "腕がもがれりゃ　蹴り倒す\n足がもがれりゃ　かみ殺す\n首がもがれりゃ　にらみ殺す\nめがもがれりゃ　呪い殺す"
+  },
+  {
+    "id": 15,
+    "volume": "ナルト35巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "アスマと同じ守護忍12士と呼ばれている寺の僧は？",
+    "answer": "地陸"
+  },
+  {
+    "id": 16,
+    "volume": "ナルト35巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "地陸のいるお寺の名前は",
+    "answer": "火の寺"
+  },
+  {
+    "id": 17,
+    "volume": "ナルト35巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "地陸にかけられていたお金は？",
+    "answer": "3000万両"
+  },
+  {
+    "id": 18,
+    "volume": "ナルト35巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "螺旋丸はチャクラの何変化となるのか",
+    "answer": "形態変化"
+  },
+  {
+    "id": 19,
+    "volume": "ナルト35巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "じらいやが仙人モードになるまで戦ってくれたがまは",
+    "answer": "ガマケン"
+  },
+  {
+    "id": 20,
+    "volume": "ナルト35巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サスケがイタチとの戦いの際、イタチが座っていたいすの上にかかれていた文字は？",
+    "answer": "狐"
+  },
+  {
+    "id": 21,
+    "volume": "ナルト35巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "フカサクとシマは何の術が得意か",
+    "answer": "幻術"
+  },
+  {
+    "id": 22,
+    "volume": "ナルト43巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "イタチのスサノオが持つ剣の名前は",
+    "answer": "とつかのつるぎ"
+  },
+  {
+    "id": 23,
+    "volume": "ナルト43巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サスケがトビにあったときに発動した術は",
+    "answer": "天照"
+  },
+  {
+    "id": 24,
+    "volume": "ナルト43巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "イタチの真実を知っていた上層部は",
+    "answer": "ダンゾウ\nひるぜん\nこはる\nホムラ"
+  },
+  {
+    "id": 25,
+    "volume": "ナルト43巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "イタチの真実を知った後、サスケは蛇を何という名前のグループにしたか",
+    "answer": "鷹"
+  },
+  {
+    "id": 26,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "フカサクは何仙人といわれているか",
+    "answer": "二大仙蝦蟇（にだいせんがま）"
+  },
+  {
+    "id": 27,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "自来也が連れてきたペインを調べたのは誰か",
+    "answer": "シズネ\nオヨネ\nクマドリ"
+  },
+  {
+    "id": 28,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "はちもんとんこうを開く自分ルールは",
+    "answer": "自分の大切なものを死んでも守りますぬくとき"
+  },
+  {
+    "id": 29,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "忍術のまえはなんと呼ばれていたか",
+    "answer": "忍宗"
+  },
+  {
+    "id": 30,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "無限つくよみで必要な花のみのなまえは？",
+    "answer": "神樹の実"
+  },
+  {
+    "id": 31,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "かぐやは昔なんと呼ばれていたか",
+    "answer": "卯の女神\nうさぎ"
+  },
+  {
+    "id": 32,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "予言のガマの名前は",
+    "answer": "ガマ丸"
+  },
+  {
+    "id": 33,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "マダラが輪廻眼で使っていた技は",
+    "answer": "輪墓\nりんぼ"
+  },
+  {
+    "id": 34,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サスケが持つ万華鏡写輪眼はまだらと同じく何という種類か",
+    "answer": "直巴\nちょくともえ"
+  },
+  {
+    "id": 35,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルトがかぐやに繰り出した術は",
+    "answer": "うずまき一帯連弾"
+  },
+  {
+    "id": 36,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "求道玉は何メートルとばせるか　またナルトにはなんこついてるか",
+    "answer": "5こ\n70m"
+  },
+  {
+    "id": 37,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カカシ先生に再会したなるとが渡した本は",
+    "answer": "イチャイチャタクティクス"
+  },
+  {
+    "id": 38,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "また、そのときかかし先生が読んでいた本は",
+    "answer": "イチャイチャバイオレンス"
+  },
+  {
+    "id": 39,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "デイダラががあらに潰された体の部位は",
+    "answer": "左腕（口がついてる）"
+  },
+  {
+    "id": 40,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "があらがデイダラの腕をつぶした技は",
+    "answer": "砂漠柩（さばくきゅう）"
+  },
+  {
+    "id": 41,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "デイダラが砂隠れの里に進入した際のけいむたいの数は",
+    "answer": "3人"
+  },
+  {
+    "id": 42,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "デイダラ、サソリを入国させた人の名前は",
+    "answer": "由良（ゆうら）"
+  },
+  {
+    "id": 43,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "デイダラが砂隠れに入国する際に所持していた粘土の数",
+    "answer": "18個"
+  },
+  {
+    "id": 44,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カンクロウが所持している三体のくぐつの名前は",
+    "answer": "鳥　山椒魚　黒蟻（くろあり）"
+  },
+  {
+    "id": 45,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルトが綱手に砂影奪還を言渡された場所の上にかかれていた文字は",
+    "answer": "皆さんガンバ"
+  },
+  {
+    "id": 46,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サソリは昔、砂の里にいたときになに部隊に配属されていてなんといわれていたか",
+    "answer": "くぐつ部隊の天才造形師"
+  },
+  {
+    "id": 47,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "砂影奪還の際、綱手が当てたジャンボ宝くじの当選番号は",
+    "answer": "3組 117037"
+  },
+  {
+    "id": 48,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "チヨバアがかかし先生を見たときに誰と勘違いしたのか",
+    "answer": "白いキバ"
+  },
+  {
+    "id": 49,
+    "volume": "ナルト28巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "カンクロウがサソリから毒をくらい治療していた治療室の番号は",
+    "answer": "治療室3"
+  },
+  {
+    "id": 50,
+    "volume": "ナルト29巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "カンクロウのための解毒薬は何個作ったのか",
+    "answer": "3つ"
+  },
+  {
+    "id": 51,
+    "volume": "ナルト29巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルト達ががあら奪還のために向かった国は",
+    "answer": "川の国"
+  },
+  {
+    "id": 52,
+    "volume": "ナルト29巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カンクロウの為の解毒薬に使われてる薬草の名前は",
+    "answer": "トモシリソウ"
+  },
+  {
+    "id": 53,
+    "volume": "ナルト29巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "チヨバアにしみがある部分は",
+    "answer": "右おでこ\n左ほっぺた"
+  },
+  {
+    "id": 54,
+    "volume": "ナルト29巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "げどうまぞうを使って尾獣をふういんするときのたち位置は　また封印するときの術名は",
+    "answer": "右手　小指　亥　ゼツ\n薬指　朱　イタチ\n中指　白　小南\n人差し指　青　デイダラ\n親指　零　ペイン\n\n左手　小指　なし\n薬指　南　鬼鮫\n中指　北　角都\n人差し指　三　飛段\n親指　玉　サソリ\n\n幻龍九封尽（げんりゅうきゅうふうじん）"
+  },
+  {
+    "id": 55,
+    "volume": "ナルト29巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "があらが封印されたとき、げどうまぞうは何個目が開いていたか",
+    "answer": "2つ"
+  },
+  {
+    "id": 56,
+    "volume": "ナルト55巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "奇襲部隊隊長は",
+    "answer": "カンクロウ"
+  },
+  {
+    "id": 57,
+    "volume": "ナルト55巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "後方支援医療部隊隊長は",
+    "answer": "シズネ"
+  },
+  {
+    "id": 58,
+    "volume": "ナルト55巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "情報部隊隊長は",
+    "answer": "いのいち"
+  },
+  {
+    "id": 59,
+    "volume": "ナルト55巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "感知部隊隊長は",
+    "answer": "青"
+  },
+  {
+    "id": 60,
+    "volume": "ナルト55巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "だいいち部隊　戦闘中距離部隊隊長は",
+    "answer": "ダルイ"
+  },
+  {
+    "id": 61,
+    "volume": "ナルト55巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "第二部隊　先頭近距離部隊隊長は",
+    "answer": "黄ツチ\n黄ツチの娘は黒ツチ"
+  },
+  {
+    "id": 62,
+    "volume": "ナルト55巻",
+    "category": "原作一問一答",
+    "difficulty": "易",
+    "question": "第三部隊　先頭近中距離部隊隊長は",
+    "answer": "はたけカカシ"
+  },
+  {
+    "id": 63,
+    "volume": "ナルト55巻",
+    "category": "原作一問一答",
+    "difficulty": "易",
+    "question": "第4部隊　戦闘遠距離部隊隊長は",
+    "answer": "我愛羅"
+  },
+  {
+    "id": 64,
+    "volume": "ナルト55巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "第五部隊　戦闘特別部隊隊長は",
+    "answer": "ミフネ"
+  },
+  {
+    "id": 65,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "チャクラの性質変化を判断する紙の名前は",
+    "answer": "感応紙"
+  },
+  {
+    "id": 66,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "感応紙",
+    "answer": "雷　しわになる\n風　紙が切れる\n火　燃える\n水　濡れる\n土　崩れる"
+  },
+  {
+    "id": 67,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "シカマルとアスマが将棋をしているとき、間違った駒が一つある それはなんとかかれているか",
+    "answer": "竜"
+  },
+  {
+    "id": 68,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "地隠が亡くなったことで木の葉では小隊を何隊編成したか",
+    "answer": "20隊"
+  },
+  {
+    "id": 69,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "20隊編成された中でシカマルが配属された所に誰がいたか",
+    "answer": "アスマ　イズモ　コテツ"
+  },
+  {
+    "id": 70,
+    "volume": "ナルト36巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "アスマの掛けられていた掛け金は",
+    "answer": "3千5百万両"
+  },
+  {
+    "id": 71,
+    "volume": "ナルト36巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "一楽のラーメン屋に新しくつとめにきた二人の名前は",
+    "answer": "西と松"
+  },
+  {
+    "id": 72,
+    "volume": "ナルト36巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "なぜそのときラーメン店にアヤメさんはいなかったのか",
+    "answer": "旅行していた"
+  },
+  {
+    "id": 73,
+    "volume": "ナルト36巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "西、松はそれぞれどのような行動をしてテウチのおっさんに怒られたか",
+    "answer": "西　ラーメン落とす\n松　ラーメンに親指をいれる"
+  },
+  {
+    "id": 74,
+    "volume": "ナルト36巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "チヨバアが、があらに使った術は",
+    "answer": "転生忍術"
+  },
+  {
+    "id": 75,
+    "volume": "ナルト36巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サソリがカブトと会う予定した場所は",
+    "answer": "草隠れの里の天地橋\n真昼"
+  },
+  {
+    "id": 76,
+    "volume": "ナルト36巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "かかし先生が万華鏡写輪丸でとばしたデイダラの身体の部位は",
+    "answer": "右腕"
+  },
+  {
+    "id": 77,
+    "volume": "ナルト36巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルトの九尾化を抑える札に書かれた文字は",
+    "answer": "押"
+  },
+  {
+    "id": 78,
+    "volume": "ナルト32巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "砂影奪還の帰り、ガイがかかしにしたことは",
+    "answer": "おんぶしようとした"
+  },
+  {
+    "id": 79,
+    "volume": "ナルト32巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サイがナルト達に会ったとき何体の超獣ぎを出したか",
+    "answer": "六体"
+  },
+  {
+    "id": 80,
+    "volume": "ナルト32巻",
+    "category": "原作一問一答",
+    "difficulty": "易",
+    "question": "ナルトがシカマルとはなす中、チョウジはなにをもってきたか",
+    "answer": "シカマルの弁当"
+  },
+  {
+    "id": 81,
+    "volume": "ナルト32巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "サイがナルトとあったときに発した言葉は",
+    "answer": "力弱いな…君\nそれでもチンポついてんですか？"
+  },
+  {
+    "id": 82,
+    "volume": "ナルト32巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "げどうまぞうのある場所に成されていた封印は",
+    "answer": "五封結界"
+  },
+  {
+    "id": 83,
+    "volume": "ナルト32巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "五封結界を解き方は",
+    "answer": "禁の札を五つ剥がさなければならない"
+  },
+  {
+    "id": 84,
+    "volume": "ナルト32巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "その禁の札がある場所の位置は",
+    "answer": "北東の500m岩の上　ネジ\n南南東350m木の幹　テンテン\n北西650m岩壁　ガイ\n南西800m林の中　リー"
+  },
+  {
+    "id": 85,
+    "volume": "ナルト31巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "五封結界をはがしにいくために使った無線の周波数は",
+    "answer": "174"
+  },
+  {
+    "id": 86,
+    "volume": "ナルト31巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "サソリは何体のくぐつをつくってきたのか",
+    "answer": "298体"
+  },
+  {
+    "id": 87,
+    "volume": "ナルト31巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サソリは何という名前のくぐつのなかに入っていたか",
+    "answer": "十八番　ヒルコ"
+  },
+  {
+    "id": 88,
+    "volume": "ナルト31巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "があらは何代目風影か",
+    "answer": "5代目"
+  },
+  {
+    "id": 89,
+    "volume": "ナルト31巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "三代目風影を殺したのは",
+    "answer": "サソリ"
+  },
+  {
+    "id": 90,
+    "volume": "ナルト31巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サソリと戦うために使った解毒薬の効果時間は",
+    "answer": "三分"
+  },
+  {
+    "id": 91,
+    "volume": "ナルト31巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サソリの胸に入っていた文字は",
+    "answer": "蠍（さそり）"
+  },
+  {
+    "id": 92,
+    "volume": "ナルト31巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サイの兄だったやつの名前は",
+    "answer": "シン"
+  },
+  {
+    "id": 93,
+    "volume": "ナルト31巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ダンゾウの暗部の名称は",
+    "answer": "根"
+  },
+  {
+    "id": 94,
+    "volume": "ナルト31巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "自来也が桶での風呂をのぞこうとして死にかけたのはなぜか",
+    "answer": "あばら六本と両腕がやられ内臓破裂数ヶ所やられたから"
+  },
+  {
+    "id": 95,
+    "volume": "ナルト31巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "天地橋を向かう前にサイの家に入ってきた仮面をかぶっていた男は誰か",
+    "answer": "ヒョウ"
+  },
+  {
+    "id": 96,
+    "volume": "ナルト31巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サイが朝描いていた絵の種類は",
+    "answer": "抽象画"
+  },
+  {
+    "id": 97,
+    "volume": "ナルト33話",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "自来也がナルトを尾獣と会ったとき何本の尻尾の数だったか",
+    "answer": "四本"
+  },
+  {
+    "id": 98,
+    "volume": "ナルト33話",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "何本目まで意識を保っていられたか",
+    "answer": "三本"
+  },
+  {
+    "id": 99,
+    "volume": "ナルト33話",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "ヤマトはおろちまるの実験で何体の中の1人として生き残ったか",
+    "answer": "60体"
+  },
+  {
+    "id": 100,
+    "volume": "ナルト33話",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "尾獣玉をおろち丸はどうやって防いだか",
+    "answer": "三重羅生門"
+  },
+  {
+    "id": 101,
+    "volume": "ナルト33話",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サクラが尾獣状態のナルトにやられた傷の場所は？",
+    "answer": "左腕"
+  },
+  {
+    "id": 102,
+    "volume": "ナルト33話",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "九尾の封印術は？",
+    "answer": "廓庵入鄽垂手（かくあんにってんすいしゅ）の術"
+  },
+  {
+    "id": 103,
+    "volume": "ナルト33話",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "三伏目は何派で、ダンゾウは何派だったのか",
+    "answer": "三代目は穏健派"
+  },
+  {
+    "id": 104,
+    "volume": "ナルト33話",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "水影が使う術の性質は",
+    "answer": "火と水と土\n沸遁\nふっとん"
+  },
+  {
+    "id": 105,
+    "volume": "ナルト50巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "キラービーがサスケとの戦いの後に会いに行った人は？",
+    "answer": "サブちゃん"
+  },
+  {
+    "id": 106,
+    "volume": "ナルト50巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サブちゃんのペットは？",
+    "answer": "ボン太"
+  },
+  {
+    "id": 107,
+    "volume": "ナルト50巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "トルネは誰の血を持っているか",
+    "answer": "油目シクロ"
+  },
+  {
+    "id": 108,
+    "volume": "ナルト50巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "イザナギの印は",
+    "answer": "卵　亥　未\nう　い　ひつじ"
+  },
+  {
+    "id": 109,
+    "volume": "ナルト50巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ダンゾウが口寄せしたのは？",
+    "answer": "ばく"
+  },
+  {
+    "id": 110,
+    "volume": "ナルト50巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ダンゾウが組んでいたスリーマンセルのメンバーは？",
+    "answer": "秋道トリフ\nうちはカガミ"
+  },
+  {
+    "id": 111,
+    "volume": "ナルト50巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カリンは幼少期にサスケに助けられたときになにを持っていたか",
+    "answer": "地の書"
+  },
+  {
+    "id": 112,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ダンゾウは五影会談にいくさい、何の国の残党に襲われたか",
+    "answer": "林の国"
+  },
+  {
+    "id": 113,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "それは何人いたか",
+    "answer": "17人"
+  },
+  {
+    "id": 114,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "五影会談はどこで開かれたか",
+    "answer": "鉄の国"
+  },
+  {
+    "id": 115,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "鉄の国の長は？",
+    "answer": "ミフネ"
+  },
+  {
+    "id": 116,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ミフネについていた付き人の名前は？",
+    "answer": "オキスケ\nウラカク"
+  },
+  {
+    "id": 117,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "雷影についていた付き人のは？",
+    "answer": "シー\nダルイ"
+  },
+  {
+    "id": 118,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "水影についていた付き人は？",
+    "answer": "青\n長十郎"
+  },
+  {
+    "id": 119,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ダンゾウについていた付き人は？",
+    "answer": "フー\nトルネ"
+  },
+  {
+    "id": 120,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "土影についていた付き人は？",
+    "answer": "黄つち\n赤つち"
+  },
+  {
+    "id": 121,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "木の葉襲撃の際、サクラが助けた逃げ遅れていた女の子の名前は",
+    "answer": "たみ"
+  },
+  {
+    "id": 122,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "木の葉丸が倒したペインの名前は",
+    "answer": "地獄道"
+  },
+  {
+    "id": 123,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "ペインは耳、鼻にそれぞれいくつピアスをつけているか",
+    "answer": "鼻は6\n耳は7"
+  },
+  {
+    "id": 124,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "キバが相手をしたペインの名前は",
+    "answer": "餓鬼道"
+  },
+  {
+    "id": 125,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "チャクラを吸い取る性質のペインは",
+    "answer": "餓鬼道"
+  },
+  {
+    "id": 126,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "口寄せ担当のペインは",
+    "answer": "畜生道"
+  },
+  {
+    "id": 127,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "弥彦にてんいしてるペインは",
+    "answer": "天道"
+  },
+  {
+    "id": 128,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "シノが相手をしたのは",
+    "answer": "小南"
+  },
+  {
+    "id": 129,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "木の葉にいた連絡ガマの名前は",
+    "answer": "こうすけ"
+  },
+  {
+    "id": 130,
+    "volume": "ナルト49巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "人を生き返らせる能力のあるペインは",
+    "answer": "地獄道"
+  },
+  {
+    "id": 131,
+    "volume": "ナルト48巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "長門が連れてきた犬の名前は",
+    "answer": "チビ"
+  },
+  {
+    "id": 132,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "検死室の番号は？",
+    "answer": "3"
+  },
+  {
+    "id": 133,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "自来也が残した暗号でシカマルが9と読み違えてたのは何という文字か",
+    "answer": "カタカナのタ"
+  },
+  {
+    "id": 134,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "自来也が残した暗号が隠されている本は",
+    "answer": "イチャイチャタクティクス"
+  },
+  {
+    "id": 135,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "シカマルとナルトとともに暗号解読を手伝った人の名前は",
+    "answer": "シホ"
+  },
+  {
+    "id": 136,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サスケたちがキラービーの居場所を聞き出した相手は何一族だったか",
+    "answer": "夜月一族"
+  },
+  {
+    "id": 137,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サスケとキラービーはどこで出会ったか",
+    "answer": "雲雷峡（うんらいきょう）"
+  },
+  {
+    "id": 138,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "キラービーは左頬に何の入れ墨が入っているか",
+    "answer": "牛の角"
+  },
+  {
+    "id": 139,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "妙木山にフカサクとナルトを逆口寄せしたのは",
+    "answer": "ガマ吉"
+  },
+  {
+    "id": 140,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "フカサクに付けた暗号は何とかいてあったか",
+    "answer": "本物はいない"
+  },
+  {
+    "id": 141,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ペインは木の葉のどこから侵入したか",
+    "answer": "西口イのB地点"
+  },
+  {
+    "id": 142,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "初めに木の葉に侵入したペインの名は",
+    "answer": "畜生道"
+  },
+  {
+    "id": 143,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "地雷が入れられた換金所はどのような場所だったか",
+    "answer": "トイレ"
+  },
+  {
+    "id": 144,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "トイレで死人を扱っていたやつのなまえは",
+    "answer": "ザンケイ"
+  },
+  {
+    "id": 145,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルトが螺旋手裏剣の修行中尾獣になった回数は",
+    "answer": "二回"
+  },
+  {
+    "id": 146,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "アスマがひだんに血を採られた部分は",
+    "answer": "右の頬"
+  },
+  {
+    "id": 147,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "アスマが死にかけているときに駆けつけた4人は",
+    "answer": "いの\nチョウジ\nアオバ\nライドウ"
+  },
+  {
+    "id": 148,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "アスマはひだんに急所をいくつつかれたか",
+    "answer": "4つ"
+  },
+  {
+    "id": 149,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ひだんの愛する宗教の名前は",
+    "answer": "ジャシン教"
+  },
+  {
+    "id": 150,
+    "volume": "ナルト37巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "ナルトは螺旋手裏剣をシカマル達が再びひだんを追った何時間以内に完成させなければならなかったか",
+    "answer": "24時間以内"
+  },
+  {
+    "id": 151,
+    "volume": "ナルト37巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "アスマの持っていた武器の名前は",
+    "answer": "チャクラ刀"
+  },
+  {
+    "id": 152,
+    "volume": "ナルト37巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "五大性質変化は",
+    "answer": "水>火>風>雷>土>水というようになっている"
+  },
+  {
+    "id": 153,
+    "volume": "ナルト37巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルトを真実の滝へと連れてきた人は",
+    "answer": "モトイ"
+  },
+  {
+    "id": 154,
+    "volume": "ナルト37巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "なるとたちを海亀まで船でつれてきた人は",
+    "answer": "天画"
+  },
+  {
+    "id": 155,
+    "volume": "ナルト53・54巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ビーのに封印した8尾の封印術名は",
+    "answer": "鉄甲封印"
+  },
+  {
+    "id": 156,
+    "volume": "ナルト53・54巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "クシナがアカデミーのときにつけられたあだ名は",
+    "answer": "トマト\n赤い血潮のハバネロ"
+  },
+  {
+    "id": 157,
+    "volume": "ナルト53・54巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "クシナが幼いときに連れ去ろうとした里の忍びは",
+    "answer": "雲隠れ"
+  },
+  {
+    "id": 158,
+    "volume": "ナルト53・54巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "クシナは何という国から木の葉へきたか",
+    "answer": "渦の国"
+  },
+  {
+    "id": 159,
+    "volume": "ナルト53・54巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "初代火影の妻の名前は",
+    "answer": "うずまきミト"
+  },
+  {
+    "id": 160,
+    "volume": "ナルト53・54巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "猿飛ヒルゼンの妻の名前は",
+    "answer": "ビワコ"
+  },
+  {
+    "id": 161,
+    "volume": "ナルト53・54巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルトが九尾を操るための修行にきた際ガイとヤマトともう一人いたがそれはだれか",
+    "answer": "アオバ"
+  },
+  {
+    "id": 162,
+    "volume": "ナルト53・54巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ゼツが使う分身の名前は",
+    "answer": "寄生分身"
+  },
+  {
+    "id": 163,
+    "volume": "ナルト53・54巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "しのび連合の本拠地は何隠れに置いたか",
+    "answer": "雲隠れ"
+  },
+  {
+    "id": 164,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "ナルトがペインの前にでてきたときにいたガマは",
+    "answer": "ガマヒロ\nおやびん\nがまけん"
+  },
+  {
+    "id": 165,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "長門の父母の名前は",
+    "answer": "父：伊勢\n母：扶桑（ふそう）"
+  },
+  {
+    "id": 166,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ざぶざの前任者は",
+    "answer": "桔杷十蔵（びわじゅうぞう）"
+  },
+  {
+    "id": 167,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サクラに告白したのは",
+    "answer": "モリオ"
+  },
+  {
+    "id": 168,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "大亀の名前は",
+    "answer": "ゲンブ"
+  },
+  {
+    "id": 169,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "モトイの父親の名前は",
+    "answer": "フルイ"
+  },
+  {
+    "id": 170,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ビーの前任者は",
+    "answer": "ブルービー"
+  },
+  {
+    "id": 171,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "だんぞうに殺されたがまは",
+    "answer": "こうすけ"
+  },
+  {
+    "id": 172,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "紅の父の名前は",
+    "answer": "夕日真実紅（しんく）"
+  },
+  {
+    "id": 173,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "チョウジは何代目か",
+    "answer": "16代目"
+  },
+  {
+    "id": 174,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "半蔵のペットの名は",
+    "answer": "イブセ"
+  },
+  {
+    "id": 175,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "シカマルの母",
+    "answer": "奈良ヨシノ"
+  },
+  {
+    "id": 176,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ネジの父",
+    "answer": "ヒザシ"
+  },
+  {
+    "id": 177,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "かぐやを封印する術は",
+    "answer": "地爆天星"
+  },
+  {
+    "id": 178,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "ナルトは何歳になったか",
+    "answer": "17"
+  },
+  {
+    "id": 179,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "孫悟空の故郷は",
+    "answer": "水廉洞（すいれんどう）"
+  },
+  {
+    "id": 180,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "ボルトはなるとの顔岩になんと落書きしたか",
+    "answer": "初代：アホ、クソオヤジ\n二代目：バカ\n三代目：インコン\n四代目：スケベ\n五代目：ジジイ\n（六代目：）ババア"
+  },
+  {
+    "id": 181,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "初代風影の名前は",
+    "answer": "烈斗（れき）"
+  },
+  {
+    "id": 182,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "二代目の名前は",
+    "answer": "沙門（しゃもん）"
+  },
+  {
+    "id": 183,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "四代目の名前は",
+    "answer": "羅砂（らさ）"
+  },
+  {
+    "id": 184,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "初代土影は",
+    "answer": "イシカワ"
+  },
+  {
+    "id": 185,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "二代目は",
+    "answer": "無"
+  },
+  {
+    "id": 186,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "初代水影は",
+    "answer": "白蓮（びゃくれん）"
+  },
+  {
+    "id": 187,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "ナルトの螺旋手裏剣とサスケのかぐつちを合わせた術の名前は",
+    "answer": "灼盾　光輪疾風漆黒矢零式（ごうりんしっぷうしっこくのやぜろしき）"
+  },
+  {
+    "id": 188,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "アカデミーの際、忍組み手をした最後にすることは",
+    "answer": "和解の印"
+  },
+  {
+    "id": 189,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "ミナトが十尾の人柱力と戦う際発動できなかった術は",
+    "answer": "螺旋閃光超輪舞　吼参式（らせんせんこうちょうりんぶこうさんしき）"
+  },
+  {
+    "id": 190,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "連合全員で十尾をとめたときに皆でした術は",
+    "answer": "土遁障壁"
+  },
+  {
+    "id": 191,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "十尾の人柱力がした陣は",
+    "answer": "六赤陽陣"
+  },
+  {
+    "id": 192,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "六道仙人が使っていた神剣の名前は",
+    "answer": "ぬのぼこの剣"
+  },
+  {
+    "id": 193,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "があらの人柱力の前任者は",
+    "answer": "分福（ぶんぷく）"
+  },
+  {
+    "id": 194,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "うちはイズナを倒した人は",
+    "answer": "扉間"
+  },
+  {
+    "id": 195,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "マイトダイは何年かけてはちもんとんこうを会得したか",
+    "answer": "20年"
+  },
+  {
+    "id": 196,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ガイが組んでいた3人は",
+    "answer": "ゲンマ\nエビス"
+  },
+  {
+    "id": 197,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "うちはマダラの父さんの名前は",
+    "answer": "うちはタジマ"
+  },
+  {
+    "id": 198,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "柱間の父さんの名前は",
+    "answer": "千手仏間"
+  },
+  {
+    "id": 199,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "水影は夢の中で誰と結婚していたか",
+    "answer": "シー"
+  },
+  {
+    "id": 200,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "はごろもともう一人の兄弟の名前は",
+    "answer": "ハムラ"
+  },
+  {
+    "id": 201,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "ナルトは陽の力、サスケは陰の力を持つが、それぞれ何と呼ばれるか",
+    "answer": "（質問文不明瞭のため答えのみ記載）ナルトは陽の力、サスケは陰の力"
+  },
+  {
+    "id": 202,
+    "volume": "ナルト66・67・68巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "火影四人で十尾をとめるためにした陣の名前は",
+    "answer": "四赤陽陣（しせきようじん）"
+  },
+  {
+    "id": 203,
+    "volume": "ナルト66・67・68巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "十尾の分身体を猪鹿蝶で何体倒したか",
+    "answer": "25体"
+  },
+  {
+    "id": 204,
+    "volume": "ナルト66・67・68巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "がま、カツユ、まおだで3人揃ってなんというか",
+    "answer": "口寄せ三竦み"
+  },
+  {
+    "id": 205,
+    "volume": "ナルト66・67・68巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サスケが口寄せしたのは",
+    "answer": "アオダ"
+  },
+  {
+    "id": 206,
+    "volume": "ナルト66・67・68巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルトが口寄せしたのは",
+    "answer": "ガマ吉"
+  },
+  {
+    "id": 207,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カツユのいる場所は",
+    "answer": "湿骨林（しつこりん）"
+  },
+  {
+    "id": 208,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "カブトが昔入っていた院の消灯時間は",
+    "answer": "9時"
+  },
+  {
+    "id": 209,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カブトの通っていた孤児院のマザーの名前は",
+    "answer": "ノノウ"
+  },
+  {
+    "id": 210,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カブトは何年間孤児院にいたか",
+    "answer": "三年"
+  },
+  {
+    "id": 211,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カブトは何の戦いでマザーにひろわれたか",
+    "answer": "桔梗峠の戦い（ききょうとうげ）"
+  },
+  {
+    "id": 212,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カブトと共に孤児院にいた男の子の名前は",
+    "answer": "ウルシ"
+  },
+  {
+    "id": 213,
+    "volume": "ナルト62・63・64・65巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "オビトは昔中忍試験三次で誰と戦ったか",
+    "answer": "マイトガイ"
+  },
+  {
+    "id": 214,
+    "volume": "ナルト62・63・64・65巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "山中一族の家紋は何の花が由来か",
+    "answer": "萩の花"
+  },
+  {
+    "id": 215,
+    "volume": "ナルト62・63・64・65巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "しきふうじんの仮面はどこにあるか",
+    "answer": "うずまき一族の納面堂"
+  },
+  {
+    "id": 216,
+    "volume": "ナルト62・63・64・65巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "マダラと柱間が初めて合ったときに目の前に流れてきた死体の一族は",
+    "answer": "羽衣一族"
+  },
+  {
+    "id": 217,
+    "volume": "ナルト62・63・64・65巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "柱間の一番下の弟の名前は、また三男の名前は",
+    "answer": "瓦間（かわらま）：四男\n板間（いたま）：三男"
+  },
+  {
+    "id": 218,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "易",
+    "question": "無を倒したときのナルトの術は",
+    "answer": "惑星螺旋丸"
+  },
+  {
+    "id": 219,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "三代目雷影と戦う際ナルトと共に戦ったゴム使いの名前は",
+    "answer": "ドダイ"
+  },
+  {
+    "id": 220,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "西瓜山を封印したのは",
+    "answer": "サイ"
+  },
+  {
+    "id": 221,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "各尾獣の人柱力・出身の里は",
+    "answer": "二尾：又旅／二位ユギト（雲隠れ）\n三尾：いそぶ／四代目水影やぐら（霧隠れ）\n四尾：孫悟空／老紫（ろうし）（岩隠れ）\n五尾：こくおう／ハン（岩隠れ）\n六尾：さいけん／うたかた（霧隠れ）\n七尾：ラッキーセブン重明／フウ（滝隠れ）\n八尾：牛鬼／びー（雲隠れ）"
+  },
+  {
+    "id": 222,
+    "volume": "ナルト61巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カブトが仙術を学んだ場所は",
+    "answer": "龍地洞（りゅうちどう）"
+  },
+  {
+    "id": 223,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "長刀　縫い針の使い手は",
+    "answer": "栗霰串丸（くりあられくしまる）"
+  },
+  {
+    "id": 224,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "爆刀　飛沫（しぶき）の使い手",
+    "answer": "無梨甚八（むなしじんぱち）"
+  },
+  {
+    "id": 225,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "鬼鮫の前に鮫肌を使っていた人は",
+    "answer": "西瓜山河豚鬼（すいかざんふぐき）"
+  },
+  {
+    "id": 226,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "さぶざを封印した砂隠れの忍の名前は",
+    "answer": "マキ"
+  },
+  {
+    "id": 227,
+    "volume": "ナルト57・58・59・60巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "シロゼツがネジになりすまし医療忍者を倒した部屋の番号は",
+    "answer": "5"
+  },
+  {
+    "id": 228,
+    "volume": "ナルト57・58・59・60巻",
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "そのときサクラは何番にいたか",
+    "answer": "3"
+  },
+  {
+    "id": 229,
+    "volume": "ナルト57・58・59・60巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "があらは父さんに何度殺されかけたか",
+    "answer": "六回"
+  },
+  {
+    "id": 230,
+    "volume": "ナルト57・58・59・60巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "があらの母さんの名前は",
+    "answer": "かるら"
+  },
+  {
+    "id": 231,
+    "volume": "ナルト57・58・59・60巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "二代目水影は口寄せでなにを出したか",
+    "answer": "おおはまぐり（蜃）"
+  },
+  {
+    "id": 232,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "戦地となってしまうので逃げてもらった大名は何の国のものか",
+    "answer": "湯の国\n霜の国"
+  },
+  {
+    "id": 233,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "奇襲部隊で最初に傷を負ったのは",
+    "answer": "ザジ"
+  },
+  {
+    "id": 234,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "尾獣玉は白と黒のバランスを何対何にするか",
+    "answer": "2対8"
+  },
+  {
+    "id": 235,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "穢土転生の術の止め方は",
+    "answer": "子丑申寅辰亥丑申寅辰亥"
+  },
+  {
+    "id": 236,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カカシたちと戦った爆遁の使い手でデイダラと同じ元爆破部隊にいた者は",
+    "answer": "ガリ"
+  },
+  {
+    "id": 237,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "砂隠れの血継限界灼遁を使う者は",
+    "answer": "パクラ"
+  },
+  {
+    "id": 238,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ざぶざ戦でカカシは誰にかげまねさせ、しんてんしんをさせたか",
+    "answer": "奈良エンスイ\n山中サンタ"
+  },
+  {
+    "id": 239,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "忍刀七人集　雷刀の牙を使う忍の名前は",
+    "answer": "林檎雨由利（りんごあめゆり）"
+  },
+  {
+    "id": 240,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "鈍刀　兜割（かぶとわり）の使い手の名前は",
+    "answer": "通草野餌人（あけびのじにん）"
+  },
+  {
+    "id": 241,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "砂隠れの里の風影となった一尾の人柱力、我愛羅を捕えにきた\"暁\"のメンバーの組み合わせで正しいのはどれか？",
+    "answer": "デイダラとサソリ",
+    "choices": [
+      "うちはイタチと干柿鬼鮫",
+      "飛段と角都",
+      "デイダラとサソリ",
+      "デイダラとゼツ"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 242,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "二尾の尾獣はどのような姿をしているか？",
+    "answer": "ネコ",
+    "choices": [
+      "ネコ",
+      "ゴリラ",
+      "カメ",
+      "サメ"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 243,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "「朝孔雀」を使うのは誰か？",
+    "answer": "マイト・ガイ",
+    "choices": [
+      "ロック・リー",
+      "マイト・ガイ",
+      "うちはイタチ",
+      "小南"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 244,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "志村ダンゾウが暗部の中の別動部隊として組織した、暗部養成部門の名は何か？",
+    "answer": "根",
+    "choices": [
+      "葉",
+      "根",
+      "枝",
+      "暗"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 245,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "大蛇丸に人体実験され、かつての初代火影の遺伝子を組み込まれたのは次の内誰か？",
+    "answer": "ヤマト",
+    "choices": [
+      "君麻呂",
+      "カブト",
+      "ヤマト",
+      "タケル"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 246,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "飛段の信仰している宗教の名前は何か？",
+    "answer": "ジャシン教",
+    "choices": [
+      "シンジャ教",
+      "ジャガン教",
+      "ジャシン教",
+      "ジャキン教"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 247,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "ナルトはもともとどの性質のチャクラを持っていたか？",
+    "answer": "風",
+    "choices": [
+      "風",
+      "土",
+      "火",
+      "光"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 248,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "猿飛アスマが中忍昇格祝いに第十班の三人にプレゼントしたものは何か？",
+    "answer": "ピアス",
+    "choices": [
+      "ピアス",
+      "タバコ",
+      "花",
+      "焼肉券"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 249,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "猿飛アスマの死後、奈良シカマルは父親である奈良シカクと将棋を指していた。シカクから\"玉\"は誰にあたるか、と問われたシカマルは何と答えたか？",
+    "answer": "木ノ葉をになうこれからの子供達",
+    "choices": [
+      "何があっても信じ続けられる仲間達",
+      "木ノ葉をになうこれからの子供達",
+      "里を護り治める火影",
+      "教え伝えていく存在である里の上忍達"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 250,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "大蛇丸を倒した後、うちはイタチ討伐のため、サスケがまずはじめに仲間にしたのは誰か？",
+    "answer": "水月（丸印は④水月）",
+    "choices": [
+      "重居",
+      "香燐",
+      "久月",
+      "水月（丸印は④水月）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 251,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "ペインは自来也との戦闘の際、自らの目的を語った。「人々が、国が、世界が、○○を知るのだ！！」○○に入る言葉は何か？",
+    "answer": "痛み",
+    "choices": [
+      "絶望",
+      "苦しみ",
+      "痛み",
+      "幸福（丸印は③痛み）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 252,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "ナルトの名付け親はだれか？",
+    "answer": "クシナ",
+    "choices": [
+      "自来也",
+      "クシナ",
+      "初代火影",
+      "テウチ（丸印は②クシナ）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 253,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "サスケとうちはイタチの戦いで、誤っている記述は次のうちどれか？",
+    "answer": "イタチは死ぬ間際、サスケの目に月読を仕込んだ（丸印は④、誤っている記述を選ぶ問題）",
+    "choices": [
+      "イタチの須佐能乎は手に十拳剣を持っている",
+      "サスケがイタチに向けて「最後の術」と言って放った術の名は「麒麟」",
+      "イタチはサスケを殺す気はなかった",
+      "イタチは死ぬ間際、サスケの目に月読を仕込んだ（丸印は④、誤っている記述を選ぶ問題）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 254,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "自来也は死ぬ間際、フカサクの背にナルト達に向けた暗号を残した。この暗号を解くカギは何だったか？",
+    "answer": "自来也の著書",
+    "choices": [
+      "網手のバストのサイズ",
+      "自来也の著書",
+      "カカシとの過去の会話",
+      "ナルトと修業した日数（丸印は②自来也の著書）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 255,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "ペインとの戦いで、ナルトは怒りから九尾の力を開放する。そのきっかけとなったことは何か？",
+    "answer": "日向ヒナタが刺された",
+    "choices": [
+      "フカサクが死んだ",
+      "はたけカカシが死んだ",
+      "日向ヒナタが刺された",
+      "春野サクラが刺された（丸印は③）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 256,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "自来也が最初に書いた小説のタイトルは何か？",
+    "answer": "ド根性忍伝（丸印は④）",
+    "choices": [
+      "ド根性嘘門伝",
+      "ド根性外伝",
+      "ド根性蛙伝",
+      "ド根性忍伝（丸印は④）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 257,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "火影の座を狙う志村ダンゾウと組み、長門に弥彦を殺させたのは誰か？",
+    "answer": "半蔵",
+    "choices": [
+      "大蛇丸",
+      "マダラ",
+      "半蔵",
+      "全蔵（丸印は③半蔵）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 258,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "雷影が招集した五影会談はサスケ達の襲撃を受けた。その会談の場にいなかったのは次のうち誰か？",
+    "answer": "綱手",
+    "choices": [
+      "綱手",
+      "オオノキ",
+      "我愛羅",
+      "ダンゾウ（丸印は①綱手）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 259,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "五影会談の行われた鉄の国を守っているのはどのような者たちか？",
+    "answer": "侍",
+    "choices": [
+      "足軽",
+      "侍",
+      "鉄人",
+      "獣人（丸印は②侍）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 260,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "「月の眼計画」についての説明で誤っているのはどれか？",
+    "answer": "無限月読を発動し太陽に己の眼を投影する大幻術である（丸印は④、誤っているものを選ぶ問題）",
+    "choices": [
+      "計画したのはうちはマダラである",
+      "無限月読によって全ての人間に幻術をかける",
+      "うちはマダラ自身が十尾の人柱力となる",
+      "無限月読を発動し太陽に己の眼を投影する大幻術である（丸印は④、誤っているものを選ぶ問題）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 261,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "自身のラップを八尾に下手と言われたキラービーが、次に極めようとした音楽のジャンルは何か？",
+    "answer": "演歌",
+    "choices": [
+      "バラード",
+      "ロック",
+      "演歌",
+      "アニソン（丸印は③演歌）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 262,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "砂隠れの里の相談役、チヨバアとサソリとの関係は次の内どれか？",
+    "answer": "祖母と孫",
+    "choices": [
+      "親と子",
+      "祖母と孫",
+      "育ての親と養子",
+      "肉親の敵（丸印は②祖母と孫）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 263,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "新たに第七班のメンバーとなったサイは自作の絵本を大切に持っていた。その絵本は誰をモデルとして描かれていたか？",
+    "answer": "サイとサイの兄（丸印は④）",
+    "choices": [
+      "サイとナルト",
+      "サイとダンゾウ",
+      "サイとサイの弟",
+      "サイとサイの兄（丸印は④）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 264,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "ヤマトと”五大性質変化”について学んでいたナルトの台詞、「○○を助けてさらに大きな力に出来るのは○○の力だけだって事だよ」○○に入る言葉の組み合わせで正しいのはどれか？",
+    "answer": "\"火\"・\"風\"",
+    "choices": [
+      "\"火\"・\"風\"",
+      "\"雷\"・\"土\"",
+      "\"闇\"・\"光\"",
+      "\"友\"・\"友\"（丸印は①）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 265,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "猿飛アスマを殺された奈良シカマル達第十班は、”暁”の飛段と角都を倒しに向かう。その際隊長として同行した人物は誰か？",
+    "answer": "はたけカカシ",
+    "choices": [
+      "夕日紅",
+      "うずまきナルト",
+      "はたけカカシ",
+      "綱手（丸印は③はたけカカシ）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 266,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "ペイン長門が木ノ葉隠れの里の死者たちを蘇らせるために使った術は何か？",
+    "answer": "外道・輪廻転生の術",
+    "choices": [
+      "外道・輪廻転生の術",
+      "穢土転生の術",
+      "神羅天征",
+      "黄泉帰りの術（丸印は①）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 267,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "三代目土影、オオノキが放つ、風・土・火の三つの性質をもつ血継淘汰の術は次の内どれか？",
+    "answer": "塵遁・原界剥離の術",
+    "choices": [
+      "磁遁・砂金大葬",
+      "塵遁・原界剥離の術",
+      "爆遁・地雷拳",
+      "溶遁・溶怪の術（丸印は②）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 268,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "サスケとの対決の最中、志村ダンゾウが口寄せしたのは何か？",
+    "answer": "象",
+    "choices": [
+      "大蛇",
+      "象",
+      "鷹",
+      "猥（丸印は②象）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 269,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "うちはマダラに狙われることになったナルトとキラービーが身を隠した場所はどこか？",
+    "answer": "大亀の背中",
+    "choices": [
+      "蛙の国",
+      "蛸の国",
+      "大亀の背中",
+      "巨像の背中（丸印は③大亀の背中）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 270,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "永遠の万華鏡写輪眼を得るための条件とは何か？",
+    "answer": "他者の写輪眼を移植すること",
+    "choices": [
+      "他者の写輪眼を移植すること",
+      "最も親しい友を殺すこと",
+      "月読と天照、両方の能力を開眼すること",
+      "両目を失明すること（丸印は①）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 271,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "九尾の力をコントロールするため、キラービーの協力により精神世界で九尾と戦うことになったナルトの前に現れたのは誰か？",
+    "answer": "うずまきクシナ",
+    "choices": [
+      "波風ミナト",
+      "うずまきクシナ",
+      "薬師カブト",
+      "大蛇丸（丸印は②）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 272,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "マイト・ガイに敗れ捕えられた干柿鬼鮫が、情報を読み取らせないために行ったこととは何か？",
+    "answer": "口寄せした鮫に自身を食わせた（丸印は④）",
+    "choices": [
+      "うちはマダラに逆口寄せさせ、その場から逃れた",
+      "情報を読み取ろうとした者に幻術をかけた",
+      "鮫肌に憑依し刀の一部となった",
+      "口寄せした鮫に自身を食わせた（丸印は④）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 273,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "幻と現実の狭間をコントロールできる己にかける究極幻術を何と言うか？",
+    "answer": "イザナギ",
+    "choices": [
+      "スサノオ",
+      "カグツチ",
+      "イザナギ",
+      "イザナミ（丸印は③イザナギ）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 274,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "ナルトの前に九尾の人柱力だった人物は誰か？",
+    "answer": "うずまきクシナ",
+    "choices": [
+      "波風ミナト",
+      "うずまきクシナ",
+      "長門",
+      "千手柱間（丸印は②）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 275,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内、第四次忍界大戦における部隊と部隊長の組み合わせで間違っているものはどれか？",
+    "answer": "戦闘近距離部隊・ダルイ",
+    "choices": [
+      "戦闘近距離部隊・ダルイ",
+      "戦闘近中距離部隊・はたけカカシ",
+      "戦闘特別部隊・ミフネ",
+      "戦闘遠距離部隊・我愛羅（丸印は①、間違っているものを選ぶ問題）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 276,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内、薬師カブトの穢土転生によって蘇っていない者は誰か？",
+    "answer": "自来也",
+    "choices": [
+      "デイダラ",
+      "自来也",
+      "うちはイタチ",
+      "猿飛アスマ（丸印は②自来也）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 277,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "二代目火影について、誤っているのはどれか？",
+    "answer": "初代火影である千手柱間は父親である（丸印は④、誤っているものを選ぶ問題）",
+    "choices": [
+      "穢土転生を考案した",
+      "水遁忍術を使うことができる",
+      "猿飛ヒルゼンと志村ダンゾウは直属の部下だった",
+      "初代火影である千手柱間は父親である（丸印は④、誤っているものを選ぶ問題）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 278,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "穢土転生によって蘇った桃地再不斬が、完全に意識を操られる直前にはたけカカシに言った台詞、「オレは・・もう・・・死んだ・・・。○○として、死んだんだ。」○○に入る言葉は何か？",
+    "answer": "人間",
+    "choices": [
+      "人間",
+      "忍",
+      "道具",
+      "鬼人（丸印は①人間）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 279,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "元霧の忍刀七人衆のメンバーではない者は次の内誰か？",
+    "answer": "鬼灯水月",
+    "choices": [
+      "林檎雨由利",
+      "鬼灯水月",
+      "桃地再不斬",
+      "栗霰串丸（丸印は②鬼灯水月）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 280,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "うずまきクシナは子供のころ、いじめっ子を返り討ちにしたことから、何と呼ばれていたか？",
+    "answer": "赤い血潮のハバネロ",
+    "choices": [
+      "赤い血潮のハバネロ",
+      "赤い業火のマグマ",
+      "赤いトサカの暴走鶏",
+      "トマトクラッシャー（丸印は①）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 281,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "修業場である島亀を離れ、キラービーとともに戦場へ急ぐナルトが遭遇した元”暁”メンバーはだれか？",
+    "answer": "デイダラ",
+    "choices": [
+      "長門",
+      "デイダラ",
+      "角都",
+      "サソリ（丸印は②デイダラ）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 282,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "対象者に幻術に掛けられたと気づかせることなく操ることができる最強幻術、「別天神」を使える眼を持つ者は次の内誰か？",
+    "answer": "うちはシスイ（丸印は④）",
+    "choices": [
+      "うずまきナルト",
+      "うちはマダラ",
+      "うちはサスケ",
+      "うちはシスイ（丸印は④）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 283,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "穢土転生されたうちはイタチはナルトに、どのような者が火影になると言ったか？",
+    "answer": "仲間を何よりも大切にする者",
+    "choices": [
+      "里を守りぬく力のある者",
+      "仲間を何よりも大切にする者",
+      "苦から認められた者",
+      "夢がある者（丸印は②）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 284,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "ナルトが繰り出す螺旋丸のバリエーションで誤っているものは次の内どれか？",
+    "answer": "閃光螺旋丸",
+    "choices": [
+      "螺旋乱丸",
+      "大玉螺旋丸",
+      "閃光螺旋丸",
+      "惑星螺旋丸（丸印は③、誤っているものを選ぶ問題）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 285,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "強靭な肉体を持つ三代目雷影が、胸についた傷を「生涯の恥」としていたのはなぜか？",
+    "answer": "自分の術が当ってついたものだから",
+    "choices": [
+      "自分の術が当ってついたものだから",
+      "身内からの攻撃によって受けた傷だから",
+      "逃げる時に負わされた傷だから",
+      "自分の身体は最強の盾であると自負していたから（丸印は①）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 286,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "我愛羅の父である四代目風影は、何を操ることができるか？",
+    "answer": "砂金",
+    "choices": [
+      "砂鉄",
+      "砂金",
+      "砂利",
+      "泥（丸印は②砂金）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 287,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "穢土転生された元人柱力たちについて誤っているのはどれか？",
+    "answer": "尾獣化することができる（丸印は④、誤っているものを選ぶ問題）",
+    "choices": [
+      "両目に輪廻眼を移植されている",
+      "外道の術をかけられていた",
+      "全員尾獣を抜かれたが、再び人柱力にされている",
+      "尾獣化することができる（丸印は④、誤っているものを選ぶ問題）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 288,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "四尾の名前は次の対どれか？",
+    "answer": "孫悟空",
+    "choices": [
+      "又旅",
+      "重明",
+      "孫悟空",
+      "守鶴（丸印は③孫悟空）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 289,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内、うずまき一族の血を引いてないのは誰か？",
+    "answer": "サソリ",
+    "choices": [
+      "サソリ",
+      "うずまきクシナ",
+      "香燐",
+      "長門（丸印は①サソリ）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 290,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "仙人の力を得るため、薬師カブトが修業した場所は？",
+    "answer": "隠地洞",
+    "choices": [
+      "妙木山",
+      "湿骨林",
+      "隠地洞",
+      "終末の谷。丸印は③（漢字が判読しづらく「隠地洞」は推定表記）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 291,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "幼い薬師カブトを拾った薬師ノノウは、孤児院でなんと呼ばれていたか？",
+    "answer": "マミー",
+    "choices": [
+      "シスター",
+      "マザー",
+      "マミー",
+      "ティーチャー（丸印は③マミー）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 292,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内、千手柱間の兄弟ではないのはどれか？",
+    "answer": "千手瓦間",
+    "choices": [
+      "千手仏間",
+      "千手扉間",
+      "千手瓦間",
+      "千手板間（丸印は③千手瓦間、誤っている＝兄弟でない者を選ぶ問題）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 293,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内、仙人モードを使えないは誰か？",
+    "answer": "薬師カブト（丸印は④）。原文ママ「使えないは誰か」",
+    "choices": [
+      "うずまきナルト",
+      "千手柱間",
+      "春野サクラ",
+      "薬師カブト（丸印は④）。原文ママ「使えないは誰か」"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 294,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "大蛇丸によって穢土転生された歴代火影たちは、忍連合の加勢に戦線にかけつけた。その際、千手柱間はうちはマダラに言った第一声は何か？",
+    "answer": "「お前は後！！！」",
+    "choices": [
+      "「待たせたなァ…」",
+      "「お前は後！！！」",
+      "「…いくぞマダラ！！」",
+      "「来てやったぞォ！マダラァァァー！！！」（丸印は②）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 295,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "千手柱間から里と忍の真実を聞き、木ノ葉隠れの里を守ることに決めたサスケ。第四次忍界大戦に駆けつけた際ナルト達に宣言したこととは何か？",
+    "answer": "自分がうちはマダラを倒すこと（丸印は④）",
+    "choices": [
+      "自分が火影になること",
+      "自分が六道仙人になること",
+      "自分が月の眼計画を完遂させること",
+      "自分がうちはマダラを倒すこと（丸印は④）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 296,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内、アカデミー時代にうちはオビトと同期ではない者は誰か？",
+    "answer": "志村ダンゾウ（丸印は④）",
+    "choices": [
+      "はたけカカシ",
+      "のはらリン",
+      "マイト・ガイ",
+      "志村ダンゾウ（丸印は④）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 297,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "六道仙人の本当の名前は何か？",
+    "answer": "大筒木ハゴロモ",
+    "choices": [
+      "大筒木カグヤ",
+      "大筒木ハゴロモ",
+      "大筒木ナヨタケ",
+      "大筒木ハムラ（丸印は②）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 298,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "十尾の最終形態とは何か？",
+    "answer": "神樹",
+    "choices": [
+      "外道魔像",
+      "月",
+      "神樹",
+      "宝樹（丸印は③神樹）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 299,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "六道仙人によるとナルトは誰の転生者か？",
+    "answer": "アシュラ",
+    "choices": [
+      "六道仙人",
+      "アシュラ",
+      "インドラ",
+      "十尾（丸印は②アシュラ）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 300,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "五影会談の際、サスケを始末するのを止めてもらうため、ナルトが雷影に対して行ったこととは何か？",
+    "answer": "地面に手をついて頭を下げた（丸印は④）",
+    "choices": [
+      "雷影の気のすむまで殴らせた",
+      "キラービーの捜索を手伝うことを約束した",
+      "”暁”の情報を教えた",
+      "地面に手をついて頭を下げた（丸印は④）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 301,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "八門遁甲の陣・死門を開いたマイト・ガイがうちはマダラに放った最後の技は何か？",
+    "answer": "夜ガイ",
+    "choices": [
+      "夜ガイ",
+      "昼虎",
+      "ダイナミック・エントリー",
+      "夕象（丸印は①夜ガイ）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 302,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内、師弟関係ではないのはどれか？",
+    "answer": "うちはマダラとうちはイタチ（丸印は④、師弟関係でないものを選ぶ問題）",
+    "choices": [
+      "自来也と長門",
+      "千手扉間と猿飛ヒルゼン",
+      "波風ミナトとはたけカカシ",
+      "うちはマダラとうちはイタチ（丸印は④、師弟関係でないものを選ぶ問題）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 303,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "大筒木カグヤの説明で誤っているのはどれか？",
+    "answer": "インドラの母である",
+    "choices": [
+      "神樹の実を口にしたことでチャクラを得た",
+      "インドラの母である",
+      "六道仙人は彼女の息子である",
+      "鬼の女神と呼ばれる（丸印は②、誤っているものを選ぶ問題）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 304,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内霧隠れの里の出身ではない者は誰か？",
+    "answer": "デイダラ",
+    "choices": [
+      "桃地再不斬",
+      "干柿鬼鮫",
+      "デイダラ",
+      "鬼灯水月（丸印は③デイダラ）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 305,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次のうちペイン六道に含まれないのはどれか？",
+    "answer": "天国道（丸印は④、含まれないものを選ぶ問題）",
+    "choices": [
+      "餓鬼道",
+      "人間道",
+      "地獄道",
+      "天国道（丸印は④、含まれないものを選ぶ問題）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 306,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "仙術チャクラを練るために必要なエネルギーとして誤っているのはどれか？",
+    "answer": "身体エネルギー（丸印は④、誤っているものを選ぶ問題）",
+    "choices": [
+      "自然エネルギー",
+      "生命エネルギー",
+      "精神エネルギー",
+      "身体エネルギー（丸印は④、誤っているものを選ぶ問題）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 307,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内、サスケが使う術ではないものはどれか？",
+    "answer": "イザナギ（丸印は④、使わない術を選ぶ問題）",
+    "choices": [
+      "麒麟",
+      "火遁・豪火球の術",
+      "須佐能乎",
+      "イザナギ（丸印は④、使わない術を選ぶ問題）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 308,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "視認した物体を空間ごと別空間に強制転移させることができる瞳術を何というか？",
+    "answer": "神威",
+    "choices": [
+      "神威",
+      "迦具土神",
+      "イザナミ",
+      "麒麟（丸印は①神威）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 309,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "デイダラが造りだす起爆粘土の弱点とは何か？",
+    "answer": "雷遁を受けると起爆しない",
+    "choices": [
+      "手のひらに乗るサイズしか造れない",
+      "雷遁を受けると起爆しない",
+      "火に燃えやすい",
+      "造りだす者の感情によって威力が変わる（丸印は②）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 310,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "角都が使う、体内から生じた黒い触手をチャクラで操り、遠隔攻撃を可能とする忍術は次の内どれか？",
+    "answer": "地怨虞",
+    "choices": [
+      "圧害",
+      "頭刻苦",
+      "地怨虞",
+      "土矛。丸印は③（表記は原文の漢字を判読して転記、一部当て字の可能性あり）"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 311,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "二尾の人柱力は次の内だれか?",
+    "answer": "二位ユキト",
+    "choices": [
+      "キラービー",
+      "二位ユキト",
+      "ウタカタ",
+      "分福"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 312,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "志村ダンゾウとサスケの戦いにて、人質に取られ、ダンゾウと共にサスケの千鳥によって貫かれたのは誰か?",
+    "answer": "香燐",
+    "choices": [
+      "春野サクラ",
+      "重吾",
+      "鬼灯水月",
+      "香燐"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 313,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "五影会談に五代目水影である照美メイの護衛として出席したのは誰か?",
+    "answer": "長十郎と青",
+    "choices": [
+      "フーとトルネ",
+      "ダルイとシー",
+      "長十郎と青",
+      "やぐらとリン"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 314,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "唯一里に残っている忍刀七人衆の長十郎が持つ大双剣の名前は何か?",
+    "answer": "ヒラメカレイ",
+    "choices": [
+      "サバカツオ",
+      "ヒラメカレイ",
+      "アジマグロ",
+      "エイヒレ"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 315,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "小南が使う、自身の身体を紙状に分解し、自在に移動・変形させることができる術を何と言うか?",
+    "answer": "ちり紙の舞",
+    "choices": [
+      "式紙の舞",
+      "紙吹雪の舞",
+      "ちり紙の舞",
+      "折紙の舞"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 316,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "サスケとの戦闘の際、志村ダンゾウの右腕にはいくつの写輪眼が移植されていたか?",
+    "answer": "10個",
+    "choices": [
+      "5個",
+      "10個",
+      "20個",
+      "100個"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 317,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "五影会談にて、「\"暁\"発生の地」と噂されていると言われたのはどこの里か?",
+    "answer": "霧隠れの里",
+    "choices": [
+      "岩隠れの里",
+      "木ノ葉隠れの里",
+      "霧隠れの里",
+      "鉄の国"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 318,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内、カンクロウの使う傀儡に含まれないのはどれか?",
+    "answer": "ヒルコ",
+    "choices": [
+      "烏",
+      "山椒魚",
+      "黒蟻",
+      "ヒルコ"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 319,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "我愛羅の母親は次の内誰か?",
+    "answer": "加瑠羅",
+    "choices": [
+      "夜叉丸",
+      "クシナ",
+      "加瑠羅",
+      "チヨ"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 320,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "うちは一族が代々使っており、小蜘\"蛇\"も立寄った武器屋を仕切っているのは誰か?",
+    "answer": "猫バア",
+    "choices": [
+      "猫バア",
+      "犬バア",
+      "鳥バア",
+      "チヨバア"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 321,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "サイが山中いのと初めて会ったとき、いのを何と呼んだか?",
+    "answer": "美人さん",
+    "choices": [
+      "ブス",
+      "フケガオ",
+      "かわいこちゃん",
+      "美人さん"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 322,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "雲隠れの里の忍で誤っているのは次の内誰か?",
+    "answer": "ツヨイ",
+    "choices": [
+      "オモイ",
+      "カルイ",
+      "マブイ",
+      "ツヨイ"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 323,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "マイト・ガイが自らに課した、八門遁甲の陣を開く時の条件とは何か?",
+    "answer": "自分の大切なものを死んでも守り抜く時",
+    "choices": [
+      "自分の忍道をつらぬき守り通す時",
+      "大切な人を複数名守る時",
+      "自分の大切なものを死んでも守り抜く時",
+      "仲間の夢を笑われた時"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 324,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "キラービーと四代目風影が鬼鮫に対して繰り出した、二人のタッグ技は次の内どれか?",
+    "answer": "絶牛雷黎熱刀",
+    "choices": [
+      "頭八刀",
+      "絶牛雷黎熱刀",
+      "雷我爆弾",
+      "アイアンクロー"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 325,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内、作中に登場していないイチャイチャシリーズはどれか?",
+    "answer": "イチャイチャエンドレス",
+    "choices": [
+      "イチャイチャエンドレス",
+      "イチャイチャパラダイス",
+      "イチャイチャタクティクス",
+      "イチャイチャバイオレンス"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 326,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "うちはマダラがかけた無限月読を解術する方法は何か?",
+    "answer": "ナルトとサスケが互いに子の印を結ぶ",
+    "choices": [
+      "インドラの転生者であるサスケが術者に幻術をかける",
+      "アシュラの転生者であるナルトが仙術チャクラを術者に流し込む",
+      "ナルトとサスケが手を合わせて地爆天星の術をかける",
+      "ナルトとサスケが互いに子の印を結ぶ"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 327,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "マイト・ガイがロック・リーに対して出した、「裏蓮華」を使用する際の条件とは何か?",
+    "answer": "自分の忍道をつらぬき守り通す時",
+    "choices": [
+      "大切な人を\"複数名\"守る時",
+      "仲間の夢を笑われた時",
+      "自分の忍道をつらぬき守り通す時",
+      "大切な人を守る時"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 328,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "ナルトはアカデミーの卒業試験を何度落ちているか?",
+    "answer": "3",
+    "choices": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 329,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "\"暁\"のメンバーはそれぞれ漢字一文字の書かれた指輪を身に付けている。うちはイタチの指輪の説明で正しいのはどれか?",
+    "answer": "「朱」と書かれた指輪を右手薬指に付けている",
+    "choices": [
+      "「朱」と書かれた指輪を右手薬指に付けている",
+      "「南」と書かれた指輪を左手薬指に付けている",
+      "「朱」と書かれた指輪を左手小指に付けている",
+      "「南」と書かれた指輪を右手小指に付けている"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 330,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "ナルトを連れ去りに来たイタチと鬼鮫を取り逃がした自来也に、マイト・ガイが間違えてはなった技は?",
+    "answer": "ダイナミック・エントリー",
+    "choices": [
+      "木ノ葉つむじ旋風",
+      "木ノ葉剛力旋風",
+      "ダイナミック・エントリー",
+      "木ノ葉烈風"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 331,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "ガイはリーに、自分の作った特別青春漢方丸を何個食べれば怪我が治ると言った?",
+    "answer": "100個",
+    "choices": [
+      "50個",
+      "100個",
+      "300個",
+      "1000個"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 332,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "うちはサスケが大蛇丸に与えられた呪印は何?",
+    "answer": "天",
+    "choices": [
+      "水",
+      "地",
+      "天",
+      "土"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 333,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "君麻呂が死に際にはなった最後の舞は?",
+    "answer": "早蕨の舞",
+    "choices": [
+      "椿の舞",
+      "早蕨の舞",
+      "柳の舞",
+      "てんてこ舞い"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 334,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "うちは一族秘密の集会場は南賀ノ神社本堂の何処にあるか",
+    "answer": "左奥から三枚目の畳の下",
+    "choices": [
+      "左奥から六つ目の箪笥の下",
+      "左奥から三枚目の畳の下",
+      "右奥から五つ目の箪笥の下",
+      "右奥から七枚目の畳の下"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 335,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選技試験で我愛羅たち砂隠れの里の忍が、第二試験突破までにかかった時間は?",
+    "answer": "97分",
+    "choices": [
+      "97分",
+      "102分",
+      "128分",
+      "151分"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 336,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "月光ハヤテの名前が刻まれた石碑で、月光ハヤテの上に刻まれている名前は?",
+    "answer": "カツオ・ブシ",
+    "choices": [
+      "桜花火",
+      "うちはオビト",
+      "カツオ・ブシ",
+      "梅星にぎり"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 337,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "木ノ葉隠れ里の門に書かれている平仮名の組み合わせで正しいのはどれか?",
+    "answer": "「あ」と「ん」",
+    "choices": [
+      "「あ」と「ん」",
+      "「あ」と「い」",
+      "「い」と「ろ」",
+      "「い」と「す」"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 338,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "音の四人衆の一人、次郎坊の術ではないのは次のうちどれか?",
+    "answer": "岩宿崩し",
+    "choices": [
+      "土陸団子",
+      "土牢堂無",
+      "土陸返し",
+      "岩宿崩し"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 339,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "うちはシスイの死体が発見された川はどれか?",
+    "answer": "南賀ノ川",
+    "choices": [
+      "南賀ノ川",
+      "北賀ノ川",
+      "東賀ノ川",
+      "西賀ノ川"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 340,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "ナルトとサスケを追うためにカカシが口寄せした忍犬は何匹か?",
+    "answer": "7",
+    "choices": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 341,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "鬼童丸との戦いで深手を負ったネジが手当てを受けていたのはどこか?",
+    "answer": "集中治療室5",
+    "choices": [
+      "集中治療室5",
+      "集中治療室6",
+      "集中治療室7",
+      "集中治療室8"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 342,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "大塚キバの母、犬塚ツメの相棒の忍犬の名前は?",
+    "answer": "黒丸",
+    "choices": [
+      "青丸",
+      "赤丸",
+      "白丸",
+      "黒丸"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 343,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験本選対ネジ戦でナルトは何回影分身の術を使ったか?",
+    "answer": "3",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 344,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "大蛇丸が猿飛ヒルゼンとの戦いで使ったのは何の剣の一振りか?",
+    "answer": "三日月の剣",
+    "choices": [
+      "鬼丸の剣",
+      "草薙の剣",
+      "三日月の剣",
+      "天叢雲の剣"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 345,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "呪印レベルを2に引き上げるため、サスケを仮死状態にする音の四人衆。左近が行った「封黒法印」は、どの指で札を書いた?",
+    "answer": "左手・人差し指",
+    "choices": [
+      "右手・親指",
+      "左手・人差し指",
+      "右手・人差し指",
+      "左手・親指"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 346,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "木ノ葉崩し後、逃げる大蛇丸を追おうとした暗部たちを足止めしたのは誰の術?",
+    "answer": "薬師カブト",
+    "choices": [
+      "薬師カブト",
+      "多由也",
+      "鬼童丸",
+      "次郎坊"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 347,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "ナルトをさらいに来たイタチと鬼鮫に対して、自来也が使った術は何か?",
+    "answer": "忍法・蝦蟇口縛り",
+    "choices": [
+      "螺旋丸",
+      "忍法口寄せ・屋台崩しの術",
+      "土遁・黄泉沼",
+      "忍法・蝦蟇口縛り"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 348,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "「毒霧」を使うのは次のうち誰か?",
+    "answer": "シズネ",
+    "choices": [
+      "大蛇丸",
+      "シズネ",
+      "薬師カブト",
+      "カンクロウ"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 349,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "綱手と大蛇丸が再会した場所で、大蛇丸に崩されてしまった城の名前は?",
+    "answer": "短冊城",
+    "choices": [
+      "笹塚城",
+      "かぐや城",
+      "短冊城",
+      "七夕城"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 350,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験予選の第五回戦の勝者は誰か?",
+    "answer": "テマリ",
+    "choices": [
+      "テマリ",
+      "ナルト",
+      "シカマル",
+      "カンクロウ"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 351,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "ナルトたちが我愛羅と戦闘中のサスケを助けに入った時、我愛羅の身体はどこまで砂の守鶴に変化していたか?",
+    "answer": "顔半分と右腕と尻尾",
+    "choices": [
+      "顔半分と右腕と左腕",
+      "顔半分と左腕と尻尾",
+      "顔半分と右脚と左脚",
+      "顔半分と右腕と尻尾"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 352,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験本選のくじ引きで1の数字を引いたのは誰か？",
+    "answer": "うずまきナルト",
+    "choices": [
+      "カンクロウ",
+      "奈良シカマル",
+      "日向ネジ",
+      "うずまきナルト"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 353,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "波の国の橋職人・タズナの娘は、次のうち誰か？",
+    "answer": "ナミ",
+    "choices": [
+      "ツナデ",
+      "ナミ",
+      "タキ",
+      "ウミ"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 354,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "はたけカカシが、口寄せの術で口寄せする、忍犬たちの背中に描かれているマークは次のうちどれか？",
+    "answer": "人のへのもへじ",
+    "choices": [
+      "犬の足跡",
+      "案山子",
+      "人のへのもへじ",
+      "木ノ葉"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 355,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "サバイバル演習にて本を読みながらナルトの相手をするカカシ。その時に読んでいた本のタイトルは？",
+    "answer": "イチャイチャパラダイス 中巻",
+    "choices": [
+      "イチャイチャパラダイス 中巻",
+      "イチャイチャタクティクス 下巻",
+      "イチャイチャパラダイス 上巻",
+      "イチャイチャパラダイス 下巻"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 356,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "サバイバル演習でカカシが教える忍戦術の心得で、正しい組み合わせは次のうちどれか？",
+    "answer": "1.体術 2.幻術 3.忍術",
+    "choices": [
+      "1.忍術 2.体術 3.幻術",
+      "1.体術 2.幻術 3.忍術",
+      "1.忍術 2.体術 3.瞳術",
+      "1.瞳術 2.体術 3.幻術"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 357,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "カカシとの戦いで絶体絶命だった再不斬を仮死状態にした武器は何か？",
+    "answer": "千本",
+    "choices": [
+      "十本",
+      "百本",
+      "千本",
+      "万本"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 358,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "イナリの血の繋がっていない父、カイザの口癖はなにか？",
+    "answer": "マジ",
+    "choices": [
+      "超",
+      "マジ",
+      "コレ",
+      "モロ"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 359,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "ナルトが初めてカンクロウにあった時、カンクロウのことを何と呼んだ？",
+    "answer": "デブ",
+    "choices": [
+      "ぼっちゃり",
+      "デブ",
+      "変顔",
+      "お面"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 360,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "ナルトたちの代の中忍選抜試験が開始された日付は？",
+    "answer": "7月1日",
+    "choices": [
+      "4月1日",
+      "5月1日",
+      "6月1日",
+      "7月1日"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 361,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "サクラが初対面のリーからの告白を断った時の言葉は？",
+    "answer": "あんた濃ゆい…",
+    "choices": [
+      "あんた濃ゆい…",
+      "あんたダサい…",
+      "あんた熱い…",
+      "あんたまつ毛長い…"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 362,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "次のうち中忍選抜試験に新人の下忍として参加していないのは誰か？",
+    "answer": "ロック・リー",
+    "choices": [
+      "うちはサスケ",
+      "奈良シカマル",
+      "犬塚キバ",
+      "ロック・リー"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 363,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第一試験の合格者は何名？",
+    "answer": "45人",
+    "choices": [
+      "12人",
+      "21人",
+      "45人",
+      "78人"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 364,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "海運会社の大富豪、ガトーの専属ボディーガードの侍の名前は？",
+    "answer": "ゾウリとワラジ",
+    "choices": [
+      "サイフとコゼニ",
+      "ゾウリとワラジ",
+      "ブーツとサンダル",
+      "セッタとゲタ"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 365,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "次の内うちはサスケが使わない術はどれか？",
+    "answer": "火遁・蝦蟇油炎弾",
+    "choices": [
+      "火遁・豪火球の術",
+      "火遁・鳳仙火の術",
+      "火遁・蝦蟇油炎弾",
+      "火遁・龍火の術"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 366,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第二試験にて、ナルトたちが持っていた巻物は何の書か？",
+    "answer": "末の書",
+    "choices": [
+      "風の書",
+      "雷の書",
+      "末の書",
+      "地の書"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 367,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "入院していたリーとガイが中忍選抜試験、第三試験本選会場に着いたのはいつか？",
+    "answer": "サスケVS我愛羅戦の前",
+    "choices": [
+      "シカマルVSテマリ戦の前",
+      "シノVSカンクロウ戦の前",
+      "ナルトVSネジ戦の前",
+      "サスケVS我愛羅戦の前"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 368,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "シカマルは、笛の音色で怪物を操る多由也の命令パターンをどのように読み取ったか？",
+    "answer": "指の動きを記憶した",
+    "choices": [
+      "曲調を聞き分けた",
+      "指の動きを記憶した",
+      "表情の変化を観察した",
+      "動作の癖を見抜いた"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 369,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "第七班の最初の任務、サバイバル演習はカカシ曰く脱落率何%以上か？",
+    "answer": "66%",
+    "choices": [
+      "45%",
+      "53%",
+      "56%",
+      "66%"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 370,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第一試験の筆記試験は各受験者持ち点は何点か？",
+    "answer": "7",
+    "choices": [
+      "5",
+      "7",
+      "10",
+      "15"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 371,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験予選でキバと戦ったナルトに薬を渡したのは誰か？",
+    "answer": "ヒナタ",
+    "choices": [
+      "サクラ",
+      "ヒナタ",
+      "カカシ",
+      "いの"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 372,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "自来也が登場シーンで乗っていたカエルの首飾りに書かれている漢字は？",
+    "answer": "忠",
+    "choices": [
+      "破",
+      "信",
+      "火",
+      "忠"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 373,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選抜試験・第三試験で砂隠れの忍が負けた試合は？",
+    "answer": "すべて勝った",
+    "choices": [
+      "ミスミvsカンクロウ",
+      "テンテンvsテマリ",
+      "我愛羅vsリー",
+      "すべて勝った"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 374,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選抜試験・第三試験の予選と本戦どちらも対戦相手が女だったのは誰か？",
+    "answer": "シカマル",
+    "choices": [
+      "サクラ",
+      "ネジ",
+      "シカマル",
+      "シノ"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 375,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "ナルトが初めてカカシに会った時に仕掛けたトラップは？",
+    "answer": "ドアの隙間に黒板消し",
+    "choices": [
+      "教室の床に落とし穴",
+      "廊下にバナナ",
+      "天井裏にタライ",
+      "ドアの隙間に黒板消し"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 376,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "山中いのの実家の商売は？",
+    "answer": "花屋",
+    "choices": [
+      "病院",
+      "花屋",
+      "ケーキ屋",
+      "八百屋"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 377,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "ナルトたちの代まで、カカシが担当した下忍でサバイバル演習に合格したのは何人？",
+    "answer": "0",
+    "choices": [
+      "0",
+      "1",
+      "5",
+      "10"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 378,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "ナルトの封印が最初に解けかけたのは、誰が目の前で倒された時？",
+    "answer": "イルカ",
+    "choices": [
+      "イルカ",
+      "サスケ",
+      "サクラ",
+      "カカシ"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 379,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選抜試験・第二試験本戦でテマリの影を捕まえたシカマルが言った台詞は？",
+    "answer": "王手だ",
+    "choices": [
+      "王手だ",
+      "もうめんどくせぇ",
+      "終わりだ",
+      "参った"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 380,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第二試験で砂隠れの三人が戦いを仕掛けたのはどこの忍か？",
+    "answer": "雨隠れの忍",
+    "choices": [
+      "音隠れの忍",
+      "雨隠れの忍",
+      "木ノ葉隠れの忍",
+      "霧隠れの忍"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 381,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "うちはシスイの遺書とされた文章の最後、「これ以上○○に背くことは出来ない」。○○に入る言葉は？",
+    "answer": "道",
+    "choices": [
+      "道",
+      "暁",
+      "運命",
+      "一族"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 382,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "鬼童丸が日向ネジとの戦いで口寄せしたのは何か？",
+    "answer": "ヤモリ",
+    "choices": [
+      "ヒル",
+      "ヤモリ",
+      "ナメクジ",
+      "コウモリ"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 383,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "木ノ葉崩しの際、ナルトたちとサスケを追っていたシカマルが自ら囮となって足止めしようとした忍は何人？",
+    "answer": "8人",
+    "choices": [
+      "7人",
+      "8人",
+      "9人",
+      "10人"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 384,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "次の内血継限界を持たない者は誰か？",
+    "answer": "奈良シカマル",
+    "choices": [
+      "君麻呂",
+      "日向ヒナタ",
+      "白",
+      "奈良シカマル"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 385,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "我愛羅の母親は夜叉丸の何にあたる人物か？",
+    "answer": "姉",
+    "choices": [
+      "姉",
+      "妹",
+      "母親",
+      "従妹"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 386,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第二試験で音の三人組に襲われたサクラを、一番最初に助けに来たのは誰か？",
+    "answer": "ロック・リー",
+    "choices": [
+      "うずまきナルト",
+      "ロック・リー",
+      "山中いの",
+      "日向ネジ"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 387,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "ロック・リーが「蓮華」を体得した時、ガイはこの技をどのような条件の時に使っていいと言ったか？",
+    "answer": "大切な人を”複数名”守る時",
+    "choices": [
+      "大切な人を守る時",
+      "自分の忍道をつらぬき守り通す時",
+      "大切な人を”複数名”守る時",
+      "熱血落ちこぼれくんと言われた時"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 388,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "中忍選抜試験、第二試験にて、天と地、両方の巻物に書かれていた漢字一文字は何か？",
+    "answer": "人",
+    "choices": [
+      "耐",
+      "忍",
+      "人",
+      "皆"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 389,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "ナルト行きつけのラーメン屋さんの名前は何というか？",
+    "answer": "一楽",
+    "choices": [
+      "一蘭",
+      "一楽",
+      "一味",
+      "一喜"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 390,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "日向ヒナタの5つ違いの妹の名前は何か？",
+    "answer": "日向ハナビ",
+    "choices": [
+      "日向マヒル",
+      "日向ハナビ",
+      "日向ヒカゲ",
+      "日向カスミ"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 391,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "中忍選抜試験、第三試験本選でのナルトの対戦相手は誰か？",
+    "answer": "日向ネジ",
+    "choices": [
+      "油女シノ",
+      "奈良シカマル",
+      "我愛羅",
+      "日向ネジ"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 392,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "「三日月の舞」を使うのは次のうち誰か？",
+    "answer": "月光ハヤテ",
+    "choices": [
+      "うちはイタチ",
+      "森乃イビキ",
+      "月光ハヤテ",
+      "不知火ゲンマ"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 393,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "日向ネジが得意とする、柔拳法として正しいものはどれか？",
+    "answer": "八卦六十四掌",
+    "choices": [
+      "八卦六十四掌",
+      "四卦三十二掌",
+      "ネジ拳",
+      "十六卦百二十八掌"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 394,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "八門遁甲の第一の門は次のうちどれか？",
+    "answer": "開門",
+    "choices": [
+      "開門",
+      "死門",
+      "生門",
+      "朱雀門"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 395,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "守鶴の本来の力を発揮するために自らを眠りに入らせる術の名前は何か？",
+    "answer": "狸寝入りの術",
+    "choices": [
+      "狐寝入りの術",
+      "二度寝の術",
+      "お休みの術",
+      "狸寝入りの術"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 396,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "桃地再不斬は、自分は何と呼ばれていると言っていたか？",
+    "answer": "霧隠れの鬼人",
+    "choices": [
+      "霧隠れの鬼人",
+      "血霧の鬼人",
+      "オニの再不斬",
+      "キリの再不斬"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 397,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "自来也の額当てに書かれている漢字は何か？",
+    "answer": "油",
+    "choices": [
+      "蛙",
+      "火",
+      "油",
+      "仙"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 398,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "綱手の祖父にあたる人物は誰か？",
+    "answer": "初代火影",
+    "choices": [
+      "初代火影",
+      "二代目火影",
+      "三代目火影",
+      "チヨバア"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 399,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "秋道チョウジに対して禁句（タブー）は次のうちどれか？",
+    "answer": "デブ",
+    "choices": [
+      "ぽっちゃり系",
+      "おにぎり",
+      "デブ",
+      "ドスコイ"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 400,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "中忍選抜試験、第一試験にて、ナルトの右隣に座っていたのは誰か？",
+    "answer": "日向ヒナタ",
+    "choices": [
+      "日向ヒナタ",
+      "山中いの",
+      "春野サクラ",
+      "テンテン"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 401,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "桃地再不斬をかばう為、白が受けた術はどれか？",
+    "answer": "畜切",
+    "choices": [
+      "雷神",
+      "畜切",
+      "雷鳴",
+      "雷鳥"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 402,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "サバイバル演習ではたけカカシから最初に鈴を奪い取ったのは誰か？",
+    "answer": "誰も取れなかった",
+    "choices": [
+      "ナルト",
+      "サスケ",
+      "サクラ",
+      "誰も取れなかった"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 403,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "桃地再不斬が命を落とす時の最期の言葉は何か？",
+    "answer": "「…できるなら…お前と…同じ所に…行きてェなぁ…オレも…」",
+    "choices": [
+      "「…もう…さよならだよ…白…」",
+      "「…できるなら…お前と…同じ所に…行きてェなぁ…オレも…」",
+      "「…霧隠れの鬼人も死んで地獄なら…本物の鬼になれるぜ…」",
+      "「…今まで…ありがとう…悪かったなぁ…」"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 404,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "守鶴化した我愛羅をナルトはどうやって止めたか？",
+    "answer": "顎突き",
+    "choices": [
+      "張り手",
+      "膝蹴り",
+      "右フック",
+      "顎突き"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 405,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "干柿鬼鮫の愛刀はどれか？",
+    "answer": "鮫肌",
+    "choices": [
+      "首切り包丁",
+      "鯨切",
+      "鮫切",
+      "鮫肌"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 406,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "次の内大蛇丸の呪印を持っていないのは誰か？",
+    "answer": "薬師カブト",
+    "choices": [
+      "薬師カブト",
+      "みたらしアンコ",
+      "うちはサスケ",
+      "君麻呂"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 407,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "サバイバル演習でカカシが用意した鈴は何個か？",
+    "answer": "2個",
+    "choices": [
+      "0個",
+      "1個",
+      "2個",
+      "3個"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 408,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "木ノ葉丸の家庭教師の名前はどれか？",
+    "answer": "アサヒ",
+    "choices": [
+      "再不斬",
+      "カカシ",
+      "アサヒ",
+      "エビス"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 409,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "はたけカカシが最初の任務でサバイバル演習を課したのはなぜか？",
+    "answer": "チームワークをテストするため",
+    "choices": [
+      "チームワークをテストするため",
+      "応用力をテストするため",
+      "忍術をテストするため",
+      "体力をテストするため"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 410,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "はたけカカシはナルト・サスケ・サクラを、なぜ下忍試験に合格させたか？",
+    "answer": "弁当を互いに分け合おうとしたから",
+    "choices": [
+      "鈴を二つともカカシから奪ったから",
+      "弁当を全員たべなかったから",
+      "弁当を互いに分け合おうとしたから",
+      "全員が木登りの合格ラインまで到達したから"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 411,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "サスケと白の戦いで白が使った術は何か？",
+    "answer": "魔鏡氷晶",
+    "choices": [
+      "魔鏡氷晶",
+      "雷切",
+      "水遁・大瀑布の術",
+      "口寄せの術"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 412,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "白のように、特別な能力を持つ血族のことを何というか？",
+    "answer": "血継限界"
+  },
+  {
+    "id": 413,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "桃地再不斬との戦闘中にカカシが口寄せした動物は何か？",
+    "answer": "犬"
+  },
+  {
+    "id": 414,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "はたけカカシが桃地再不斬を横たわる白の隣に移動させたとき、何が起こったか？",
+    "answer": "雪が降った"
+  },
+  {
+    "id": 415,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第一試験の試験官は誰か？",
+    "answer": "森乃イビキ"
+  },
+  {
+    "id": 416,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第二試験にて、音隠れの忍に髪を掴まれた際、サクラは何を使って髪を切り落としたか？",
+    "answer": "クナイ"
+  },
+  {
+    "id": 417,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "みたらしアンコはかつて大蛇丸の何だったか？",
+    "answer": "部下"
+  },
+  {
+    "id": 418,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第二試験にて、巻物の中を覗こうとしたナルトとサクラを止めたのは誰か？",
+    "answer": "薬師カブト"
+  },
+  {
+    "id": 419,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "犬塚キバの相棒である忍犬の名前は何か？",
+    "answer": "赤丸"
+  },
+  {
+    "id": 420,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験予選を辞退したのは誰か？",
+    "answer": "薬師カブト"
+  },
+  {
+    "id": 421,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験予選にて、サクラVS山中いのの試合の結果はどうなったか？",
+    "answer": "ダブルノックダウンで二人とも予選敗退"
+  },
+  {
+    "id": 422,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験予選にて、日向ネジが試合前に日向ヒナタに忠告したことは何か？",
+    "answer": "忍に向いていないので棄権すること"
+  },
+  {
+    "id": 423,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "我愛羅が砂を入れて背負っているものは何か？",
+    "answer": "ひょうたん"
+  },
+  {
+    "id": 424,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "マイト・ガイはロック・リーのことを何の天才と言ったか？",
+    "answer": "努力"
+  },
+  {
+    "id": 425,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験のトーナメントは何で決められたか？",
+    "answer": "くじ引き"
+  },
+  {
+    "id": 426,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "綱手は何代目の火影か？",
+    "answer": "五代目"
+  },
+  {
+    "id": 427,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "里を抜けるサスケとナルトが戦った場所はどこか？",
+    "answer": "終わりの谷"
+  },
+  {
+    "id": 428,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験予選にてナルトが犬塚キバに対して放った「うずまきナルト連弾」は、「獅子連弾」という技を基にしているが、この技を使うのは次の内誰か？",
+    "answer": "うちはサスケ"
+  },
+  {
+    "id": 429,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "日向一族の分家は「籠の中の鳥」を意味する呪印を身体に刻まれる。日向ネジの呪印はどこに刻まれているか？",
+    "answer": "額"
+  },
+  {
+    "id": 430,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "身体の一部、あるいは全身を一時的に肥大化させる秋道一族に伝わる秘伝の忍術は何か？",
+    "answer": "倍化の術"
+  },
+  {
+    "id": 431,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "我愛羅が使う術で、「砂縛柩」で捕獲した敵を砂の圧力で押し潰す術を何というか？",
+    "answer": "砂瀑送葬"
+  },
+  {
+    "id": 432,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験予選にて、山中いのと戦う前にサクラがしたこととは何か？",
+    "answer": "結んでいた髪をほどいた"
+  },
+  {
+    "id": 433,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験予選にてナルトが犬塚キバに対して優勢となった瞬間の出来事とは何か？",
+    "answer": "キバの顔の前でオナラをした"
+  },
+  {
+    "id": 434,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "三代目火影の孫の名前は何か？",
+    "answer": "木ノ葉丸"
+  },
+  {
+    "id": 435,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルトが初めて自来也と会ったとき、自来也は何をしていたか？",
+    "answer": "風呂を覗いていた"
+  },
+  {
+    "id": 436,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験本戦で我愛羅に傷を負わせたサスケの術は何か？",
+    "answer": "裏蓮華"
+  },
+  {
+    "id": 437,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、第三試験予選後に入院中のロック・リーを襲った我愛羅を止めたのは誰か？",
+    "answer": "うずまきナルトと奈良シカマル"
+  },
+  {
+    "id": 438,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "守鶴に取り憑かれた者に表れる症状とは何か？",
+    "answer": "不眠症"
+  },
+  {
+    "id": 439,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "中忍選抜試験、予選を勝ち抜き本戦に進んだ女の忍は次の内誰か？",
+    "answer": "テマリ"
+  },
+  {
+    "id": 440,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルトが初めて口寄せしたものは何か？",
+    "answer": "おたまじゃくし"
+  },
+  {
+    "id": 441,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "マイト・ガイとロック・リーが着ている戦闘服は何色か？",
+    "answer": "緑"
+  },
+  {
+    "id": 442,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルトが螺旋丸を初めて実戦で使った相手は誰か？",
+    "answer": "薬師カブト"
+  },
+  {
+    "id": 443,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サスケを追って音の四人衆と戦った木ノ葉隠れの忍の内、唯一軽傷だった者は誰か？",
+    "answer": "奈良シカマル"
+  },
+  {
+    "id": 444,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "綱手探しの道中、ナルトを狙って襲ったうちはイタチがサスケに対して言った台詞「お前は弱い。なぜ弱いか。足りないからだ○○が」○○に入る言葉は何か？",
+    "answer": "憎しみ"
+  },
+  {
+    "id": 445,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "音の四人衆の一人である左近を倒したのは誰か？",
+    "answer": "テマリ"
+  },
+  {
+    "id": 446,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "君麻呂はどこの一族の末裔か？",
+    "answer": "猿飛一族"
+  },
+  {
+    "id": 447,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "三代目火影は師である二代目火影になんと呼ばれていたか？",
+    "answer": "サル"
+  },
+  {
+    "id": 448,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "三代目火影に封印された両腕を治療するため、綱手と接触した大蛇丸は、治してもらう代わりに何をすると言ったか？",
+    "answer": "愚人と弟を生き返らせる"
+  },
+  {
+    "id": 449,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "\"暁\"のメンバーが着ている衣装の柄はどのようなものか？",
+    "answer": "黒地に赤い雲の模様"
+  },
+  {
+    "id": 450,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "うちはイタチと干柿鬼鮫に苦戦していたはたけカカシ達を助けに入ったマイト・ガイは、自分を何と名乗ったか？",
+    "answer": "木ノ葉の気高き碧い猛獣"
+  },
+  {
+    "id": 451,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルトはマイト・ガイのことを何と呼ぶか？",
+    "answer": "ゲジ眉先生"
+  },
+  {
+    "id": 452,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "自来也がナルトに教えた、忍が抱く『三禁』とは何か？",
+    "answer": "酒・女・金（かね）"
+  },
+  {
+    "id": 453,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルト達第七班の初めてのCランク任務とはどのようなものか？",
+    "answer": "護衛任務"
+  },
+  {
+    "id": 454,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "身体に融合した右近に対抗するため、犬塚キバが取った行動とは何か？",
+    "answer": "自分の腹を刺した"
+  },
+  {
+    "id": 455,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "テマリが使う武器は何か？",
+    "answer": "扇子"
+  },
+  {
+    "id": 456,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "日向ネジの父親、日向ヒザシの最後はどのようなものか？",
+    "answer": "日向ヒアシの影武者として殺された"
+  },
+  {
+    "id": 457,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "タズナの孫、イナリの血の繋がらない父親は誰か？",
+    "answer": "カイザ"
+  },
+  {
+    "id": 458,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "波の国で、はたけカカシが第七班に課した修業は何か？",
+    "answer": "木登り"
+  },
+  {
+    "id": 459,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "我愛羅の父親は次の内誰か？",
+    "answer": "四代目風影"
+  },
+  {
+    "id": 460,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "森野イビキのように一芸に秀でた能力があり、主に専門的な任務に就く忍を何と言うか？",
+    "answer": "特別上忍"
+  },
+  {
+    "id": 461,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "力を得るべくサスケが音の四人衆と共に木ノ葉隠れの里を去ろうとする際、サクラに言った最後の言葉は何か？",
+    "answer": "「ありがとう・・・」"
+  },
+  {
+    "id": 462,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "大蛇丸が口寄せする蛇の名前は何か？",
+    "answer": "アンダ"
+  },
+  {
+    "id": 463,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "ナルトは師である自来也のことを何と呼ぶか？",
+    "answer": "エロ仙人"
+  },
+  {
+    "id": 464,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ナルトの行きつけのラーメン店の名前は？",
+    "answer": "一楽（いちらく）"
+  },
+  {
+    "id": 465,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ナルトの中に封印されている尾獣は何尾か？",
+    "answer": "九尾（九喇嘛／クラマ）"
+  },
+  {
+    "id": 466,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "第七班の担当上忍は誰か？",
+    "answer": "はたけカカシ"
+  },
+  {
+    "id": 467,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "サスケの兄の名前は？",
+    "answer": "うちはイタチ"
+  },
+  {
+    "id": 468,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ナルトの父である四代目火影の名前は？",
+    "answer": "波風ミナト"
+  },
+  {
+    "id": 469,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ナルトの母の名前は？",
+    "answer": "うずまきクシナ"
+  },
+  {
+    "id": 470,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "カカシが左目に宿していた瞳術は？",
+    "answer": "写輪眼"
+  },
+  {
+    "id": 471,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "五代目火影に就任した伝説の三忍の一人は？",
+    "answer": "綱手"
+  },
+  {
+    "id": 472,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ナルトの代名詞ともいえる分身系の術は？",
+    "answer": "多重影分身の術"
+  },
+  {
+    "id": 473,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "我愛羅が里長（風影）を務める里は？",
+    "answer": "砂隠れの里"
+  },
+  {
+    "id": 474,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "木ノ葉隠れの里がある国の名前は？",
+    "answer": "火の国"
+  },
+  {
+    "id": 475,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ロック・リーの師匠は誰か？",
+    "answer": "マイト・ガイ"
+  },
+  {
+    "id": 476,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "日向一族に伝わる瞳術は？",
+    "answer": "白眼"
+  },
+  {
+    "id": 477,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "犬塚キバの相棒の忍犬の名前は？",
+    "answer": "赤丸"
+  },
+  {
+    "id": 478,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "奈良シカマルの得意な術は？",
+    "answer": "影真似の術"
+  },
+  {
+    "id": 479,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "アカデミー時代、ナルトによくラーメンを奢ってくれた先生は？",
+    "answer": "うみのイルカ"
+  },
+  {
+    "id": 480,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "カカシの愛読書であるシリーズの名前は？",
+    "answer": "イチャイチャシリーズ（イチャイチャパラダイス）"
+  },
+  {
+    "id": 481,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "イチャイチャシリーズの作者は誰か？",
+    "answer": "自来也"
+  },
+  {
+    "id": 482,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "大蛇丸がサスケの首筋に刻んだものは？",
+    "answer": "呪印（天の呪印）"
+  },
+  {
+    "id": 483,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "秋道チョウジに言ってはいけない禁句は？",
+    "answer": "デブ"
+  },
+  {
+    "id": 484,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "伝説の三忍とは、綱手・大蛇丸とあと一人は誰か？",
+    "answer": "自来也"
+  },
+  {
+    "id": 485,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "暁のリーダーとしてペインを名乗った男の本名は？",
+    "answer": "長門（ながと）"
+  },
+  {
+    "id": 486,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "ペイン天道の体となっていた、自来也のかつての弟子は？",
+    "answer": "弥彦（やひこ）"
+  },
+  {
+    "id": 487,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "デイダラの口癖「芸術は◯◯だ」。◯◯に入る言葉は？",
+    "answer": "爆発"
+  },
+  {
+    "id": 488,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "暁のメンバーでジャシン教を信仰する不死身の男は？",
+    "answer": "飛段"
+  },
+  {
+    "id": 489,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "飛段とコンビを組む、複数の心臓を持つ暁のメンバーは？",
+    "answer": "角都"
+  },
+  {
+    "id": 490,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "干柿鬼鮫が持つ、チャクラを喰らう大刀の名前は？",
+    "answer": "鮫肌"
+  },
+  {
+    "id": 491,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "桃地再不斬の得物である断刀の通称は？",
+    "answer": "首斬り包丁"
+  },
+  {
+    "id": 492,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "白（ハク）が血継限界で操る性質変化は？",
+    "answer": "氷遁"
+  },
+  {
+    "id": 493,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "中忍試験第一試験（筆記）の試験官は誰か？",
+    "answer": "森乃イビキ"
+  },
+  {
+    "id": 494,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "中忍試験第二試験「死の森」の試験官は誰か？",
+    "answer": "みたらしアンコ"
+  },
+  {
+    "id": 495,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "三代目火影の名前は？",
+    "answer": "猿飛ヒルゼン"
+  },
+  {
+    "id": 496,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "二代目火影の名前は？",
+    "answer": "千手扉間"
+  },
+  {
+    "id": 497,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "初代火影の名前は？",
+    "answer": "千手柱間"
+  },
+  {
+    "id": 498,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "初代火影・柱間の代名詞である性質変化は？",
+    "answer": "木遁"
+  },
+  {
+    "id": 499,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "我愛羅に封印されていた一尾の名前は？",
+    "answer": "守鶴"
+  },
+  {
+    "id": 500,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "キラービーに封印されている八尾の名前は？",
+    "answer": "牛鬼（ギュウキ）"
+  },
+  {
+    "id": 501,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "尾獣たちの父にあたる六道仙人の名前は？",
+    "answer": "大筒木ハゴロモ"
+  },
+  {
+    "id": 502,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "仮面の男「トビ」の正体は誰だったか？",
+    "answer": "うちはオビト"
+  },
+  {
+    "id": 503,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "カカシの父・はたけサクモの通り名は？",
+    "answer": "木ノ葉の白い牙"
+  },
+  {
+    "id": 504,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "四代目火影ミナトの通り名は？",
+    "answer": "木ノ葉の黄色い閃光"
+  },
+  {
+    "id": 505,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "サイがかつて所属していた、ダンゾウ直属の組織は？",
+    "answer": "根"
+  },
+  {
+    "id": 506,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "ヤマトが木遁を使えるのは誰の細胞を移植されたからか？",
+    "answer": "初代火影・千手柱間"
+  },
+  {
+    "id": 507,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "波の国編で再不斬たちを雇った悪徳実業家は？",
+    "answer": "ガトー"
+  },
+  {
+    "id": 508,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "橋建設の職人タズナの孫の名前は？",
+    "answer": "イナリ"
+  },
+  {
+    "id": 509,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "中忍試験本選でナルトと戦った日向一族の天才は？",
+    "answer": "日向ネジ"
+  },
+  {
+    "id": 510,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "中忍試験本選でシカマルと戦った砂隠れのくノ一は？",
+    "answer": "テマリ"
+  },
+  {
+    "id": 511,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "綱手が連れている豚の名前は？",
+    "answer": "トントン"
+  },
+  {
+    "id": 512,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "綱手の付き人を務めるくノ一は？",
+    "answer": "シズネ"
+  },
+  {
+    "id": 513,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "大蛇丸の側近を務めた眼鏡の忍は？",
+    "answer": "薬師カブト"
+  },
+  {
+    "id": 514,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "音の五人衆で自らの骨を武器にする血継限界「屍骨脈」の使い手は？",
+    "answer": "君麻呂"
+  },
+  {
+    "id": 515,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "猿飛アスマが使う近接武器は？",
+    "answer": "チャクラ刀"
+  },
+  {
+    "id": 516,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "アスマの恋人だった幻術上手のくノ一は？",
+    "answer": "夕日紅"
+  },
+  {
+    "id": 517,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "第四次忍界大戦で穢土転生を大量に使用した敵は誰か？",
+    "answer": "薬師カブト"
+  },
+  {
+    "id": 518,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "穢土転生を最初に開発した火影は誰か？",
+    "answer": "二代目火影・千手扉間"
+  },
+  {
+    "id": 519,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "ナルトとサスケが最終決戦を行った場所は？",
+    "answer": "終末の谷"
+  },
+  {
+    "id": 520,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "五影会談が開かれた中立国は？",
+    "answer": "鉄の国"
+  },
+  {
+    "id": 521,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "鉄の国を治める侍の大将の名前は？",
+    "answer": "ミフネ"
+  },
+  {
+    "id": 522,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "一楽でのナルトのお気に入りメニューは？",
+    "answer": "みそチャーシューメン"
+  },
+  {
+    "id": 523,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "ナルトの誕生日はいつか？",
+    "answer": "10月10日"
+  },
+  {
+    "id": 524,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "サスケの誕生日はいつか？",
+    "answer": "7月23日"
+  },
+  {
+    "id": 525,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "「瞬身」の通り名で呼ばれたイタチの親友は？",
+    "answer": "うちはシスイ"
+  },
+  {
+    "id": 526,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "シスイの万華鏡写輪眼が持つ最強の幻術は？",
+    "answer": "別天神（ことあまつかみ）"
+  },
+  {
+    "id": 527,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "ダンゾウが右目に移植していた写輪眼は元々誰のものか？",
+    "answer": "うちはシスイ"
+  },
+  {
+    "id": 528,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "六道仙人ハゴロモの母である大筒木一族の女性は？",
+    "answer": "大筒木カグヤ"
+  },
+  {
+    "id": 529,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "無限月読の発動に必要な、月に映す瞳は？",
+    "answer": "輪廻写輪眼"
+  },
+  {
+    "id": 530,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "オビトが想いを寄せていた第七班（ミナト班）の同期は？",
+    "answer": "のはらリン"
+  },
+  {
+    "id": 531,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "アスマと紅の間に生まれた娘の名前は？",
+    "answer": "猿飛ミライ"
+  },
+  {
+    "id": 532,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "ナルトとヒナタの息子の名前は？",
+    "answer": "うずまきボルト"
+  },
+  {
+    "id": 533,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "ナルトとヒナタの娘の名前は？",
+    "answer": "うずまきヒマワリ"
+  },
+  {
+    "id": 534,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "カグヤ封印にナルトとサスケが用いた術は？",
+    "answer": "六道・地爆天星"
+  },
+  {
+    "id": 535,
+    "volume": "ナルト1巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ナルトがアカデミーの卒業試験で何度も失敗していた術は？",
+    "answer": "分身の術"
+  },
+  {
+    "id": 536,
+    "volume": "ナルト1巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "ナルトを騙して封印の書を盗ませたアカデミーの教師は？",
+    "answer": "ミズキ"
+  },
+  {
+    "id": 537,
+    "volume": "ナルト1巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ナルトが額当てをもらうきっかけとなった、封印の書から覚えた術は？",
+    "answer": "多重影分身の術"
+  },
+  {
+    "id": 538,
+    "volume": "ナルト1巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "カカシのサバイバル演習でナルト達が奪い合った物は？",
+    "answer": "鈴（2個）"
+  },
+  {
+    "id": 539,
+    "volume": "ナルト1巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "カカシの鈴取り演習で、弁当を巡って第七班が学んだ教えは「仲間を大切にしない奴はそれ以上の◯◯だ」？",
+    "answer": "クズ"
+  },
+  {
+    "id": 540,
+    "volume": "ナルト2巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "波の国への護衛任務を依頼してきた橋職人は？",
+    "answer": "タズナ"
+  },
+  {
+    "id": 541,
+    "volume": "ナルト2巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "波の国への道中、第七班を最初に襲った霧隠れの二人組は？",
+    "answer": "鬼兄弟"
+  },
+  {
+    "id": 542,
+    "volume": "ナルト2巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "「霧隠れの鬼人」と呼ばれる、首斬り包丁を操る抜け忍は？",
+    "answer": "桃地再不斬"
+  },
+  {
+    "id": 543,
+    "volume": "ナルト3巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "再不斬を仕留めたように見せかけた、追い忍に扮した少年は？",
+    "answer": "白（ハク）"
+  },
+  {
+    "id": 544,
+    "volume": "ナルト3巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "波の国編でカカシが教えた、木を垂直に登るチャクラ修行は？",
+    "answer": "木登り修行"
+  },
+  {
+    "id": 545,
+    "volume": "ナルト4巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "白が血継限界で作り出す氷の鏡の術は？",
+    "answer": "秘術・魔鏡氷晶"
+  },
+  {
+    "id": 546,
+    "volume": "ナルト4巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "波の国編の黒幕で、最後に再不斬に斬られた海運王は？",
+    "answer": "ガトー"
+  },
+  {
+    "id": 547,
+    "volume": "ナルト4巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "波の国に完成した橋に付けられた名前は？",
+    "answer": "ナルト大橋"
+  },
+  {
+    "id": 548,
+    "volume": "ナルト5巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "中忍試験の受験は何人1組で行うか？",
+    "answer": "3人1組"
+  },
+  {
+    "id": 549,
+    "volume": "ナルト5巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "中忍試験の第一試験（筆記）を仕切った拷問・尋問のスペシャリストは？",
+    "answer": "森乃イビキ"
+  },
+  {
+    "id": 550,
+    "volume": "ナルト5巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "第一試験の最終問題（10問目）の本当の合格条件は？",
+    "answer": "挑戦する（諦めない）こと"
+  },
+  {
+    "id": 551,
+    "volume": "ナルト6巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "中忍試験第二試験の会場となった第44演習場の通称は？",
+    "answer": "死の森"
+  },
+  {
+    "id": 552,
+    "volume": "ナルト6巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "第二試験で各班が揃える必要がある2種類の巻物は？",
+    "answer": "天の書と地の書"
+  },
+  {
+    "id": 553,
+    "volume": "ナルト6巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "死の森でサスケの首筋に呪印を付けた人物は？",
+    "answer": "大蛇丸"
+  },
+  {
+    "id": 554,
+    "volume": "ナルト7巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "サスケの呪印を抑えるためにカカシが施した封印術は？",
+    "answer": "封邪法印"
+  },
+  {
+    "id": 555,
+    "volume": "ナルト8巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "予選の審判を務めた、咳き込む病弱な上忍は？",
+    "answer": "月光ハヤテ"
+  },
+  {
+    "id": 556,
+    "volume": "ナルト9巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "予選でのサクラ対いのの結果は？",
+    "answer": "相打ち（両者敗退）"
+  },
+  {
+    "id": 557,
+    "volume": "ナルト9巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "予選でナルトがキバを倒した連続技は？",
+    "answer": "うずまきナルト連弾"
+  },
+  {
+    "id": 558,
+    "volume": "ナルト9巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "予選でヒナタと戦った同じ一族の相手は？",
+    "answer": "日向ネジ"
+  },
+  {
+    "id": 559,
+    "volume": "ナルト10巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "リーが我愛羅戦で使った、体の錘を外して放つ高速体術の連舞は？",
+    "answer": "表蓮華・裏蓮華"
+  },
+  {
+    "id": 560,
+    "volume": "ナルト11巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "ナルトが自来也と初めて出会ったとき、自来也が覗きをしていた場所は？",
+    "answer": "女湯"
+  },
+  {
+    "id": 561,
+    "volume": "ナルト11巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ナルトが口寄せの術で呼び出せるようになった蝦蟇の親分は？",
+    "answer": "ガマブン太"
+  },
+  {
+    "id": 562,
+    "volume": "ナルト12巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "中忍試験本選の第一試合の組み合わせは？",
+    "answer": "ナルト対ネジ"
+  },
+  {
+    "id": 563,
+    "volume": "ナルト13巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "サスケが我愛羅戦のためにカカシから教わった雷の突進技は？",
+    "answer": "千鳥"
+  },
+  {
+    "id": 564,
+    "volume": "ナルト13巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "中忍試験の最中に木ノ葉崩しを仕掛けた2つの里は？",
+    "answer": "音隠れと砂隠れ"
+  },
+  {
+    "id": 565,
+    "volume": "ナルト14巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "大蛇丸が三代目火影戦で穢土転生により蘇らせた2人は？",
+    "answer": "初代火影と二代目火影"
+  },
+  {
+    "id": 566,
+    "volume": "ナルト15巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "三代目火影が大蛇丸に対して使った、魂を封印する禁術は？",
+    "answer": "屍鬼封尽"
+  },
+  {
+    "id": 567,
+    "volume": "ナルト16巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "屍鬼封尽によって大蛇丸が失ったものは？",
+    "answer": "両腕（の自由）"
+  },
+  {
+    "id": 568,
+    "volume": "ナルト16巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "イタチと共に木ノ葉へ現れた、サメ顔の暁メンバーは？",
+    "answer": "干柿鬼鮫"
+  },
+  {
+    "id": 569,
+    "volume": "ナルト17巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "イタチが万華鏡写輪眼で見せる、時間感覚を操る幻術は？",
+    "answer": "月読"
+  },
+  {
+    "id": 570,
+    "volume": "ナルト17巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "自来也がイタチと鬼鮫を追い詰めた、蝦蟇の食道に取り込む術は？",
+    "answer": "蝦蟇口縛り"
+  },
+  {
+    "id": 571,
+    "volume": "ナルト18巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "自来也がナルトに修行させた、四代目火影が開発した術は？",
+    "answer": "螺旋丸"
+  },
+  {
+    "id": 572,
+    "volume": "ナルト18巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "螺旋丸の修行の第一段階で使った道具は？",
+    "answer": "水風船"
+  },
+  {
+    "id": 573,
+    "volume": "ナルト19巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "綱手がナルトとの賭けに負けて渡した、初代火影の形見は？",
+    "answer": "首飾り"
+  },
+  {
+    "id": 574,
+    "volume": "ナルト19巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "綱手が長年克服できなかった恐怖症は？",
+    "answer": "血液恐怖症（血を見ると動けなくなる）"
+  },
+  {
+    "id": 575,
+    "volume": "ナルト21巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "サスケ奪還小隊の隊長を任された中忍は？",
+    "answer": "奈良シカマル"
+  },
+  {
+    "id": 576,
+    "volume": "ナルト21巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "サスケ奪還小隊の5人のメンバーは？",
+    "answer": "シカマル・ナルト・チョウジ・キバ・ネジ"
+  },
+  {
+    "id": 577,
+    "volume": "ナルト22巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "音の五人衆の次郎坊と一人残って戦ったのは？",
+    "answer": "秋道チョウジ"
+  },
+  {
+    "id": 578,
+    "volume": "ナルト22巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "音の五人衆の蜘蛛使い・鬼童丸と戦ったのは？",
+    "answer": "日向ネジ"
+  },
+  {
+    "id": 579,
+    "volume": "ナルト24巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "骨を操る君麻呂の相手をした、木ノ葉の体術使いは？",
+    "answer": "ロック・リー（途中から我愛羅も参戦）"
+  },
+  {
+    "id": 580,
+    "volume": "ナルト25巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ナルトとサスケが決着の戦いを繰り広げた、初代火影とマダラゆかりの場所は？",
+    "answer": "終末の谷"
+  },
+  {
+    "id": 581,
+    "volume": "ナルト26巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "終末の谷でナルトとサスケが最後にぶつけ合った術は？",
+    "answer": "螺旋丸と千鳥"
+  },
+  {
+    "id": 582,
+    "volume": "ナルト27巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "27巻収録「カカシ外伝」で、オビトがカカシに贈ったものは？",
+    "answer": "写輪眼（自分の左目）"
+  },
+  {
+    "id": 583,
+    "volume": "ナルト27巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "カカシ外伝の任務の舞台となった、神無毘橋のある戦場での戦争は？",
+    "answer": "第三次忍界大戦"
+  },
+  {
+    "id": 584,
+    "volume": "ナルト27巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "カカシ外伝でミナト班が救出した、カカシの同期のくノ一は？",
+    "answer": "のはらリン"
+  },
+  {
+    "id": 585,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "暁の指輪でうちはイタチが右手の薬指にはめていた指輪に刻まれた文字は何か",
+    "answer": "朱"
+  },
+  {
+    "id": 586,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "暁のリーダー・ペイン（長門）が右手の親指にはめていた指輪に刻まれた文字は何か",
+    "answer": "零"
+  },
+  {
+    "id": 587,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "暁のメンバーで唯一の女性である小南が右手の中指にはめていた指輪に刻まれた文字は何か",
+    "answer": "白"
+  },
+  {
+    "id": 588,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "暁において、サソリが我愛羅捕獲任務の時点で組んでいた相棒は誰か",
+    "answer": "デイダラ"
+  },
+  {
+    "id": 589,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "サソリが暁に入団した当初、コンビを組んでいた相手は誰か",
+    "answer": "大蛇丸"
+  },
+  {
+    "id": 590,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "サソリの死後、暁の穴を埋める後釜としてデイダラの新たな相棒になったのは誰か",
+    "answer": "トビ（うちはオビト）"
+  },
+  {
+    "id": 591,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "うちはイタチと干柿鬼鮫のコンビは、名前がそれぞれ「鼬」「鮫」という動物にちなむことからファンの間で何と呼ばれているか",
+    "answer": "動物コンビ"
+  },
+  {
+    "id": 592,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "干柿鬼鮫は霧隠れの里で上司にあたる人物の裏切りを暴いて殺害し、あるものを奪って抜け忍となった。そのあるものとは何か",
+    "answer": "鮫肌（刀）"
+  },
+  {
+    "id": 593,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "干柿鬼鮫が殺害し「鮫肌」を奪った、里の情報を敵に漏らしていた上司の名前は何か",
+    "answer": "西瓜山河豚鬼"
+  },
+  {
+    "id": 594,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "飛段と角都のコンビは、飛段の不死身の肉体と角都の複数の心臓による特性からファンの間で何コンビと呼ばれるか",
+    "answer": "不死コンビ"
+  },
+  {
+    "id": 595,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "飛段の出身の里はどこか",
+    "answer": "湯隠れ"
+  },
+  {
+    "id": 596,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "飛段が熱狂的に信仰し「汝、隣人を殺戮せよ」を教義とする新興宗教の名前は何か",
+    "answer": "ジャシン教"
+  },
+  {
+    "id": 597,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "うちはイタチの万華鏡写輪眼のうち、左目に宿る幻術で、幻術世界内の時間・空間・物質を自在に操れる瞳術の名前は何か",
+    "answer": "月読"
+  },
+  {
+    "id": 598,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "うちはイタチの万華鏡写輪眼のうち、右目に宿り黒炎を操る瞳術の名前は何か",
+    "answer": "天照"
+  },
+  {
+    "id": 599,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "うちはシスイが操ったとされる、幻術をかけられた本人にすら気づかせず、穢土転生の強制力すら上書きできるとされる最強の幻術の名前は何か",
+    "answer": "別天神（コトアマツカミ）"
+  },
+  {
+    "id": 600,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "うちはオビトが両目の万華鏡写輪眼で操る、専用の時空間に自他を転送する瞳術の名前は何か",
+    "answer": "神威"
+  },
+  {
+    "id": 601,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "永遠の万華鏡写輪眼を開眼するために必要な条件は何か",
+    "answer": "他者の万華鏡写輪眼を移植すること"
+  },
+  {
+    "id": 602,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "うちはイタチの須佐能乎の完成体は両刃の大剣に変化する武器を持つ。その武器の名前は何か",
+    "answer": "十拳剣"
+  },
+  {
+    "id": 603,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "うちはイタチの須佐能乎は何色として描かれるか",
+    "answer": "赤"
+  },
+  {
+    "id": 604,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "十尾のチャクラが六道仙人によって9つに分割されて生まれたのが尾獣だが、一尾から九尾のうち「守鶴」という名を持つのはどれか？",
+    "answer": "一尾"
+  },
+  {
+    "id": 605,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "二尾「又旅（またたび）」の人柱力を務めていた女性忍者は誰か？",
+    "answer": "二位ユギト"
+  },
+  {
+    "id": 606,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "三尾「磯撫（いそぶ）」の人柱力であり、霧隠れの里の四代目水影でもあった人物は誰か？",
+    "answer": "やぐら"
+  },
+  {
+    "id": 607,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "四尾「孫悟空」の人柱力である老紫は、五大国のうちどの里に所属しているか？",
+    "answer": "岩隠れの里"
+  },
+  {
+    "id": 608,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "五尾「穆王（こくおう）」の人柱力を務めていた、岩隠れの忍者は誰か？",
+    "answer": "ハン"
+  },
+  {
+    "id": 609,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "六尾「犀犬（さいけん）」の人柱力を務めていた人物は誰か？",
+    "answer": "ウタカタ"
+  },
+  {
+    "id": 610,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "七尾「重明（ちょうめい）」の人柱力フウが所属していたのは、五大国ではなくどの隠れ里か？",
+    "answer": "滝隠れの里"
+  },
+  {
+    "id": 611,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "全ての人柱力の中で、五大国以外の出身であるのは誰だけか？",
+    "answer": "フウ（七尾の人柱力）"
+  },
+  {
+    "id": 612,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "八尾「牛鬼」の人柱力キラービーは、雲隠れの里の四代目雷影エーとどのような関係にあるか？",
+    "answer": "義弟（義理の兄弟）"
+  },
+  {
+    "id": 613,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "ナルトの前に九尾の人柱力を務めていた、ナルトの母親は誰か？",
+    "answer": "うずまきクシナ"
+  },
+  {
+    "id": 614,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "十尾は本来何体の尾獣に分割される前の姿とされているか？",
+    "answer": "9体（一尾から九尾）"
+  },
+  {
+    "id": 615,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "五大国のうち「霧隠れの里」の首長を指す呼び名は何か？",
+    "answer": "水影"
+  },
+  {
+    "id": 616,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "木ノ葉隠れの里を創設した千手一族の長で、初代火影を務めた人物は誰か？",
+    "answer": "千手柱間"
+  },
+  {
+    "id": 617,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "初代火影・千手柱間の弟で、二代目火影を務めた人物は誰か？",
+    "answer": "千手扉間"
+  },
+  {
+    "id": 618,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "「教授（プロフェッサー）」の通称を持ち、三代目火影を務めた人物は誰か？",
+    "answer": "猿飛ヒルゼン"
+  },
+  {
+    "id": 619,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "物語開始の12年前に九尾の暴走を封印し、命を落とした四代目火影は誰か？",
+    "answer": "波風ミナト"
+  },
+  {
+    "id": 620,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "戦死した三代目火影の後任として、相談役と自来也の推薦を受けて五代目火影に就任した人物は誰か？",
+    "answer": "千手綱手"
+  },
+  {
+    "id": 621,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "大戦終結後、五代目火影・綱手の後任として六代目火影に任命された人物は誰か？",
+    "answer": "はたけカカシ"
+  },
+  {
+    "id": 622,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "四代目風影・羅砂の息子で、一尾・守鶴の人柱力でもあった五代目風影は誰か？",
+    "answer": "我愛羅"
+  },
+  {
+    "id": 623,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "雲隠れの里の歴代雷影は代々ある名を襲名するため実名が伏せられているが、その襲名される名前とは何か？",
+    "answer": "エー"
+  },
+  {
+    "id": 624,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "八門遁甲において、6番目に開く門の名前は？",
+    "answer": "景門"
+  },
+  {
+    "id": 625,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "八門遁甲で、心臓に位置する最後の8番目の門の名前は？",
+    "answer": "死門"
+  },
+  {
+    "id": 626,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "八門遁甲の1番目の門「開門」は、頭部のどこに位置するとされているか？",
+    "answer": "右脳"
+  },
+  {
+    "id": 627,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "忍刀七人衆の刀のうち、桃地再不斬が使用していた「断刀」の名前は？",
+    "answer": "首斬り包丁"
+  },
+  {
+    "id": 628,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "干柿鬼鮫との戦闘中に「鮫肌」が寝返り、新たな主として選んだのは誰か？",
+    "answer": "キラービー"
+  },
+  {
+    "id": 629,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "忍刀七人衆の刀「鮫肌」は、第四次忍界大戦後にどこへ返還されたか？",
+    "answer": "霧隠れ"
+  },
+  {
+    "id": 630,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "忍刀七人衆の刀「雷刀・牙」の初代所有者の名前は？",
+    "answer": "林檎雨由利"
+  },
+  {
+    "id": 631,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "忍刀七人衆の刀「長刀・縫い針」の初代所有者の名前は？",
+    "answer": "栗霰串丸"
+  },
+  {
+    "id": 632,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "忍刀七人衆の刀「爆刀・飛沫」の初代所有者の名前は？",
+    "answer": "無梨甚八"
+  },
+  {
+    "id": 633,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "組織「根」を創設し、そのリーダーを務めたのは誰か？",
+    "answer": "志村ダンゾウ"
+  },
+  {
+    "id": 634,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "組織「根」は、木ノ葉隠れのどの部隊の養成部門として設立されたか？",
+    "answer": "暗部"
+  },
+  {
+    "id": 635,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "木ノ葉隠れの暗部（ANBU）の公式な部隊名称は何と呼ばれているか？",
+    "answer": "隠殺戦術特殊部隊"
+  },
+  {
+    "id": 636,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "中忍試験の第一の試験で、カンニングが発覚した場合の減点は何点か？",
+    "answer": "2点"
+  },
+  {
+    "id": 637,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "ナルトが対角都（雨隠れ）で初披露した、風遁・螺旋丸をさらに手裏剣状に発展させた術の名前は？",
+    "answer": "風遁・螺旋手裏剣"
+  },
+  {
+    "id": 638,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "自来也・大蛇丸・綱手がそれぞれ契約する口寄せの動物（ガマ・蛇・ナメクジ）の三竦みの設定は、自来也の名前の元ネタとなった何という物語に由来するか？",
+    "answer": "児雷也豪傑譚"
+  },
+  {
+    "id": 639,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "ナルトがイタチに幻術をかけられたときに起こったことは",
+    "answer": "ナルトの顔右半分がイタチのじゅいん2の状態になった\nお腹からサクラがでてきた\n左腕からかかし先生がでてきた\n左手ががあらの目になった"
+  },
+  {
+    "id": 640,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "八門はなんというか",
+    "answer": "杜門"
+  },
+  {
+    "id": 641,
+    "volume": "ナルト36巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "秘技　十機近松の集団の数と同じ数のくぐつがいるか",
+    "answer": "指の数"
+  },
+  {
+    "id": 642,
+    "volume": "ナルト36巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サソリの使った赤秘技　百機の操演はなにを落としたか",
+    "answer": "一国"
+  },
+  {
+    "id": 643,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "変化と木の葉からみょうぼくざんまでどの位かかるか",
+    "answer": "1ヶ月"
+  },
+  {
+    "id": 644,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カカシがねかを助けたときにピストルもらったペインは",
+    "answer": "修羅道"
+  },
+  {
+    "id": 645,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "イルカの父・母",
+    "answer": "父：うみのイッカク\n母：コハル"
+  },
+  {
+    "id": 646,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内、金角と銀角が持っていない忍具はどれか？",
+    "answer": "琥珀の浄瓶",
+    "choices": [
+      "幌金縄",
+      "芭蕉扇",
+      "七星剣",
+      "琥珀の浄瓶"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 647,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "忍組手では始まりと終わりに対戦相手と印を結ぶが、それは対立の印ともう一つは何か？",
+    "answer": "和解の印",
+    "choices": [
+      "信頼の印",
+      "和睦の印",
+      "和解の印",
+      "友情の印"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 648,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "戦争中、忍連合の医療部隊に潜入したゼツは誰に変化していたか？",
+    "answer": "日向ネジ",
+    "choices": [
+      "春野サクラ",
+      "日向ネジ",
+      "シズネ",
+      "トントン"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 649,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "薬師カブトを止めるためうちはイタチが放った、敵を時の無限ループに閉じ込める術は何か？",
+    "answer": "イザナミ",
+    "choices": [
+      "イザナギ",
+      "別天神",
+      "無限月読",
+      "イザナミ"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 650,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "サスケは一度倒した大蛇丸を解邪法印によって復活させた。その際大蛇丸は誰の身体から出てきたか？",
+    "answer": "薬師カブト",
+    "choices": [
+      "薬師カブト",
+      "みたらしアンコ",
+      "うちはイタチ",
+      "重吾"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 651,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "ペインの攻撃で崩壊した木ノ葉隠れの里を復興させるために、ヤマトが使用した術は何か？",
+    "answer": "木遁・連柱家の術",
+    "choices": [
+      "木遁・四柱牢の術",
+      "木遁・連柱家の術",
+      "木遁秘術・樹界降誕",
+      "木遁・建築家の術"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 652,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "志村ダンゾウが右目に移植した写輪眼は誰のものか？",
+    "answer": "うちはシスイ",
+    "choices": [
+      "うちはイタチ",
+      "うちはカガミ",
+      "うちはシスイ",
+      "うちはマダラ"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 653,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "雷影が代々受け継ぐ名は次の内どれか?",
+    "answer": "エー",
+    "choices": [
+      "エー",
+      "ビー",
+      "デー",
+      "シー"
+    ],
+    "exam": "上忍試験"
+  },
+  {
+    "id": 654,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "日向ネジが額に呪印を刻まれたのは何歳の時か?",
+    "answer": "4歳",
+    "choices": [
+      "3歳",
+      "4歳",
+      "5歳",
+      "6歳"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 655,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "夜叉丸が我愛羅に、心の傷を癒すのは愛情だけだと説明する場面で、自身の身体の一部を傷つけた。それはどこか?",
+    "answer": "右手薬指",
+    "choices": [
+      "右手薬指",
+      "左手薬指",
+      "右腕",
+      "左腕"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 656,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "薬と間違えてお酒を飲んでしまったロック・リーがかわした君麻呂の術はどれ?",
+    "answer": "唐松の舞",
+    "choices": [
+      "唐松の舞",
+      "十指穿弾",
+      "椿の舞",
+      "早蕨の舞"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 657,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "サスケが里を離れた次の日、サクラが発見されたのは何時頃?",
+    "answer": "四時",
+    "choices": [
+      "四時",
+      "五時",
+      "六時",
+      "七時"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 658,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "サスケ奪還作戦の際、シカマルが考えたフォーメーションでは、ナルトが確認する警戒範囲はどこだった?",
+    "answer": "右",
+    "choices": [
+      "前方",
+      "右",
+      "左",
+      "後方"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 659,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "音の四人衆の一人、次郎坊と戦うチョウジがトンガラシ丸を食べた後、片手で止めたのは次郎坊のどの攻撃?",
+    "answer": "岩撃",
+    "choices": [
+      "岩撃",
+      "昇撃掌",
+      "圧掌",
+      "崩掌"
+    ],
+    "exam": "中忍試験"
+  },
+  {
+    "id": 660,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "タズナが完成させた橋の名前は次のうちどれか？",
+    "answer": "渡ると大橋",
+    "choices": [
+      "天橋立",
+      "ベイブリッジ",
+      "渡ると大橋",
+      "日本橋"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 661,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "中忍選抜試験、第二試験を一番早くクリアしたチームのメンバーは次の内どれか？",
+    "answer": "我愛羅・カンクロウ・テマリ",
+    "choices": [
+      "ナルト・サスケ・サクラ",
+      "キバ・シノ・ヒナタ",
+      "シカマル・いの・チョウジ",
+      "我愛羅・カンクロウ・テマリ"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 662,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "我愛羅とカンクロウとテマリ、三人の関係はどれか？",
+    "answer": "兄弟",
+    "choices": [
+      "兄弟",
+      "幼馴染",
+      "同級生",
+      "親子"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 663,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "日向家が受け継いできた血継限界はどれか？",
+    "answer": "白眼",
+    "choices": [
+      "光眼",
+      "輝眼",
+      "透眼",
+      "白眼"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 664,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "綱手の弟は次の内どれか？",
+    "answer": "縄樹",
+    "choices": [
+      "辰樹",
+      "綱樹",
+      "縄樹",
+      "斉史"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 665,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "サスケを連れ戻すことを諦めるのが忍として賢い選択だと自来也に言われたとき、ナルトが言った言葉は次の内どれか？",
+    "answer": "「オレが諦めるのを諦めろ！」",
+    "choices": [
+      "「賢いだけじゃ火影になれない」",
+      "「オレが諦めるのを諦めろ！」",
+      "「賢いってのがそういうことなら・・・オレは一生バカでいい・・・」",
+      "「オレはバカだから、意地でもサスケを連れ戻す・・！！」"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 666,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "中忍選抜試験、本戦にて、うちはサスケvs我愛羅の結果は次の内どれか？",
+    "answer": "中止",
+    "choices": [
+      "うちはサスケの勝利",
+      "我愛羅の勝利",
+      "引き分け",
+      "中止"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 667,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "ナルトが螺旋丸の修業で使ったものは次の内どれか？",
+    "answer": "水風船",
+    "choices": [
+      "綿あめ",
+      "火薬玉",
+      "イカ焼きのクシ",
+      "水風船"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 668,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "我愛羅の砂の説明で誤っているのはどれか？",
+    "answer": "砂は我愛羅の意思がなければ動かない",
+    "choices": [
+      "防御にも攻撃にも使うことが出来る",
+      "目の形をした砂に、視神経をつなげて第三の目として使うことが出来る",
+      "砂の上に乗り浮くことが出来る",
+      "砂は我愛羅の意思がなければ動かない"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 669,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "ナルトが我愛羅との戦闘中に口寄せした、ガマ吉の父親は次の内どれか？",
+    "answer": "ガマブン太",
+    "choices": [
+      "ガマカ",
+      "ガマケン",
+      "ガマヒロ",
+      "ガマブン太"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 670,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "伝説の三忍に当てはまらない人物は次の内誰か？",
+    "answer": "はたけカカシ",
+    "choices": [
+      "はたけカカシ",
+      "自来也",
+      "綱手",
+      "大蛇丸"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 671,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "大蛇丸との戦いの際、三代目火影が口寄せしたのは次の内どれか？",
+    "answer": "猿魔",
+    "choices": [
+      "仙猿",
+      "猿魔",
+      "狒狒王",
+      "孫悟空"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 672,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "秋道一族には、飲めば爆発的なパワーを得ることができる秘伝の丸薬があるが、この丸薬に含まれないものは次のうちどれか？",
+    "answer": "キャベツ丸",
+    "choices": [
+      "ホウレン丸",
+      "カレー丸",
+      "キャベツ丸",
+      "トンガラシ丸"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 673,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "サスケ奪還作戦において、対戦した組み合わせで誤っているのはどれか？",
+    "answer": "多由也VSうずまきナルト",
+    "choices": [
+      "次郎坊VS秋道チョウジ",
+      "左近・右近VS犬塚キバ",
+      "多由也VSうずまきナルト",
+      "鬼童丸VS日向ネジ"
+    ],
+    "exam": "下忍試験"
+  },
+  {
+    "id": 674,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "次の内「五影」に含まれないのはどれか？",
+    "answer": "雨影",
+    "choices": [
+      "風影",
+      "火影",
+      "雷影",
+      "雨影"
+    ],
+    "exam": "下忍試験"
+  }
+];

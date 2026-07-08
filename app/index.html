@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#121212">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 180 180%22><rect width=%22180%22 height=%22180%22 fill=%22%23ff6b1a%22/><path d=%22M 90.0,82.0 L 90.8,81.6 L 91.7,81.3 L 92.6,81.1 L 93.6,81.1 L 94.7,81.1 L 95.7,81.2 L 96.8,81.5 L 97.9,81.9 L 99.0,82.4 L 100.0,83.1 L 101.0,83.9 L 101.9,84.8 L 102.7,85.8 L 103.5,87.0 L 104.1,88.3 L 104.6,89.6 L 105.0,91.0 L 105.2,92.6 L 105.3,94.1 L 105.2,95.7 L 105.0,97.3 L 104.6,99.0 L 104.0,100.6 L 103.2,102.2 L 102.2,103.7 L 101.1,105.1 L 99.8,106.5 L 98.3,107.7 L 96.7,108.8 L 95.0,109.8 L 93.1,110.6 L 91.1,111.2 L 89.1,111.7 L 86.9,111.9 L 84.7,111.9 L 82.5,111.7 L 80.3,111.2 L 78.1,110.5 L 75.9,109.6 L 73.8,108.5 L 71.8,107.1 L 69.9,105.6 L 68.2,103.8 L 66.6,101.8 L 65.2,99.6 L 64.0,97.3 L 63.0,94.8 L 62.2,92.3 L 61.7,89.6 L 61.5,86.8 L 61.5,84.0 L 61.8,81.1 L 62.4,78.3 L 63.3,75.5 L 64.5,72.8 L 66.0,70.1 L 67.7,67.6 L 69.7,65.2 L 71.9,63.0 L 74.4,61.1 L 77.1,59.3 L 80.0,57.8 L 83.1,56.6 L 86.3,55.7 L 89.6,55.1 L 93.0,54.8 L 96.5,54.8 L 99.9,55.2 L 103.4,56.0 L 106.8,57.0 L 110.1,58.5 L 113.3,60.2 L 116.4,62.3 L 119.2,64.7 L 121.9,67.4 L 124.3,70.4 L 126.4,73.6 L 128.2,77.0 L 129.6,80.7 L 130.8,84.5 L 131.5,88.4 L 131.9,92.4 L 131.9,96.5 L 131.5,100.6 L 130.6,104.7 L 129.4,108.8 L 127.8,112.7 L 125.7,116.5 L 123.3,120.0 L 120.6,123.4 L 117.4,126.5 L 114.0,129.4 L 110.3,131.9 L 106.3,134.0 L 102.1,135.8 L 97.7,137.1 L 93.1,138.1 L 88.5,138.6 L 83.7,138.6 L 79.0,138.2 L 74.3,137.3 L 69.6,135.9 L 65.1,134.1 L 60.7,131.9 L 56.6,129.2 L 52.6,126.0 L 49.0,122.5 L 45.7,118.7 L 42.8,114.5 L 40.3,109.9 L 38.2,105.2 L 36.6,100.2 L 35.4,95.0 L 34.8,89.8 L 34.6,84.4 L 35.0,79.0 L 36.0,73.6 L 37.4,68.3 L 39.4,63.2 L 41.8,58.2 L 44.8,53.5 L 48.2,49.0 L 52.1,44.8 L 56.4,41.0 L 61.1,37.7 L 66.1,34.8 L 71.4,32.3 L 77.0,30.4 L 82.7,29.0 L 88.6,28.2 L 94.6,27.9 L 100.6,28.2 L 106.7,29.1 L 112.6,30.6 L 118.4,32.7 L 124.0,35.4 L 129.3,38.6 L 134.4,42.3 L 139.1,46.5 L 143.4,51.2%22 fill=%22none%22 stroke=%22%23161616%22 stroke-width=%2214%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/><circle cx=%2290%22 cy=%2290%22 r=%227%22 fill=%22%23161616%22/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 180 180%22><rect width=%22180%22 height=%22180%22 fill=%22%23ff6b1a%22/><path d=%22M 90.0,82.0 L 90.8,81.6 L 91.7,81.3 L 92.6,81.1 L 93.6,81.1 L 94.7,81.1 L 95.7,81.2 L 96.8,81.5 L 97.9,81.9 L 99.0,82.4 L 100.0,83.1 L 101.0,83.9 L 101.9,84.8 L 102.7,85.8 L 103.5,87.0 L 104.1,88.3 L 104.6,89.6 L 105.0,91.0 L 105.2,92.6 L 105.3,94.1 L 105.2,95.7 L 105.0,97.3 L 104.6,99.0 L 104.0,100.6 L 103.2,102.2 L 102.2,103.7 L 101.1,105.1 L 99.8,106.5 L 98.3,107.7 L 96.7,108.8 L 95.0,109.8 L 93.1,110.6 L 91.1,111.2 L 89.1,111.7 L 86.9,111.9 L 84.7,111.9 L 82.5,111.7 L 80.3,111.2 L 78.1,110.5 L 75.9,109.6 L 73.8,108.5 L 71.8,107.1 L 69.9,105.6 L 68.2,103.8 L 66.6,101.8 L 65.2,99.6 L 64.0,97.3 L 63.0,94.8 L 62.2,92.3 L 61.7,89.6 L 61.5,86.8 L 61.5,84.0 L 61.8,81.1 L 62.4,78.3 L 63.3,75.5 L 64.5,72.8 L 66.0,70.1 L 67.7,67.6 L 69.7,65.2 L 71.9,63.0 L 74.4,61.1 L 77.1,59.3 L 80.0,57.8 L 83.1,56.6 L 86.3,55.7 L 89.6,55.1 L 93.0,54.8 L 96.5,54.8 L 99.9,55.2 L 103.4,56.0 L 106.8,57.0 L 110.1,58.5 L 113.3,60.2 L 116.4,62.3 L 119.2,64.7 L 121.9,67.4 L 124.3,70.4 L 126.4,73.6 L 128.2,77.0 L 129.6,80.7 L 130.8,84.5 L 131.5,88.4 L 131.9,92.4 L 131.9,96.5 L 131.5,100.6 L 130.6,104.7 L 129.4,108.8 L 127.8,112.7 L 125.7,116.5 L 123.3,120.0 L 120.6,123.4 L 117.4,126.5 L 114.0,129.4 L 110.3,131.9 L 106.3,134.0 L 102.1,135.8 L 97.7,137.1 L 93.1,138.1 L 88.5,138.6 L 83.7,138.6 L 79.0,138.2 L 74.3,137.3 L 69.6,135.9 L 65.1,134.1 L 60.7,131.9 L 56.6,129.2 L 52.6,126.0 L 49.0,122.5 L 45.7,118.7 L 42.8,114.5 L 40.3,109.9 L 38.2,105.2 L 36.6,100.2 L 35.4,95.0 L 34.8,89.8 L 34.6,84.4 L 35.0,79.0 L 36.0,73.6 L 37.4,68.3 L 39.4,63.2 L 41.8,58.2 L 44.8,53.5 L 48.2,49.0 L 52.1,44.8 L 56.4,41.0 L 61.1,37.7 L 66.1,34.8 L 71.4,32.3 L 77.0,30.4 L 82.7,29.0 L 88.6,28.2 L 94.6,27.9 L 100.6,28.2 L 106.7,29.1 L 112.6,30.6 L 118.4,32.7 L 124.0,35.4 L 129.3,38.6 L 134.4,42.3 L 139.1,46.5 L 143.4,51.2%22 fill=%22none%22 stroke=%22%23161616%22 stroke-width=%2214%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/><circle cx=%2290%22 cy=%2290%22 r=%227%22 fill=%22%23161616%22/></svg>">
+<title>NARUTO検定</title>
+<style>
+  :root{
+    --bg:#121212;
+    --bg-card:#1c1c1c;
+    --accent:#ff6b1a;
+    --accent-dark:#c9500f;
+    --text:#f2f2f2;
+    --text-dim:#a8a8a8;
+    --green:#2ecc71;
+    --red:#e74c3c;
+    --border:#333;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;padding:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
+    -webkit-text-size-adjust:100%;
+  }
+  #app{
+    max-width:480px;
+    margin:0 auto;
+    min-height:100vh;
+    padding:20px 16px calc(24px + env(safe-area-inset-bottom));
+    padding-top:calc(20px + env(safe-area-inset-top));
+  }
+  .screen{display:none;}
+  .screen.active{display:block;}
+  h1{
+    font-size:28px;
+    font-weight:800;
+    color:var(--accent);
+    text-align:center;
+    margin:8px 0 4px;
+    letter-spacing:1px;
+  }
+  h2{
+    font-size:20px;
+    font-weight:700;
+    margin:24px 0 12px;
+  }
+  p{line-height:1.6;color:var(--text-dim);}
+  .subtitle{
+    text-align:center;
+    color:var(--text-dim);
+    font-size:13px;
+    margin-bottom:24px;
+  }
+  .card{
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:16px;
+    margin-bottom:16px;
+  }
+  .stats-row{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:8px;
+  }
+  .stat{
+    flex:1;
+    text-align:center;
+  }
+  .stat .num{
+    font-size:18px;
+    font-weight:700;
+    color:var(--text);
+    display:block;
+  }
+  .stat .label{
+    font-size:11px;
+    color:var(--text-dim);
+  }
+  .home-title{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin:8px 0 4px;
+  }
+  .home-title h1{margin:0;}
+  .home-title-icon{width:26px;height:26px;flex:0 0 auto;}
+  .details-settings{
+    margin-top:16px;
+    border-top:1px solid var(--border);
+    padding-top:4px;
+  }
+  .details-settings summary{
+    cursor:pointer;
+    list-style:none;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:44px;
+    padding:8px 4px;
+    font-size:14px;
+    font-weight:700;
+    color:var(--text-dim);
+  }
+  .details-settings summary::-webkit-details-marker{display:none;}
+  .details-settings summary::after{
+    content:"▾";
+    color:var(--text-dim);
+    transition:transform .15s;
+  }
+  .details-settings[open] summary::after{transform:rotate(180deg);}
+  .details-settings .details-body{padding-top:4px;}
+  .preset-group{margin-bottom:4px;}
+  .preset-btn{font-size:12px;padding:8px 6px;}
+  label{
+    display:block;
+    font-size:14px;
+    font-weight:700;
+    margin:16px 0 8px;
+    color:var(--text);
+  }
+  select, input[type="range"]{
+    width:100%;
+    background:var(--bg);
+    color:var(--text);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px;
+    font-size:16px;
+  }
+  .range-values{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:var(--text-dim);
+    margin-top:6px;
+  }
+  .btn-group{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .choice-btn{
+    flex:1 1 auto;
+    min-width:44px;
+    min-height:44px;
+    background:var(--bg);
+    color:var(--text);
+    border:2px solid var(--border);
+    border-radius:10px;
+    padding:10px 12px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+  }
+  .choice-btn.selected-mode{
+    border-color:var(--accent);
+    background:rgba(255,107,26,0.15);
+  }
+  button.primary{
+    display:block;
+    width:100%;
+    min-height:48px;
+    background:var(--accent);
+    color:#161616;
+    border:none;
+    border-radius:12px;
+    font-size:17px;
+    font-weight:800;
+    margin-top:20px;
+    cursor:pointer;
+  }
+  button.primary:active{background:var(--accent-dark);}
+  button.secondary{
+    display:block;
+    width:100%;
+    min-height:48px;
+    background:transparent;
+    color:var(--text);
+    border:2px solid var(--border);
+    border-radius:12px;
+    font-size:15px;
+    font-weight:700;
+    margin-top:12px;
+    cursor:pointer;
+  }
+  button.link{
+    background:none;
+    border:none;
+    color:var(--accent);
+    font-size:14px;
+    font-weight:700;
+    padding:10px;
+    min-height:44px;
+    cursor:pointer;
+    width:100%;
+  }
+  .progress{
+    font-size:13px;
+    color:var(--text-dim);
+    text-align:center;
+    margin-bottom:12px;
+  }
+  .question-box{
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px 16px;
+    margin-bottom:20px;
+    min-height:100px;
+  }
+  .q-meta{
+    font-size:12px;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .q-text{
+    font-size:18px;
+    font-weight:700;
+    line-height:1.5;
+    white-space:pre-wrap;
+  }
+  .answer-options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .option-btn{
+    min-height:48px;
+    background:var(--bg-card);
+    color:var(--text);
+    border:2px solid var(--border);
+    border-radius:12px;
+    padding:12px 14px;
+    font-size:15px;
+    text-align:left;
+    line-height:1.4;
+    cursor:pointer;
+    white-space:pre-wrap;
+  }
+  .option-btn.correct{
+    border-color:var(--green);
+    background:rgba(46,204,113,0.18);
+    color:var(--green);
+  }
+  .option-btn.wrong{
+    border-color:var(--red);
+    background:rgba(231,76,60,0.18);
+    color:var(--red);
+  }
+  .option-btn:disabled{opacity:1;}
+  .flash-answer{
+    margin-top:16px;
+    padding:16px;
+    background:rgba(255,107,26,0.1);
+    border:1px dashed var(--accent);
+    border-radius:12px;
+    font-size:17px;
+    font-weight:700;
+    white-space:pre-wrap;
+    display:none;
+  }
+  .flash-answer.show{display:block;}
+  .rank{
+    text-align:center;
+    font-size:40px;
+    font-weight:900;
+    color:var(--accent);
+    margin:12px 0 4px;
+  }
+  .rank-sub{
+    text-align:center;
+    color:var(--text-dim);
+    margin-bottom:20px;
+  }
+  .score-big{
+    text-align:center;
+    font-size:32px;
+    font-weight:800;
+    margin-bottom:4px;
+  }
+  .score-rate{
+    text-align:center;
+    color:var(--text-dim);
+    margin-bottom:20px;
+  }
+  .wrong-list-item{
+    border-bottom:1px solid var(--border);
+    padding:10px 0;
+  }
+  .wrong-list-item:last-child{border-bottom:none;}
+  .wrong-q{font-weight:700;font-size:14px;margin-bottom:4px;}
+  .wrong-a{font-size:13px;color:var(--accent);white-space:pre-wrap;}
+  .error-msg{
+    color:var(--red);
+    text-align:center;
+    padding:20px;
+    font-weight:700;
+  }
+  .hidden{display:none !important;}
+  .exam-option-btn{
+    display:block;
+    width:100%;
+    min-height:64px;
+    background:var(--bg-card);
+    color:var(--text);
+    border:2px solid var(--border);
+    border-radius:14px;
+    padding:14px 16px;
+    margin-bottom:12px;
+    text-align:left;
+    cursor:pointer;
+  }
+  .exam-option-title{
+    display:block;
+    font-size:17px;
+    font-weight:800;
+    color:var(--accent);
+  }
+  .exam-option-count{
+    display:block;
+    font-size:13px;
+    color:var(--text-dim);
+    margin-top:4px;
+  }
+  .exam-timer-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:12px;
+  }
+  .exam-timer{
+    font-size:16px;
+    font-weight:800;
+    color:var(--text);
+    font-variant-numeric:tabular-nums;
+  }
+  .exam-timer.urgent{color:var(--red);}
+  .pass-banner{
+    border-radius:14px;
+    padding:16px;
+    margin-bottom:16px;
+    text-align:center;
+  }
+  .pass-banner.pass{
+    border:2px solid var(--green);
+    background:rgba(46,204,113,0.15);
+  }
+  .pass-banner.fail{
+    border:2px solid var(--red);
+    background:rgba(231,76,60,0.15);
+  }
+  .pass-fail-text{
+    font-size:28px;
+    font-weight:900;
+  }
+  .pass-banner.pass .pass-fail-text{color:var(--green);}
+  .pass-banner.fail .pass-fail-text{color:var(--red);}
+  .pass-fail-sub{
+    font-size:13px;
+    color:var(--text-dim);
+    margin-top:4px;
+  }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ===== ホーム画面 ===== -->
+  <section id="screen-home" class="screen active">
+    <div class="home-title">
+      <svg class="home-title-icon" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="180" height="180" rx="36" fill="#ff6b1a"/>
+        <path d="M 90.0,82.0 L 90.8,81.6 L 91.7,81.3 L 92.6,81.1 L 93.6,81.1 L 94.7,81.1 L 95.7,81.2 L 96.8,81.5 L 97.9,81.9 L 99.0,82.4 L 100.0,83.1 L 101.0,83.9 L 101.9,84.8 L 102.7,85.8 L 103.5,87.0 L 104.1,88.3 L 104.6,89.6 L 105.0,91.0 L 105.2,92.6 L 105.3,94.1 L 105.2,95.7 L 105.0,97.3 L 104.6,99.0 L 104.0,100.6 L 103.2,102.2 L 102.2,103.7 L 101.1,105.1 L 99.8,106.5 L 98.3,107.7 L 96.7,108.8 L 95.0,109.8 L 93.1,110.6 L 91.1,111.2 L 89.1,111.7 L 86.9,111.9 L 84.7,111.9 L 82.5,111.7 L 80.3,111.2 L 78.1,110.5 L 75.9,109.6 L 73.8,108.5 L 71.8,107.1 L 69.9,105.6 L 68.2,103.8 L 66.6,101.8 L 65.2,99.6 L 64.0,97.3 L 63.0,94.8 L 62.2,92.3 L 61.7,89.6 L 61.5,86.8 L 61.5,84.0 L 61.8,81.1 L 62.4,78.3 L 63.3,75.5 L 64.5,72.8 L 66.0,70.1 L 67.7,67.6 L 69.7,65.2 L 71.9,63.0 L 74.4,61.1 L 77.1,59.3 L 80.0,57.8 L 83.1,56.6 L 86.3,55.7 L 89.6,55.1 L 93.0,54.8 L 96.5,54.8 L 99.9,55.2 L 103.4,56.0 L 106.8,57.0 L 110.1,58.5 L 113.3,60.2 L 116.4,62.3 L 119.2,64.7 L 121.9,67.4 L 124.3,70.4 L 126.4,73.6 L 128.2,77.0 L 129.6,80.7 L 130.8,84.5 L 131.5,88.4 L 131.9,92.4 L 131.9,96.5 L 131.5,100.6 L 130.6,104.7 L 129.4,108.8 L 127.8,112.7 L 125.7,116.5 L 123.3,120.0 L 120.6,123.4 L 117.4,126.5 L 114.0,129.4 L 110.3,131.9 L 106.3,134.0 L 102.1,135.8 L 97.7,137.1 L 93.1,138.1 L 88.5,138.6 L 83.7,138.6 L 79.0,138.2 L 74.3,137.3 L 69.6,135.9 L 65.1,134.1 L 60.7,131.9 L 56.6,129.2 L 52.6,126.0 L 49.0,122.5 L 45.7,118.7 L 42.8,114.5 L 40.3,109.9 L 38.2,105.2 L 36.6,100.2 L 35.4,95.0 L 34.8,89.8 L 34.6,84.4 L 35.0,79.0 L 36.0,73.6 L 37.4,68.3 L 39.4,63.2 L 41.8,58.2 L 44.8,53.5 L 48.2,49.0 L 52.1,44.8 L 56.4,41.0 L 61.1,37.7 L 66.1,34.8 L 71.4,32.3 L 77.0,30.4 L 82.7,29.0 L 88.6,28.2 L 94.6,27.9 L 100.6,28.2 L 106.7,29.1 L 112.6,30.6 L 118.4,32.7 L 124.0,35.4 L 129.3,38.6 L 134.4,42.3 L 139.1,46.5 L 143.4,51.2" fill="none" stroke="#161616" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="90" cy="90" r="7" fill="#161616"/>
+      </svg>
+      <h1>NARUTO検定</h1>
+    </div>
+    <p class="subtitle">一問一答であなたの忍者ランクを試そう</p>
+
+    <div class="card" id="home-stats">
+      <div class="stats-row">
+        <div class="stat"><span class="num" id="stat-plays">0</span><span class="label">プレイ回数</span></div>
+        <div class="stat"><span class="num" id="stat-rate">--</span><span class="label">通算正答率</span></div>
+        <div class="stat"><span class="num" id="stat-total">0</span><span class="label">累計出題数</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <label style="margin-top:0;">モード</label>
+      <div class="btn-group">
+        <button type="button" class="choice-btn selected-mode" data-mode="quiz" id="mode-quiz-btn">4択クイズ</button>
+        <button type="button" class="choice-btn" data-mode="flash" id="mode-flash-btn">一問一答</button>
+      </div>
+      <div class="range-values" id="quiz-eligible-note" style="justify-content:center;margin-top:6px;"></div>
+
+      <details class="details-settings" id="details-settings">
+        <summary>詳細設定（カテゴリ・難易度・巻範囲・出題数）</summary>
+        <div class="details-body">
+          <label for="category-select">カテゴリ</label>
+          <select id="category-select">
+            <option value="all">全部</option>
+            <option value="原作一問一答">原作一問一答</option>
+            <option value="検定過去問">検定過去問</option>
+            <option value="オリジナル新作">オリジナル新作</option>
+          </select>
+
+          <label for="difficulty-select">難易度</label>
+          <select id="difficulty-select">
+            <option value="all">全部</option>
+            <option value="易">易</option>
+            <option value="普">普</option>
+            <option value="難">難</option>
+          </select>
+
+          <label for="range-min">出題範囲（巻数）</label>
+          <div class="btn-group preset-group" id="volume-preset-group">
+            <button type="button" class="choice-btn preset-btn" id="preset-part1">第一部(1〜27巻)</button>
+            <button type="button" class="choice-btn preset-btn" id="preset-part2">第二部(28巻〜)</button>
+            <button type="button" class="choice-btn preset-btn" id="preset-all">全部</button>
+          </div>
+          <div id="volume-range-wrap">
+            <select id="range-min"></select>
+            <div style="height:8px;"></div>
+            <select id="range-max"></select>
+            <div class="range-values" id="range-note"></div>
+          </div>
+
+          <label for="count-select">出題数</label>
+          <select id="count-select">
+            <option value="10">10問</option>
+            <option value="25">25問</option>
+            <option value="50">50問</option>
+            <option value="all">全問</option>
+          </select>
+        </div>
+      </details>
+
+      <button type="button" class="primary" id="start-btn">はじめる</button>
+    </div>
+
+    <div class="card">
+      <label style="margin-top:0;">苦手復習</label>
+      <p style="margin:0 0 12px;font-size:13px;" id="review-weak-desc">まだ克服していない問題を復習できます。</p>
+      <button type="button" class="secondary" id="review-weak-btn" style="margin-top:0;">苦手復習</button>
+    </div>
+
+    <div class="card">
+      <label style="margin-top:0;">模擬試験</label>
+      <p style="margin:0 0 12px;font-size:13px;">下忍・中忍・上忍の検定過去問で本番形式。制限時間内に正答率70%で合格。</p>
+      <button type="button" class="primary" id="exam-entry-btn" style="margin-top:0;">模擬試験にちょうせん</button>
+    </div>
+  </section>
+
+  <!-- ===== 模擬試験：試験選択画面 ===== -->
+  <section id="screen-exam-select" class="screen">
+    <h2>模擬試験を選ぶ</h2>
+    <p style="margin:0 0 16px;font-size:13px;">受ける試験を選んでください。制限時間内に正答率70%で合格です。</p>
+
+    <button type="button" class="exam-option-btn" id="exam-genin-btn">
+      <span class="exam-option-title">下忍試験</span>
+      <span class="exam-option-count" id="exam-genin-count">（0問）</span>
+    </button>
+    <button type="button" class="exam-option-btn" id="exam-chunin-btn">
+      <span class="exam-option-title">中忍試験</span>
+      <span class="exam-option-count" id="exam-chunin-count">（0問）</span>
+    </button>
+    <button type="button" class="exam-option-btn" id="exam-jonin-btn">
+      <span class="exam-option-title">上忍試験</span>
+      <span class="exam-option-count" id="exam-jonin-count">（0問）</span>
+    </button>
+
+    <button type="button" class="secondary" id="exam-select-back-btn">ホームに戻る</button>
+  </section>
+
+  <!-- ===== 模擬試験：出題画面 ===== -->
+  <section id="screen-exam" class="screen">
+    <div class="exam-timer-row">
+      <div class="progress" id="exam-progress" style="margin-bottom:0;"></div>
+      <div class="exam-timer" id="exam-timer">--:--</div>
+    </div>
+    <div class="question-box">
+      <div class="q-meta" id="exam-meta"></div>
+      <div class="q-text" id="exam-question"></div>
+    </div>
+    <div class="answer-options" id="exam-options"></div>
+  </section>
+
+  <!-- ===== 4択クイズ画面 ===== -->
+  <section id="screen-quiz" class="screen">
+    <div class="progress" id="quiz-progress"></div>
+    <div class="question-box">
+      <div class="q-meta" id="quiz-meta"></div>
+      <div class="q-text" id="quiz-question"></div>
+    </div>
+    <div class="answer-options" id="quiz-options"></div>
+    <button type="button" class="primary hidden" id="quiz-next-btn">次の問題へ</button>
+  </section>
+
+  <!-- ===== 一問一答（フラッシュカード）画面 ===== -->
+  <section id="screen-flash" class="screen">
+    <div class="progress" id="flash-progress"></div>
+    <div class="question-box">
+      <div class="q-meta" id="flash-meta"></div>
+      <div class="q-text" id="flash-question"></div>
+      <div class="flash-answer" id="flash-answer"></div>
+    </div>
+    <button type="button" class="primary" id="flash-reveal-btn">答えを見る</button>
+    <div class="btn-group hidden" id="flash-score-btns" style="margin-top:16px;">
+      <button type="button" class="choice-btn" id="flash-ng-btn" style="border-color:var(--red);color:var(--red);">まだ</button>
+      <button type="button" class="choice-btn" id="flash-ok-btn" style="border-color:var(--green);color:var(--green);">覚えた</button>
+    </div>
+  </section>
+
+  <!-- ===== 結果画面 ===== -->
+  <section id="screen-result" class="screen">
+    <h2>結果発表</h2>
+    <div class="pass-banner hidden" id="result-pass-banner">
+      <div class="pass-fail-text" id="result-pass-text"></div>
+      <div class="pass-fail-sub" id="result-pass-sub"></div>
+    </div>
+    <div class="rank" id="result-rank">-</div>
+    <div class="rank-sub" id="result-rank-label"></div>
+    <div class="score-big" id="result-score"></div>
+    <div class="score-rate" id="result-rate"></div>
+    <div class="score-rate" id="result-duration" style="display:none;"></div>
+
+    <div class="card" id="result-wrong-card">
+      <label style="margin-top:0;">間違えた問題</label>
+      <div id="result-wrong-list"></div>
+    </div>
+
+    <button type="button" class="primary hidden" id="retry-wrong-btn">間違えた問題だけ再挑戦</button>
+    <button type="button" class="primary hidden" id="retry-exam-btn">もう一度同じ試験</button>
+    <button type="button" class="secondary" id="back-home-btn">ホームに戻る</button>
+  </section>
+
+  <!-- ===== エラー画面 ===== -->
+  <section id="screen-error" class="screen">
+    <div class="error-msg" id="error-message"></div>
+    <button type="button" class="secondary" id="error-back-btn">ホームに戻る</button>
+  </section>
+
+</div>
+
+<script src="questions.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  // ---------------------------------------------------------------
+  // 定数・安全対策
+  // ---------------------------------------------------------------
+  var SAFE_QUESTIONS = (typeof QUESTIONS !== "undefined" && Array.isArray(QUESTIONS)) ? QUESTIONS : [];
+  var MAX_ANSWER_LEN_FOR_QUIZ = 20; // これを超える、または\nを含むanswerは4択の対象外
+  var STORAGE_KEY = "narutoKenteiStats_v1";
+
+  // ---------------------------------------------------------------
+  // 模擬試験モード：定数
+  // ---------------------------------------------------------------
+  var PASS_RATE = 70; // 合格ライン（%）
+  var EXAM_CONFIG = {
+    "下忍試験": { count: 40, timeSec: 15 * 60 },
+    "中忍試験": { count: 50, timeSec: 20 * 60 },
+    "上忍試験": { count: 50, timeSec: 25 * 60 }
+  };
+  var EXAM_TYPE_ELEMENT_ID = {
+    "下忍試験": "exam-genin",
+    "中忍試験": "exam-chunin",
+    "上忍試験": "exam-jonin"
+  };
+  var examTimerId = null;
+
+  // ---------------------------------------------------------------
+  // localStorage 成績管理（壊れたデータ・非対応環境に安全対応）
+  // ---------------------------------------------------------------
+  function loadStats() {
+    var fallback = { plays: 0, totalAnswered: 0, totalCorrect: 0, wrongCounts: {} };
+    try {
+      var raw = window.localStorage.getItem(STORAGE_KEY);
+      if (!raw) return fallback;
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object") return fallback;
+      return {
+        plays: typeof parsed.plays === "number" ? parsed.plays : 0,
+        totalAnswered: typeof parsed.totalAnswered === "number" ? parsed.totalAnswered : 0,
+        totalCorrect: typeof parsed.totalCorrect === "number" ? parsed.totalCorrect : 0,
+        wrongCounts: (parsed.wrongCounts && typeof parsed.wrongCounts === "object") ? parsed.wrongCounts : {}
+      };
+    } catch (e) {
+      return fallback;
+    }
+  }
+
+  function saveStats(stats) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
+    } catch (e) {
+      // localStorage不可（プライベートブラウジング等）でも動作を止めない
+    }
+  }
+
+  function recordSessionResult(answeredList) {
+    // answeredList: [{id, correct: boolean}, ...]
+    var stats = loadStats();
+    stats.plays += 1;
+    answeredList.forEach(function (a) {
+      stats.totalAnswered += 1;
+      var key = String(a.id);
+      if (a.correct) {
+        stats.totalCorrect += 1;
+        // 正解したら苦手リストから除外（克服）。どのモードで正解してもよい。
+        if (Object.prototype.hasOwnProperty.call(stats.wrongCounts, key)) {
+          delete stats.wrongCounts[key];
+        }
+      } else {
+        // 間違えたら（再び）苦手リスト入り
+        stats.wrongCounts[key] = (stats.wrongCounts[key] || 0) + 1;
+      }
+    });
+    saveStats(stats);
+    return stats;
+  }
+
+  // 苦手リスト = これまでに間違えたことがあり、まだ克服していない（wrongCountsに
+  // 現在も残っている）問題。QUESTIONS内に実体が存在するものだけを対象にする。
+  function getWeakQuestions() {
+    var stats = loadStats();
+    var idSet = stats.wrongCounts;
+    if (!idSet) return [];
+    var result = [];
+    SAFE_QUESTIONS.forEach(function (q) {
+      if (Object.prototype.hasOwnProperty.call(idSet, String(q.id))) {
+        result.push(q);
+      }
+    });
+    return result;
+  }
+
+  function renderHomeStats() {
+    var stats = loadStats();
+    var rateEl = document.getElementById("stat-rate");
+    var playsEl = document.getElementById("stat-plays");
+    var totalEl = document.getElementById("stat-total");
+    playsEl.textContent = String(stats.plays);
+    totalEl.textContent = String(stats.totalAnswered);
+    if (stats.totalAnswered > 0) {
+      rateEl.textContent = Math.round((stats.totalCorrect / stats.totalAnswered) * 100) + "%";
+    } else {
+      rateEl.textContent = "--";
+    }
+
+    renderWeakReviewButton();
+  }
+
+  function renderWeakReviewButton() {
+    var btn = document.getElementById("review-weak-btn");
+    var desc = document.getElementById("review-weak-desc");
+    if (!btn || !desc) return;
+    var weakCount = getWeakQuestions().length;
+    if (weakCount === 0) {
+      btn.textContent = "苦手復習";
+      btn.disabled = true;
+      desc.textContent = "苦手問題はありません";
+    } else {
+      btn.textContent = "苦手復習（" + weakCount + "問）";
+      btn.disabled = false;
+      desc.textContent = "まだ克服していない問題を復習できます。";
+    }
+  }
+
+  // ---------------------------------------------------------------
+  // volume 解析
+  // 方針: "ナルトN巻" 形式から数値Nを抽出できるものだけを範囲選択の対象にする。
+  //   volumeがnull、またはパース不能な問題は「巻数不明」として扱う。
+  //   範囲がデフォルト（全巻）のままなら巻数不明も含める。
+  //   ユーザーが範囲を狭めた場合は、巻数不明を明示的に除外する
+  //   （「巻数で絞ったのに不明が混ざる」という苦情への対応）。
+  // ---------------------------------------------------------------
+  function parseVolumeNumber(volume) {
+    if (typeof volume !== "string") return null;
+    var m = volume.match(/(\d+)/);
+    if (!m) return null;
+    var n = parseInt(m[1], 10);
+    return isNaN(n) ? null : n;
+  }
+
+  function getVolumeBounds(questions) {
+    var nums = [];
+    questions.forEach(function (q) {
+      var n = parseVolumeNumber(q.volume);
+      if (n !== null) nums.push(n);
+    });
+    if (nums.length === 0) return null;
+    return { min: Math.min.apply(null, nums), max: Math.max.apply(null, nums) };
+  }
+
+  function filterByVolumeRange(questions, min, max, fullBounds) {
+    var isDefaultRange = fullBounds && min === fullBounds.min && max === fullBounds.max;
+    return questions.filter(function (q) {
+      var n = parseVolumeNumber(q.volume);
+      if (n === null) return !!isDefaultRange; // 範囲を狭めたら巻数不明は除外
+      return n >= min && n <= max;
+    });
+  }
+
+  // ---------------------------------------------------------------
+  // ユーティリティ
+  // ---------------------------------------------------------------
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function pickRandom(arr, n) {
+    return shuffle(arr).slice(0, Math.min(n, arr.length));
+  }
+
+  // 4択適格の判定：
+  //   (a) 問題自体に choices（選択肢）が付いている（検定過去問など）、または
+  //   (b) 答えに数字（算用数字 or 漢数字一〜十）が含まれ、
+  //       synthesizeNumericDistractors で誤答を合成できる
+  //   のどちらかを満たす問題だけを4択モードの対象にする。
+  //   他の問題の答えプールから無関係な誤答を借りる方式（buildDistractorsの
+  //   フォールバック経路）は4択の出題対象選定には一切使わない。
+  //   ただし(b)は、答えが改行を含む・または20文字を超える長文の場合は対象外とする。
+  //   これは元々4択だった選択肢が1つの答えに潰れた/複数事実を列挙しただけの問題で、
+  //   数値合成が「数字以外は全く同じ長文が4つ並ぶ」異常な4択を生んでしまうのを防ぐため。
+  //   choices を持つ問題（本物の選択肢）はこの長さ制限の対象外。
+  function isQuizEligible(q) {
+    if (!q || typeof q.answer !== "string" || !q.answer) return false;
+    if (Array.isArray(q.choices) && q.choices.length === 4) return true;
+    if (q.answer.indexOf("\n") !== -1 || q.answer.length > 20) return false;
+    if (hasNumericToken(q.answer) && synthesizeNumericDistractors(q.answer)) return true;
+    return false;
+  }
+
+  // ---------------------------------------------------------------
+  // 答えのタイプ分類（4択の誤答を同タイプから優先的に選ぶため）
+  // ---------------------------------------------------------------
+  var NAME_SURNAMES = ["うちは", "うずまき", "日向", "千手", "猿飛", "奈良", "秋道", "山中"];
+  var NUMBER_UNITS = /(個|人|つ|歳|枚|本|巻|m|両|号)/;
+  var PLACE_SUFFIX = /(の国|の里|隠れ|谷|寺|村)/;
+  var JUTSU_KEYWORDS = /(術|眼|遁|丸|拳|千鳥|螺旋)/;
+
+  function classifyAnswerType(a) {
+    if (typeof a !== "string" || !a) return "other";
+    // 数値系：数字を含み単位付き、または数字のみ
+    if (/^\d+$/.test(a)) return "number";
+    if (/\d/.test(a) && NUMBER_UNITS.test(a)) return "number";
+    // 地名系
+    if (PLACE_SUFFIX.test(a)) return "place";
+    // 人名系：カタカナ主体2〜8文字、または特定の姓を含む
+    if (NAME_SURNAMES.some(function (s) { return a.indexOf(s) !== -1; })) return "name";
+    if (a.length >= 2 && a.length <= 8) {
+      var katakanaCount = (a.match(/[゠-ヿー]/g) || []).length;
+      if (katakanaCount / a.length >= 0.6) return "name";
+    }
+    // 術名系
+    if (JUTSU_KEYWORDS.test(a)) return "jutsu";
+    return "other";
+  }
+
+  // ---------------------------------------------------------------
+  // 数値系の答え用：答え自身の数値部分を変化させて誤答を合成する
+  // ---------------------------------------------------------------
+  var KANJI_DIGITS = "一二三四五六七八九十";
+  var KANJI_NUM_RE = /[一二三四五六七八九十百千]+/;
+  var ARABIC_NUM_RE = /\d+/;
+  // 答え全体をトークン分解し、数値トークン（算用数字 or 漢数字）に印を付ける
+  function tokenizeNumeric(answer) {
+    var tokens = [];
+    var re = /(\d+)|([一二三四五六七八九十百千]+)/g;
+    var lastIndex = 0;
+    var m;
+    while ((m = re.exec(answer)) !== null) {
+      if (m.index > lastIndex) {
+        tokens.push({ type: "text", value: answer.slice(lastIndex, m.index) });
+      }
+      if (m[1] !== undefined) {
+        tokens.push({ type: "arabic", value: m[1] });
+      } else {
+        tokens.push({ type: "kanji", value: m[2] });
+      }
+      lastIndex = re.lastIndex;
+    }
+    if (lastIndex < answer.length) {
+      tokens.push({ type: "text", value: answer.slice(lastIndex) });
+    }
+    return tokens;
+  }
+
+  function hasNumericToken(answer) {
+    if (typeof answer !== "string" || !answer) return false;
+    return ARABIC_NUM_RE.test(answer) || KANJI_NUM_RE.test(answer);
+  }
+
+  function randomIntInRange(min, max) {
+    return min + Math.floor(Math.random() * (max - min + 1));
+  }
+
+  // 1〜2桁の算用数字：±1〜±3程度でランダム変化（0以上、桁数の制約なし）
+  function mutateShortArabicNumber(numStr) {
+    var n = parseInt(numStr, 10);
+    var delta = randomIntInRange(1, 3) * (Math.random() < 0.5 ? -1 : 1);
+    var result = n + delta;
+    if (result < 1) result = n + Math.abs(delta); // 0や負の個数は不自然なので反転
+    if (result === n) result = n + 1;
+    return String(result);
+  }
+
+  // 3桁以上の算用数字：同じ桁数のランダム数字列に置換（先頭桁は0以外）
+  function mutateLongArabicNumber(numStr) {
+    var len = numStr.length;
+    var result;
+    var attempts = 0;
+    do {
+      var digits = "";
+      for (var i = 0; i < len; i++) {
+        if (i === 0) {
+          digits += String(randomIntInRange(1, 9));
+        } else {
+          digits += String(randomIntInRange(0, 9));
+        }
+      }
+      result = digits;
+      attempts++;
+    } while (result === numStr && attempts < 10);
+    return result;
+  }
+
+  function mutateArabicNumber(numStr) {
+    if (numStr.length <= 2) return mutateShortArabicNumber(numStr);
+    return mutateLongArabicNumber(numStr);
+  }
+
+  // 漢数字（一〜十）：数値に変換して±変化し、範囲(1〜10)に丸めて漢数字に戻す
+  function kanjiToInt(kanji) {
+    // シンプルな一〜十のみの変換（百・千を含む複雑な表記は非対応、丸めにフォールバック）
+    var simple = { "一": 1, "二": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9, "十": 10 };
+    if (kanji.length === 1 && simple.hasOwnProperty(kanji)) return simple[kanji];
+    return null;
+  }
+  function intToKanji(n) {
+    var arr = ["", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
+    if (n < 1) n = 1;
+    if (n > 10) n = 10;
+    return arr[n];
+  }
+  function mutateKanjiNumber(kanjiStr) {
+    var n = kanjiToInt(kanjiStr);
+    if (n === null) {
+      // 百・千などを含む複雑な漢数字は非対応のためそのまま返す（呼び出し側で重複チェックされる）
+      return kanjiStr;
+    }
+    var delta = randomIntInRange(1, 3) * (Math.random() < 0.5 ? -1 : 1);
+    var result = n + delta;
+    if (result < 1) result = n + Math.abs(delta);
+    if (result > 10) result = n - Math.abs(delta);
+    if (result < 1) result = 1;
+    if (result > 10) result = 10;
+    if (result === n) result = (n === 10) ? 9 : n + 1;
+    return intToKanji(result);
+  }
+
+  // 答えの数値トークンのうち1つ以上（ランダムに1〜全部）を変化させて1つの誤答文字列を作る
+  function synthesizeOneNumericDistractor(tokens) {
+    var numericIndexes = [];
+    tokens.forEach(function (t, i) {
+      if (t.type === "arabic" || t.type === "kanji") numericIndexes.push(i);
+    });
+    if (numericIndexes.length === 0) return null;
+
+    // 変化させるトークン数をランダムに1〜全部に決める
+    var howMany = randomIntInRange(1, numericIndexes.length);
+    var shuffledIdx = shuffle(numericIndexes).slice(0, howMany);
+    var toMutate = {};
+    shuffledIdx.forEach(function (i) { toMutate[i] = true; });
+
+    var resultParts = tokens.map(function (t, i) {
+      if (!toMutate[i]) return t.value;
+      if (t.type === "arabic") return mutateArabicNumber(t.value);
+      if (t.type === "kanji") return mutateKanjiNumber(t.value);
+      return t.value;
+    });
+    return resultParts.join("");
+  }
+
+  // 数値系の答えに対し、答え自身を基に誤答を3つ合成する。失敗時はnullを返す（呼び出し側でフォールバック）
+  function synthesizeNumericDistractors(correctAnswer) {
+    var tokens = tokenizeNumeric(correctAnswer);
+    var hasMutable = tokens.some(function (t) { return t.type === "arabic" || t.type === "kanji"; });
+    if (!hasMutable) return null;
+
+    var results = [];
+    var seen = {};
+    seen[correctAnswer.replace(/\s+/g, "")] = true;
+    var maxAttempts = 20;
+    var attempts = 0;
+    while (results.length < 3 && attempts < maxAttempts) {
+      attempts++;
+      var candidate = synthesizeOneNumericDistractor(tokens);
+      if (!candidate) break;
+      var key = candidate.replace(/\s+/g, "");
+      if (seen[key]) continue;
+      seen[key] = true;
+      results.push(candidate);
+    }
+    if (results.length < 3) return null; // 合成しきれなければフォールバック
+    return results;
+  }
+
+  // 文字数が近い「他の答え」からダミー選択肢を3つ作る
+  function buildDistractors(correctAnswer, pool) {
+    // 数値・固有番号系の答えは、答え自身の数値部分を変化させて誤答を合成する
+    if (hasNumericToken(correctAnswer)) {
+      var synthesized = synthesizeNumericDistractors(correctAnswer);
+      if (synthesized) return synthesized;
+      // 合成に失敗した場合は下の既存プール方式にフォールバック
+    }
+
+    // pool: 出題対象以外も含めたQUESTIONS全体の answer 候補（自分自身は除く）
+    var normalizedCorrect = correctAnswer.replace(/\s+/g, "");
+    var candidates = pool.filter(function (a) {
+      if (a === correctAnswer) return false;
+      // 正解と完全一致・空白除去一致する候補は除外
+      if (typeof a === "string" && a.replace(/\s+/g, "") === normalizedCorrect) return false;
+      return true;
+    });
+    // 重複除去
+    var uniqueCandidates = [];
+    var seen = {};
+    candidates.forEach(function (a) {
+      if (!seen[a]) { seen[a] = true; uniqueCandidates.push(a); }
+    });
+
+    // 文字数の近さでソート（フォールバック用の基本順序）
+    uniqueCandidates.sort(function (a, b) {
+      return Math.abs(a.length - correctAnswer.length) - Math.abs(b.length - correctAnswer.length);
+    });
+
+    // 正解と同タイプの候補を優先的に集める
+    var correctType = classifyAnswerType(correctAnswer);
+    var sameTypeCandidates = uniqueCandidates.filter(function (a) {
+      return classifyAnswerType(a) === correctType;
+    });
+
+    var chosen = [];
+    if (sameTypeCandidates.length >= 3) {
+      var topSameType = sameTypeCandidates.slice(0, Math.min(sameTypeCandidates.length, 8));
+      chosen = pickRandom(topSameType, 3);
+    } else {
+      // 同タイプ候補で埋められるだけ埋め、残りは文字数の近さで補充
+      chosen = sameTypeCandidates.slice();
+      var restCandidates = uniqueCandidates.filter(function (a) { return chosen.indexOf(a) === -1; });
+      var topPoolSize = Math.min(restCandidates.length, 8);
+      var topPool = restCandidates.slice(0, topPoolSize);
+      chosen = chosen.concat(pickRandom(topPool, 3 - chosen.length));
+    }
+
+    // 候補が3つ集まらない場合は残りから補充
+    if (chosen.length < 3) {
+      var rest = uniqueCandidates.filter(function (a) { return chosen.indexOf(a) === -1; });
+      chosen = chosen.concat(pickRandom(rest, 3 - chosen.length));
+    }
+
+    // それでも足りない場合はフォールバックのダミー文言で埋める（データが極端に少ない場合の保険）
+    var fallbackPool = ["うちはサスケ", "はたけカカシ", "自来也", "うずまきナルト", "木ノ葉隠れの里"];
+    var fbIndex = 0;
+    while (chosen.length < 3) {
+      var candidate = fallbackPool[fbIndex % fallbackPool.length] + (fbIndex >= fallbackPool.length ? "・" + fbIndex : "");
+      if (candidate !== correctAnswer && chosen.indexOf(candidate) === -1) {
+        chosen.push(candidate);
+      }
+      fbIndex++;
+      if (fbIndex > 50) break; // 安全弁：無限ループ防止
+    }
+    return chosen;
+  }
+
+  // ---------------------------------------------------------------
+  // 画面遷移
+  // ---------------------------------------------------------------
+  function showScreen(id) {
+    // 模擬試験画面以外に遷移するときは必ずタイマーを止める（多重起動・残留防止）
+    if (id !== "screen-exam") stopExamTimer();
+    var screens = document.querySelectorAll(".screen");
+    for (var i = 0; i < screens.length; i++) {
+      screens[i].classList.remove("active");
+    }
+    document.getElementById(id).classList.add("active");
+    window.scrollTo(0, 0);
+  }
+
+  // ---------------------------------------------------------------
+  // 模擬試験モード：タイマー
+  // ---------------------------------------------------------------
+  function stopExamTimer() {
+    if (examTimerId !== null) {
+      clearInterval(examTimerId);
+      examTimerId = null;
+    }
+  }
+
+  function formatTime(totalSec) {
+    if (totalSec < 0) totalSec = 0;
+    var m = Math.floor(totalSec / 60);
+    var s = totalSec % 60;
+    return (m < 10 ? "0" + m : String(m)) + ":" + (s < 10 ? "0" + s : String(s));
+  }
+
+  function updateExamTimerDisplay() {
+    var el = document.getElementById("exam-timer");
+    if (!el) return;
+    el.textContent = formatTime(session.examRemainingSec);
+    if (session.examRemainingSec <= 60) {
+      el.classList.add("urgent");
+    } else {
+      el.classList.remove("urgent");
+    }
+  }
+
+  function startExamTimer(totalSeconds) {
+    stopExamTimer(); // 多重起動防止：必ず既存タイマーを止めてから開始
+    session.examRemainingSec = totalSeconds;
+    updateExamTimerDisplay();
+    examTimerId = setInterval(function () {
+      session.examRemainingSec--;
+      updateExamTimerDisplay();
+      if (session.examRemainingSec <= 0) {
+        stopExamTimer();
+        finishExamByTimeout();
+      }
+    }, 1000);
+  }
+
+  // 時間切れ：未回答の残り問題はすべて不正解として記録してから採点する
+  function finishExamByTimeout() {
+    for (var i = session.index; i < session.questions.length; i++) {
+      var q = session.questions[i];
+      session.answered.push({ id: q.id, correct: false });
+      session.wrongQuestions.push(q);
+    }
+    session.index = session.questions.length;
+    finishSession();
+  }
+
+  function showError(msg) {
+    document.getElementById("error-message").textContent = msg;
+    showScreen("screen-error");
+  }
+
+  // ---------------------------------------------------------------
+  // ホーム画面の初期化
+  // ---------------------------------------------------------------
+  var currentMode = "quiz";
+  var bounds = getVolumeBounds(SAFE_QUESTIONS);
+
+  function initHomeControls() {
+    renderHomeStats();
+
+    var eligibleNote = document.getElementById("quiz-eligible-note");
+    if (eligibleNote) {
+      var eligibleCount = SAFE_QUESTIONS.filter(isQuizEligible).length;
+      eligibleNote.textContent = "4択対応: " + eligibleCount + " / " + SAFE_QUESTIONS.length + "問";
+    }
+
+    var modeQuizBtn = document.getElementById("mode-quiz-btn");
+    var modeFlashBtn = document.getElementById("mode-flash-btn");
+    modeQuizBtn.addEventListener("click", function () {
+      currentMode = "quiz";
+      modeQuizBtn.classList.add("selected-mode");
+      modeFlashBtn.classList.remove("selected-mode");
+    });
+    modeFlashBtn.addEventListener("click", function () {
+      currentMode = "flash";
+      modeFlashBtn.classList.add("selected-mode");
+      modeQuizBtn.classList.remove("selected-mode");
+    });
+
+    var rangeMinSel = document.getElementById("range-min");
+    var rangeMaxSel = document.getElementById("range-max");
+    var rangeNote = document.getElementById("range-note");
+    var wrap = document.getElementById("volume-range-wrap");
+    var presetGroup = document.getElementById("volume-preset-group");
+
+    if (!bounds) {
+      // 巻数情報を持つ問題が一つもない場合は範囲UIを隠す
+      wrap.classList.add("hidden");
+      if (presetGroup) presetGroup.classList.add("hidden");
+    } else {
+      for (var v = bounds.min; v <= bounds.max; v++) {
+        var optMin = document.createElement("option");
+        optMin.value = String(v);
+        optMin.textContent = v + "巻";
+        rangeMinSel.appendChild(optMin);
+
+        var optMax = document.createElement("option");
+        optMax.value = String(v);
+        optMax.textContent = v + "巻";
+        rangeMaxSel.appendChild(optMax);
+      }
+      rangeMinSel.value = String(bounds.min);
+      rangeMaxSel.value = String(bounds.max);
+      rangeNote.textContent = "範囲を狭めると巻数不明の問題は対象外になります";
+
+      // 部編プリセット：既存の巻範囲セレクトの値をワンタップで書き換える。
+      // 実データの範囲(bounds)にクランプするので、実際の最小/最大巻と
+      // ずれていても壊れない。
+      var applyVolumePreset = function (wantedMin, wantedMax) {
+        var clampedMin = Math.max(bounds.min, wantedMin);
+        var clampedMax = Math.min(bounds.max, wantedMax);
+        if (clampedMin > clampedMax) {
+          clampedMin = bounds.min;
+          clampedMax = bounds.max;
+        }
+        rangeMinSel.value = String(clampedMin);
+        rangeMaxSel.value = String(clampedMax);
+      };
+
+      var presetPart1 = document.getElementById("preset-part1");
+      var presetPart2 = document.getElementById("preset-part2");
+      var presetAll = document.getElementById("preset-all");
+      if (presetPart1) presetPart1.addEventListener("click", function () { applyVolumePreset(1, 27); });
+      if (presetPart2) presetPart2.addEventListener("click", function () { applyVolumePreset(28, bounds.max); });
+      if (presetAll) presetAll.addEventListener("click", function () { applyVolumePreset(bounds.min, bounds.max); });
+    }
+
+    document.getElementById("start-btn").addEventListener("click", onStart);
+
+    var reviewBtn = document.getElementById("review-weak-btn");
+    if (reviewBtn) {
+      reviewBtn.addEventListener("click", onStartWeakReview);
+    }
+  }
+
+  // ---------------------------------------------------------------
+  // セッション状態
+  // ---------------------------------------------------------------
+  var session = {
+    mode: "quiz",
+    questions: [],
+    index: 0,
+    answered: [], // {id, correct}
+    wrongQuestions: [], // 実際のquestionオブジェクト
+    finished: false // finishSession()の多重実行防止（模擬試験のタイマー満了と遅延回答が競合するのを防ぐ）
+  };
+
+  function onStart() {
+    if (SAFE_QUESTIONS.length === 0) {
+      showError("問題データが見つかりません。questions.js を確認してください。");
+      return;
+    }
+
+    var pool = SAFE_QUESTIONS;
+    var categoryValue = document.getElementById("category-select").value;
+    if (categoryValue !== "all") {
+      pool = pool.filter(function (q) { return q.category === categoryValue; });
+    }
+    if (pool.length === 0) {
+      showError("選択したカテゴリに問題がありません。カテゴリを変更してください。");
+      return;
+    }
+
+    var difficultyValue = document.getElementById("difficulty-select").value;
+    if (difficultyValue !== "all") {
+      pool = pool.filter(function (q) { return q.difficulty === difficultyValue; });
+    }
+    if (pool.length === 0) {
+      showError("選択した難易度に問題がありません。難易度を変更してください。");
+      return;
+    }
+
+    if (bounds) {
+      var min = parseInt(document.getElementById("range-min").value, 10);
+      var max = parseInt(document.getElementById("range-max").value, 10);
+      if (isNaN(min)) min = bounds.min;
+      if (isNaN(max)) max = bounds.max;
+      if (min > max) { var t = min; min = max; max = t; }
+      pool = filterByVolumeRange(pool, min, max, bounds);
+    }
+
+    if (pool.length === 0) {
+      showError("指定した範囲に問題がありません。範囲を変更してください。");
+      return;
+    }
+
+    if (currentMode === "quiz") {
+      pool = pool.filter(isQuizEligible);
+      if (pool.length === 0) {
+        showError("4択クイズに出題できる問題がありません（すべて除外条件に該当します）。一問一答モードをお試しください。");
+        return;
+      }
+    }
+
+    var countValue = document.getElementById("count-select").value;
+    var count;
+    if (countValue === "all") {
+      count = pool.length;
+    } else {
+      count = Math.min(parseInt(countValue, 10), pool.length);
+    }
+
+    session.mode = currentMode;
+    session.questions = pickRandom(pool, count);
+    session.index = 0;
+    session.answered = [];
+    session.wrongQuestions = [];
+    session.finished = false;
+
+    if (session.mode === "quiz") {
+      startQuizScreen();
+    } else {
+      startFlashScreen();
+    }
+  }
+
+  // 苦手復習：苦手リスト全問（フィルタなし）、上限50問、シャッフル。
+  // 4択適格な問題は4択、そうでない問題は一問一答で出題（混在）。
+  var WEAK_REVIEW_MAX = 50;
+
+  function onStartWeakReview() {
+    var weakQuestions = getWeakQuestions();
+    if (weakQuestions.length === 0) {
+      showError("苦手問題はありません。");
+      return;
+    }
+
+    session.mode = "mixed";
+    session.questions = pickRandom(weakQuestions, WEAK_REVIEW_MAX);
+    session.index = 0;
+    session.answered = [];
+    session.wrongQuestions = [];
+    session.finished = false;
+
+    startMixedSession();
+  }
+
+  function startMixedSession() {
+    renderCurrentMixedQuestion();
+  }
+
+  function renderCurrentMixedQuestion() {
+    var q = session.questions[session.index];
+    if (isQuizEligible(q)) {
+      showScreen("screen-quiz");
+      renderQuizQuestion();
+    } else {
+      showScreen("screen-flash");
+      renderFlashCard();
+    }
+  }
+
+  // ---------------------------------------------------------------
+  // 模擬試験モード
+  // 独立フロー：既存の quiz / flash / mixed とは分岐のみで交差しない。
+  // 検定過去問のうち exam フィールドが一致する問題だけを対象にする。
+  // ---------------------------------------------------------------
+  function getExamInventory(examType) {
+    return SAFE_QUESTIONS.filter(function (q) {
+      return q.category === "検定過去問" && q.exam === examType;
+    });
+  }
+
+  function renderExamSelectCounts() {
+    Object.keys(EXAM_TYPE_ELEMENT_ID).forEach(function (type) {
+      var prefix = EXAM_TYPE_ELEMENT_ID[type];
+      var countEl = document.getElementById(prefix + "-count");
+      if (countEl) {
+        countEl.textContent = "（" + getExamInventory(type).length + "問）";
+      }
+    });
+  }
+
+  function onStartExam(examType) {
+    var inventory = getExamInventory(examType);
+    if (inventory.length === 0) {
+      showError("この試験の問題データがありません。");
+      return;
+    }
+    var config = EXAM_CONFIG[examType];
+    var count = Math.min(config.count, inventory.length);
+
+    session.mode = "exam";
+    session.examType = examType;
+    session.questions = pickRandom(inventory, count);
+    session.index = 0;
+    session.answered = [];
+    session.wrongQuestions = [];
+    session.finished = false;
+    session.examStartedAt = Date.now();
+    session.examTotalSec = config.timeSec;
+    session.examRemainingSec = config.timeSec;
+
+    startExamScreen();
+  }
+
+  function startExamScreen() {
+    showScreen("screen-exam");
+    renderExamQuestion();
+    startExamTimer(session.examTotalSec);
+  }
+
+  function renderExamQuestion() {
+    var q = session.questions[session.index];
+    document.getElementById("exam-progress").textContent =
+      (session.index + 1) + " / " + session.questions.length;
+    document.getElementById("exam-meta").textContent = session.examType || "";
+    document.getElementById("exam-question").textContent = q.question;
+
+    var options;
+    if (Array.isArray(q.choices) && q.choices.length === 4) {
+      options = shuffle(q.choices);
+    } else {
+      var distractors = buildDistractors(q.answer, allAnswersPool);
+      options = shuffle([q.answer].concat(distractors));
+    }
+
+    var optionsWrap = document.getElementById("exam-options");
+    optionsWrap.innerHTML = "";
+    options.forEach(function (optText) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "option-btn";
+      btn.textContent = optText;
+      btn.addEventListener("click", function () {
+        onExamAnswer(q, optText, optionsWrap);
+      });
+      optionsWrap.appendChild(btn);
+    });
+  }
+
+  // 本番演出：正誤はその場で出さず、選択状態だけ見せて記録し次へ進む。
+  function onExamAnswer(question, chosenText, optionsWrap) {
+    var buttons = optionsWrap.querySelectorAll(".option-btn");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = true;
+      if (buttons[i].textContent === chosenText) {
+        buttons[i].classList.add("selected-mode");
+      }
+    }
+
+    var correct = chosenText === question.answer;
+    session.answered.push({ id: question.id, correct: correct });
+    if (!correct) session.wrongQuestions.push(question);
+
+    session.index++;
+    window.setTimeout(function () {
+      if (session.index >= session.questions.length) {
+        finishSession();
+      } else {
+        renderExamQuestion();
+      }
+    }, 150);
+  }
+
+  // ---------------------------------------------------------------
+  // 4択クイズ
+  // ---------------------------------------------------------------
+  var allAnswersPool = SAFE_QUESTIONS.map(function (q) { return q.answer; }).filter(function (a) {
+    return typeof a === "string";
+  });
+
+  function startQuizScreen() {
+    showScreen("screen-quiz");
+    renderQuizQuestion();
+  }
+
+  function renderQuizQuestion() {
+    var q = session.questions[session.index];
+    document.getElementById("quiz-progress").textContent =
+      (session.index + 1) + " / " + session.questions.length;
+    document.getElementById("quiz-meta").textContent =
+      (q.volume ? q.volume : "巻数不明") + "　|　" + (q.category || "");
+    document.getElementById("quiz-question").textContent = q.question;
+
+    var options;
+    if (Array.isArray(q.choices) && q.choices.length === 4) {
+      // 問題自体に選択肢がある場合はそれをシャッフルして使う（誤答自動生成はしない）
+      options = shuffle(q.choices);
+    } else {
+      var distractors = buildDistractors(q.answer, allAnswersPool);
+      options = shuffle([q.answer].concat(distractors));
+    }
+
+    var optionsWrap = document.getElementById("quiz-options");
+    optionsWrap.innerHTML = "";
+    document.getElementById("quiz-next-btn").classList.add("hidden");
+
+    options.forEach(function (optText) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "option-btn";
+      btn.textContent = optText;
+      btn.addEventListener("click", function () {
+        onQuizAnswer(q, optText, options, optionsWrap);
+      });
+      optionsWrap.appendChild(btn);
+    });
+  }
+
+  function onQuizAnswer(question, chosenText, options, optionsWrap) {
+    var buttons = optionsWrap.querySelectorAll(".option-btn");
+    var correct = chosenText === question.answer;
+
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = true;
+      if (buttons[i].textContent === question.answer) {
+        buttons[i].classList.add("correct");
+      } else if (buttons[i].textContent === chosenText && !correct) {
+        buttons[i].classList.add("wrong");
+      }
+    }
+
+    session.answered.push({ id: question.id, correct: correct });
+    if (!correct) session.wrongQuestions.push(question);
+
+    document.getElementById("quiz-next-btn").classList.remove("hidden");
+  }
+
+  document.getElementById("quiz-next-btn").addEventListener("click", function () {
+    session.index++;
+    if (session.index >= session.questions.length) {
+      finishSession();
+    } else if (session.mode === "mixed") {
+      renderCurrentMixedQuestion();
+    } else {
+      renderQuizQuestion();
+    }
+  });
+
+  // ---------------------------------------------------------------
+  // 一問一答（フラッシュカード）
+  // ---------------------------------------------------------------
+  function startFlashScreen() {
+    showScreen("screen-flash");
+    renderFlashCard();
+  }
+
+  function renderFlashCard() {
+    var q = session.questions[session.index];
+    document.getElementById("flash-progress").textContent =
+      (session.index + 1) + " / " + session.questions.length;
+    document.getElementById("flash-meta").textContent =
+      (q.volume ? q.volume : "巻数不明") + "　|　" + (q.category || "");
+    document.getElementById("flash-question").textContent = q.question;
+
+    var answerEl = document.getElementById("flash-answer");
+    answerEl.textContent = q.answer;
+    answerEl.classList.remove("show");
+
+    document.getElementById("flash-reveal-btn").classList.remove("hidden");
+    document.getElementById("flash-score-btns").classList.add("hidden");
+  }
+
+  document.getElementById("flash-reveal-btn").addEventListener("click", function () {
+    document.getElementById("flash-answer").classList.add("show");
+    document.getElementById("flash-reveal-btn").classList.add("hidden");
+    document.getElementById("flash-score-btns").classList.remove("hidden");
+  });
+
+  function onFlashScore(correct) {
+    var q = session.questions[session.index];
+    session.answered.push({ id: q.id, correct: correct });
+    if (!correct) session.wrongQuestions.push(q);
+
+    session.index++;
+    if (session.index >= session.questions.length) {
+      finishSession();
+    } else if (session.mode === "mixed") {
+      renderCurrentMixedQuestion();
+    } else {
+      renderFlashCard();
+    }
+  }
+
+  document.getElementById("flash-ok-btn").addEventListener("click", function () { onFlashScore(true); });
+  document.getElementById("flash-ng-btn").addEventListener("click", function () { onFlashScore(false); });
+
+  // ---------------------------------------------------------------
+  // 結果画面
+  // ---------------------------------------------------------------
+  function computeRank(rate) {
+    if (rate >= 90) return { label: "火影", sub: "忍界最強クラス！" };
+    if (rate >= 70) return { label: "上忍", sub: "頼れる実力者" };
+    if (rate >= 50) return { label: "中忍", sub: "一人前の忍" };
+    if (rate >= 30) return { label: "下忍", sub: "まだまだ修行が必要" };
+    return { label: "アカデミー生", sub: "基礎から鍛え直そう" };
+  }
+
+  function finishSession() {
+    // 模擬試験のタイマー満了と、直前の回答の遅延反映（150ms後のfinishSession呼び出し）が
+    // ごく稀に競合しても、二重採点・二重統計反映が起きないようにする安全弁。
+    if (session.finished) return;
+    session.finished = true;
+
+    recordSessionResult(session.answered);
+
+    var total = session.answered.length;
+    var correctCount = session.answered.filter(function (a) { return a.correct; }).length;
+    var rate = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+    var rank = computeRank(rate);
+
+    document.getElementById("result-rank").textContent = rank.label;
+    document.getElementById("result-rank-label").textContent = rank.sub;
+    document.getElementById("result-score").textContent = correctCount + " / " + total + " 問正解";
+    document.getElementById("result-rate").textContent = "正答率 " + rate + "%";
+
+    var passBanner = document.getElementById("result-pass-banner");
+    var passText = document.getElementById("result-pass-text");
+    var passSub = document.getElementById("result-pass-sub");
+    var durationEl = document.getElementById("result-duration");
+    var retryExamBtn = document.getElementById("retry-exam-btn");
+    var retryWrongBtn = document.getElementById("retry-wrong-btn");
+    var isExam = session.mode === "exam";
+
+    if (isExam) {
+      var passed = rate >= PASS_RATE;
+      passBanner.classList.remove("hidden");
+      passBanner.classList.remove("pass", "fail");
+      passBanner.classList.add(passed ? "pass" : "fail");
+      passText.textContent = passed ? "合格" : "不合格";
+      passSub.textContent = (session.examType || "") + "　合格ライン " + PASS_RATE + "%";
+
+      var elapsedSec = Math.round((Date.now() - session.examStartedAt) / 1000);
+      if (elapsedSec < 0) elapsedSec = 0;
+      if (session.examTotalSec && elapsedSec > session.examTotalSec) elapsedSec = session.examTotalSec;
+      durationEl.style.display = "";
+      durationEl.textContent = "所要時間 " + formatTime(elapsedSec);
+
+      retryExamBtn.classList.remove("hidden");
+      // 模擬試験の「間違えた問題だけ再挑戦」はタイマー付き本番形式と噛み合わないため、
+      // このモードでは「もう一度同じ試験」に一本化する。
+      retryWrongBtn.classList.add("hidden");
+    } else {
+      passBanner.classList.add("hidden");
+      durationEl.style.display = "none";
+      retryExamBtn.classList.add("hidden");
+    }
+
+    var wrongListEl = document.getElementById("result-wrong-list");
+    var wrongCard = document.getElementById("result-wrong-card");
+    wrongListEl.innerHTML = "";
+
+    if (session.wrongQuestions.length === 0) {
+      wrongCard.classList.add("hidden");
+      retryWrongBtn.classList.add("hidden");
+    } else {
+      wrongCard.classList.remove("hidden");
+      if (!isExam) retryWrongBtn.classList.remove("hidden");
+      session.wrongQuestions.forEach(function (q) {
+        var item = document.createElement("div");
+        item.className = "wrong-list-item";
+        var qEl = document.createElement("div");
+        qEl.className = "wrong-q";
+        qEl.textContent = "Q. " + q.question;
+        var aEl = document.createElement("div");
+        aEl.className = "wrong-a";
+        aEl.textContent = "A. " + q.answer;
+        item.appendChild(qEl);
+        item.appendChild(aEl);
+        wrongListEl.appendChild(item);
+      });
+    }
+
+    showScreen("screen-result");
+  }
+
+  document.getElementById("retry-wrong-btn").addEventListener("click", function () {
+    var retryQuestions = session.wrongQuestions.slice();
+    var retryMode = session.mode;
+
+    session.mode = retryMode;
+    session.questions = retryQuestions;
+    session.index = 0;
+    session.answered = [];
+    session.wrongQuestions = [];
+    session.finished = false;
+
+    if (retryMode === "quiz") {
+      startQuizScreen();
+    } else if (retryMode === "mixed") {
+      startMixedSession();
+    } else {
+      startFlashScreen();
+    }
+  });
+
+  document.getElementById("retry-exam-btn").addEventListener("click", function () {
+    if (!session.examType) {
+      showScreen("screen-home");
+      return;
+    }
+    onStartExam(session.examType);
+  });
+
+  document.getElementById("back-home-btn").addEventListener("click", function () {
+    renderHomeStats();
+    showScreen("screen-home");
+  });
+
+  document.getElementById("error-back-btn").addEventListener("click", function () {
+    renderHomeStats();
+    showScreen("screen-home");
+  });
+
+  // ---------------------------------------------------------------
+  // 模擬試験：ホーム導線・試験選択画面の初期化
+  // ---------------------------------------------------------------
+  function initExamControls() {
+    renderExamSelectCounts();
+
+    var examEntryBtn = document.getElementById("exam-entry-btn");
+    if (examEntryBtn) {
+      examEntryBtn.addEventListener("click", function () {
+        showScreen("screen-exam-select");
+      });
+    }
+
+    var examBackBtn = document.getElementById("exam-select-back-btn");
+    if (examBackBtn) {
+      examBackBtn.addEventListener("click", function () {
+        showScreen("screen-home");
+      });
+    }
+
+    Object.keys(EXAM_TYPE_ELEMENT_ID).forEach(function (type) {
+      var prefix = EXAM_TYPE_ELEMENT_ID[type];
+      var btn = document.getElementById(prefix + "-btn");
+      if (btn) {
+        btn.addEventListener("click", function () { onStartExam(type); });
+      }
+    });
+  }
+
+  // ---------------------------------------------------------------
+  // 初期化
+  // ---------------------------------------------------------------
+  initHomeControls();
+  initExamControls();
+})();
+</script>
+</body>
+</html>

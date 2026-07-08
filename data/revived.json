@@ -1,0 +1,543 @@
+[
+  {
+    "page": 2,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "ナルトがイタチに幻術をかけられたときに起こったことは",
+    "answer": "ナルトの顔右半分がイタチのじゅいん2の状態になった\nお腹からサクラがでてきた\n左腕からかかし先生がでてきた\n左手ががあらの目になった",
+    "choices": null,
+    "exam": null,
+    "source": "PDF再読解"
+  },
+  {
+    "page": 5,
+    "volume": "ナルト44 45 46 47巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "八門はなんというか",
+    "answer": "杜門",
+    "choices": null,
+    "exam": null,
+    "source": "PDF再読解"
+  },
+  {
+    "page": 10,
+    "volume": "ナルト36巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "秘技　十機近松の集団の数と同じ数のくぐつがいるか",
+    "answer": "指の数",
+    "choices": null,
+    "exam": null,
+    "source": "PDF再読解"
+  },
+  {
+    "page": 10,
+    "volume": "ナルト36巻",
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "サソリの使った赤秘技　百機の操演はなにを落としたか",
+    "answer": "一国",
+    "choices": null,
+    "exam": null,
+    "source": "PDF再読解"
+  },
+  {
+    "page": 16,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "難",
+    "question": "変化と木の葉からみょうぼくざんまでどの位かかるか",
+    "answer": "1ヶ月",
+    "choices": null,
+    "exam": null,
+    "source": "PDF再読解"
+  },
+  {
+    "page": 16,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "カカシがねかを助けたときにピストルもらったペインは",
+    "answer": "修羅道",
+    "choices": null,
+    "exam": null,
+    "source": "PDF再読解"
+  },
+  {
+    "page": 19,
+    "volume": null,
+    "category": "原作一問一答",
+    "difficulty": "普",
+    "question": "イルカの父・母",
+    "answer": "父：うみのイッカク\n母：コハル",
+    "choices": null,
+    "exam": null,
+    "source": "PDF再読解"
+  },
+  {
+    "page": 36,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "次の内、金角と銀角が持っていない忍具はどれか？",
+    "answer": "琥珀の浄瓶",
+    "choices": [
+      "幌金縄",
+      "芭蕉扇",
+      "七星剣",
+      "琥珀の浄瓶"
+    ],
+    "exam": "上忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 36,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "忍組手では始まりと終わりに対戦相手と印を結ぶが、それは対立の印ともう一つは何か？",
+    "answer": "和解の印",
+    "choices": [
+      "信頼の印",
+      "和睦の印",
+      "和解の印",
+      "友情の印"
+    ],
+    "exam": "上忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 36,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "戦争中、忍連合の医療部隊に潜入したゼツは誰に変化していたか？",
+    "answer": "日向ネジ",
+    "choices": [
+      "春野サクラ",
+      "日向ネジ",
+      "シズネ",
+      "トントン"
+    ],
+    "exam": "上忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 39,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "薬師カブトを止めるためうちはイタチが放った、敵を時の無限ループに閉じ込める術は何か？",
+    "answer": "イザナミ",
+    "choices": [
+      "イザナギ",
+      "別天神",
+      "無限月読",
+      "イザナミ"
+    ],
+    "exam": "上忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 39,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "サスケは一度倒した大蛇丸を解邪法印によって復活させた。その際大蛇丸は誰の身体から出てきたか？",
+    "answer": "薬師カブト",
+    "choices": [
+      "薬師カブト",
+      "みたらしアンコ",
+      "うちはイタチ",
+      "重吾"
+    ],
+    "exam": "上忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 43,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "ペインの攻撃で崩壊した木ノ葉隠れの里を復興させるために、ヤマトが使用した術は何か？",
+    "answer": "木遁・連柱家の術",
+    "choices": [
+      "木遁・四柱牢の術",
+      "木遁・連柱家の術",
+      "木遁秘術・樹界降誕",
+      "木遁・建築家の術"
+    ],
+    "exam": "上忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 43,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "志村ダンゾウが右目に移植した写輪眼は誰のものか？",
+    "answer": "うちはシスイ",
+    "choices": [
+      "うちはイタチ",
+      "うちはカガミ",
+      "うちはシスイ",
+      "うちはマダラ"
+    ],
+    "exam": "上忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 44,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "難",
+    "question": "雷影が代々受け継ぐ名は次の内どれか?",
+    "answer": "エー",
+    "choices": [
+      "エー",
+      "ビー",
+      "デー",
+      "シー"
+    ],
+    "exam": "上忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 48,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "日向ネジが額に呪印を刻まれたのは何歳の時か?",
+    "answer": "4歳",
+    "choices": [
+      "3歳",
+      "4歳",
+      "5歳",
+      "6歳"
+    ],
+    "exam": "中忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 48,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "夜叉丸が我愛羅に、心の傷を癒すのは愛情だけだと説明する場面で、自身の身体の一部を傷つけた。それはどこか?",
+    "answer": "右手薬指",
+    "choices": [
+      "右手薬指",
+      "左手薬指",
+      "右腕",
+      "左腕"
+    ],
+    "exam": "中忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 54,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "薬と間違えてお酒を飲んでしまったロック・リーがかわした君麻呂の術はどれ?",
+    "answer": "唐松の舞",
+    "choices": [
+      "唐松の舞",
+      "十指穿弾",
+      "椿の舞",
+      "早蕨の舞"
+    ],
+    "exam": "中忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 54,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "サスケが里を離れた次の日、サクラが発見されたのは何時頃?",
+    "answer": "四時",
+    "choices": [
+      "四時",
+      "五時",
+      "六時",
+      "七時"
+    ],
+    "exam": "中忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 55,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "サスケ奪還作戦の際、シカマルが考えたフォーメーションでは、ナルトが確認する警戒範囲はどこだった?",
+    "answer": "右",
+    "choices": [
+      "前方",
+      "右",
+      "左",
+      "後方"
+    ],
+    "exam": "中忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 55,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "普",
+    "question": "音の四人衆の一人、次郎坊と戦うチョウジがトンガラシ丸を食べた後、片手で止めたのは次郎坊のどの攻撃?",
+    "answer": "岩撃",
+    "choices": [
+      "岩撃",
+      "昇撃掌",
+      "圧掌",
+      "崩掌"
+    ],
+    "exam": "中忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 72,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "タズナが完成させた橋の名前は次のうちどれか？",
+    "answer": "渡ると大橋",
+    "choices": [
+      "天橋立",
+      "ベイブリッジ",
+      "渡ると大橋",
+      "日本橋"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 73,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "中忍選抜試験、第二試験を一番早くクリアしたチームのメンバーは次の内どれか？",
+    "answer": "我愛羅・カンクロウ・テマリ",
+    "choices": [
+      "ナルト・サスケ・サクラ",
+      "キバ・シノ・ヒナタ",
+      "シカマル・いの・チョウジ",
+      "我愛羅・カンクロウ・テマリ"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 74,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "我愛羅とカンクロウとテマリ、三人の関係はどれか？",
+    "answer": "兄弟",
+    "choices": [
+      "兄弟",
+      "幼馴染",
+      "同級生",
+      "親子"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 74,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "日向家が受け継いできた血継限界はどれか？",
+    "answer": "白眼",
+    "choices": [
+      "光眼",
+      "輝眼",
+      "透眼",
+      "白眼"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 75,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "綱手の弟は次の内どれか？",
+    "answer": "縄樹",
+    "choices": [
+      "辰樹",
+      "綱樹",
+      "縄樹",
+      "斉史"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 76,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "サスケを連れ戻すことを諦めるのが忍として賢い選択だと自来也に言われたとき、ナルトが言った言葉は次の内どれか？",
+    "answer": "「オレが諦めるのを諦めろ！」",
+    "choices": [
+      "「賢いだけじゃ火影になれない」",
+      "「オレが諦めるのを諦めろ！」",
+      "「賢いってのがそういうことなら・・・オレは一生バカでいい・・・」",
+      "「オレはバカだから、意地でもサスケを連れ戻す・・！！」"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 78,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "中忍選抜試験、本戦にて、うちはサスケvs我愛羅の結果は次の内どれか？",
+    "answer": "中止",
+    "choices": [
+      "うちはサスケの勝利",
+      "我愛羅の勝利",
+      "引き分け",
+      "中止"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 79,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "ナルトが螺旋丸の修業で使ったものは次の内どれか？",
+    "answer": "水風船",
+    "choices": [
+      "綿あめ",
+      "火薬玉",
+      "イカ焼きのクシ",
+      "水風船"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 80,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "我愛羅の砂の説明で誤っているのはどれか？",
+    "answer": "砂は我愛羅の意思がなければ動かない",
+    "choices": [
+      "防御にも攻撃にも使うことが出来る",
+      "目の形をした砂に、視神経をつなげて第三の目として使うことが出来る",
+      "砂の上に乗り浮くことが出来る",
+      "砂は我愛羅の意思がなければ動かない"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 81,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "ナルトが我愛羅との戦闘中に口寄せした、ガマ吉の父親は次の内どれか？",
+    "answer": "ガマブン太",
+    "choices": [
+      "ガマカ",
+      "ガマケン",
+      "ガマヒロ",
+      "ガマブン太"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 81,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "伝説の三忍に当てはまらない人物は次の内誰か？",
+    "answer": "はたけカカシ",
+    "choices": [
+      "はたけカカシ",
+      "自来也",
+      "綱手",
+      "大蛇丸"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 83,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "大蛇丸との戦いの際、三代目火影が口寄せしたのは次の内どれか？",
+    "answer": "猿魔",
+    "choices": [
+      "仙猿",
+      "猿魔",
+      "狒狒王",
+      "孫悟空"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 83,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "秋道一族には、飲めば爆発的なパワーを得ることができる秘伝の丸薬があるが、この丸薬に含まれないものは次のうちどれか？",
+    "answer": "キャベツ丸",
+    "choices": [
+      "ホウレン丸",
+      "カレー丸",
+      "キャベツ丸",
+      "トンガラシ丸"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 84,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "サスケ奪還作戦において、対戦した組み合わせで誤っているのはどれか？",
+    "answer": "多由也VSうずまきナルト",
+    "choices": [
+      "次郎坊VS秋道チョウジ",
+      "左近・右近VS犬塚キバ",
+      "多由也VSうずまきナルト",
+      "鬼童丸VS日向ネジ"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  },
+  {
+    "page": 84,
+    "volume": null,
+    "category": "検定過去問",
+    "difficulty": "易",
+    "question": "次の内「五影」に含まれないのはどれか？",
+    "answer": "雨影",
+    "choices": [
+      "風影",
+      "火影",
+      "雷影",
+      "雨影"
+    ],
+    "exam": "下忍試験",
+    "source": "PDF再読解"
+  }
+]
