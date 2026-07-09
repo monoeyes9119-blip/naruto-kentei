@@ -1,0 +1,962 @@
+[
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "忍連合軍の総大将（総司令官）を務めたのは誰か？",
+    "answer": "四代目雷影・エー",
+    "source": "https://dic.pixiv.net/a/%E5%BF%8D%E9%80%A3%E5%90%88%E8%BB%8D",
+    "evidence": "総大将：四代目雷影・エー",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "忍連合軍で参謀総長を務めたのは誰か？",
+    "answer": "五代目火影・綱手",
+    "source": "https://dic.pixiv.net/a/%E5%BF%8D%E9%80%A3%E5%90%88%E8%BB%8D",
+    "evidence": "参謀総長：五代目火影・綱手",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "大蛇丸は第四次忍界大戦が始まった当初、この戦争をどのように捉えていたか？",
+    "answer": "他人の始めた戦争",
+    "source": "https://dic.pixiv.net/a/%E5%A4%A7%E8%9B%87%E4%B8%B8",
+    "evidence": "当初は第四次忍界大戦も『他人の始めた戦争』と興味を示さなかった",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "volume": null,
+    "question": "薬師カブトはうちはマダラを穢土転生で蘇らせる際、何を用いて肉体を全盛期以上に強化したか？",
+    "answer": "柱間細胞",
+    "source": "https://dic.pixiv.net/a/%E8%96%AC%E5%B8%AB%E3%82%AB%E3%83%96%E3%83%88",
+    "evidence": "柱間細胞を用いて肉体を全盛期以上に強化していることをマダラに告げ",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "穢土転生された千手扉間は、うずまきナルトを見て「まるでかつての◯◯を見ているようだ」と言ったが、◯◯に入る言葉は何か？",
+    "answer": "兄者",
+    "source": "https://dic.pixiv.net/a/%E5%8D%83%E6%89%8B%E6%89%89%E9%96%93",
+    "evidence": "うずまきナルト……まるでかつての兄者を見ているようだ",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "第四次忍界大戦に途中から参戦したキラービーが、ナルトとの2人組で戦った、穢土転生されたイタチとともに現れた人物は誰か？",
+    "answer": "長門",
+    "source": "https://dic.pixiv.net/a/%E3%82%AD%E3%83%A9%E3%83%BC%E3%83%93%E3%83%BC%28NARUTO%29",
+    "evidence": "ナルトの本体との2人組で穢土転生されたイタチと長門と交戦します",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "忍連合軍の先発偵察隊を率いたのは誰か？",
+    "answer": "みたらしアンコ",
+    "source": "https://dic.pixiv.net/a/%E5%BF%8D%E9%80%A3%E5%90%88%E8%BB%8D",
+    "evidence": "先発偵察隊は「みたらしアンコ」が率いています。",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "第四次忍界大戦で編成された忍連合軍の総兵力はどれくらいとされているか？",
+    "answer": "約8万",
+    "source": "https://dic.pixiv.net/a/%E5%BF%8D%E9%80%A3%E5%90%88%E8%BB%8D",
+    "evidence": "総兵力は約8万。",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "トビ（うちはオビト）の正体が判明したのは、ナルトの何によって仮面が破壊されたことによるか？",
+    "answer": "螺旋丸",
+    "source": "https://dic.pixiv.net/a/%E3%81%86%E3%81%A1%E3%81%AF%E3%82%AA%E3%83%93%E3%83%88",
+    "evidence": "ナルトの螺旋丸によって面が破壊され、遂に正体が露呈",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "トビの正体がうちはオビトだと判明した際、はたけカカシが発した言葉は何か？",
+    "answer": "オビト…？",
+    "source": "https://dic.pixiv.net/a/%E3%81%86%E3%81%A1%E3%81%AF%E3%82%AA%E3%83%93%E3%83%88",
+    "evidence": "カカシの台詞として「オビト…？」という反応が引用されており",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "うちはオビトが十尾の人柱力となった際、精神が乗っ取られそうになるのを持ちこたえた支えは何だったか？",
+    "answer": "リンへの愛やミナト班での思い出",
+    "source": "https://dic.pixiv.net/a/%E3%81%86%E3%81%A1%E3%81%AF%E3%82%AA%E3%83%93%E3%83%88",
+    "evidence": "リンへの愛やミナト班での思い出を支えに持ちこたえ、十尾の人柱力となる",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "忍連合軍の本部が置かれたのはどこの里か？",
+    "answer": "雲隠れの里",
+    "source": "https://dic.pixiv.net/a/%E5%BF%8D%E9%80%A3%E5%90%88%E8%BB%8D",
+    "evidence": "本部は雲隠れの里。",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "volume": null,
+    "question": "十尾の最終形態である神樹に咲く花は、何という植物に酷似しているとされるか？",
+    "answer": "ラフレシア",
+    "source": "https://dic.pixiv.net/a/%E5%8D%81%E5%B0%BE",
+    "evidence": "その花は「ラフレシア」に酷似しており",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "穢土転生されていたうちはマダラを、生身の肉体へと蘇生させた術の名前は何か？",
+    "answer": "輪廻天生",
+    "source": "https://dic.pixiv.net/a/%E3%81%86%E3%81%A1%E3%81%AF%E3%83%9E%E3%83%80%E3%83%A9",
+    "evidence": "輪廻天生の術でマダラを生身の肉体へと蘇生させた",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "黒ゼツが自らの正体を明かした際の台詞「オレノ意志ハ─────◯◯ダ」の◯◯に入る名前は何か？",
+    "answer": "カグヤ",
+    "source": "https://dic.pixiv.net/a/%E3%81%86%E3%81%A1%E3%81%AF%E3%83%9E%E3%83%80%E3%83%A9",
+    "evidence": "「オレノ意志ハ─────カグヤダ」と述べ、黒ゼツはカグヤの意志の化身であり",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "volume": null,
+    "question": "白ゼツの正体は、大筒木カグヤが過去に行った何という術に取り込まれた人々の成れの果てとされているか？",
+    "answer": "無限月読",
+    "source": "https://dic.pixiv.net/a/%E3%82%BC%E3%83%84",
+    "evidence": "白ゼツはカグヤが過去に行った無限月読に取り込まれた人々の成れの果て",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "volume": null,
+    "question": "うちはマダラは千手柱間との戦闘中、柱間の細胞をどのようにして自分の体内に取り込んだか？",
+    "answer": "食いちぎった柱間の細胞を吐き戻し、それを傷口に移植した",
+    "source": "https://dic.pixiv.net/a/%E3%81%86%E3%81%A1%E3%81%AF%E3%83%9E%E3%83%80%E3%83%A9",
+    "evidence": "戦いの中で食いちぎった柱間の細胞を吐き戻し、それを傷口に移植した",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "日向ネジは第四次忍界大戦で、十尾の攻撃から誰と誰を庇って致命傷を負ったか？",
+    "answer": "ナルトとヒナタ",
+    "source": "https://dic.pixiv.net/a/%E6%97%A5%E5%90%91%E3%83%8D%E3%82%B8",
+    "evidence": "十尾の攻撃からナルトとヒナタを庇い、致命傷を追う",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "日向ネジが死の直前にナルトへ残した「お前に…◯◯だと…言われたからだ」という言葉の◯◯に入る言葉は何か？",
+    "answer": "天才",
+    "source": "https://dic.pixiv.net/a/%E6%97%A5%E5%90%91%E3%83%8D%E3%82%B8",
+    "evidence": "お前に…天才だと…言われたからだ…",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "うちはマダラは最期、誰に看取られながら三度目の死を迎えたか？",
+    "answer": "柱間",
+    "source": "https://dic.pixiv.net/a/%E3%81%86%E3%81%A1%E3%81%AF%E3%83%9E%E3%83%80%E3%83%A9",
+    "evidence": "最期は柱間と「少年時代の夢」のことをわずかながら語らい、友に看取られながら三度目の死を迎えた。",
+    "_source_file": "batch4_war.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "千鳥の性質を全身に纏わせ、触れた相手に電流を流す派生忍術「千鳥流し」を、作中で主に使用するのは誰か？",
+    "answer": "うちはサスケ",
+    "source": "https://dic.pixiv.net/a/%E5%8D%83%E9%B3%A5%E6%B5%81%E3%81%97",
+    "evidence": "作中ではもっぱらうちはサスケが使用しているが、後述の通り、類似した技は他のキャラクターも使用している。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "うちはサスケがうちはイタチを倒すために独自に開発した、雷雲を生じさせて落雷を放つオリジナルの雷遁忍術を何というか？",
+    "answer": "麒麟",
+    "source": "https://dic.pixiv.net/a/%E9%BA%92%E9%BA%9F(NARUTO)",
+    "evidence": "ページタイトル「麒麟(NARUTO)」の解説：うちはサスケが打倒うちはイタチのために開発したオリジナルの雷遁忍術。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "はたけカカシの十八番として知られる技「雷切」は、元々は何という名前の術だったか？",
+    "answer": "千鳥",
+    "source": "https://dic.pixiv.net/a/%E9%9B%B7%E5%88%87",
+    "evidence": "カカシの使用する千鳥のみ雷切に改名されている",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "はたけカカシは、写輪眼で千種類以上の術を写し取ってきたことから何と呼ばれる異名を持つか（「〇〇忍者のカカシ」）？",
+    "answer": "コピー忍者のカカシ",
+    "source": "https://dic.pixiv.net/a/%E3%81%AF%E3%81%9F%E3%81%91%E3%82%AB%E3%82%AB%E3%82%B7",
+    "evidence": "1000種類以上の技を写し取り自分の技にしてきたため「写輪眼のカカシ」又は「コピー忍者のカカシ」の異名で呼ばれ",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "日向一族の白眼はほぼ360度の視界を持つが、死角となるのは体のどの部分にあるわずかな点か？",
+    "answer": "第一胸椎",
+    "source": "https://dic.pixiv.net/a/%E7%99%BD%E7%9C%BC",
+    "evidence": "第一胸椎の僅かな点から広がる死角も存在する",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "写輪眼の瞳の中にある勾玉模様は瞳力の成長とともに増えていくが、完成した状態では何個になるか？",
+    "answer": "3つ",
+    "source": "https://dic.pixiv.net/a/%E5%86%99%E8%BC%AA%E7%9C%BC",
+    "evidence": "この勾玉は開眼当初は1～2つだが瞳力の成長と共に増えていき３つで完成。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "干柿鬼鮫が、自分自身が収まるほど巨大な水の鮫を口内に形成して放つ、代表的な水遁忍術を何というか？",
+    "answer": "水鮫弾の術",
+    "source": "https://dic.pixiv.net/a/%E5%B9%B2%E6%9F%BF%E9%AC%BC%E9%AE%AB",
+    "evidence": "鬼鮫は「水遁・水鮫弾の術」で攻撃をし、アスマのピンチかのように思われたが、そこへ駆けつけたカカシの写輪眼でコピーされて相殺した。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "三代目風影が持つ、チャクラを磁力に変換して鉄砂を操る血継限界を何というか？",
+    "answer": "磁遁",
+    "source": "https://dic.pixiv.net/a/%E4%B8%89%E4%BB%A3%E7%9B%AE%E9%A2%A8%E5%BD%B1",
+    "evidence": "チャクラを磁力に変えることができる特殊な体質を利用し、「血継限界」である磁遁を使用した。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "綱手が口寄せの術で呼び出す「カツユ」は、どのような生物か？",
+    "answer": "ナメクジ",
+    "source": "https://dic.pixiv.net/a/%E3%82%AB%E3%83%84%E3%83%A6",
+    "evidence": "綱手が呼び出す際はガマブン太やマンダに匹敵する巨大なナメクジなのだが",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "山中一族に伝わる秘伝忍術で、自らの精神を敵の体に移して操ることができる術を何というか？",
+    "answer": "心転身の術",
+    "source": "https://narutonti.com/%E5%BF%83%E8%BB%A2%E8%BA%AB%E3%81%AE%E8%A1%93/",
+    "evidence": "心転身の術は山中一族に伝わる秘伝忍術で山中いのの得意忍術。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "奈良一族に伝わる秘伝忍術で、自分の影を伸ばして相手に触れさせ、同じ動きを強制する術を何というか？",
+    "answer": "影真似の術",
+    "source": "https://narutonti.com/%E5%BD%B1%E7%9C%9F%E4%BC%BC%E3%81%AE%E8%A1%93/",
+    "evidence": "影真似の術は奈良一族の秘伝忍術で奈良シカマルの代名詞的な忍術。自分の影の形を自在に操り影をつなげた相手に自分と同じ動きを強いる。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "四代目火影・波風ミナトが十八番とした、あらかじめマーキングした場所へ瞬間移動する時空間忍術を何というか？",
+    "answer": "飛雷神の術",
+    "source": "https://dic.pixiv.net/a/%E6%B3%A2%E9%A2%A8%E3%83%9F%E3%83%8A%E3%83%88",
+    "evidence": "得意忍術は「瞬身の術」と、マーキングをつけた場所に飛ぶ「飛雷神の術」であり、開発者の千手扉間からは自分以上の瞬身使いだと認められている。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "初代火影・千手柱間がうちはマダラとの戦いで使用した、巨大な木造の千手観音像を生み出す木遁忍術を何というか？",
+    "answer": "木遁・真数千手",
+    "source": "https://narutonti.com/%E6%9C%A8%E9%81%81%E3%83%BB%E7%9C%9F%E6%95%B0%E5%8D%83%E6%89%8B/",
+    "evidence": "木遁・真数千手は初代火影・千手柱間の木遁忍術の一つで木の葉隠れの里の創設後、里を抜けて襲撃してきたうちはマダラとの戦いで使用した術。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "五代目水影・照美メイが持つ、火・水・土のチャクラ性質から成る二つの血継限界は何か？",
+    "answer": "溶遁と沸遁",
+    "source": "https://dic.pixiv.net/a/%E7%85%A7%E7%BE%8E%E3%83%A1%E3%82%A4",
+    "evidence": "火遁系、水遁系、土遁系の3つのチャクラ性質を持っており、溶遁と沸遁という二つの血継限界を使用できる。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "我愛羅が背負う瓢箪の中の特別な砂で、意識しなくても自動的に身の回りへシールドを張り攻撃を防ぐ忍術を何というか？",
+    "answer": "砂の盾",
+    "source": "https://mangapedia.com/gd/k1j4j1757",
+    "evidence": "「砂の盾（すなのたて）」は「我愛羅」が背中に背負う瓢箪の中にある「チャクラ」が混ぜ込まれた特別な砂で身の回りにシールドを張る忍術。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "猿飛ヒルゼンは、忍術・幻術・体術を極め木ノ葉の忍術の多くを体得していたことから、「教授（プロフェッサー）」とは別に何と称されたか？",
+    "answer": "忍の神",
+    "source": "https://www.shurigekijou.com/naruto-hiruzen-character/",
+    "evidence": "忍術・幻術・体術という忍者の三大技術すべてを極め、さらに木ノ葉の忍術の多くを習得・体得していたからこそ……最大級の敬称「忍の神」に相応しいとされています。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "日向ネジが用いる、64発の柔拳で相手の点穴を突いてチャクラの流れを封じる日向一族柔拳の奥義を何というか？",
+    "answer": "八卦六十四掌",
+    "source": "https://narutonti.com/%E5%85%AB%E5%8D%A6%E5%85%AD%E5%8D%81%E5%9B%9B%E6%8E%8C/",
+    "evidence": "八卦六十四掌は日向一族の柔拳の中でも高位の術であり、白眼により全身に361ある点穴を見抜き、次々と突くことで相手をまともにチャクラを練れない状態にする。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "うちはイタチが口寄せしたカラスを媒体にすることでチャクラの消費を抑えて作り出す分身術を何というか？",
+    "answer": "烏分身の術",
+    "source": "https://narutonti.com/%E3%81%86%E3%81%A1%E3%81%AF%E3%82%A4%E3%82%BF%E3%83%81/",
+    "evidence": "烏分身の術　-口寄せカラスを使った分身術。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "干柿鬼鮫が水鮫弾の術をさらに強化し、千匹もの鮫型の水弾を大波のように放つ術を何というか？",
+    "answer": "水遁・千食鮫",
+    "source": "https://dic.pixiv.net/a/%E5%B9%B2%E6%9F%BF%E9%AC%BC%E9%AE%AB",
+    "evidence": "より強力なバリエーションとして「水遁・五食鮫」と「水遁・千食鮫」があり、前者は一度に五匹の水鮫弾を放ち、後者は千匹の鮫型の水弾を大波のようにして敵に叩き付けるとされています。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "飛雷神の術を初めて開発した、二代目火影は誰か？",
+    "answer": "千手扉間",
+    "source": "https://dic.pixiv.net/a/%E9%A3%9B%E9%9B%B7%E7%A5%9E%E3%81%AE%E8%A1%93",
+    "evidence": "二代目火影・千手扉間が開発した、口寄せの術の原理を応用した時空間忍術であり、あらかじめチャクラによりマーキングした場所・対象まで瞬間移動する術。",
+    "_source_file": "batch4_jutsu.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "大蛇丸のかつての部下である君麻呂が、死んでもその心の中に留まると誓うほど絶対的な忠誠を誓っていた相手は誰か？",
+    "answer": "大蛇丸",
+    "source": "https://dic.pixiv.net/a/%E5%90%9B%E9%BA%BB%E5%91%82",
+    "evidence": "以後、大蛇丸を崇拝し、彼の為なら命をも投げ出すことをも厭わない。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "秋道チョウジの実父で、奈良シカク・山中いのいちと共に「猪鹿蝶」トリオを組んでいた人物は誰か？",
+    "answer": "秋道チョウザ",
+    "source": "https://dic.pixiv.net/a/%E7%A7%8B%E9%81%93%E3%83%81%E3%83%A7%E3%82%A6%E3%82%B6",
+    "evidence": "秋道チョウザ：漫画『NARUTO』の登場人物。秋道チョウジの実父。奈良シカク、山中いのいちとは昔からの交流があり、猪鹿蝶で知られた。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "桃地再不斬は、霧隠れの忍者学校の卒業式最終試験で何を行ったことで知られているか？",
+    "answer": "同級生の皆殺し",
+    "source": "https://dic.pixiv.net/a/%E6%A1%83%E5%9C%B0%E5%86%8D%E4%B8%8D%E6%96%AC",
+    "evidence": "霧隠れの忍者学校卒業式の最終試験で同級生の皆殺しの凶行を行う。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "大蛇丸がサスケや音の五人衆に与えた呪印は、誰の体液がもとになって作られたものか？",
+    "answer": "重吾",
+    "source": "https://dic.pixiv.net/a/%E9%87%8D%E5%90%BE",
+    "evidence": "重吾：香燐によると呪印の唯一のオリジナルであり、大蛇丸がサスケや音の五人衆に与えた呪印は彼の体液から作られたものであるとのこと。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "香燐がうずまき一族の末裔であることは、誰の発言によって判明したか？",
+    "answer": "薬師カブト",
+    "source": "https://dic.pixiv.net/a/%E9%A6%99%E7%87%90",
+    "evidence": "薬師カブトの発言によって、うずまき一族の末裔であることが判明した。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "テンテンが「あんな強い忍者になりたい」と憧れている、伝説の三忍の一人は誰か？",
+    "answer": "綱手",
+    "source": "https://dic.pixiv.net/a/%E3%83%86%E3%83%B3%E3%83%86%E3%83%B3(NARUTO)",
+    "evidence": "あたしは伝説のくの一 綱手様のような………強い忍者になりたいなぁ…",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "山中いのの実父で、第四次忍界大戦で情報部隊隊長として戦死した人物は誰か？",
+    "answer": "山中いのいち",
+    "source": "https://dic.pixiv.net/a/%E5%B1%B1%E4%B8%AD%E3%81%84%E3%81%AE%E3%81%84%E3%81%A1",
+    "evidence": "山中いのいち：漫画『NARUTO』の登場人物。山中いのの実父。第四次忍界大戦では情報部隊の隊長として本部で忍連合軍の通信中継役を担っていましたが、十尾の尾獣玉によって本部を直接攻撃され戦死した。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "はたけカカシ・うちはオビトと同じミナト班に所属していたのはらリンは、霧隠れによって何の人柱力にされていたか？",
+    "answer": "三尾",
+    "source": "https://dic.pixiv.net/a/%E3%81%AE%E3%81%AF%E3%82%89%E3%83%AA%E3%83%B3",
+    "evidence": "リンは霧隠れに攫われ、三尾の人柱力にされていた。ミナト班のメンバーの一人。チームメイトははたけカカシとうちはオビト。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "日向ネジと日向ヒナタの血縁関係は何か？",
+    "answer": "従兄妹（いとこ）",
+    "source": "https://dic.pixiv.net/a/%E6%97%A5%E5%90%91%E3%83%8D%E3%82%B8",
+    "evidence": "父親同士が双子の兄弟のため、宗家の日向ヒナタとその妹の日向ハナビとは従兄妹の関係にあり",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "春野サクラが弟子入りし、医療忍術を学んだ五代目火影は誰か？",
+    "answer": "綱手",
+    "source": "https://dic.pixiv.net/a/%E6%98%A5%E9%87%8E%E3%82%B5%E3%82%AF%E3%83%A9",
+    "evidence": "五代目火影・綱手のもとへ弟子入りする。医療忍術を教わると共に、チャクラコントロールを活かした師匠譲りの怪力を身につけた。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "油女シノの父で、油女一族秘伝の奇壊蟲の術を得意とする人物は誰か？",
+    "answer": "油女シビ",
+    "source": "https://dic.pixiv.net/a/%E6%B2%B9%E5%A5%B3%E3%82%B7%E3%83%93",
+    "evidence": "油女シビ：木ノ葉隠れの上忍。油女一族の一員で油女シノの父。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "自来也・大蛇丸・綱手の3人に「伝説の三忍」（木ノ葉の三忍）の名を与えたのは誰か？",
+    "answer": "半蔵",
+    "source": "https://dic.pixiv.net/a/%E4%BC%9D%E8%AA%AC%E3%81%AE%E4%B8%89%E5%BF%8D",
+    "evidence": "当時の雨隠れの長\"山椒魚の半蔵\"から「木ノ葉の三忍」と名を与えられたことに由来する。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "サソリの両親を殺害した木ノ葉の忍は、何の異名で呼ばれていたか？",
+    "answer": "白い牙",
+    "source": "https://dic.pixiv.net/a/%E3%82%B5%E3%82%BD%E3%83%AA(NARUTO)",
+    "evidence": "幼少時に父親と母親を「木ノ葉の白い牙」に殺されており",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "犬塚キバの姉で、木ノ葉隠れの中忍として獣医を務める人物は誰か？",
+    "answer": "犬塚ハナ",
+    "source": "https://dic.pixiv.net/a/%E7%8A%AC%E5%A1%9A%E3%83%8F%E3%83%8A",
+    "evidence": "犬塚ハナとは、『NARUTO』のキャラクター。木ノ葉隠れの里の中忍。犬塚キバの姉で、獣医として活動している。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "忍刀七人衆の長十郎は、原作最終話で誰の後任として六代目水影に就任したか？",
+    "answer": "メイ",
+    "source": "https://dic.pixiv.net/a/%E9%95%B7%E5%8D%81%E9%83%8E",
+    "evidence": "原作最終話では、忍界大戦終結後にメイの後任として六代目水影に就任し、五影会談の場である木ノ葉の里に赴いている。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "鬼灯水月が忍刀七人衆を復活させて、自らその何に成ろうとしていたか？",
+    "answer": "リーダー",
+    "source": "https://dic.pixiv.net/a/%E5%BF%8D%E5%88%80%E4%B8%83%E4%BA%BA%E8%A1%86",
+    "evidence": "鬼灯水月は忍刀七人衆を復活させてそのリーダーになろうとしていた。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "自来也・大蛇丸・綱手（伝説の三忍）が下忍時代に師事していた、後の三代目火影は誰か？",
+    "answer": "猿飛ヒルゼン",
+    "source": "https://dic.pixiv.net/a/%E7%8C%BF%E9%A3%9B%E3%83%92%E3%83%AB%E3%82%BC%E3%83%B3",
+    "evidence": "猿飛ヒルゼンとは、漫画『NARUTO』の登場人物。三代目火影を務めた忍。二代目火影・千手扉間の弟子で、伝説の三忍と呼ばれることとなった千手綱手・自来也・大蛇丸の師。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "長門・弥彦・小南の3人が共に暮らすきっかけとなった、3人に共通する境遇は何か？",
+    "answer": "戦争孤児",
+    "source": "https://dic.pixiv.net/a/%E9%95%B7%E9%96%80(NARUTO)",
+    "evidence": "家族を失ってからは偶然出会った同じ戦争孤児である小南と弥彦と同居し",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "うちはイタチ・うちはサスケの父で、うちは一族の警備部隊隊長を務めていた人物は誰か？",
+    "answer": "うちはフガク",
+    "source": "https://dic.pixiv.net/a/%E3%81%86%E3%81%A1%E3%81%AF%E3%83%95%E3%82%AC%E3%82%AF",
+    "evidence": "うちはフガク：うちは一族の一人で、サスケ・イタチの父親であり、サラダの父方の祖父。警備部隊隊長で、木ノ葉隠れの里でも名の知れた忍で、他里からも兇眼フガクの二つ名で恐れられていた。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "うちはイタチ・うちはサスケの母親の名前は？",
+    "answer": "うちはミコト",
+    "source": "https://dic.pixiv.net/a/%E3%81%86%E3%81%A1%E3%81%AF%E3%83%9F%E3%82%B3%E3%83%88",
+    "evidence": "うちはミコト：うちはイタチ・うちはサスケの母親。うちはサラダの父方の祖母。",
+    "_source_file": "batch4_chara.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "公式データブックによると、春野サクラの誕生日は何月何日か？",
+    "answer": "3月28日",
+    "source": "https://dic.pixiv.net/a/%E6%98%A5%E9%87%8E%E3%82%B5%E3%82%AF%E3%83%A9",
+    "evidence": "誕生日：3月28日",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、春野サクラの忍者登録番号は何番か？",
+    "answer": "012601",
+    "source": "https://dic.pixiv.net/a/%E6%98%A5%E9%87%8E%E3%82%B5%E3%82%AF%E3%83%A9",
+    "evidence": "忍者登録番号：012601",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "公式データブックによると、はたけカカシの血液型は何型か？",
+    "answer": "O型",
+    "source": "https://dic.pixiv.net/a/%E3%81%AF%E3%81%9F%E3%81%91%E3%82%AB%E3%82%AB%E3%82%B7",
+    "evidence": "血液型：O型",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、はたけカカシの好きな食べ物は何か？",
+    "answer": "サンマの塩焼き、茄子の味噌汁",
+    "source": "https://dic.pixiv.net/a/%E3%81%AF%E3%81%9F%E3%81%91%E3%82%AB%E3%82%AB%E3%82%B7",
+    "evidence": "好きな食べ物: サンマの塩焼き、茄子の味噌汁",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "公式データブックによると、我愛羅の血液型は何型か？",
+    "answer": "AB型",
+    "source": "https://dic.pixiv.net/a/%E6%88%91%E6%84%9B%E7%BE%85",
+    "evidence": "血液型：AB型",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、我愛羅の好きな食べ物は何か？",
+    "answer": "砂肝、タン塩",
+    "source": "https://dic.pixiv.net/a/%E6%88%91%E6%84%9B%E7%BE%85",
+    "evidence": "好きな食べ物：「砂肝、タン塩」",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "公式データブックによると、奈良シカマルの誕生日は何月何日か？",
+    "answer": "9月22日",
+    "source": "https://dic.pixiv.net/a/%E5%A5%88%E8%89%AF%E3%82%B7%E3%82%AB%E3%83%9E%E3%83%AB",
+    "evidence": "誕生日: 9月22日",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、奈良シカマルの趣味は何か？",
+    "answer": "昼寝、将棋、碁",
+    "source": "https://dic.pixiv.net/a/%E5%A5%88%E8%89%AF%E3%82%B7%E3%82%AB%E3%83%9E%E3%83%AB",
+    "evidence": "趣味: 昼寝、将棋、碁",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "公式データブックによると、日向ヒナタの誕生日は何月何日か？",
+    "answer": "12月27日",
+    "source": "https://dic.pixiv.net/a/%E6%97%A5%E5%90%91%E3%83%92%E3%83%8A%E3%82%BF",
+    "evidence": "誕生日：12月27日",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、日向ヒナタの好きな食べ物は何か？",
+    "answer": "ぜんざい、シナモンロール",
+    "source": "https://dic.pixiv.net/a/%E6%97%A5%E5%90%91%E3%83%92%E3%83%8A%E3%82%BF",
+    "evidence": "好きな食べ物: ぜんざい、シナモンロール",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "公式データブックによると、ロック・リーの血液型は何型か？",
+    "answer": "A型",
+    "source": "https://dic.pixiv.net/a/%E3%83%AD%E3%83%83%E3%82%AF%E3%83%BB%E3%83%AA%E3%83%BC",
+    "evidence": "血液型　A型",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、ロック・リーの好きな食べ物は何か？",
+    "answer": "中辛カレーライス、カレーピラフ",
+    "source": "https://dic.pixiv.net/a/%E3%83%AD%E3%83%83%E3%82%AF%E3%83%BB%E3%83%AA%E3%83%BC",
+    "evidence": "好きな食べ物　中辛カレーライス、カレーピラフ",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、綱手の好きな食べ物は何か？",
+    "answer": "鳥のささみ、お酒",
+    "source": "https://dic.pixiv.net/a/%E5%8D%83%E6%89%8B%E7%B6%B1%E6%89%8B",
+    "evidence": "好きな食べ物：「鳥のささみ、お酒」",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、綱手の嫌いな食べ物は何か？",
+    "answer": "レバ刺し",
+    "source": "https://dic.pixiv.net/a/%E5%8D%83%E6%89%8B%E7%B6%B1%E6%89%8B",
+    "evidence": "嫌いな食べ物：「レバ刺し」",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、自来也の好きな食べ物は何か？",
+    "answer": "しそニンニク、鶏のからあげ",
+    "source": "https://dic.pixiv.net/a/%E8%87%AA%E6%9D%A5%E4%B9%9F(NARUTO)",
+    "evidence": "好きな食べ物：「しそニンニク、鶏のからあげ」",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、自来也の身長は何cmか？",
+    "answer": "191.2cm",
+    "source": "https://dic.pixiv.net/a/%E8%87%AA%E6%9D%A5%E4%B9%9F(NARUTO)",
+    "evidence": "身長：「191.2cm」",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "公式データブックによると、マイト・ガイの誕生日は何月何日か？",
+    "answer": "1月1日",
+    "source": "https://dic.pixiv.net/a/%E3%83%9E%E3%82%A4%E3%83%88%E3%83%BB%E3%82%AC%E3%82%A4",
+    "evidence": "誕生日：1月1日",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、マイト・ガイの好きな食べ物は何か？",
+    "answer": "激辛カレーライス、カレーうどん",
+    "source": "https://dic.pixiv.net/a/%E3%83%9E%E3%82%A4%E3%83%88%E3%83%BB%E3%82%AC%E3%82%A4",
+    "evidence": "好きな食べ物：「激辛カレーライス、カレーうどん」",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、山中いのの好きな食べ物は何か？",
+    "answer": "プチトマト、プリン",
+    "source": "https://dic.pixiv.net/a/%E5%B1%B1%E4%B8%AD%E3%81%84%E3%81%AE",
+    "evidence": "「プチトマト、プリン」",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "公式データブックによると、秋道チョウジの好きな言葉は何か？",
+    "answer": "肉",
+    "source": "https://dic.pixiv.net/a/%E7%A7%8B%E9%81%93%E3%83%81%E3%83%A7%E3%82%A6%E3%82%B8",
+    "evidence": "好きな言葉：「肉」",
+    "_source_file": "batch4_databook.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "木ノ葉隠れの里の治安維持のために創設され、うちは一族が代々中核を担っていた特別部隊の名称は？",
+    "answer": "木ノ葉警務部隊",
+    "source": "https://www.weblio.jp/content/木ノ葉警務部隊",
+    "evidence": "木ノ葉警務部隊とは、木ノ葉隠れの里での治安維持を目的として二代目火影・千手扉間が創設した特別部隊。",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "木ノ葉警務部隊を創設した二代目火影は誰か？",
+    "answer": "千手扉間",
+    "source": "https://www.weblio.jp/content/木ノ葉警務部隊",
+    "evidence": "木ノ葉警務部隊とは、木ノ葉隠れの里での治安維持を目的として二代目火影・千手扉間が創設した特別部隊。",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "大蛇丸が木ノ葉隠れの里を抜けた後、自らを長として創設した隠れ里は？",
+    "answer": "音隠れの里",
+    "source": "https://www.weblio.jp/content/音隠れの里",
+    "evidence": "第一部の約一年前に、大蛇丸を長とする音隠れの里ができたとされる。",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "かつて過酷な卒業試験や内乱・排他性から「血霧の里」と呼ばれ恐れられた隠れ里はどこか？",
+    "answer": "霧隠れの里",
+    "source": "https://dic.pixiv.net/a/血霧の里",
+    "evidence": "血霧の里とは、霧隠れの里の別称である。",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "霧隠れの里の初代水影は誰か？",
+    "answer": "白蓮",
+    "source": "https://dic.pixiv.net/a/血霧の里",
+    "evidence": "島国ゆえの島国根性から来る閉鎖性や霧隠れの里の初代水影・白蓮の厳格さが災いして他国他里との交流が途絶える故の不気味さ",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "雲隠れの里があるのは、五大国のうちどの国か？",
+    "answer": "雷の国",
+    "source": "https://dic.pixiv.net/a/雲隠れ",
+    "evidence": "「雷の国」と呼ばれる国に存在する忍の隠れ里。",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "岩隠れの里があるのは、五大国のうちどの国か？",
+    "answer": "土の国",
+    "source": "https://dic.pixiv.net/a/岩隠れ",
+    "evidence": "五大国の1つに数えられる「土の国」と呼ばれる国に存在する忍の隠れ里。",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "砂隠れの里があるのは、五大国のうちどの国か？",
+    "answer": "風の国",
+    "source": "https://dic.pixiv.net/a/砂隠れ",
+    "evidence": "「風の国」と呼ばれる国に存在する忍の隠れ里。",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "木ノ葉隠れの里は、千手一族とどの一族の同盟によって創設されたか？",
+    "answer": "うちは一族",
+    "source": "https://dic.pixiv.net/a/木ノ葉隠れ",
+    "evidence": "元々は森林地帯であったが千手一族とうちは一族によって拓かれ里が創設された",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "「木ノ葉隠れの里」という名称を考えたのは誰か？",
+    "answer": "うちはマダラ",
+    "source": "https://dic.pixiv.net/a/木ノ葉隠れ",
+    "evidence": "『木ノ葉隠れの里』という名称を考えたのはうちはマダラである。",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "暁という組織を元々結成したのは、雨隠れの誰か？",
+    "answer": "弥彦（やひこ）",
+    "source": "https://dic.pixiv.net/a/暁(NARUTO)",
+    "evidence": "実は元々暁という組織は、雨隠れの弥彦が結成した",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "忍者の世界で、所属していた里や忍者集団を脱退した忍者のことを何と呼ぶか？",
+    "answer": "抜け忍",
+    "source": "https://dic.pixiv.net/a/抜け忍",
+    "evidence": "抜け忍とは、所属する忍者集団を脱退した忍者のこと。",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "香燐（カリン）が中忍試験を受けた当時に所属していた隠れ里はどこか？",
+    "answer": "草隠れ",
+    "source": "https://dic.pixiv.net/a/草隠れ",
+    "evidence": "元は戦火に消えた村の出身で草隠れに流れてきて草忍になった経緯あり。中忍試験後に大蛇丸に救われて音隠れに移る。",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "うずまき一族の故郷であり、火の国の同盟国であった国はどこか？",
+    "answer": "渦の国",
+    "source": "https://dic.pixiv.net/a/うずまき一族",
+    "evidence": "火の国の同盟国『渦の国』の渦潮隠れの忍一族。",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "volume": null,
+    "question": "雨隠れの里は、大国である火の国・風の国・土の国に囲まれた何と呼ばれる規模の国に存在するか？",
+    "answer": "小国",
+    "source": "https://dic.pixiv.net/a/雨隠れ",
+    "evidence": "大国である火の国、風の国、土の国に囲まれた小国に存在",
+    "_source_file": "batch4_world.json"
+  },
+  {
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "volume": null,
+    "question": "五大国の里の首長5人を総称して何と呼ぶか？",
+    "answer": "五影",
+    "source": "https://dic.pixiv.net/a/五影",
+    "evidence": "漫画『NARUTO』に登場する五大国の里の首長の総称。pixivでは五影の集合イラストのタグとして付けられる。",
+    "_source_file": "batch4_world.json"
+  }
+]

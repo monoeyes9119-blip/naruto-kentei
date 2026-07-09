@@ -5895,13 +5895,781 @@ const QUESTIONS = [
   {
     "id": 588,
     "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "忍連合軍の総大将（総司令官）を務めたのは誰か？",
+    "answer": "四代目雷影・エー"
+  },
+  {
+    "id": 589,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "忍連合軍で参謀総長を務めたのは誰か？",
+    "answer": "五代目火影・綱手"
+  },
+  {
+    "id": 590,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "大蛇丸は第四次忍界大戦が始まった当初、この戦争をどのように捉えていたか？",
+    "answer": "他人の始めた戦争"
+  },
+  {
+    "id": 591,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "薬師カブトはうちはマダラを穢土転生で蘇らせる際、何を用いて肉体を全盛期以上に強化したか？",
+    "answer": "柱間細胞"
+  },
+  {
+    "id": 592,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "穢土転生された千手扉間は、うずまきナルトを見て「まるでかつての◯◯を見ているようだ」と言ったが、◯◯に入る言葉は何か？",
+    "answer": "兄者"
+  },
+  {
+    "id": 593,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "第四次忍界大戦に途中から参戦したキラービーが、ナルトとの2人組で戦った、穢土転生されたイタチとともに現れた人物は誰か？",
+    "answer": "長門"
+  },
+  {
+    "id": 594,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "忍連合軍の先発偵察隊を率いたのは誰か？",
+    "answer": "みたらしアンコ"
+  },
+  {
+    "id": 595,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "第四次忍界大戦で編成された忍連合軍の総兵力はどれくらいとされているか？",
+    "answer": "約8万"
+  },
+  {
+    "id": 596,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "トビ（うちはオビト）の正体が判明したのは、ナルトの何によって仮面が破壊されたことによるか？",
+    "answer": "螺旋丸"
+  },
+  {
+    "id": 597,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "トビの正体がうちはオビトだと判明した際、はたけカカシが発した言葉は何か？",
+    "answer": "オビト…？"
+  },
+  {
+    "id": 598,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "うちはオビトが十尾の人柱力となった際、精神が乗っ取られそうになるのを持ちこたえた支えは何だったか？",
+    "answer": "リンへの愛やミナト班での思い出"
+  },
+  {
+    "id": 599,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "忍連合軍の本部が置かれたのはどこの里か？",
+    "answer": "雲隠れの里"
+  },
+  {
+    "id": 600,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "十尾の最終形態である神樹に咲く花は、何という植物に酷似しているとされるか？",
+    "answer": "ラフレシア"
+  },
+  {
+    "id": 601,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "穢土転生されていたうちはマダラを、生身の肉体へと蘇生させた術の名前は何か？",
+    "answer": "輪廻天生"
+  },
+  {
+    "id": 602,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "黒ゼツが自らの正体を明かした際の台詞「オレノ意志ハ─────◯◯ダ」の◯◯に入る名前は何か？",
+    "answer": "カグヤ"
+  },
+  {
+    "id": 603,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "白ゼツの正体は、大筒木カグヤが過去に行った何という術に取り込まれた人々の成れの果てとされているか？",
+    "answer": "無限月読"
+  },
+  {
+    "id": 604,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "うちはマダラは千手柱間との戦闘中、柱間の細胞をどのようにして自分の体内に取り込んだか？",
+    "answer": "食いちぎった柱間の細胞を吐き戻し、それを傷口に移植した"
+  },
+  {
+    "id": 605,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "日向ネジは第四次忍界大戦で、十尾の攻撃から誰と誰を庇って致命傷を負ったか？",
+    "answer": "ナルトとヒナタ"
+  },
+  {
+    "id": 606,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "日向ネジが死の直前にナルトへ残した「お前に…◯◯だと…言われたからだ」という言葉の◯◯に入る言葉は何か？",
+    "answer": "天才"
+  },
+  {
+    "id": 607,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "うちはマダラは最期、誰に看取られながら三度目の死を迎えたか？",
+    "answer": "柱間"
+  },
+  {
+    "id": 608,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "千鳥の性質を全身に纏わせ、触れた相手に電流を流す派生忍術「千鳥流し」を、作中で主に使用するのは誰か？",
+    "answer": "うちはサスケ"
+  },
+  {
+    "id": 609,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "うちはサスケがうちはイタチを倒すために独自に開発した、雷雲を生じさせて落雷を放つオリジナルの雷遁忍術を何というか？",
+    "answer": "麒麟"
+  },
+  {
+    "id": 610,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "はたけカカシの十八番として知られる技「雷切」は、元々は何という名前の術だったか？",
+    "answer": "千鳥"
+  },
+  {
+    "id": 611,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "はたけカカシは、写輪眼で千種類以上の術を写し取ってきたことから何と呼ばれる異名を持つか（「〇〇忍者のカカシ」）？",
+    "answer": "コピー忍者のカカシ"
+  },
+  {
+    "id": 612,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "日向一族の白眼はほぼ360度の視界を持つが、死角となるのは体のどの部分にあるわずかな点か？",
+    "answer": "第一胸椎"
+  },
+  {
+    "id": 613,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "写輪眼の瞳の中にある勾玉模様は瞳力の成長とともに増えていくが、完成した状態では何個になるか？",
+    "answer": "3つ"
+  },
+  {
+    "id": 614,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "干柿鬼鮫が、自分自身が収まるほど巨大な水の鮫を口内に形成して放つ、代表的な水遁忍術を何というか？",
+    "answer": "水鮫弾の術"
+  },
+  {
+    "id": 615,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "三代目風影が持つ、チャクラを磁力に変換して鉄砂を操る血継限界を何というか？",
+    "answer": "磁遁"
+  },
+  {
+    "id": 616,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "綱手が口寄せの術で呼び出す「カツユ」は、どのような生物か？",
+    "answer": "ナメクジ"
+  },
+  {
+    "id": 617,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "山中一族に伝わる秘伝忍術で、自らの精神を敵の体に移して操ることができる術を何というか？",
+    "answer": "心転身の術"
+  },
+  {
+    "id": 618,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "奈良一族に伝わる秘伝忍術で、自分の影を伸ばして相手に触れさせ、同じ動きを強制する術を何というか？",
+    "answer": "影真似の術"
+  },
+  {
+    "id": 619,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "四代目火影・波風ミナトが十八番とした、あらかじめマーキングした場所へ瞬間移動する時空間忍術を何というか？",
+    "answer": "飛雷神の術"
+  },
+  {
+    "id": 620,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "初代火影・千手柱間がうちはマダラとの戦いで使用した、巨大な木造の千手観音像を生み出す木遁忍術を何というか？",
+    "answer": "木遁・真数千手"
+  },
+  {
+    "id": 621,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "五代目水影・照美メイが持つ、火・水・土のチャクラ性質から成る二つの血継限界は何か？",
+    "answer": "溶遁と沸遁"
+  },
+  {
+    "id": 622,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "我愛羅が背負う瓢箪の中の特別な砂で、意識しなくても自動的に身の回りへシールドを張り攻撃を防ぐ忍術を何というか？",
+    "answer": "砂の盾"
+  },
+  {
+    "id": 623,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "猿飛ヒルゼンは、忍術・幻術・体術を極め木ノ葉の忍術の多くを体得していたことから、「教授（プロフェッサー）」とは別に何と称されたか？",
+    "answer": "忍の神"
+  },
+  {
+    "id": 624,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "日向ネジが用いる、64発の柔拳で相手の点穴を突いてチャクラの流れを封じる日向一族柔拳の奥義を何というか？",
+    "answer": "八卦六十四掌"
+  },
+  {
+    "id": 625,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "うちはイタチが口寄せしたカラスを媒体にすることでチャクラの消費を抑えて作り出す分身術を何というか？",
+    "answer": "烏分身の術"
+  },
+  {
+    "id": 626,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "干柿鬼鮫が水鮫弾の術をさらに強化し、千匹もの鮫型の水弾を大波のように放つ術を何というか？",
+    "answer": "水遁・千食鮫"
+  },
+  {
+    "id": 627,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "飛雷神の術を初めて開発した、二代目火影は誰か？",
+    "answer": "千手扉間"
+  },
+  {
+    "id": 628,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "大蛇丸のかつての部下である君麻呂が、死んでもその心の中に留まると誓うほど絶対的な忠誠を誓っていた相手は誰か？",
+    "answer": "大蛇丸"
+  },
+  {
+    "id": 629,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "秋道チョウジの実父で、奈良シカク・山中いのいちと共に「猪鹿蝶」トリオを組んでいた人物は誰か？",
+    "answer": "秋道チョウザ"
+  },
+  {
+    "id": 630,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "桃地再不斬は、霧隠れの忍者学校の卒業式最終試験で何を行ったことで知られているか？",
+    "answer": "同級生の皆殺し"
+  },
+  {
+    "id": 631,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "大蛇丸がサスケや音の五人衆に与えた呪印は、誰の体液がもとになって作られたものか？",
+    "answer": "重吾"
+  },
+  {
+    "id": 632,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "香燐がうずまき一族の末裔であることは、誰の発言によって判明したか？",
+    "answer": "薬師カブト"
+  },
+  {
+    "id": 633,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "テンテンが「あんな強い忍者になりたい」と憧れている、伝説の三忍の一人は誰か？",
+    "answer": "綱手"
+  },
+  {
+    "id": 634,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "山中いのの実父で、第四次忍界大戦で情報部隊隊長として戦死した人物は誰か？",
+    "answer": "山中いのいち"
+  },
+  {
+    "id": 635,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "はたけカカシ・うちはオビトと同じミナト班に所属していたのはらリンは、霧隠れによって何の人柱力にされていたか？",
+    "answer": "三尾"
+  },
+  {
+    "id": 636,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "日向ネジと日向ヒナタの血縁関係は何か？",
+    "answer": "従兄妹（いとこ）"
+  },
+  {
+    "id": 637,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "春野サクラが弟子入りし、医療忍術を学んだ五代目火影は誰か？",
+    "answer": "綱手"
+  },
+  {
+    "id": 638,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "油女シノの父で、油女一族秘伝の奇壊蟲の術を得意とする人物は誰か？",
+    "answer": "油女シビ"
+  },
+  {
+    "id": 639,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "自来也・大蛇丸・綱手の3人に「伝説の三忍」（木ノ葉の三忍）の名を与えたのは誰か？",
+    "answer": "半蔵"
+  },
+  {
+    "id": 640,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "サソリの両親を殺害した木ノ葉の忍は、何の異名で呼ばれていたか？",
+    "answer": "白い牙"
+  },
+  {
+    "id": 641,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "犬塚キバの姉で、木ノ葉隠れの中忍として獣医を務める人物は誰か？",
+    "answer": "犬塚ハナ"
+  },
+  {
+    "id": 642,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "忍刀七人衆の長十郎は、原作最終話で誰の後任として六代目水影に就任したか？",
+    "answer": "メイ"
+  },
+  {
+    "id": 643,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "鬼灯水月が忍刀七人衆を復活させて、自らその何に成ろうとしていたか？",
+    "answer": "リーダー"
+  },
+  {
+    "id": 644,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "自来也・大蛇丸・綱手（伝説の三忍）が下忍時代に師事していた、後の三代目火影は誰か？",
+    "answer": "猿飛ヒルゼン"
+  },
+  {
+    "id": 645,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "長門・弥彦・小南の3人が共に暮らすきっかけとなった、3人に共通する境遇は何か？",
+    "answer": "戦争孤児"
+  },
+  {
+    "id": 646,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "うちはイタチ・うちはサスケの父で、うちは一族の警備部隊隊長を務めていた人物は誰か？",
+    "answer": "うちはフガク"
+  },
+  {
+    "id": 647,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "うちはイタチ・うちはサスケの母親の名前は？",
+    "answer": "うちはミコト"
+  },
+  {
+    "id": 648,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "公式データブックによると、春野サクラの誕生日は何月何日か？",
+    "answer": "3月28日"
+  },
+  {
+    "id": 649,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、春野サクラの忍者登録番号は何番か？",
+    "answer": "012601"
+  },
+  {
+    "id": 650,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "公式データブックによると、はたけカカシの血液型は何型か？",
+    "answer": "O型"
+  },
+  {
+    "id": 651,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、はたけカカシの好きな食べ物は何か？",
+    "answer": "サンマの塩焼き、茄子の味噌汁"
+  },
+  {
+    "id": 652,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "公式データブックによると、我愛羅の血液型は何型か？",
+    "answer": "AB型"
+  },
+  {
+    "id": 653,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、我愛羅の好きな食べ物は何か？",
+    "answer": "砂肝、タン塩"
+  },
+  {
+    "id": 654,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "公式データブックによると、奈良シカマルの誕生日は何月何日か？",
+    "answer": "9月22日"
+  },
+  {
+    "id": 655,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、奈良シカマルの趣味は何か？",
+    "answer": "昼寝、将棋、碁"
+  },
+  {
+    "id": 656,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "公式データブックによると、日向ヒナタの誕生日は何月何日か？",
+    "answer": "12月27日"
+  },
+  {
+    "id": 657,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、日向ヒナタの好きな食べ物は何か？",
+    "answer": "ぜんざい、シナモンロール"
+  },
+  {
+    "id": 658,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "公式データブックによると、ロック・リーの血液型は何型か？",
+    "answer": "A型"
+  },
+  {
+    "id": 659,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、ロック・リーの好きな食べ物は何か？",
+    "answer": "中辛カレーライス、カレーピラフ"
+  },
+  {
+    "id": 660,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、綱手の好きな食べ物は何か？",
+    "answer": "鳥のささみ、お酒"
+  },
+  {
+    "id": 661,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、綱手の嫌いな食べ物は何か？",
+    "answer": "レバ刺し"
+  },
+  {
+    "id": 662,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、自来也の好きな食べ物は何か？",
+    "answer": "しそニンニク、鶏のからあげ"
+  },
+  {
+    "id": 663,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、自来也の身長は何cmか？",
+    "answer": "191.2cm"
+  },
+  {
+    "id": 664,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "公式データブックによると、マイト・ガイの誕生日は何月何日か？",
+    "answer": "1月1日"
+  },
+  {
+    "id": 665,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、マイト・ガイの好きな食べ物は何か？",
+    "answer": "激辛カレーライス、カレーうどん"
+  },
+  {
+    "id": 666,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、山中いのの好きな食べ物は何か？",
+    "answer": "プチトマト、プリン"
+  },
+  {
+    "id": 667,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "公式データブックによると、秋道チョウジの好きな言葉は何か？",
+    "answer": "肉"
+  },
+  {
+    "id": 668,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "木ノ葉隠れの里の治安維持のために創設され、うちは一族が代々中核を担っていた特別部隊の名称は？",
+    "answer": "木ノ葉警務部隊"
+  },
+  {
+    "id": 669,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "木ノ葉警務部隊を創設した二代目火影は誰か？",
+    "answer": "千手扉間"
+  },
+  {
+    "id": 670,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "大蛇丸が木ノ葉隠れの里を抜けた後、自らを長として創設した隠れ里は？",
+    "answer": "音隠れの里"
+  },
+  {
+    "id": 671,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "かつて過酷な卒業試験や内乱・排他性から「血霧の里」と呼ばれ恐れられた隠れ里はどこか？",
+    "answer": "霧隠れの里"
+  },
+  {
+    "id": 672,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "霧隠れの里の初代水影は誰か？",
+    "answer": "白蓮"
+  },
+  {
+    "id": 673,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "雲隠れの里があるのは、五大国のうちどの国か？",
+    "answer": "雷の国"
+  },
+  {
+    "id": 674,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "岩隠れの里があるのは、五大国のうちどの国か？",
+    "answer": "土の国"
+  },
+  {
+    "id": 675,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "砂隠れの里があるのは、五大国のうちどの国か？",
+    "answer": "風の国"
+  },
+  {
+    "id": 676,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "木ノ葉隠れの里は、千手一族とどの一族の同盟によって創設されたか？",
+    "answer": "うちは一族"
+  },
+  {
+    "id": 677,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "「木ノ葉隠れの里」という名称を考えたのは誰か？",
+    "answer": "うちはマダラ"
+  },
+  {
+    "id": 678,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "暁という組織を元々結成したのは、雨隠れの誰か？",
+    "answer": "弥彦（やひこ）"
+  },
+  {
+    "id": 679,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "忍者の世界で、所属していた里や忍者集団を脱退した忍者のことを何と呼ぶか？",
+    "answer": "抜け忍"
+  },
+  {
+    "id": 680,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "香燐（カリン）が中忍試験を受けた当時に所属していた隠れ里はどこか？",
+    "answer": "草隠れ"
+  },
+  {
+    "id": 681,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "うずまき一族の故郷であり、火の国の同盟国であった国はどこか？",
+    "answer": "渦の国"
+  },
+  {
+    "id": 682,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "雨隠れの里は、大国である火の国・風の国・土の国に囲まれた何と呼ばれる規模の国に存在するか？",
+    "answer": "小国"
+  },
+  {
+    "id": 683,
+    "volume": null,
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "五大国の里の首長5人を総称して何と呼ぶか？",
+    "answer": "五影"
+  },
+  {
+    "id": 684,
+    "volume": null,
     "category": "原作一問一答",
     "difficulty": "難",
     "question": "ナルトがイタチに幻術をかけられたときに起こったことは",
     "answer": "ナルトの顔右半分がイタチのじゅいん2の状態になった\nお腹からサクラがでてきた\n左腕からかかし先生がでてきた\n左手ががあらの目になった"
   },
   {
-    "id": 589,
+    "id": 685,
     "volume": "ナルト44 45 46 47巻",
     "category": "原作一問一答",
     "difficulty": "普",
@@ -5909,7 +6677,7 @@ const QUESTIONS = [
     "answer": "杜門"
   },
   {
-    "id": 590,
+    "id": 686,
     "volume": "ナルト36巻",
     "category": "原作一問一答",
     "difficulty": "普",
@@ -5917,7 +6685,7 @@ const QUESTIONS = [
     "answer": "指の数"
   },
   {
-    "id": 591,
+    "id": 687,
     "volume": "ナルト36巻",
     "category": "原作一問一答",
     "difficulty": "普",
@@ -5925,7 +6693,7 @@ const QUESTIONS = [
     "answer": "一国"
   },
   {
-    "id": 592,
+    "id": 688,
     "volume": null,
     "category": "原作一問一答",
     "difficulty": "難",
@@ -5933,7 +6701,7 @@ const QUESTIONS = [
     "answer": "1ヶ月"
   },
   {
-    "id": 593,
+    "id": 689,
     "volume": null,
     "category": "原作一問一答",
     "difficulty": "普",
@@ -5941,7 +6709,7 @@ const QUESTIONS = [
     "answer": "修羅道"
   },
   {
-    "id": 594,
+    "id": 690,
     "volume": null,
     "category": "原作一問一答",
     "difficulty": "普",
@@ -5949,7 +6717,7 @@ const QUESTIONS = [
     "answer": "父：うみのイッカク\n母：コハル"
   },
   {
-    "id": 595,
+    "id": 691,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -5964,7 +6732,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 596,
+    "id": 692,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -5979,7 +6747,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 597,
+    "id": 693,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -5994,7 +6762,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 598,
+    "id": 694,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -6009,7 +6777,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 599,
+    "id": 695,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -6024,7 +6792,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 600,
+    "id": 696,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -6039,7 +6807,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 601,
+    "id": 697,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -6054,7 +6822,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 602,
+    "id": 698,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -6069,7 +6837,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 603,
+    "id": 699,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "普",
@@ -6084,7 +6852,7 @@ const QUESTIONS = [
     "exam": "中忍試験"
   },
   {
-    "id": 604,
+    "id": 700,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "普",
@@ -6099,7 +6867,7 @@ const QUESTIONS = [
     "exam": "中忍試験"
   },
   {
-    "id": 605,
+    "id": 701,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "普",
@@ -6114,7 +6882,7 @@ const QUESTIONS = [
     "exam": "中忍試験"
   },
   {
-    "id": 606,
+    "id": 702,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "普",
@@ -6129,7 +6897,7 @@ const QUESTIONS = [
     "exam": "中忍試験"
   },
   {
-    "id": 607,
+    "id": 703,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "普",
@@ -6144,7 +6912,7 @@ const QUESTIONS = [
     "exam": "中忍試験"
   },
   {
-    "id": 608,
+    "id": 704,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "普",
@@ -6159,7 +6927,7 @@ const QUESTIONS = [
     "exam": "中忍試験"
   },
   {
-    "id": 609,
+    "id": 705,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6174,7 +6942,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 610,
+    "id": 706,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6189,7 +6957,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 611,
+    "id": 707,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6204,7 +6972,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 612,
+    "id": 708,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6219,7 +6987,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 613,
+    "id": 709,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6234,7 +7002,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 614,
+    "id": 710,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6249,7 +7017,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 615,
+    "id": 711,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6264,7 +7032,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 616,
+    "id": 712,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6279,7 +7047,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 617,
+    "id": 713,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6294,7 +7062,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 618,
+    "id": 714,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6309,7 +7077,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 619,
+    "id": 715,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6324,7 +7092,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 620,
+    "id": 716,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6339,7 +7107,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 621,
+    "id": 717,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6354,7 +7122,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 622,
+    "id": 718,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6369,7 +7137,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 623,
+    "id": 719,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6384,7 +7152,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 624,
+    "id": 720,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6399,7 +7167,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 625,
+    "id": 721,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6414,7 +7182,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 626,
+    "id": 722,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6429,7 +7197,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 627,
+    "id": 723,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6444,7 +7212,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 628,
+    "id": 724,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6459,7 +7227,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 629,
+    "id": 725,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6474,7 +7242,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 630,
+    "id": 726,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6489,7 +7257,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 631,
+    "id": 727,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6504,7 +7272,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 632,
+    "id": 728,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6519,7 +7287,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 633,
+    "id": 729,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6534,7 +7302,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 634,
+    "id": 730,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6549,7 +7317,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 635,
+    "id": 731,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6564,7 +7332,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 636,
+    "id": 732,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6579,7 +7347,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 637,
+    "id": 733,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6594,7 +7362,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 638,
+    "id": 734,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6609,7 +7377,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 639,
+    "id": 735,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6624,7 +7392,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 640,
+    "id": 736,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6639,7 +7407,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 641,
+    "id": 737,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6654,7 +7422,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 642,
+    "id": 738,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6669,7 +7437,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 643,
+    "id": 739,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6684,7 +7452,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 644,
+    "id": 740,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6699,7 +7467,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 645,
+    "id": 741,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6714,7 +7482,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 646,
+    "id": 742,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6729,7 +7497,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 647,
+    "id": 743,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6744,7 +7512,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 648,
+    "id": 744,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6759,7 +7527,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 649,
+    "id": 745,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6774,7 +7542,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 650,
+    "id": 746,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6789,7 +7557,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 651,
+    "id": 747,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6804,7 +7572,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 652,
+    "id": 748,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6819,7 +7587,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 653,
+    "id": 749,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6834,7 +7602,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 654,
+    "id": 750,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6849,7 +7617,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 655,
+    "id": 751,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6864,7 +7632,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 656,
+    "id": 752,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6879,7 +7647,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 657,
+    "id": 753,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6894,7 +7662,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 658,
+    "id": 754,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6909,7 +7677,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 659,
+    "id": 755,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6924,7 +7692,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 660,
+    "id": 756,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6939,7 +7707,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 661,
+    "id": 757,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6954,7 +7722,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 662,
+    "id": 758,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6969,7 +7737,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 663,
+    "id": 759,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6984,7 +7752,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 664,
+    "id": 760,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -6999,7 +7767,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 665,
+    "id": 761,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7014,7 +7782,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 666,
+    "id": 762,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7029,7 +7797,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 667,
+    "id": 763,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7044,7 +7812,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 668,
+    "id": 764,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7059,7 +7827,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 669,
+    "id": 765,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7074,7 +7842,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 670,
+    "id": 766,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7089,7 +7857,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 671,
+    "id": 767,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7104,7 +7872,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 672,
+    "id": 768,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7119,7 +7887,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 673,
+    "id": 769,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7134,7 +7902,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 674,
+    "id": 770,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
