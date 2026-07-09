@@ -8613,6 +8613,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   }
 ];
+
 </script>
 <script>
 (function () {
@@ -8765,12 +8766,25 @@ const QUESTIONS = [
     return { min: Math.min.apply(null, nums), max: Math.max.apply(null, nums) };
   }
 
+  // exam（検定過去問の試験区分）を原作の部（第一部/第二部）に対応させる。
+  // 下忍試験・中忍試験 = 第一部（1〜27巻）相当、上忍試験 = 第二部（28巻〜）相当。
+  var EXAM_PART_RANGE = {
+    "下忍試験": { min: 1, max: 27 },
+    "中忍試験": { min: 1, max: 27 },
+    "上忍試験": { min: 28, max: Infinity }
+  };
+
   function filterByVolumeRange(questions, min, max, fullBounds) {
     var isDefaultRange = fullBounds && min === fullBounds.min && max === fullBounds.max;
     return questions.filter(function (q) {
       var n = parseVolumeNumber(q.volume);
-      if (n === null) return !!isDefaultRange; // 範囲を狭めたら巻数不明は除外
-      return n >= min && n <= max;
+      if (n !== null) return n >= min && n <= max;
+      var examRange = q.exam && EXAM_PART_RANGE[q.exam];
+      if (examRange) {
+        // 選択範囲[min,max]がexamの部の範囲と重なるかどうかで判定
+        return min <= examRange.max && max >= examRange.min;
+      }
+      return !!isDefaultRange; // exam無しの巻数不明は、範囲を狭めたら除外
     });
   }
 
