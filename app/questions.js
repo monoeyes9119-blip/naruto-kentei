@@ -7190,6 +7190,910 @@ const QUESTIONS = [
   },
   {
     "id": 750,
+    "volume": "ナルト50巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "干柿鬼鮫は膨大なチャクラ量を持つことから、霧隠れの里で何と呼ばれていたか？",
+    "answer": "尾のない尾獣"
+  },
+  {
+    "id": 751,
+    "volume": "ナルト54巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "捕虜となった干柿鬼鮫は、暁の秘密を敵に漏らさぬよう、最期にどのようにして自ら命を絶ったか？",
+    "answer": "自ら口寄せしたサメに喰わせることで自害"
+  },
+  {
+    "id": 752,
+    "volume": "ナルト50巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "干柿鬼鮫が大刀・鮫肌と同化(融合)すると、どのような姿に変化することができるか？",
+    "answer": "鮫人間"
+  },
+  {
+    "id": 753,
+    "volume": "ナルト54巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "壮絶な最期を遂げた干柿鬼鮫に対し、勝者となったマイト・ガイはどのような言葉を贈ったか？",
+    "answer": "敵ながらアッパレだ"
+  },
+  {
+    "id": 754,
+    "volume": "ナルト54巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "霧隠れの里にいた頃の干柿鬼鮫は、表向きは何という任務を担当しているとされていたか（実態は同胞殺しの専属任務だった）？",
+    "answer": "暗号部の護衛"
+  },
+  {
+    "id": 755,
+    "volume": "ナルト40巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "デイダラがサスケとの最終決戦で、自らの左胸の口に起爆粘土を直接食べさせて発動した、半径10キロにも及ぶ最大威力の自爆技を何というか？",
+    "answer": "C0"
+  },
+  {
+    "id": 756,
+    "volume": "ナルト31巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "サソリが追い求めた芸術は「永く後々まで残ってゆく○○の美」だったが、○○に入る言葉は何か？",
+    "answer": "永久"
+  },
+  {
+    "id": 757,
+    "volume": "ナルト55巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "穢土転生によって蘇ったデイダラがサソリとの再会の際に放った台詞「オイラ達○○をなめんなよ！！」の○○に入る言葉は何か？",
+    "answer": "芸術コンビ"
+  },
+  {
+    "id": 758,
+    "volume": "ナルト28巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "デイダラは起爆粘土を作る際、両手のひらにある何を使って粘土とチャクラを混ぜ合わせるか？",
+    "answer": "口"
+  },
+  {
+    "id": 759,
+    "volume": "ナルト28巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "サソリは、傀儡部隊の天才造形師として、周囲の砂を血で赤く染めたことから何と呼ばれていたか？",
+    "answer": "赤砂のサソリ"
+  },
+  {
+    "id": 760,
+    "volume": "ナルト36巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "飛段の呪術「死司憑血」は、対象の何を体内に取り込むことで発動するか？",
+    "answer": "血"
+  },
+  {
+    "id": 761,
+    "volume": "ナルト35巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "飛段が愛用する武器は、刃が何連ある大鎌と表現されるか？",
+    "answer": "三連"
+  },
+  {
+    "id": 762,
+    "volume": "ナルト37巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "シカマルとの再戦に敗れた飛段は、最終的にどのような状態に置かれたか？",
+    "answer": "全身バラバラにされた上に地中深くに生き埋めにされる"
+  },
+  {
+    "id": 763,
+    "volume": "ナルト35巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "角都は禁術「地怨虞」により、最大何個の心臓をストックすることができたか？",
+    "answer": "5つ"
+  },
+  {
+    "id": 764,
+    "volume": "ナルト38巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "角都に止めを刺した、はたけカカシの技は何か？",
+    "answer": "雷切"
+  },
+  {
+    "id": 765,
+    "volume": "ナルト68巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "十尾を自らの体に宿し、人類史上最初の人柱力になったとされる人物は誰か？",
+    "answer": "六道仙人（大筒木ハゴロモ）"
+  },
+  {
+    "id": 766,
+    "volume": "ナルト64巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "十尾からチャクラが抜かれた後の抜け殻であり、それ自体が木像でもあるとされるものは何か？",
+    "answer": "外道魔像"
+  },
+  {
+    "id": 767,
+    "volume": "ナルト52巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "六尾「犀犬」は巨大な何という生き物の姿をしているか？",
+    "answer": "（巨大な白い）ナメクジ"
+  },
+  {
+    "id": 768,
+    "volume": "ナルト52巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "尾獣の中で唯一、自らの羽で空を飛ぶことができるのは何尾か？",
+    "answer": "七尾（重明）"
+  },
+  {
+    "id": 769,
+    "volume": "ナルト59巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "八尾「牛鬼」は、人柱力キラービーが強力な幻術にかかった際、どのようにして助けるか？",
+    "answer": "（本人の）チャクラの流れを乱すことで（幻術を解く）"
+  },
+  {
+    "id": 770,
+    "volume": "ナルト45巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "八尾「牛鬼」は後ろ脚がなく、代わりに何のような脚が生えているか？",
+    "answer": "タコの脚（触手）"
+  },
+  {
+    "id": 771,
+    "volume": "ナルト60巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "九喇嘛が完全にナルトと和解するきっかけとなった、ナルトが九喇嘛にかけた言葉は何か？",
+    "answer": "「いつか、おめーの中の憎しみも何とかしてやりてーと思ってる！」"
+  },
+  {
+    "id": 772,
+    "volume": "ナルト60巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ナルトと和解した後、九喇嘛は自らナルトのことを何と呼ぶようになったか？",
+    "answer": "ダチ"
+  },
+  {
+    "id": 773,
+    "volume": "ナルト68巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "九喇嘛は幼い頃、育ての親である六道仙人のことを、慕いながらも何と呼んでいたか？",
+    "answer": "ジジイ"
+  },
+  {
+    "id": 774,
+    "volume": "ナルト68巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "九喇嘛は生まれたばかりの頃、六道仙人が尾獣たちに別れを告げた際、どのような様子を見せたか？",
+    "answer": "涙を浮かべ哀しんでいた"
+  },
+  {
+    "id": 775,
+    "volume": "ナルト53巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "うずまきミトが九尾をコントロールできたのは、九尾のチャクラを通じてどのような境地に達したからとされるか？",
+    "answer": "他者の悪意を感じ取れる境地"
+  },
+  {
+    "id": 776,
+    "volume": "ナルト53巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "うずまき一族の故郷・渦潮隠れの里はどのような里とされ、これがうずまきミトの長寿の理由と説明されているか？",
+    "answer": "長寿の里"
+  },
+  {
+    "id": 777,
+    "volume": "ナルト52巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "「尾獣玉」は、チャクラの塊をどのような形に変化させて放つ技か？",
+    "answer": "球状"
+  },
+  {
+    "id": 778,
+    "volume": "ナルト69巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "十尾の「尾獣玉」は、他の尾獣たちのものと比較してどのように評されているか？",
+    "answer": "威力・射程距離共に他の尾獣たちとは比べ物にならないほど（強力）"
+  },
+  {
+    "id": 779,
+    "volume": "ナルト58巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "穢土転生で蘇った二代目土影・無が使う「分裂の術」には、発動中どのような弱点があるか？",
+    "answer": "分裂状態では塵遁が使用不能になること"
+  },
+  {
+    "id": 780,
+    "volume": "ナルト58巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "穢土転生された無は、オオノキとの塵遁対決の末、誰の加勢を受けたオオノキの螺旋丸を受けて敗れたか？",
+    "answer": "うずまきナルト（の影分身）"
+  },
+  {
+    "id": 781,
+    "volume": "ナルト58巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "二代目土影・無は生前、霧隠れとの争いで誰と相打ちになって戦死したか？",
+    "answer": "鬼灯幻月（二代目水影）"
+  },
+  {
+    "id": 782,
+    "volume": "ナルト57巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "第四次忍界大戦で薬師カブトによって穢土転生された三代目雷影は、他の旧五影と共に誰（誰のチーム）と交戦したか？",
+    "answer": "テマリ達、第4部隊"
+  },
+  {
+    "id": 783,
+    "volume": "ナルト56巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "穢土転生された金角・銀角が生前、九尾のチャクラを持つようになったのはどのような経緯からか？",
+    "answer": "九尾に食べられ、体内でチャクラ肉を食べて2週間も生き長らえたから"
+  },
+  {
+    "id": 784,
+    "volume": "ナルト56巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "穢土転生された金角・銀角は、雲隠れの誰の封印に失敗したことで宝具を奪われるきっかけとなったか？",
+    "answer": "ダルイ"
+  },
+  {
+    "id": 785,
+    "volume": "ナルト56巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "金角・銀角のうち、銀角は最終的にどの宝具に封印されたか？",
+    "answer": "紅葫蘆"
+  },
+  {
+    "id": 786,
+    "volume": "ナルト56巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "尾獣化して暴れた金角を、第十班の策によって最終的に封印した宝具は何か？",
+    "answer": "琥珀の浄瓶"
+  },
+  {
+    "id": 787,
+    "volume": "ナルト55巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "穢土転生で蘇った西瓜山河豚鬼が本来の実力を発揮できなかった理由は何か？",
+    "answer": "愛刀「鮫肌」を持っていなかったから（鬼鮫が所持していたため）"
+  },
+  {
+    "id": 788,
+    "volume": "ナルト55巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "忍刀七人衆が持つ全ての七刀を使いこなせることから「鬼人の再来」と呼ばれた人物は誰か？",
+    "answer": "鬼灯満月"
+  },
+  {
+    "id": 789,
+    "volume": "ナルト59巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "うちはマダラが第四次忍界大戦で五影を追い詰めるために放った、超巨大な隕石を落とす術を何というか？",
+    "answer": "天碍震星"
+  },
+  {
+    "id": 790,
+    "volume": "ナルト65巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "千手柱間は「創造再生」を発動する際、綱手やサクラと異なりどのような特徴を持っていたか？",
+    "answer": "印を結ぶことなく（自然体で）発動できた"
+  },
+  {
+    "id": 791,
+    "volume": "ナルト58巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "二代目土影・無は生前、隠密・感知タイプの忍者として非常に高く評価され、「◯◯」と言わしめるほどだった。◯◯に入る言葉は何か？",
+    "answer": "無人"
+  },
+  {
+    "id": 792,
+    "volume": "ナルト56巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "六道仙人の宝具は本来、使用者に何をもたらすとされるが、金角・銀角は九尾のチャクラのおかげでこれを回避できたか？",
+    "answer": "チャクラ切れに追い込まれて死亡すること"
+  },
+  {
+    "id": 793,
+    "volume": "ナルト48巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "五影会談の舞台となった鉄の国の侍たちが扱う、忍術のチャクラを通すことができる特殊な刀を何というか？",
+    "answer": "チャクラ刀"
+  },
+  {
+    "id": 794,
+    "volume": "ナルト48巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "鉄の国の侍が対忍戦のための装備として身につけている、顔面を覆う防具は何か？",
+    "answer": "ガスマスク"
+  },
+  {
+    "id": 795,
+    "volume": "ナルト49巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "鉄の国を治める侍大将ミフネが使う愛刀の名前は何か？",
+    "answer": "黒澤"
+  },
+  {
+    "id": 796,
+    "volume": "ナルト49巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "侍大将ミフネが得意とする、抜刀と同時に相手を斬る剣術の型を何というか？",
+    "answer": "居合"
+  },
+  {
+    "id": 797,
+    "volume": "ナルト51巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "志村ダンゾウが使う禁術「イザナギ」は、うちは一族の力ともう一つ、どの一族の力を併せ持つ者にしか許されない瞳術か？",
+    "answer": "千手"
+  },
+  {
+    "id": 798,
+    "volume": "ナルト51巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "禁術「イザナギ」を発動すると、使用した写輪眼はどうなってしまうか？",
+    "answer": "光を失い、二度と開くことはない"
+  },
+  {
+    "id": 799,
+    "volume": "ナルト50巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "五影会談への潜入がばれた鷹の重吾は、呪印と殺人衝動を全面解放して戦ったが、五影のうち誰に敗れたか？",
+    "answer": "四代目雷影"
+  },
+  {
+    "id": 800,
+    "volume": "ナルト50巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "五影会談での戦闘後、サスケに置き去りにされた重吾は鉄の国の侍に見つかり、鷹の誰と共に牢に入れられたか？",
+    "answer": "水月"
+  },
+  {
+    "id": 801,
+    "volume": "ナルト50巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "五影会談の場に突如現れ「サスケの侵入」を宣言した白ゼツの首をへし折って始末したのは誰か？",
+    "answer": "四代目雷影"
+  },
+  {
+    "id": 802,
+    "volume": "ナルト45巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "鷹の重吾が持つ、自らの血肉を分け与えることで傷ついた仲間を回復させる能力は、何に由来する力か？",
+    "answer": "仙術"
+  },
+  {
+    "id": 803,
+    "volume": "ナルト38巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "鷹の香燐が持つ、自分の体を噛んだ相手に対して発揮される特殊な能力はどのようなものか？",
+    "answer": "噛んだ者を回復させる"
+  },
+  {
+    "id": 804,
+    "volume": "ナルト38巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "鷹の水月が使う独自の水遁忍術で、自らの体を液状に変化させる術を何というか？",
+    "answer": "水化の術"
+  },
+  {
+    "id": 805,
+    "volume": "ナルト49巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "三代目土影オオノキが、かつて恐れられていた際の二つ名は何か？",
+    "answer": "両天秤のオオノキ"
+  },
+  {
+    "id": 806,
+    "volume": "ナルト49巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "五影会談で若き五代目風影・我愛羅をガキ扱いしていたオオノキは、我愛羅のどのような発言に言い返せなかったか？",
+    "answer": "「アンタ達はいつ己を捨てた」という質問"
+  },
+  {
+    "id": 807,
+    "volume": "ナルト50巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "五影会談で明かされた「月の眼計画」は誰が発案し、実行の大部分を仮面の男トビに任せたものか？",
+    "answer": "うちはマダラ"
+  },
+  {
+    "id": 808,
+    "volume": "ナルト48巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "四代目雷影エーが五影会談を招集したのは、弟キラービーが誰の率いる集団に捕らえられたことに端を発するか？",
+    "answer": "サスケ"
+  },
+  {
+    "id": 809,
+    "volume": "ナルト30巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "チヨが、一尾を失い息絶えた我愛羅を蘇生させるために使った、自らの命と引き換えに相手へ命を与える禁術は何か？",
+    "answer": "己生転生"
+  },
+  {
+    "id": 810,
+    "volume": "ナルト30巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "チヨの術によって蘇生した後も、我愛羅の目の下から消えなかったものは何か？",
+    "answer": "隈"
+  },
+  {
+    "id": 811,
+    "volume": "ナルト30巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "サソリとの戦いの最期、チヨが操ってサソリの核（本体）を貫いた、サソリ自身が作った最初の傀儡を何というか？",
+    "answer": "父と母"
+  },
+  {
+    "id": 812,
+    "volume": "ナルト30巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "五代目風影に就任した我愛羅は、一尾の人柱力だったことを理由に、里の誰たちから疎まれていたか？",
+    "answer": "里の上役達"
+  },
+  {
+    "id": 813,
+    "volume": "ナルト32巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "天地橋で、「暁」のスパイとして正体を現したのは誰か？",
+    "answer": "薬師カブト"
+  },
+  {
+    "id": 814,
+    "volume": "ナルト32巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "天地橋の任務で、ヤマトはあらかじめ誰の姿に変装してスパイを待ち受けていたか？",
+    "answer": "サソリ"
+  },
+  {
+    "id": 815,
+    "volume": "ナルト32巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "カブトが天地橋でサソリに接触するため、解けたふりをした記憶封印術を何というか？",
+    "answer": "潜脳操砂の術"
+  },
+  {
+    "id": 816,
+    "volume": "ナルト32巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "カブトが大蛇丸との共闘を装った末、サソリの傀儡を切り裂くために使った忍具は何か？",
+    "answer": "チャクラメス"
+  },
+  {
+    "id": 817,
+    "volume": "ナルト29巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "サイという名前は本名ではなく、誰が与えた仮称か？",
+    "answer": "ダンゾウ"
+  },
+  {
+    "id": 818,
+    "volume": "ナルト29巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "暗部養成機関「根」の構成員の舌に施された呪印は、何をできなくするためのものか？",
+    "answer": "ダンゾウに関する事などの機密情報を喋ること"
+  },
+  {
+    "id": 819,
+    "volume": "ナルト29巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "新生第七班の隊長ヤマトが名乗る「ヤマト」という名前は、誰の命令によるものか？",
+    "answer": "綱手"
+  },
+  {
+    "id": 820,
+    "volume": "ナルト29巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ヤマトが新生第七班の隊長に選抜されたのは、先の任務で疲労したどの忍の代役としてか？",
+    "answer": "カカシ"
+  },
+  {
+    "id": 821,
+    "volume": "ナルト33巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "天地橋で大蛇丸はナルトを挑発するため、誰の名前を出したか？",
+    "answer": "サスケ"
+  },
+  {
+    "id": 822,
+    "volume": "ナルト33巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "ナルト自身の体をも蝕む九尾のチャクラを押さえ込むことは、天地橋において誰に託された使命だったか？",
+    "answer": "ヤマト"
+  },
+  {
+    "id": 823,
+    "volume": "ナルト33巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "天地橋でナルトが九尾の力を暴走させた際、自来也がかつて同じ姿を見て命を落としかけたとヤマトが思い出していた、ナルトの尾は何本目の尾だったか？",
+    "answer": "四本目"
+  },
+  {
+    "id": 824,
+    "volume": "ナルト34巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "大蛇丸のアジトでサスケと再会したナルトとサクラだったが、サスケ本人の意思により、二人のどんな願いが叶わなかったか？",
+    "answer": "サスケと一緒に木ノ葉に帰る"
+  },
+  {
+    "id": 825,
+    "volume": "ナルト5巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "中忍選抜試験・第一次試験（筆記試験）で、答えを間違えれば永久に中忍になれないという過酷なルールを前に、それでも次の課題に挑むかと試験官モリノ・イビキに問われたナルトが言い放った台詞は何か？",
+    "answer": "まっすぐ自分の言葉は曲げねぇ…それが俺の忍道だ"
+  },
+  {
+    "id": 826,
+    "volume": "ナルト43巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "サスケとの戦いで最後の力を振り絞ったうちはイタチが、指でサスケの額にそっと触れながら残した最期の言葉は何か？",
+    "answer": "許せサスケ…これで最後だ"
+  },
+  {
+    "id": 827,
+    "volume": "ナルト55巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "第四次忍界大戦の開戦前、仲間割れを起こしかけた連合軍を前に指揮官の我愛羅が行った演説「今ここに敵はいない。砂も岩も木ノ葉も霧も雲もない。あるのはただ◯◯だ」の◯◯に入る言葉は何か？",
+    "answer": "忍"
+  },
+  {
+    "id": 828,
+    "volume": "ナルト47巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "ペイン(天道)に捕らえられ絶体絶命のナルトを助けようと立ち向かったヒナタが、なぜそこまでするのかとナルトに問われて答えた言葉は何か？",
+    "answer": "私はナルト君が大好きだから"
+  },
+  {
+    "id": 829,
+    "volume": "ナルト72巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "終末の谷でのナルトとの最終決戦に敗れたサスケが、涙ながらに口にした敗北宣言は何か？",
+    "answer": "認めてやるよ…オレの負けだ"
+  },
+  {
+    "id": 830,
+    "volume": "ナルト19巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "五代目火影に就任した綱手が、里を守り抜く覚悟を示して言った台詞「この私が命懸けで守ってみせるさ、◯◯としてな」の◯◯に入る言葉は何か？",
+    "answer": "五代目火影"
+  },
+  {
+    "id": 831,
+    "volume": "ナルト46巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "木ノ葉を襲撃したペイン(長門)が語った、「痛みを知らぬ者に◯◯」の◯◯に入る言葉は何か？",
+    "answer": "本当の平和は分からん"
+  },
+  {
+    "id": 832,
+    "volume": "ナルト1巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "忍者登録に来たナルトが、火影の名を欲しがる木ノ葉丸に対して宣言するように放った台詞「みんながみんな、認めてくれる、火影ってスゲー名前を語るのによーお！◯◯」の◯◯に入る言葉は何か？",
+    "answer": "ぜってェー！近道なんかねェーってことはよ！！"
+  },
+  {
+    "id": 833,
+    "volume": "ナルト19巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "自来也がナルトに語った、忍の才能について最も大切なものは何かという名言「忍の才能で一番大切なのは持ってる術の数なんかじゃねェ…大切なのは◯◯」の◯◯に入る言葉は何か？",
+    "answer": "あきらめねェど根性だ"
+  },
+  {
+    "id": 834,
+    "volume": "ナルト64巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "第四次忍界大戦で十尾の攻撃からナルトとヒナタを庇い致命傷を負った日向ネジが、なぜそこまで命を懸けるのかとナルトに問われて答えた言葉は何か？",
+    "answer": "お前に…天才だと…言われたからだ"
+  },
+  {
+    "id": 835,
+    "volume": "ナルト71巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "大筒木カグヤとの戦いの最中、命を落とす間際のうちはオビトがナルトに託した言葉「ナルト…。お前は…◯◯」の◯◯に入る言葉は何か？",
+    "answer": "必ず火影になれ"
+  },
+  {
+    "id": 836,
+    "volume": "ナルト36巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "暁の飛段との死闘の末、致命傷を負った猿飛アスマが今わの際にシカマルたちへ打ち明けた、恋人・夕日紅についての事実は何か？",
+    "answer": "紅のお腹の中には、オレと紅の子供がいる"
+  },
+  {
+    "id": 837,
+    "volume": "ナルト20巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "命を落とすかもしれない大手術を受けるか迷うロック・リーに、マイト・ガイが命懸けで送った言葉「お前が万が一…その手術に失敗して死んだとしたら…◯◯」の◯◯に入る言葉は何か？",
+    "answer": "オレも一緒に死んでやる!!!"
+  },
+  {
+    "id": 838,
+    "volume": "ナルト28巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "木ノ葉崩し編の後、ナルトとの死闘を経て変わり始めた我愛羅が、カンクロウに語った気づきの言葉「苦しみや悲しみ…喜びも…◯◯」の◯◯に入る言葉は何か？",
+    "answer": "他の誰かと分かち合う事が出来るのだと"
+  },
+  {
+    "id": 839,
+    "volume": "ナルト35巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "はたけカカシは、血継限界について「二つの性質変化を同時に扱い、新たな性質変化を生み出す力」だと説明した。この特殊な力を何というか？",
+    "answer": "血継限界"
+  },
+  {
+    "id": 840,
+    "volume": "ナルト3巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "写輪眼は、木ノ葉隠れの里に存在する何という一族の一部の家系にしか現れない特異体質か？",
+    "answer": "うちは一族"
+  },
+  {
+    "id": 841,
+    "volume": "ナルト3巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "写輪眼は忍術・体術・幻術を視認するだけで見抜くことができるが、その洞察力で見切った相手の術を自分の術としてどうすることができるか？",
+    "answer": "コピー"
+  },
+  {
+    "id": 842,
+    "volume": "ナルト8巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "日向一族の血継限界「白眼」は、写輪眼や輪廻眼と違い、発動のために何を結ぶ必要があるか？",
+    "answer": "印"
+  },
+  {
+    "id": 843,
+    "volume": "ナルト8巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "白眼は広い範囲を見通す能力に優れるが、写輪眼のようにチャクラの種類までは見切れないため、何と本体を見分けることができないか？",
+    "answer": "影分身"
+  },
+  {
+    "id": 844,
+    "volume": "ナルト69巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "大筒木一族最強の瞳術とされる輪廻眼を、最初に開眼した人物とされているのは誰か？",
+    "answer": "大筒木ハゴロモ（六道仙人）"
+  },
+  {
+    "id": 845,
+    "volume": "ナルト59巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "血継淘汰の代表例である塵遁（火・土・風の三性質）は、誰が開発して三代目土影オオノキに伝授したものか？",
+    "answer": "二代目土影・無（ムウ）"
+  },
+  {
+    "id": 846,
+    "volume": "ナルト35巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "白（ハク）が使う血継限界「氷遁」は、水遁と何の性質を組み合わせて氷を作り出す術か？",
+    "answer": "風（風遁）"
+  },
+  {
+    "id": 847,
+    "volume": "ナルト35巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "忍術の五大性質変化の優劣関係「火遁→風遁→雷遁→土遁→水遁→火遁」において、火遁が優位に立つ（強い）相手の性質はどれか？",
+    "answer": "風遁"
+  },
+  {
+    "id": 848,
+    "volume": "ナルト68巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "六道仙人が万物創造の術を発動する基盤となる、陰遁と陽遁を組み合わせたチャクラの性質を総称して何というか？",
+    "answer": "陰陽遁"
+  },
+  {
+    "id": 849,
+    "volume": "ナルト68巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "陰陽遁のうち、「無から形を作る」創造を司り、精神エネルギーを元に作られているのはどちらか？",
+    "answer": "陰遁"
+  },
+  {
+    "id": 850,
+    "volume": "ナルト71巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "大筒木カグヤが用いる、五大性質変化と陰陽遁のすべてを組み合わせた性質変化の究極形態とされる力を何というか？",
+    "answer": "血継網羅"
+  },
+  {
+    "id": 851,
+    "volume": "ナルト71巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "「血継網羅」という名称は、作中で誰が膨張求道玉を指して言及した際に使われた言葉か？",
+    "answer": "黒ゼツ"
+  },
+  {
+    "id": 852,
+    "volume": "ナルト56巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "忍刀七人衆の刀「断刀・首斬り包丁」は、血液中の何を吸収することで刀身が自動的に修復されるか？",
+    "answer": "鉄分"
+  },
+  {
+    "id": 853,
+    "volume": "ナルト56巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "忍刀七人衆の刀「爆刀・飛沫」は、刀身に大量に貼られた何によって相手を爆殺する忍刀か？",
+    "answer": "起爆札"
+  },
+  {
+    "id": 854,
+    "volume": "ナルト56巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "忍刀七人衆の刀「雷刀・牙」は、刃に何を帯びさせることで忍刀の中でも最高の切れ味を発揮するか？",
+    "answer": "雷遁"
+  },
+  {
+    "id": 855,
+    "volume": "ナルト56巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "忍刀七人衆の刀「鈍刀・兜割」は、鍔迫り合いに持ち込んだ際、刀の峰を何で叩いて二撃目を加えるか？",
+    "answer": "ハンマー"
+  },
+  {
+    "id": 856,
+    "volume": "ナルト56巻",
+    "category": "オリジナル新作",
+    "difficulty": "難",
+    "question": "忍刀七人衆の刀「双刀・ヒラメカレイ」は、刀身は1つだが柄がいくつ付いている「大双剣」か？",
+    "answer": "2つ（2本）"
+  },
+  {
+    "id": 857,
+    "volume": "ナルト30巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "サソリが自らの身体を人形（人傀儡）に改造した際、腹部に仕込んだ、毒を染み込ませた武器は何か？",
+    "answer": "先端の尖ったワイヤー"
+  },
+  {
+    "id": 858,
+    "volume": "ナルト56巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "テンテンが第四次忍界大戦で、金角の落とした宝具を拾って使用した結果、チャクラを奪われすぎて気絶してしまった扇形の宝具は何か？",
+    "answer": "芭蕉扇"
+  },
+  {
+    "id": 859,
+    "volume": "ナルト43巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "うちはイタチの須佐能乎完成体が持つ「十拳剣」は、突き刺した相手をどうする効果を持つ剣か？",
+    "answer": "幻術の世界に飛ばして永久に封印する"
+  },
+  {
+    "id": 860,
+    "volume": "ナルト67巻",
+    "category": "オリジナル新作",
+    "difficulty": "普",
+    "question": "千手扉間が考案した、起爆札が新たな起爆札を次々と口寄せすることで連鎖的な大爆発を引き起こす術を何というか？",
+    "answer": "互乗起爆札"
+  },
+  {
+    "id": 861,
+    "volume": "ナルト45巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "カンクロウの傀儡「黒蟻」は、樽型のボディを大きく開閉させて敵をどうする捕獲用の傀儡か？",
+    "answer": "呑み込んで捕まえる"
+  },
+  {
+    "id": 862,
+    "volume": "ナルト45巻",
+    "category": "オリジナル新作",
+    "difficulty": "易",
+    "question": "カンクロウの傀儡「サンショウウオ」は、胴体をドーム状に展開することで、どのような役割を果たす傀儡か？",
+    "answer": "盾（防御役）"
+  },
+  {
+    "id": 863,
     "volume": null,
     "category": "原作一問一答",
     "difficulty": "難",
@@ -7197,7 +8101,7 @@ const QUESTIONS = [
     "answer": "ナルトの顔右半分がイタチのじゅいん2の状態になった\nお腹からサクラがでてきた\n左腕からかかし先生がでてきた\n左手ががあらの目になった"
   },
   {
-    "id": 751,
+    "id": 864,
     "volume": "ナルト44 45 46 47巻",
     "category": "原作一問一答",
     "difficulty": "普",
@@ -7205,7 +8109,7 @@ const QUESTIONS = [
     "answer": "杜門"
   },
   {
-    "id": 752,
+    "id": 865,
     "volume": "ナルト36巻",
     "category": "原作一問一答",
     "difficulty": "普",
@@ -7213,7 +8117,7 @@ const QUESTIONS = [
     "answer": "指の数"
   },
   {
-    "id": 753,
+    "id": 866,
     "volume": "ナルト36巻",
     "category": "原作一問一答",
     "difficulty": "普",
@@ -7221,7 +8125,7 @@ const QUESTIONS = [
     "answer": "一国"
   },
   {
-    "id": 754,
+    "id": 867,
     "volume": null,
     "category": "原作一問一答",
     "difficulty": "難",
@@ -7229,7 +8133,7 @@ const QUESTIONS = [
     "answer": "1ヶ月"
   },
   {
-    "id": 755,
+    "id": 868,
     "volume": null,
     "category": "原作一問一答",
     "difficulty": "普",
@@ -7237,7 +8141,7 @@ const QUESTIONS = [
     "answer": "修羅道"
   },
   {
-    "id": 756,
+    "id": 869,
     "volume": null,
     "category": "原作一問一答",
     "difficulty": "普",
@@ -7245,7 +8149,7 @@ const QUESTIONS = [
     "answer": "父：うみのイッカク\n母：コハル"
   },
   {
-    "id": 757,
+    "id": 870,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -7260,7 +8164,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 758,
+    "id": 871,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -7275,7 +8179,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 759,
+    "id": 872,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -7290,7 +8194,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 760,
+    "id": 873,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -7305,7 +8209,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 761,
+    "id": 874,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -7320,7 +8224,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 762,
+    "id": 875,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -7335,7 +8239,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 763,
+    "id": 876,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -7350,7 +8254,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 764,
+    "id": 877,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "難",
@@ -7365,7 +8269,7 @@ const QUESTIONS = [
     "exam": "上忍試験"
   },
   {
-    "id": 765,
+    "id": 878,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "普",
@@ -7380,7 +8284,7 @@ const QUESTIONS = [
     "exam": "中忍試験"
   },
   {
-    "id": 766,
+    "id": 879,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "普",
@@ -7395,7 +8299,7 @@ const QUESTIONS = [
     "exam": "中忍試験"
   },
   {
-    "id": 767,
+    "id": 880,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "普",
@@ -7410,7 +8314,7 @@ const QUESTIONS = [
     "exam": "中忍試験"
   },
   {
-    "id": 768,
+    "id": 881,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "普",
@@ -7425,7 +8329,7 @@ const QUESTIONS = [
     "exam": "中忍試験"
   },
   {
-    "id": 769,
+    "id": 882,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "普",
@@ -7440,7 +8344,7 @@ const QUESTIONS = [
     "exam": "中忍試験"
   },
   {
-    "id": 770,
+    "id": 883,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "普",
@@ -7455,7 +8359,7 @@ const QUESTIONS = [
     "exam": "中忍試験"
   },
   {
-    "id": 771,
+    "id": 884,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7470,7 +8374,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 772,
+    "id": 885,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7485,7 +8389,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 773,
+    "id": 886,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7500,7 +8404,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 774,
+    "id": 887,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7515,7 +8419,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 775,
+    "id": 888,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7530,7 +8434,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 776,
+    "id": 889,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7545,7 +8449,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 777,
+    "id": 890,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7560,7 +8464,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 778,
+    "id": 891,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7575,7 +8479,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 779,
+    "id": 892,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7590,7 +8494,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 780,
+    "id": 893,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7605,7 +8509,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 781,
+    "id": 894,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7620,7 +8524,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 782,
+    "id": 895,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7635,7 +8539,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 783,
+    "id": 896,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7650,7 +8554,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 784,
+    "id": 897,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7665,7 +8569,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 785,
+    "id": 898,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7680,7 +8584,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 786,
+    "id": 899,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7695,7 +8599,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 787,
+    "id": 900,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7710,7 +8614,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 788,
+    "id": 901,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7725,7 +8629,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 789,
+    "id": 902,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7740,7 +8644,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 790,
+    "id": 903,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7755,7 +8659,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 791,
+    "id": 904,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7770,7 +8674,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 792,
+    "id": 905,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7785,7 +8689,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 793,
+    "id": 906,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7800,7 +8704,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 794,
+    "id": 907,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7815,7 +8719,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 795,
+    "id": 908,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7830,7 +8734,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 796,
+    "id": 909,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7845,7 +8749,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 797,
+    "id": 910,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7860,7 +8764,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 798,
+    "id": 911,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7875,7 +8779,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 799,
+    "id": 912,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7890,7 +8794,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 800,
+    "id": 913,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7905,7 +8809,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 801,
+    "id": 914,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7920,7 +8824,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 802,
+    "id": 915,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7935,7 +8839,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 803,
+    "id": 916,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7950,7 +8854,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 804,
+    "id": 917,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7965,7 +8869,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 805,
+    "id": 918,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7980,7 +8884,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 806,
+    "id": 919,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -7995,7 +8899,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 807,
+    "id": 920,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8010,7 +8914,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 808,
+    "id": 921,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8025,7 +8929,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 809,
+    "id": 922,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8040,7 +8944,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 810,
+    "id": 923,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8055,7 +8959,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 811,
+    "id": 924,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8070,7 +8974,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 812,
+    "id": 925,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8085,7 +8989,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 813,
+    "id": 926,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8100,7 +9004,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 814,
+    "id": 927,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8115,7 +9019,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 815,
+    "id": 928,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8130,7 +9034,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 816,
+    "id": 929,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8145,7 +9049,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 817,
+    "id": 930,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8160,7 +9064,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 818,
+    "id": 931,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8175,7 +9079,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 819,
+    "id": 932,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8190,7 +9094,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 820,
+    "id": 933,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8205,7 +9109,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 821,
+    "id": 934,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8220,7 +9124,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 822,
+    "id": 935,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8235,7 +9139,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 823,
+    "id": 936,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8250,7 +9154,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 824,
+    "id": 937,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8265,7 +9169,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 825,
+    "id": 938,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8280,7 +9184,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 826,
+    "id": 939,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8295,7 +9199,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 827,
+    "id": 940,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8310,7 +9214,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 828,
+    "id": 941,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8325,7 +9229,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 829,
+    "id": 942,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8340,7 +9244,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 830,
+    "id": 943,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8355,7 +9259,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 831,
+    "id": 944,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8370,7 +9274,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 832,
+    "id": 945,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8385,7 +9289,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 833,
+    "id": 946,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8400,7 +9304,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 834,
+    "id": 947,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8415,7 +9319,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 835,
+    "id": 948,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
@@ -8430,7 +9334,7 @@ const QUESTIONS = [
     "exam": "下忍試験"
   },
   {
-    "id": 836,
+    "id": 949,
     "volume": null,
     "category": "検定過去問",
     "difficulty": "易",
