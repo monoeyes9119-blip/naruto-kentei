@@ -22,7 +22,7 @@ RAW_FILES = [
     "raw_p58-71.json",
     "raw_p72-85.json",
 ]
-GENERATED_FILES = ["generated_extra.json", "generated_part1.json", "generated_deep.json", "generated_batch4.json", "generated_batch5.json", "generated_batch6.json"]
+GENERATED_FILES = ["generated_extra.json", "generated_part1.json", "generated_deep.json", "generated_batch4.json", "generated_batch5.json", "generated_batch6.json", "generated_batch7.json"]
 REVIVED_FILE = "revived.json"
 
 CIRCLE_MARKS = ["①", "②", "③", "④"]
