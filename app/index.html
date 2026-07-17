@@ -309,6 +309,38 @@
     margin-bottom:12px;
     font-variant-numeric:tabular-nums;
   }
+  /* ---------- プレイ中画面の「中断」導線 ---------- */
+  .session-topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:12px;
+  }
+  .session-topbar .progress{
+    flex:1;
+    text-align:left;
+    margin-bottom:0;
+  }
+  .exam-timer-group{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .interrupt-btn{
+    flex:none;
+    background:var(--card);
+    color:var(--muted);
+    border:2px solid var(--border-soft);
+    border-radius:4px;
+    padding:8px 14px;
+    min-height:36px;
+    font-size:12.5px;
+    font-weight:800;
+    font-family:var(--font-gothic);
+    cursor:pointer;
+  }
+  .interrupt-btn:active{background:var(--bg);color:var(--ink);}
   .question-box{
     background:var(--card);
     border:2.5px solid var(--ink);
@@ -559,6 +591,13 @@
 #mb-root .gauge-block{width:10px;height:9px;border:1px solid #5a637a;background:transparent;}
 #mb-root .gauge-block.filled{background:var(--amber-strong);border-color:var(--amber-strong);}
 #mb-root .gauge-num{font-variant-numeric:tabular-nums;color:#aab2c4;}
+#mb-root .mission-progress-group{display:flex;align-items:center;gap:8px;flex:none;}
+#mb-root .mb-interrupt-btn{
+  flex:none;font-family:var(--font-rpg);font-size:10px;letter-spacing:.03em;
+  color:#8b93a6;background:rgba(255,255,255,.04);
+  border:1px solid #3d445a;border-radius:3px;padding:6px 9px;cursor:pointer;
+}
+#mb-root .mb-interrupt-btn:active{background:rgba(255,255,255,.14);color:var(--ink);}
 
 /* ============ 2. 戦場シーン ============ */
 #mb-root .battlefield{
@@ -1468,8 +1507,6 @@
         <button type="button" class="choice-btn selected-mode" data-mode="quiz" id="mode-quiz-btn">4択クイズ</button>
         <button type="button" class="choice-btn" data-mode="flash" id="mode-flash-btn">一問一答</button>
       </div>
-      <div class="range-values" id="quiz-eligible-note" style="justify-content:center;margin-top:6px;"></div>
-
       <details class="details-settings" id="details-settings">
         <summary>詳細設定（カテゴリ・難易度・巻範囲・出題数）</summary>
         <div class="details-body">
@@ -1561,7 +1598,10 @@
   <section id="screen-exam" class="screen">
     <div class="exam-timer-row">
       <div class="progress" id="exam-progress" style="margin-bottom:0;"></div>
-      <div class="exam-timer" id="exam-timer">--:--</div>
+      <div class="exam-timer-group">
+        <div class="exam-timer" id="exam-timer">--:--</div>
+        <button type="button" class="interrupt-btn" id="exam-interrupt-btn">中断</button>
+      </div>
     </div>
     <div class="question-box">
       <div class="q-meta" id="exam-meta"></div>
@@ -1572,7 +1612,10 @@
 
   <!-- ===== 4択クイズ画面 ===== -->
   <section id="screen-quiz" class="screen">
-    <div class="progress" id="quiz-progress"></div>
+    <div class="session-topbar">
+      <div class="progress" id="quiz-progress"></div>
+      <button type="button" class="interrupt-btn" id="quiz-interrupt-btn">中断</button>
+    </div>
     <div class="question-box">
       <div class="q-meta" id="quiz-meta"></div>
       <div class="q-text" id="quiz-question"></div>
@@ -1583,7 +1626,10 @@
 
   <!-- ===== 一問一答（フラッシュカード）画面 ===== -->
   <section id="screen-flash" class="screen">
-    <div class="progress" id="flash-progress"></div>
+    <div class="session-topbar">
+      <div class="progress" id="flash-progress"></div>
+      <button type="button" class="interrupt-btn" id="flash-interrupt-btn">中断</button>
+    </div>
     <div class="question-box">
       <div class="q-meta" id="flash-meta"></div>
       <div class="q-text" id="flash-question"></div>
@@ -1658,9 +1704,12 @@
         <!-- 1. 任務バナー -->
         <div class="mission-banner">
           <span class="rank-badge" id="mb-rankBadge">C級任務</span>
-          <div class="mission-progress">
-            <div class="gauge-blocks" id="mb-gaugeBlocks"></div>
-            <span class="gauge-num" id="mb-gaugeNum">0/10</span>
+          <div class="mission-progress-group">
+            <div class="mission-progress">
+              <div class="gauge-blocks" id="mb-gaugeBlocks"></div>
+              <span class="gauge-num" id="mb-gaugeNum">0/10</span>
+            </div>
+            <button type="button" class="mb-interrupt-btn" id="mb-interruptBtn" aria-label="任務を中断してホームに戻る">中断</button>
           </div>
         </div>
 
@@ -2441,12 +2490,6 @@
   function initHomeControls() {
     renderHomeStats();
 
-    var eligibleNote = document.getElementById("quiz-eligible-note");
-    if (eligibleNote) {
-      var eligibleCount = SAFE_QUESTIONS.filter(isQuizEligible).length;
-      eligibleNote.textContent = "4択対応: " + eligibleCount + " / " + SAFE_QUESTIONS.length + "問";
-    }
-
     var modeQuizBtn = document.getElementById("mode-quiz-btn");
     var modeFlashBtn = document.getElementById("mode-flash-btn");
     modeQuizBtn.addEventListener("click", function () {
@@ -2811,6 +2854,12 @@
     }
   });
 
+  // 中断：4択クイズ・苦手復習は途中経過を保存しないモードなので確認なしで即ホームへ。
+  document.getElementById("quiz-interrupt-btn").addEventListener("click", function () {
+    renderHomeStats();
+    showScreen("screen-home");
+  });
+
   // ---------------------------------------------------------------
   // 一問一答（フラッシュカード）
   // ---------------------------------------------------------------
@@ -2858,6 +2907,12 @@
 
   document.getElementById("flash-ok-btn").addEventListener("click", function () { onFlashScore(true); });
   document.getElementById("flash-ng-btn").addEventListener("click", function () { onFlashScore(false); });
+
+  // 中断：一問一答・苦手復習は途中経過を保存しないモードなので確認なしで即ホームへ。
+  document.getElementById("flash-interrupt-btn").addEventListener("click", function () {
+    renderHomeStats();
+    showScreen("screen-home");
+  });
 
   // ---------------------------------------------------------------
   // 結果画面
@@ -3013,6 +3068,19 @@
         btn.addEventListener("click", function () { onStartExam(type); });
       }
     });
+
+    // 中断：模擬試験は進行中の採点データが失われるため、誤タップ防止の確認を挟む。
+    // showScreen()は screen-exam 以外へ遷移する際に必ず examTimerId を止めるので、
+    // ここで改めてタイマーを止める処理は不要（多重停止による副作用もない）。
+    var examInterruptBtn = document.getElementById("exam-interrupt-btn");
+    if (examInterruptBtn) {
+      examInterruptBtn.addEventListener("click", function () {
+        if (window.confirm("中断すると進行中の記録は保存されません。ホームに戻りますか？")) {
+          renderHomeStats();
+          showScreen("screen-home");
+        }
+      });
+    }
   }
 
   // ===============================================================
@@ -3548,7 +3616,8 @@
      "fxShuriken", "fxGoukakyu", "fxSabaku", "fxRasengan", "fxHakke", "fxRaikiri",
      "fxRasenshuriken", "fxSennin", "fxRing", "fxKunai", "fxCbird", "fxExplosion", "fxShinra",
      "fxKagemane", "fxJukai", "fxSenju", "cutin", "resultOverlay",
-     "resultTitle", "resultRows", "resultRestart", "resultHome", "screen", "enemyWrap", "enemyShadow", "rankBadge"
+     "resultTitle", "resultRows", "resultRestart", "resultHome", "screen", "enemyWrap", "enemyShadow", "rankBadge",
+     "interruptBtn"
     ].forEach(function (key) { mbEl[key] = document.getElementById("mb-" + key); });
 
     mbChoiceBtns = Array.prototype.slice.call(mbEl.commandWindow.querySelectorAll(".choice"));
@@ -3594,6 +3663,17 @@
       mbStartMission(mbState.rank);
     });
     mbEl.resultHome.addEventListener("click", mbGoHome);
+
+    // 中断：任務バトルは進行中の戦績が失われるため、誤タップ防止の確認を挟む。
+    // mbGoHome()は導火線タイマー停止＋mbState.overによる遅延演出の無効化まで面倒を見る
+    // （リザルト画面の「ホームへもどる」と同じ後始末を共有する）。
+    if (mbEl.interruptBtn) {
+      mbEl.interruptBtn.addEventListener("click", function () {
+        if (window.confirm("中断すると進行中の記録は保存されません。ホームに戻りますか？")) {
+          mbGoHome();
+        }
+      });
+    }
   }
 
   // ---------------------------------------------------------------
