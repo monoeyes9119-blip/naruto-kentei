@@ -87,6 +87,30 @@
     border:2.5px solid var(--ink);
     border-radius:50%;
   }
+  /* 実装2：ホーム画面・任務モードカードの忍者階級表示（額当て風の意匠） */
+  .rank-plate-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:0 0 10px;
+  }
+  .rank-plate-label{
+    font-size:11px;
+    font-weight:700;
+    color:var(--muted);
+  }
+  .rank-plate{
+    display:inline-block;
+    background:var(--ink);
+    color:#f6f3ec;
+    font-weight:900;
+    font-size:13px;
+    letter-spacing:.04em;
+    padding:5px 12px;
+    border-radius:2px;
+    border-top:3px solid var(--accent);
+    box-shadow:2px 2px 0 var(--accent);
+  }
   .stats-row{
     display:flex;
     justify-content:space-between;
@@ -451,6 +475,19 @@
   .wrong-list-item:last-child{border-bottom:none;}
   .wrong-q{font-weight:800;font-size:14px;margin-bottom:4px;color:var(--ink);}
   .wrong-a{font-weight:700;font-size:13px;color:var(--ink);white-space:pre-wrap;}
+  /* 実装3：術図鑑の一覧行 */
+  .jutsu-entry{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    padding:12px 2px;
+    border-bottom:2px solid var(--border-soft);
+  }
+  .jutsu-entry:last-child{border-bottom:none;}
+  .jutsu-entry .jutsu-name{font-weight:800;font-size:14px;color:var(--ink);}
+  .jutsu-entry.locked .jutsu-name{color:var(--muted);font-weight:700;letter-spacing:.1em;}
+  .jutsu-entry .jutsu-count{font-weight:900;font-size:13px;color:var(--accent);font-variant-numeric:tabular-nums;flex:none;}
   .error-msg{
     color:var(--red);
     text-align:center;
@@ -476,6 +513,17 @@
   .exam-option-btn:active{
     box-shadow:0 0 0 var(--ink);
     transform:translate(3px,3px);
+  }
+  /* 実装2：ロック中のランク（押せない見た目。解禁条件はexam-option-countに表示） */
+  .exam-option-btn.locked{
+    cursor:not-allowed;
+    opacity:.5;
+    box-shadow:none;
+    background:repeating-linear-gradient(45deg, var(--card), var(--card) 8px, rgba(20,18,15,.05) 8px, rgba(20,18,15,.05) 16px);
+  }
+  .exam-option-btn.locked:active{
+    box-shadow:none;
+    transform:none;
   }
   .exam-option-title{
     display:block;
@@ -1480,6 +1528,37 @@
 }
 #mb-root .result-btn:hover{background:var(--amber);border-color:var(--amber);}
 
+/* ============ 実装2：昇格カットイン（リザルトの上に重ねる全画面演出） ============ */
+#mb-root .promo-overlay{
+  position:absolute;inset:0;background:rgba(4,7,14,.92);z-index:50;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
+}
+#mb-root .promo-overlay.show{opacity:1;pointer-events:auto;}
+#mb-root .promo-burst{
+  position:absolute;left:50%;top:50%;width:420px;height:420px;margin:-210px 0 0 -210px;
+  border-radius:50%;opacity:0;pointer-events:none;
+  background:repeating-conic-gradient(from 0deg, rgba(255,176,32,.5) 0deg 2.2deg, transparent 2.2deg 10deg);
+  -webkit-mask-image:radial-gradient(circle, #000 30%, transparent 66%);
+  mask-image:radial-gradient(circle, #000 30%, transparent 66%);
+}
+#mb-root .promo-overlay.show .promo-burst{animation:cutin-burst-anim 1.4s ease-out .1s 1;}
+#mb-root .promo-card{
+  position:relative;text-align:center;padding:28px 24px;max-width:280px;
+  border:3px solid var(--amber-strong);background:var(--night-panel);
+  box-shadow:0 0 0 3px var(--night-deep), 0 0 32px rgba(255,176,32,.5);
+}
+#mb-root .promo-eyebrow{font-size:12px;letter-spacing:.2em;color:var(--amber);font-weight:700;margin:0 0 10px;}
+#mb-root .promo-title{font-size:32px;font-weight:700;color:#fff;margin:0;letter-spacing:.06em;text-shadow:0 0 18px rgba(255,176,32,.8);}
+#mb-root .promo-sub{font-size:13px;color:var(--amber);margin:8px 0 20px;}
+#mb-root .promo-tap{font-size:11px;color:#aab2c4;margin:0;}
+#mb-root .promo-overlay.show .promo-card{animation:promo-card-in .4s cubic-bezier(.2,.8,.2,1) both;}
+@keyframes promo-card-in{
+  0%{opacity:0;transform:scale(.8);}
+  60%{opacity:1;transform:scale(1.04);}
+  100%{opacity:1;transform:scale(1);}
+}
+
 
 @media (prefers-reduced-motion:reduce){
   #mb-root .shake,
@@ -1494,6 +1573,8 @@
 #mb-root .fx-kunai.play,
 #mb-root .cutin.play,
 #mb-root .cutin-burst.play,
+#mb-root .promo-overlay.show .promo-burst,
+#mb-root .promo-overlay.show .promo-card,
 #mb-root .mbc-kanji.pulse,
 #mb-root .mb-charge.chakra.play .mbc-orb,
 #mb-root .mb-charge.chakra.play .mbc-p,
@@ -1642,6 +1723,10 @@
 
     <div class="card">
       <label style="margin-top:0;">任務モード</label>
+      <div class="rank-plate-row">
+        <span class="rank-plate-label">現在の階級</span>
+        <span class="rank-plate" id="home-rank-plate">アカデミー生</span>
+      </div>
       <p style="margin:0 0 12px;font-size:13px;">敵忍の幻術を見破るバトル形式。正解で忍術コンボが発動、3回かかると任務失敗。</p>
       <button type="button" class="primary" id="mission-entry-btn" style="margin-top:0;">任務をうける</button>
     </div>
@@ -1757,6 +1842,7 @@
   <section id="screen-mission-select" class="screen">
     <h2>任務をえらぶ</h2>
     <p style="margin:0 0 8px;font-size:13px;">1任務＝10問のバトル形式。正解するほど忍術コンボが強くなり、3回幻術にかかると任務失敗。</p>
+    <p style="margin:0 0 4px;font-size:13px;font-weight:700;color:var(--accent);" id="mission-rank-note"></p>
     <p style="margin:0 0 16px;font-size:12px;font-weight:700;" id="mission-records-note"></p>
 
     <button type="button" class="exam-option-btn" data-mb-rank="D級">
@@ -1780,7 +1866,19 @@
       <span class="exam-option-count">むずかしい問題を中心に</span>
     </button>
 
+    <button type="button" class="secondary" id="jutsu-book-entry-btn" style="margin-top:4px;">術図鑑を見る</button>
     <button type="button" class="secondary" id="mission-select-back-btn">ホームに戻る</button>
+  </section>
+
+  <!-- ===== 実装3：術図鑑（発動した術のコレクション） ===== -->
+  <section id="screen-jutsu-book" class="screen">
+    <h2>術図鑑</h2>
+    <p style="margin:0 0 4px;font-size:14px;font-weight:900;" id="jutsu-book-progress">発動した術：0 / 11種</p>
+    <p style="margin:0 0 16px;font-size:12px;">任務モードで発動した忍術がここに記録されていきます。まだ見たことのない術は？？？で伏せられます。</p>
+    <div class="card">
+      <div id="jutsu-book-list"></div>
+    </div>
+    <button type="button" class="secondary" id="jutsu-book-back-btn">ホームに戻る</button>
   </section>
 
   <!-- ===== 任務モード：バトル画面（承認済みモックの移植・#mb-rootにスコープ） ===== -->
@@ -2044,6 +2142,17 @@
             <div class="result-rows" id="mb-resultRows"></div>
             <button class="result-btn" id="mb-resultRestart">🔁 もういちど　うける</button>
             <button class="result-btn ghost" id="mb-resultHome">ホームへ　もどる</button>
+          </div>
+        </div>
+
+        <!-- 実装2：昇格カットイン（通常クリアでは出さない。リザルトの上に重ねてタップで閉じる） -->
+        <div class="promo-overlay" id="mb-promoOverlay">
+          <div class="promo-burst"></div>
+          <div class="promo-card">
+            <p class="promo-eyebrow">階級認定</p>
+            <p class="promo-title" id="mb-promoTitle">下忍</p>
+            <p class="promo-sub">に　しょうかくした！</p>
+            <p class="promo-tap">（タップで　とじる）</p>
           </div>
         </div>
 
@@ -12015,6 +12124,15 @@ const QUESTIONS = [
     }
 
     renderWeakReviewButton();
+    renderMissionHomeRank();
+  }
+
+  // 実装2：ホーム画面の任務モードカードに現在の忍者階級を表示する
+  function renderMissionHomeRank() {
+    var el = document.getElementById("home-rank-plate");
+    if (!el) return;
+    var rec = mbLoadRecords();
+    el.textContent = mbTitleFor(rec.titleIndex);
   }
 
   function renderWeakReviewButton() {
@@ -13115,6 +13233,38 @@ const QUESTIONS = [
   };
   var MB_DIFF_FALLBACK = { "易": ["普", "難"], "普": ["易", "難"], "難": ["普", "易"] };
 
+  // ---- 実装2：忍者ランクの昇格制（永続進捗） ----
+  // titleIndexはMB_TITLESの添字（0=アカデミー生〜5=火影）。
+  // 解禁されているランク数＝ min(MB_RANKS.length, titleIndex+1) 本（D級から数えてその本数だけ解禁）。
+  // rankIndex（MB_RANKS内の位置。D級=0）を1つクリアすると titleIndex は rankIndex+1 まで進む
+  // （D級クリア→1=下忍、C級クリア→2=中忍…S級クリア→5=火影）。降格は一切しない＝常にmaxを取る。
+  var MB_TITLES = ["アカデミー生", "下忍", "中忍", "上忍", "暗部", "火影"];
+
+  function mbTitleFor(titleIndex) {
+    var idx = Math.max(0, Math.min(MB_TITLES.length - 1, titleIndex || 0));
+    return MB_TITLES[idx];
+  }
+  function mbUnlockedRankCount(titleIndex) {
+    return Math.min(MB_RANKS.length, (titleIndex || 0) + 1);
+  }
+  function mbIsRankUnlocked(rank, titleIndex) {
+    var idx = MB_RANKS.indexOf(rank);
+    if (idx === -1) return false;
+    return idx < mbUnlockedRankCount(titleIndex);
+  }
+  function mbHighestUnlockedRank(titleIndex) {
+    return MB_RANKS[Math.max(0, mbUnlockedRankCount(titleIndex) - 1)];
+  }
+  // 既存プレイヤーの救済：保存済みのランク別クリア回数からtitleIndexを逆算する
+  // （例：C級クリア済みならrankIndex=1なのでtitleIndex=2＝中忍・B級まで解禁）。
+  function mbComputeTitleIndexFromClears(clears) {
+    var idx = 0;
+    MB_RANKS.forEach(function (rank, i) {
+      if ((clears[rank] || 0) > 0) idx = Math.max(idx, i + 1);
+    });
+    return idx;
+  }
+
   // コンボ階段（モック準拠）：
   // 1手裏剣→2豪火球→3砂縛柩・砂漠葬→4螺旋丸→5八卦六十四掌→6樹海降誕→7雷切→8螺旋手裏剣→9以上仙法
   // 最終問(10問目)正解＝木遁・真数千手／残り2秒切りの正解＝影真似の術
@@ -13130,16 +13280,33 @@ const QUESTIONS = [
     9: { name: "仙法・超大玉螺旋多連丸", fx: "fxSennin", flash: true, cutin: "仙法・超大玉螺旋多連丸", cutinClass: "sennin", line: "仙法・超大玉螺旋多連丸が　さくれつ！", sennin: true, impact: 380, wait: 1700 }
   };
 
+  // ---- 実装3：術図鑑（発動した術のコレクション）----
+  // MB_JUTSUの1〜9（コンボで発動する通常の術）＋特殊トリガー2種（影真似・真数千手）の
+  // 計11種を固定の表示順で列挙する。idはjutsuLogの保存キー（文字列で統一）。
+  var MB_JUTSU_BOOK = [
+    { id: "1", name: MB_JUTSU[1].name },
+    { id: "2", name: MB_JUTSU[2].name },
+    { id: "3", name: MB_JUTSU[3].name },
+    { id: "4", name: MB_JUTSU[4].name },
+    { id: "5", name: MB_JUTSU[5].name },
+    { id: "6", name: MB_JUTSU[6].name },
+    { id: "7", name: MB_JUTSU[7].name },
+    { id: "8", name: MB_JUTSU[8].name },
+    { id: "9", name: MB_JUTSU[9].name },
+    { id: "kagemane", name: "影真似の術" },
+    { id: "senju", name: "木遁・真数千手" }
+  ];
+
   // ---- 術発動前の「溜め」演出（コンボMB_JUTSUキーごとの溜めタイプ）----
   // type: "seal"（印を結ぶ／原作コマで確認済みの2種のみ）
   //       "chakra"（チャクラを練る／印を結ばない螺旋丸系。青いチャクラが渦を巻いて収束）
   //       "still"（気を溜める／印の有無不明・体術。抽象的な収束＋一瞬の静止のみ）
   // 手裏剣（1）は忍具の即応で溜めなし＝MB_CHARGEに項目を作らない。
-  // seal.kanjiは原作コマで確認済みの印のみ。ms は「1印あたり60〜80ms程度」の実測に
-  // 最後の印を保持する間（＝新しい印を捏造せず、確認済み最後の印の表示を少し伸ばす）を足した値。
+  // seal.kanjiは原作コマで確認済みの印のみ。ms は MB_SEAL_STEP_MS×印の数＋MB_SEAL_LAST_HOLD_MS
+  // （＝新しい印を捏造せず、確認済み最後の印の表示だけを追加で保持する）と整合させた値。
   var MB_CHARGE = {
-    2: { type: "seal", kanji: ["巳", "未", "申", "亥", "午", "寅"], ms: 420 },  // 火遁・豪火球の術
-    7: { type: "seal", kanji: ["丑", "卯", "申"], ms: 350 },                    // 雷切
+    2: { type: "seal", kanji: ["巳", "未", "申", "亥", "午", "寅"], ms: 890 },  // 火遁・豪火球の術（6印×115ms＋200ms保持）
+    7: { type: "seal", kanji: ["丑", "卯", "申"], ms: 545 },                    // 雷切（3印×115ms＋200ms保持）
     3: { type: "still", ms: 350 },  // 砂縛柩・砂漠葬
     4: { type: "chakra", ms: 380 }, // 螺旋丸
     5: { type: "still", ms: 380 },  // 八卦六十四掌
@@ -13149,6 +13316,10 @@ const QUESTIONS = [
   };
   var MB_KAGEMANE_CHARGE_MS = 350; // 影真似の術（クラッチ）：気を溜める
   var MB_SENJU_CHARGE_MS = 480;    // 木遁・真数千手（フィニッシュ）：気を溜める
+  // 実装1：印の可読性修正。1印あたりの表示時間を110〜120msの範囲に、
+  // 最後の印はそこへ追加でMB_SEAL_LAST_HOLD_MSだけ保持してから発動する。
+  var MB_SEAL_STEP_MS = 115;
+  var MB_SEAL_LAST_HOLD_MS = 200;
 
   function mbChargeMsFor(key) {
     var c = MB_CHARGE[key];
@@ -13217,25 +13388,40 @@ const QUESTIONS = [
     return topCandidates[0];
   }
 
-  // ---- 任務記録（ランク別クリア回数・最高コンボ・直近出題履歴）: 既存statsとは別キーで保存 ----
+  // ---- 任務記録（ランク別クリア回数・最高コンボ・直近出題履歴・忍者階級・術図鑑）: 既存statsとは別キーで保存 ----
   // history: { "D級": [id, id, ...], ... } 各ランクごとに直近出題したidを古い順に保持する
   // （出題重複回避のため。mbDrawQuestionsから読み書きする）。
+  // titleIndex: 実装2の忍者階級（MB_TITLESの添字）。jutsuLog: 実装3の術図鑑（{ id: 発動回数 }）。
   function mbLoadRecords() {
-    var fallback = { clears: {}, bestCombo: 0, history: {} };
+    var fallback = { clears: {}, bestCombo: 0, history: {}, titleIndex: 0, jutsuLog: {} };
     try {
       var raw = window.localStorage.getItem(MB_STORAGE_KEY);
       if (!raw) return fallback;
       var parsed = JSON.parse(raw);
       if (!parsed || typeof parsed !== "object") return fallback;
-      return {
-        clears: (parsed.clears && typeof parsed.clears === "object") ? parsed.clears : {},
+      var clears = (parsed.clears && typeof parsed.clears === "object") ? parsed.clears : {};
+      var hasStoredTitleIndex = typeof parsed.titleIndex === "number";
+      var rec = {
+        clears: clears,
         bestCombo: typeof parsed.bestCombo === "number" ? parsed.bestCombo : 0,
-        history: (parsed.history && typeof parsed.history === "object") ? parsed.history : {}
+        history: (parsed.history && typeof parsed.history === "object") ? parsed.history : {},
+        titleIndex: hasStoredTitleIndex ? parsed.titleIndex : mbComputeTitleIndexFromClears(clears),
+        jutsuLog: (parsed.jutsuLog && typeof parsed.jutsuLog === "object") ? parsed.jutsuLog : {}
       };
+      // 既存プレイヤーの救済：titleIndexが未保存の旧データは、ここで逆算した値を一度だけ書き戻す。
+      if (!hasStoredTitleIndex) mbSaveRecords(rec);
+      return rec;
     } catch (e) { return fallback; }
   }
   function mbSaveRecords(rec) {
     try { window.localStorage.setItem(MB_STORAGE_KEY, JSON.stringify(rec)); } catch (e) { /* 保存不可でも進行は止めない */ }
+  }
+  // 実装3：発動した術を1件記録する（呼び出しはmbFireJutsu／mbFireKagemane／mbFireSenjuの3箇所のみ）
+  function mbRecordJutsu(id) {
+    var rec = mbLoadRecords();
+    rec.jutsuLog = rec.jutsuLog || {};
+    rec.jutsuLog[id] = (rec.jutsuLog[id] || 0) + 1;
+    mbSaveRecords(rec);
   }
 
   // 難易度が易/普/難のいずれでもない（不明）場合は「普」扱いにする。
@@ -13583,19 +13769,18 @@ const QUESTIONS = [
   // A. 印を結ぶ：十二支の漢字を1文字ずつ高速切り替え（原作コマで確認済みの2種のみ）
   function mbPlayChargeSeal(kanjiList, ms, done) {
     mbEl.charge.className = "mb-charge seal play";
-    var stepMs = 70;
     var idx = 0;
     function showNext() {
       mbEl.chargeKanji.textContent = kanjiList[idx];
       mbReplay(mbEl.chargeKanji, "pulse");
       idx++;
       if (idx < kanjiList.length) {
-        setTimeout(showNext, stepMs);
+        setTimeout(showNext, MB_SEAL_STEP_MS);
       } else {
-        // 最後の印（＝原作で確認済みの本物の印）の表示を少し保持してから発動する。
+        // 最後の印（＝原作で確認済みの本物の印）を、通常のステップ時間に加えて
+        // MB_SEAL_LAST_HOLD_MSぶん追加で保持してから発動する。
         // 新しい印を創作するのではなく、確認済みの最後の印の「間」を伸ばすだけ。
-        var holdMs = Math.max(0, ms - kanjiList.length * stepMs);
-        setTimeout(finish, stepMs + holdMs);
+        setTimeout(finish, MB_SEAL_STEP_MS + MB_SEAL_LAST_HOLD_MS);
       }
     }
     function finish() {
@@ -13627,6 +13812,7 @@ const QUESTIONS = [
 
   function mbFireJutsu(tier) {
     var info = MB_JUTSU[tier];
+    mbRecordJutsu(String(tier)); // 実装3：術図鑑へ発動を記録
     // 二段メッセージ対応（砂縛柩→砂漠葬など）
     mbShowResultLine(info.preLine || ("＊「見破った！　" + info.line + "」"));
     if (info.lineAt) {
@@ -13668,6 +13854,7 @@ const QUESTIONS = [
 
   // 影真似の術：残り2秒切りの正解で発動（コンボは通常どおり加算）。印は出さない（気を溜める）。
   function mbFireKagemane() {
+    mbRecordJutsu("kagemane"); // 実装3：術図鑑へ発動を記録
     mbShowResultLine("＊「影真似の術…成功。　間一髪だったな」");
     mbSetCutin("影真似の術");
     mbReplay(mbEl.fxKagemane);
@@ -13682,6 +13869,7 @@ const QUESTIONS = [
 
   // 木遁・真数千手：任務達成のフィニッシュ専用。印は出さない（気を溜める）。
   function mbFireSenju() {
+    mbRecordJutsu("senju"); // 実装3：術図鑑へ発動を記録
     mbShowResultLine("＊「木遁・真数千手──　すべてを　うちくだいた！」");
     mbSetCutin("木遁・真数千手");
     mbReplay(mbEl.fxSenju);
@@ -13741,6 +13929,20 @@ const QUESTIONS = [
     var rec = mbLoadRecords();
     if (success) rec.clears[mbState.rank] = (rec.clears[mbState.rank] || 0) + 1;
     if (mbState.maxCombo > rec.bestCombo) rec.bestCombo = mbState.maxCombo;
+
+    // 実装2：昇格判定。successの時だけtitleIndexを進める＝任務失敗では絶対に降格しない。
+    // 一度解禁したランクは常に選択可能なので、進める時は必ずmaxを取る（後退させない）。
+    var promotedTitle = null;
+    if (success) {
+      var rankIdx = MB_RANKS.indexOf(mbState.rank);
+      if (rankIdx !== -1) {
+        var candidateTitleIndex = rankIdx + 1;
+        if (candidateTitleIndex > rec.titleIndex) {
+          rec.titleIndex = candidateTitleIndex;
+          promotedTitle = mbTitleFor(candidateTitleIndex);
+        }
+      }
+    }
     mbSaveRecords(rec);
 
     mbEl.resultTitle.textContent = success ? "任務完了！" : "任務失敗…";
@@ -13757,6 +13959,14 @@ const QUESTIONS = [
     rows.push(mbRow("通算", mbState.rank + "クリア×" + (rec.clears[mbState.rank] || 0) + "　最高コンボ" + rec.bestCombo));
     mbEl.resultRows.innerHTML = rows.join("");
     mbEl.resultOverlay.classList.add("show");
+
+    // 昇格演出：リザルト表示のすこし後に全画面カットインで見せる。昇格が無ければ何も出さない。
+    if (promotedTitle && mbEl.promoOverlay && mbEl.promoTitle) {
+      setTimeout(function () {
+        mbEl.promoTitle.textContent = promotedTitle;
+        mbEl.promoOverlay.classList.add("show");
+      }, 500);
+    }
   }
   function mbRow(label, value) {
     return '<div class="row"><span>' + label + '</span><b>' + value + '</b></div>';
@@ -13780,11 +13990,16 @@ const QUESTIONS = [
     mbEl.screen.classList.remove("hitstop");
     mbEl.enemyShadow.style.opacity = "";
     mbEl.resultOverlay.classList.remove("show");
+    if (mbEl.promoOverlay) mbEl.promoOverlay.classList.remove("show");
   }
 
   // ---- 任務開始・画面遷移 ----
   function mbStartMission(rank) {
     if (MB_RANKS.indexOf(rank) === -1) rank = "C級";
+    // 実装2：ボタンのdisabled状態に頼らない防御（直接呼び出し・localStorage改変などの端も塞ぐ）。
+    // ロック中のランクが渡されたら、現時点で解禁済みの最上位ランクへ落とす。
+    var lockRec = mbLoadRecords();
+    if (!mbIsRankUnlocked(rank, lockRec.titleIndex)) rank = mbHighestUnlockedRank(lockRec.titleIndex);
     var eligible = SAFE_QUESTIONS.filter(isQuizEligible);
     if (eligible.length < MB_TARGET + MB_SPARE) {
       showError("任務モードに出題できる4択問題が足りません。");
@@ -13813,20 +14028,34 @@ const QUESTIONS = [
     showScreen("screen-home");
   }
 
-  // ---- ランク選択画面の表示（クリア回数・最高コンボの控えめな表示）----
+  // ---- ランク選択画面の表示（クリア回数・最高コンボ・忍者階級・ランクのロック状態）----
   function mbRenderSelect() {
     var rec = mbLoadRecords();
     var note = document.getElementById("mission-records-note");
     if (note) {
       note.textContent = rec.bestCombo > 0 ? ("これまでの最高コンボ：" + rec.bestCombo) : "";
     }
+    var rankNote = document.getElementById("mission-rank-note");
+    if (rankNote) {
+      rankNote.textContent = "現在の階級：" + mbTitleFor(rec.titleIndex);
+    }
     var btns = document.querySelectorAll("[data-mb-rank]");
     for (var i = 0; i < btns.length; i++) {
-      var rank = btns[i].getAttribute("data-mb-rank");
-      var sub = btns[i].querySelector(".exam-option-count");
+      var btn = btns[i];
+      var rank = btn.getAttribute("data-mb-rank");
+      var rankIdx = MB_RANKS.indexOf(rank);
+      var unlocked = mbIsRankUnlocked(rank, rec.titleIndex);
+      btn.classList.toggle("locked", !unlocked);
+      btn.disabled = !unlocked;
+      var sub = btn.querySelector(".exam-option-count");
       if (sub) {
-        var clears = rec.clears[rank] || 0;
-        sub.textContent = (MB_RANK_DESC[rank] || "") + (clears > 0 ? ("　クリア×" + clears) : "");
+        if (unlocked) {
+          var clears = rec.clears[rank] || 0;
+          sub.textContent = (MB_RANK_DESC[rank] || "") + (clears > 0 ? ("　クリア×" + clears) : "");
+        } else {
+          var prevRank = rankIdx > 0 ? MB_RANKS[rankIdx - 1] : null;
+          sub.textContent = prevRank ? (prevRank + "任務をクリアで解禁") : "";
+        }
       }
     }
   }
@@ -13839,7 +14068,7 @@ const QUESTIONS = [
      "fxRasenshuriken", "fxSennin", "fxRing", "fxKunai", "fxCbird", "fxExplosion", "fxShinra",
      "fxKagemane", "fxJukai", "fxSenju", "cutin", "cutinBurst", "charge", "chargeKanji", "resultOverlay",
      "resultTitle", "resultRows", "resultRestart", "resultHome", "screen", "enemyWrap", "enemyShadow", "rankBadge",
-     "interruptBtn"
+     "interruptBtn", "promoOverlay", "promoTitle"
     ].forEach(function (key) { mbEl[key] = document.getElementById("mb-" + key); });
 
     mbChoiceBtns = Array.prototype.slice.call(mbEl.commandWindow.querySelectorAll(".choice"));
@@ -13854,6 +14083,21 @@ const QUESTIONS = [
     var backBtn = document.getElementById("mission-select-back-btn");
     if (backBtn) {
       backBtn.addEventListener("click", function () {
+        renderHomeStats();
+        showScreen("screen-home");
+      });
+    }
+    // 実装3：術図鑑への導線（ランク選択画面から開く。戻る先はホーム）
+    var jutsuBookBtn = document.getElementById("jutsu-book-entry-btn");
+    if (jutsuBookBtn) {
+      jutsuBookBtn.addEventListener("click", function () {
+        renderJutsuBook();
+        showScreen("screen-jutsu-book");
+      });
+    }
+    var jutsuBookBackBtn = document.getElementById("jutsu-book-back-btn");
+    if (jutsuBookBackBtn) {
+      jutsuBookBackBtn.addEventListener("click", function () {
         renderHomeStats();
         showScreen("screen-home");
       });
@@ -13896,6 +14140,33 @@ const QUESTIONS = [
         }
       });
     }
+
+    // 実装2：昇格カットインはタップで閉じる（下に控えているリザルト画面はそのまま操作できる）
+    if (mbEl.promoOverlay) {
+      mbEl.promoOverlay.addEventListener("click", function () {
+        mbEl.promoOverlay.classList.remove("show");
+      });
+    }
+  }
+
+  // ---- 実装3：術図鑑の描画（発動済みは術名＋回数、未発動は？？？で伏せる）----
+  function renderJutsuBook() {
+    var rec = mbLoadRecords();
+    var log = rec.jutsuLog || {};
+    var unlockedCount = 0;
+    var rows = MB_JUTSU_BOOK.map(function (entry) {
+      var count = log[entry.id] || 0;
+      if (count > 0) unlockedCount++;
+      var shown = count > 0 ? entry.name : "？？？";
+      var countText = count > 0 ? ("×" + count) : "";
+      return '<div class="jutsu-entry' + (count > 0 ? "" : " locked") + '">' +
+        '<span class="jutsu-name">' + shown + '</span>' +
+        '<span class="jutsu-count">' + countText + '</span></div>';
+    });
+    var listEl = document.getElementById("jutsu-book-list");
+    if (listEl) listEl.innerHTML = rows.join("");
+    var progressEl = document.getElementById("jutsu-book-progress");
+    if (progressEl) progressEl.textContent = "発動した術：" + unlockedCount + " / " + MB_JUTSU_BOOK.length + "種";
   }
 
   // ---------------------------------------------------------------
