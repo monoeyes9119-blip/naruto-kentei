@@ -27,6 +27,35 @@ REVIVED_FILE = "revived.json"
 
 CIRCLE_MARKS = ["①", "②", "③", "④"]
 
+# 紙の問題用紙をOCRした際に混入した「丸印は②〜」等の採点注釈（正解の位置メモ）。
+# note/questionの選択肢テキスト末尾に紛れ込んでおり、選択肢に正解が書いてある状態を
+# 引き起こすため、choices/answer抽出の境界で必ず除去する。
+# 注釈は常に文字列末尾に付き、直前の区切り文字も形式が揺れる
+# （例：「④水月（丸印は④水月）」「④終末の谷。丸印は③（漢字が判読しづらく…）」）ため、
+# 直前の区切り文字（（。、）を含めて「丸印」から文字列末尾までを丸ごと除去する。
+CIRCLE_NOTE_RE = re.compile(r"[（。、]?\s*丸印.*$")
+
+# 採点注釈以外にも、転記時のメモが同じ位置に紛れ込む。
+# （例：「④薬師カブト（丸印は④）。原文ママ「使えないは誰か」」）
+# 「原文ママ」以降は原文の誤記をそのまま転記した旨の注記で、選択肢本文ではない。
+TRANSCRIPTION_NOTE_RE = re.compile(r"[（。、]?\s*原文ママ.*$")
+
+PAPER_NOTE_RES = (CIRCLE_NOTE_RE, TRANSCRIPTION_NOTE_RE)
+
+
+def strip_paper_note(text):
+    """紙の原本由来の注釈（「丸印は...」「原文ママ...」）を末尾から除去する。
+
+    いずれも選択肢・answerの本文の後ろに付くため、末尾まで丸ごと落として
+    前後空白をトリムする。「丸印」は正解の位置を明示してしまうため、
+    choices/answer抽出の境界で必ず通す。
+    """
+    if not text:
+        return text
+    for pattern in PAPER_NOTE_RES:
+        text = pattern.sub("", text)
+    return text.strip()
+
 # 元々4択だった選択肢が1つの答えに潰れており、正解が不確かなため
 # needs_review行きにする特定の問題（question文字列の前方一致で判定）
 UNCERTAIN_QUESTION_PREFIXES = [
@@ -82,6 +111,9 @@ def split_choices_from_text(text):
         # 末尾の「（丸印は...）」等の注記や句読点を除去
         raw_choice = re.sub(r"[。\.\s]*$", "", raw_choice).strip()
         raw_choice = re.sub(r"\s+", " ", raw_choice)
+        raw_choice = strip_paper_note(raw_choice)
+        # 注釈を落とした結果、末尾に句読点が残ることがあるためもう一度整える
+        raw_choice = re.sub(r"[。\.\s]*$", "", raw_choice).strip()
         choices.append(raw_choice)
 
     if len(choices) != 4 or any(not c for c in choices):
@@ -334,6 +366,7 @@ def process_raw_item(item, review_list, revived_keys=frozenset()):
 
     # --- 4. answerの整形＆choicesとの整合確認 ---
     answer_final = strip_marker(answer_raw)
+    answer_final = strip_paper_note(answer_final)
 
     if choices:
         # answerがchoicesのどれかと一致するか確認（前後空白差異は許容）

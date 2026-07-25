@@ -1349,33 +1349,114 @@
   12%{opacity:1;}
   100%{opacity:1;transform:translate(-70px,430px) scale(2.4) rotate(100deg);}
 }
-/* --- 術名カットイン --- */
+/* --- 術名カットイン（実装3：縦書き＋背後に集中線＝キメゴマ風） --- */
 #mb-root .cutin{
-  position:absolute;left:0;right:0;top:38%;transform:translateY(-50%) scale(.85) skewY(-3deg);
-  text-align:center;opacity:0;padding:10px 4px;z-index:31;
-  background:var(--ink);color:var(--night-deep);font-weight:700;font-size:18px;letter-spacing:.03em;
+  position:absolute;left:50%;top:38%;max-height:76%;
+  transform:translate(-50%,-50%) scale(.85) skewX(-3deg);
+  writing-mode:vertical-rl;text-orientation:upright;
+  text-align:start;opacity:0;padding:14px 10px;z-index:31;
+  background:var(--ink);color:var(--night-deep);font-weight:700;font-size:18px;letter-spacing:.1em;
   box-shadow:0 0 0 3px var(--night-deep), 0 0 24px rgba(255,255,255,.5);
 }
+#mb-root .cutin.long{font-size:15px;letter-spacing:.07em;}
+#mb-root .cutin.vlong{font-size:13px;letter-spacing:.03em;padding:10px 8px;}
 #mb-root .cutin.sennin{
-  font-size:19px;background:linear-gradient(90deg,var(--chakra-pale),var(--chakra-deep));color:#08243f;
+  background:linear-gradient(180deg,var(--chakra-pale),var(--chakra-deep));color:#08243f;
   box-shadow:0 0 0 3px var(--night-deep), 0 0 24px rgba(143,227,255,.8);
 }
 #mb-root .cutin.fire{
-  background:linear-gradient(90deg,#3a1204,#7a2c08);color:#ffd9a0;
+  background:linear-gradient(180deg,#3a1204,#7a2c08);color:#ffd9a0;
   box-shadow:0 0 0 3px var(--night-deep), 0 0 24px rgba(255,140,40,.7);
 }
 #mb-root .cutin.sand{
-  background:linear-gradient(90deg,#4a3512,#8a6a2e);color:#f0dfae;
+  background:linear-gradient(180deg,#4a3512,#8a6a2e);color:#f0dfae;
   box-shadow:0 0 0 3px var(--night-deep), 0 0 24px rgba(200,168,100,.7);
 }
 #mb-root .cutin.play{animation:cutin-anim 1.1s cubic-bezier(.2,.8,.2,1) forwards;}
 @keyframes cutin-anim{
-  0%{opacity:0;transform:translateY(-50%) scale(.6) skewY(-3deg);}
-  18%{opacity:1;transform:translateY(-50%) scale(1.05) skewY(-3deg);}
-  30%{transform:translateY(-50%) scale(1) skewY(-3deg);}
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.6) skewX(-3deg);}
+  18%{opacity:1;transform:translate(-50%,-50%) scale(1.05) skewX(-3deg);}
+  30%{transform:translate(-50%,-50%) scale(1) skewX(-3deg);}
   80%{opacity:1;}
-  100%{opacity:0;transform:translateY(-50%) scale(1) skewY(-3deg);}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1) skewX(-3deg);}
 }
+/* カットイン背後の集中線（漫画のキメゴマ風の背景演出） */
+#mb-root .cutin-burst{
+  position:absolute;left:50%;top:38%;width:1px;height:1px;z-index:30;opacity:0;pointer-events:none;
+}
+#mb-root .cutin-burst::before{
+  content:"";position:absolute;left:50%;top:50%;width:340px;height:340px;margin:-170px 0 0 -170px;
+  border-radius:50%;
+  background:repeating-conic-gradient(from 0deg, rgba(255,255,255,.5) 0deg 2.2deg, transparent 2.2deg 10deg);
+  -webkit-mask-image:radial-gradient(circle, #000 35%, transparent 68%);
+  mask-image:radial-gradient(circle, #000 35%, transparent 68%);
+}
+#mb-root .cutin-burst.play{animation:cutin-burst-anim .55s ease-out forwards;}
+@keyframes cutin-burst-anim{
+  0%{opacity:0;transform:scale(.35) rotate(0deg);}
+  25%{opacity:.7;transform:scale(1.05) rotate(6deg);}
+  100%{opacity:0;transform:scale(1.5) rotate(14deg);}
+}
+
+/* --- 実装1：術発動前の「溜め」演出 --- */
+#mb-root .mb-charge{position:absolute;left:50%;top:26%;width:0;height:0;z-index:28;pointer-events:none;}
+/* A. 印を結ぶ：十二支の漢字＋簡易な印の手シルエット（原作コマで確認済みの2種のみに使用） */
+#mb-root .mbc-seal{
+  position:absolute;left:0;top:0;transform:translate(-50%,-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;
+}
+#mb-root .mb-charge.seal.play .mbc-seal{opacity:1;}
+#mb-root .mbc-hand{width:60px;height:60px;opacity:.8;filter:drop-shadow(0 0 8px rgba(255,255,255,.5));}
+#mb-root .mbc-hand path{fill:#e9ece4;}
+#mb-root .mbc-kanji{
+  font-size:44px;font-weight:700;color:#fff;line-height:1;
+  text-shadow:0 0 14px rgba(255,255,255,.9), 0 0 4px #000;
+}
+#mb-root .mbc-kanji.pulse{animation:mbc-kanji-pulse .18s ease-out;}
+@keyframes mbc-kanji-pulse{
+  0%{transform:scale(1.5);opacity:.2;}
+  100%{transform:scale(1);opacity:1;}
+}
+/* B・C共通：チャクラ粒子が中心へ収束する土台 */
+#mb-root .mbc-particles{position:absolute;left:0;top:0;transform:translate(-50%,-50%);opacity:0;}
+#mb-root .mb-charge.chakra.play .mbc-particles,
+#mb-root .mb-charge.still.play .mbc-particles{opacity:1;}
+#mb-root .mbc-orb{
+  position:absolute;left:0;top:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;
+  background:radial-gradient(circle,#fff 0%,rgba(230,232,220,.7) 60%,transparent 100%);
+  box-shadow:0 0 10px rgba(255,255,255,.7);
+}
+/* B. チャクラを練る（螺旋丸系）：青いチャクラが渦を巻いて収束→球になる。印は出さない */
+#mb-root .mb-charge.chakra .mbc-orb{
+  background:radial-gradient(circle,#fff 0%,var(--chakra-pale) 55%,rgba(79,163,255,.35) 100%);
+  box-shadow:0 0 12px rgba(143,227,255,.9);
+}
+#mb-root .mb-charge.chakra.play .mbc-orb{animation:mbc-orb-grow var(--mbc-ms,400ms) ease-in forwards;}
+@keyframes mbc-orb-grow{0%{transform:scale(.15);opacity:.3;}100%{transform:scale(1);opacity:1;}}
+#mb-root .mb-charge.chakra .mbc-p{background:var(--chakra-pale);box-shadow:0 0 6px rgba(143,227,255,.9);}
+#mb-root .mb-charge.chakra.play .mbc-p{animation:mbc-p-swirl var(--mbc-ms,400ms) ease-in forwards;}
+@keyframes mbc-p-swirl{
+  0%{opacity:0;transform:translate(var(--px,60px),var(--py,0px)) rotate(0deg) scale(1);}
+  25%{opacity:1;}
+  100%{opacity:0;transform:translate(0,0) rotate(var(--pr,220deg)) scale(.3);}
+}
+/* C. 気を溜める（印の有無不明・体術）：印は出さず、収束＋一瞬の静止のみ */
+#mb-root .mb-charge.still .mbc-p{background:#e9e8e0;box-shadow:0 0 6px rgba(240,238,225,.85);}
+#mb-root .mb-charge.still.play .mbc-orb{animation:mbc-orb-grow var(--mbc-ms,380ms) ease-in forwards;}
+#mb-root .mb-charge.still.play .mbc-p{animation:mbc-p-converge var(--mbc-ms,380ms) ease-in forwards;}
+@keyframes mbc-p-converge{
+  0%{opacity:0;transform:translate(var(--px,60px),var(--py,0px));}
+  25%{opacity:1;}
+  100%{opacity:0;transform:translate(0,0) scale(.4);}
+}
+/* 粒子6個を放射状に配置 */
+#mb-root .mbc-p{position:absolute;left:0;top:0;width:4px;height:4px;border-radius:50%;opacity:0;}
+#mb-root .mbc-p.p1{--px:0px;--py:-58px;--pr:140deg;}
+#mb-root .mbc-p.p2{--px:50px;--py:-29px;--pr:-160deg;}
+#mb-root .mbc-p.p3{--px:50px;--py:29px;--pr:150deg;}
+#mb-root .mbc-p.p4{--px:0px;--py:58px;--pr:-130deg;}
+#mb-root .mbc-p.p5{--px:-50px;--py:29px;--pr:170deg;}
+#mb-root .mbc-p.p6{--px:-50px;--py:-29px;--pr:-150deg;}
 
 /* ============ リザルト・オーバーレイ ============ */
 #mb-root .result-overlay{
@@ -1412,6 +1493,12 @@
 #mb-root .fx-sennin.play,
 #mb-root .fx-kunai.play,
 #mb-root .cutin.play,
+#mb-root .cutin-burst.play,
+#mb-root .mbc-kanji.pulse,
+#mb-root .mb-charge.chakra.play .mbc-orb,
+#mb-root .mb-charge.chakra.play .mbc-p,
+#mb-root .mb-charge.still.play .mbc-orb,
+#mb-root .mb-charge.still.play .mbc-p,
 #mb-root .flash.show,
 #mb-root .fx-ring.play,
 #mb-root .fx-rasengan.play .rs-swirl,
@@ -1932,6 +2019,21 @@
             <div class="st-flash"></div>
             <div class="st-dark"></div>
           </div>
+          <!-- 実装1：術発動前の「溜め」演出（印を結ぶ／チャクラを練る／気を溜める） -->
+          <div class="mb-charge" id="mb-charge">
+            <div class="mbc-seal">
+              <svg class="mbc-hand" viewBox="0 0 64 64" aria-hidden="true">
+                <path d="M14 42 C11 30 15 18 23 12 C22 20 22 27 24 32 L27 10 C30 20 30 28 30 33 L33 9 C35 19 35 28 34 34 L40 12 C42 20 40 28 37 34 C44 32 49 27 52 20 C51 30 43 39 33 42 C25 44 17 45 14 42 Z"/>
+              </svg>
+              <div class="mbc-kanji" id="mb-chargeKanji"></div>
+            </div>
+            <div class="mbc-particles">
+              <div class="mbc-orb"></div>
+              <span class="mbc-p p1"></span><span class="mbc-p p2"></span><span class="mbc-p p3"></span>
+              <span class="mbc-p p4"></span><span class="mbc-p p5"></span><span class="mbc-p p6"></span>
+            </div>
+          </div>
+          <div class="cutin-burst" id="mb-cutinBurst"></div>
           <div class="cutin" id="mb-cutin"></div>
         </div>
 
@@ -2150,20 +2252,48 @@
   // 4択適格の判定：
   //   (a) 問題自体に choices（選択肢）が付いている（検定過去問など）、または
   //   (b) 答えに数字（算用数字 or 漢数字一〜十）が含まれ、
-  //       synthesizeNumericDistractors で誤答を合成できる
-  //   のどちらかを満たす問題だけを4択モードの対象にする。
-  //   他の問題の答えプールから無関係な誤答を借りる方式（buildDistractorsの
-  //   フォールバック経路）は4択の出題対象選定には一切使わない。
-  //   ただし(b)は、答えが改行を含む・または20文字を超える長文の場合は対象外とする。
+  //       synthesizeNumericDistractors で誤答を合成できる、または
+  //   (c) 答えの型（classifyAnswerType）が jutsu/name/place のいずれかで、
+  //       全問プール中に同じ型の誤答候補（自分自身を除く）が3件以上ある
+  //   のいずれかを満たす問題だけを4択モードの対象にする。
+  //   "other" 型（分類できない・長文の説明文など）は誤答が意味不明になり
+  //   即バレするため対象外のまま。
+  //   ただし(b)(c)いずれも、答えが改行を含む・または20文字を超える長文の場合は対象外とする。
   //   これは元々4択だった選択肢が1つの答えに潰れた/複数事実を列挙しただけの問題で、
-  //   数値合成が「数字以外は全く同じ長文が4つ並ぶ」異常な4択を生んでしまうのを防ぐため。
+  //   異常な4択を生んでしまうのを防ぐため。
   //   choices を持つ問題（本物の選択肢）はこの長さ制限の対象外。
   function isQuizEligible(q) {
     if (!q || typeof q.answer !== "string" || !q.answer) return false;
     if (Array.isArray(q.choices) && q.choices.length === 4) return true;
     if (q.answer.indexOf("\n") !== -1 || q.answer.length > 20) return false;
     if (hasNumericToken(q.answer) && synthesizeNumericDistractors(q.answer)) return true;
+    var answerType = classifyAnswerType(q.answer);
+    if (TYPE_GATE_ELIGIBLE_TYPES[answerType]) {
+      var counts = getTypeCandidateCounts();
+      // 自分自身の答えを除いた同型候補数（＝counts[type]-1）が閾値以上なら適格
+      if ((counts[answerType] || 0) - 1 >= TYPE_GATE_MIN_CANDIDATES) return true;
+    }
     return false;
+  }
+
+  // 型ごとの候補数キャッシュ（isQuizEligibleがO(N)走査を毎回しないよう、初回呼び出し時に1度だけ集計）。
+  // allAnswersPool（全問の答え文字列プール、buildDistractorsと同じ母集団）は本関数より後で
+  // 定義されるが、実際に呼ばれるのはページ初期化が終わった後（ユーザー操作時）なので参照可能。
+  var TYPE_GATE_ELIGIBLE_TYPES = { jutsu: true, name: true, place: true };
+  var TYPE_GATE_MIN_CANDIDATES = 3;
+  var TYPE_CANDIDATE_COUNTS_CACHE = null;
+  function getTypeCandidateCounts() {
+    if (TYPE_CANDIDATE_COUNTS_CACHE === null) {
+      TYPE_CANDIDATE_COUNTS_CACHE = {};
+      var seen = {};
+      allAnswersPool.forEach(function (a) {
+        if (seen[a]) return;
+        seen[a] = true;
+        var t = classifyAnswerType(a);
+        TYPE_CANDIDATE_COUNTS_CACHE[t] = (TYPE_CANDIDATE_COUNTS_CACHE[t] || 0) + 1;
+      });
+    }
+    return TYPE_CANDIDATE_COUNTS_CACHE;
   }
 
   // ---------------------------------------------------------------
@@ -2171,8 +2301,16 @@
   // ---------------------------------------------------------------
   var NAME_SURNAMES = ["うちは", "うずまき", "日向", "千手", "猿飛", "奈良", "秋道", "山中"];
   var NUMBER_UNITS = /(個|人|つ|歳|枚|本|巻|m|両|号)/;
-  var PLACE_SUFFIX = /(の国|の里|隠れ|谷|寺|村)/;
+  // 「村」は語中でもマッチすると「志村ダンゾウ」等の人名を地名型に誤判定するため、
+  // 語末（〜村で終わる）に限定する。他の接尾辞は語中一致のままでよい。
+  var PLACE_SUFFIX = /(の国|の里|隠れ|谷|寺|村$)/;
   var JUTSU_KEYWORDS = /(術|眼|遁|丸|拳|千鳥|螺旋)/;
+  // 術名っぽいキーワードを含んでいても、12文字を超える長さは「術名」ではなく
+  // 「〜という術を使った／〜術が使えなくなる」等の説明文であることが多い。
+  // 説明文が術名型に混ざると、短い実在の術名ばかりが誤答候補になり答えが一目で
+  // バレるため、jutsu判定は12文字以下に限定する（超えるものは"other"へ落として
+  // 4択の対象外にする＝意図した挙動）。
+  var JUTSU_MAX_LEN = 12;
 
   function classifyAnswerType(a) {
     if (typeof a !== "string" || !a) return "other";
@@ -2187,8 +2325,8 @@
       var katakanaCount = (a.match(/[゠-ヿー]/g) || []).length;
       if (katakanaCount / a.length >= 0.6) return "name";
     }
-    // 術名系
-    if (JUTSU_KEYWORDS.test(a)) return "jutsu";
+    // 術名系（12文字以下のみ。超える場合は説明文とみなしotherへ）
+    if (a.length <= JUTSU_MAX_LEN && JUTSU_KEYWORDS.test(a)) return "jutsu";
     return "other";
   }
 
@@ -2356,6 +2494,9 @@
       if (a === correctAnswer) return false;
       // 正解と完全一致・空白除去一致する候補は除外
       if (typeof a === "string" && a.replace(/\s+/g, "") === normalizedCorrect) return false;
+      // 改行を含む・長すぎる候補は誤答として表示不適切なので除外
+      // （isQuizEligibleが正解に課しているのと同じ安全基準を、誤答候補プールにも適用する）
+      if (a.indexOf("\n") !== -1 || a.length > MAX_ANSWER_LEN_FOR_QUIZ) return false;
       return true;
     });
     // 重複除去
@@ -2782,8 +2923,19 @@
   // ---------------------------------------------------------------
   // 4択クイズ
   // ---------------------------------------------------------------
-  var allAnswersPool = SAFE_QUESTIONS.map(function (q) { return q.answer; }).filter(function (a) {
-    return typeof a === "string";
+  // 検定過去問の答えには出題形式の注釈（例：「水月（丸印は④水月）」「ド根性忍伝（丸印は④）」）が
+  // 付いているものがある。これがそのまま誤答候補プールに混ざると、他の問題の選択肢ボタンに
+  // 「（丸印は…）」のような出題形式の注釈が丸見えで表示されてしまう。
+  // ここでは誤答候補用のコピーからのみ注釈を除去する。q.answer本体（正誤判定に使う文字列）は
+  // このmapが新しい文字列を返すだけなので書き換わらない。
+  var ANSWER_ANNOTATION_RE = /（丸印[^）]*）/g;
+  var allAnswersPool = SAFE_QUESTIONS.map(function (q) {
+    return (typeof q.answer === "string") ? q.answer.replace(ANSWER_ANNOTATION_RE, "") : q.answer;
+  }).filter(function (a) {
+    if (typeof a !== "string" || !a) return false;
+    // 注釈除去後も、isQuizEligible/buildDistractorsと同じ安全基準（改行を含む・長すぎる）は適用する
+    if (a.indexOf("\n") !== -1 || a.length > MAX_ANSWER_LEN_FOR_QUIZ) return false;
+    return true;
   });
 
   function startQuizScreen() {
@@ -3130,9 +3282,98 @@
     9: { name: "仙法・超大玉螺旋多連丸", fx: "fxSennin", flash: true, cutin: "仙法・超大玉螺旋多連丸", cutinClass: "sennin", line: "仙法・超大玉螺旋多連丸が　さくれつ！", sennin: true, impact: 380, wait: 1700 }
   };
 
-  // ---- 任務記録（ランク別クリア回数・最高コンボ）: 既存statsとは別キーで保存 ----
+  // ---- 術発動前の「溜め」演出（コンボMB_JUTSUキーごとの溜めタイプ）----
+  // type: "seal"（印を結ぶ／原作コマで確認済みの2種のみ）
+  //       "chakra"（チャクラを練る／印を結ばない螺旋丸系。青いチャクラが渦を巻いて収束）
+  //       "still"（気を溜める／印の有無不明・体術。抽象的な収束＋一瞬の静止のみ）
+  // 手裏剣（1）は忍具の即応で溜めなし＝MB_CHARGEに項目を作らない。
+  // seal.kanjiは原作コマで確認済みの印のみ。ms は「1印あたり60〜80ms程度」の実測に
+  // 最後の印を保持する間（＝新しい印を捏造せず、確認済み最後の印の表示を少し伸ばす）を足した値。
+  var MB_CHARGE = {
+    2: { type: "seal", kanji: ["巳", "未", "申", "亥", "午", "寅"], ms: 420 },  // 火遁・豪火球の術
+    7: { type: "seal", kanji: ["丑", "卯", "申"], ms: 350 },                    // 雷切
+    3: { type: "still", ms: 350 },  // 砂縛柩・砂漠葬
+    4: { type: "chakra", ms: 380 }, // 螺旋丸
+    5: { type: "still", ms: 380 },  // 八卦六十四掌
+    6: { type: "still", ms: 420 },  // 木遁・樹海降誕
+    8: { type: "chakra", ms: 450 }, // 風遁・螺旋手裏剣
+    9: { type: "chakra", ms: 480 }  // 仙法・超大玉螺旋多連丸
+  };
+  var MB_KAGEMANE_CHARGE_MS = 350; // 影真似の術（クラッチ）：気を溜める
+  var MB_SENJU_CHARGE_MS = 480;    // 木遁・真数千手（フィニッシュ）：気を溜める
+
+  function mbChargeMsFor(key) {
+    var c = MB_CHARGE[key];
+    return c ? c.ms : 0;
+  }
+
+  // ---- 問題内容に応じた術選択（実装2：コンボ数で"格"、問題内容で"どの術か"）----
+  // MB_JUTSUのキー(1〜9)＝格闘ゲーム的な強さの階段そのものが「格」の元データなので、
+  // 個々の術がどの格(tier)に属するかをここで対応づける。
+  var MB_JUTSU_TIER_OF = {
+    1: 1, 2: 1, 3: 1,  // tier1：手裏剣／火遁・豪火球／砂縛柩・砂漠葬
+    4: 2, 5: 2, 6: 2, 7: 2, // tier2：螺旋丸／八卦六十四掌／木遁・樹海降誕／雷切
+    8: 3, 9: 3  // tier3：風遁・螺旋手裏剣／仙法・超大玉螺旋多連丸
+  };
+  // 影真似の術・木遁・真数千手は特殊トリガー専用（クラッチ／フィニッシュ）なのでtier選択の対象外。
+  var MB_KEYWORDS = [
+    { key: 3, patterns: ["我愛羅", "砂", "一尾", "守鶴", "風影"] },
+    { key: 5, patterns: ["日向", "ヒナタ", "ネジ", "白眼", "柔拳", "点穴"] },
+    { key: 7, patterns: ["カカシ", "はたけ", "千鳥", "雷遁"] },
+    { key: 4, patterns: ["ナルト", "うずまき", "九尾", "九喇嘛"] },
+    { key: 2, patterns: ["うちは", "サスケ", "イタチ", "火遁", "マダラ", "写輪眼"] },
+    { key: 6, patterns: ["柱間", "木遁", "初代火影", "ヤマト"] },
+    { key: 8, patterns: ["風遁", "仙人モード", "妙木山", "フカサク"] },
+    { key: 9, patterns: ["仙法", "仙術", "六道", "尾獣"] }
+    // 影真似（シカマル／奈良）はクラッチ専用トリガーなので選択対象に含めない。
+  ];
+
+  // 問題文＋正解文字列にキーワードが含まれるMB_JUTSUキーを、一致した順ではなく
+  // MB_KEYWORDS定義順に重複なく返す。
+  function mbDetectKeywordJutsu(q) {
+    var text = (q.question || "") + (q.answer || "");
+    var matched = [];
+    MB_KEYWORDS.forEach(function (kw) {
+      for (var i = 0; i < kw.patterns.length; i++) {
+        if (text.indexOf(kw.patterns[i]) !== -1) { matched.push(kw.key); return; }
+      }
+    });
+    return matched;
+  }
+
+  // コンボ数から許可される最大tierを返す（1〜3→tier1／4〜7→tier2／8以上→tier3）
+  function mbAllowedMaxTier(combo) {
+    if (combo <= 3) return 1;
+    if (combo <= 7) return 2;
+    return 3;
+  }
+
+  // 選択ルール：①許可tier内でキーワード一致した術のうち最も高いtierを選ぶ
+  //            ②同tierに複数候補があり、直前と同じなら別候補にずらす（候補がなければそのまま）
+  //            ③一致が無ければ従来のコンボ階段（mbTierFor）にフォールバック
+  function mbSelectJutsuKey(combo, q, prevKey) {
+    var maxTier = mbAllowedMaxTier(combo);
+    var matched = mbDetectKeywordJutsu(q).filter(function (key) {
+      return MB_JUTSU_TIER_OF[key] <= maxTier;
+    });
+    if (matched.length === 0) return mbTierFor(combo);
+
+    var topTier = matched.reduce(function (best, key) {
+      return Math.max(best, MB_JUTSU_TIER_OF[key]);
+    }, 0);
+    var topCandidates = matched.filter(function (key) { return MB_JUTSU_TIER_OF[key] === topTier; });
+    if (topCandidates.length > 1 && prevKey !== null && prevKey !== undefined) {
+      var alt = topCandidates.filter(function (key) { return key !== prevKey; });
+      if (alt.length > 0) topCandidates = alt;
+    }
+    return topCandidates[0];
+  }
+
+  // ---- 任務記録（ランク別クリア回数・最高コンボ・直近出題履歴）: 既存statsとは別キーで保存 ----
+  // history: { "D級": [id, id, ...], ... } 各ランクごとに直近出題したidを古い順に保持する
+  // （出題重複回避のため。mbDrawQuestionsから読み書きする）。
   function mbLoadRecords() {
-    var fallback = { clears: {}, bestCombo: 0 };
+    var fallback = { clears: {}, bestCombo: 0, history: {} };
     try {
       var raw = window.localStorage.getItem(MB_STORAGE_KEY);
       if (!raw) return fallback;
@@ -3140,7 +3381,8 @@
       if (!parsed || typeof parsed !== "object") return fallback;
       return {
         clears: (parsed.clears && typeof parsed.clears === "object") ? parsed.clears : {},
-        bestCombo: typeof parsed.bestCombo === "number" ? parsed.bestCombo : 0
+        bestCombo: typeof parsed.bestCombo === "number" ? parsed.bestCombo : 0,
+        history: (parsed.history && typeof parsed.history === "object") ? parsed.history : {}
       };
     } catch (e) { return fallback; }
   }
@@ -3148,21 +3390,24 @@
     try { window.localStorage.setItem(MB_STORAGE_KEY, JSON.stringify(rec)); } catch (e) { /* 保存不可でも進行は止めない */ }
   }
 
-  // ---- ランク別抽選：既存の4択適格判定（isQuizEligible）を流用し、難易度ミックスで10問＋予備2問 ----
-  // 任務は「10問見破る or 3回被弾」で終わる。ミス2回まで生存できるため、
-  // 10問固定だと「8正解＋2ミス」で問題が尽きる。予備2問（ランクの主難易度から）を足して
-  // 最大12問（9正解+2ミス+最終問）まで必ず出題できるようにする。
-  // 該当難易度が不足する場合は MB_DIFF_FALLBACK の順で近い難易度から補充する。
-  function mbDrawQuestions(rank) {
-    var mix = MB_RANK_MIX[rank] || MB_RANK_MIX["C級"];
-    var eligible = SAFE_QUESTIONS.filter(isQuizEligible);
+  // 難易度が易/普/難のいずれでもない（不明）場合は「普」扱いにする。
+  // mbDrawQuestions本体の振り分けと、履歴上限を計算する際のプールサイズ集計の両方で使う。
+  function mbNormalizeDiff(d) {
+    return (d === "易" || d === "普" || d === "難") ? d : "普";
+  }
+
+  function mbBuildBuckets(pool) {
     var buckets = { "易": [], "普": [], "難": [] };
-    eligible.forEach(function (q) {
-      if (buckets[q.difficulty]) buckets[q.difficulty].push(q);
-      else buckets["普"].push(q); // 難易度不明は「普」扱い
+    pool.forEach(function (q) {
+      buckets[mbNormalizeDiff(q.difficulty)].push(q);
     });
     Object.keys(buckets).forEach(function (d) { buckets[d] = shuffle(buckets[d]); });
+    return buckets;
+  }
 
+  // 難易度ミックスに沿って、予備2問を加えた最大12問を buckets から引き当てる。
+  // （出題重複回避のための除外処理とは無関係な、純粋な抽選ロジック本体）
+  function mbPickFromBuckets(buckets, mix) {
     var usedIds = {};
     function takeFrom(diff, n) {
       var arr = buckets[diff];
@@ -3196,18 +3441,72 @@
       picked = picked.concat(got);
     });
     picked = shuffle(picked).slice(0, MB_TARGET + MB_SPARE);
+    return picked;
+  }
 
-    // 受け入れ検証用：抽選した難易度分布をコンソールへ（動作には影響しない）
+  // ---- ランク別抽選：既存の4択適格判定（isQuizEligible）を流用し、難易度ミックスで10問＋予備2問 ----
+  // 任務は「10問見破る or 3回被弾」で終わる。ミス2回まで生存できるため、
+  // 10問固定だと「8正解＋2ミス」で問題が尽きる。予備2問（ランクの主難易度から）を足して
+  // 最大12問（9正解+2ミス+最終問）まで必ず出題できるようにする。
+  // 該当難易度が不足する場合は MB_DIFF_FALLBACK の順で近い難易度から補充する。
+  //
+  // 出題重複回避：ランクごとに直近出題したidをlocalStorage（history）へ保持し、
+  // 抽選時はそのidを除外したプールから引く。除外した結果12問に足りない場合は、
+  // 履歴の古いもの（最も長く出題されていないもの）から順に解禁して必ず12問揃える
+  // ——「問題が足りません」で開始不能になることは絶対に避ける。
+  // 履歴の保持数は、そのランクが対象とする難易度（ミックスのキー）に属する適格問題数の
+  // 6割程度を上限に、古いものから捨てるFIFO（ただし1回の抽選12問は必ず収まるよう下限12）。
+  function mbDrawQuestions(rank) {
+    var mix = MB_RANK_MIX[rank] || MB_RANK_MIX["C級"];
+    var eligible = SAFE_QUESTIONS.filter(isQuizEligible);
+
+    var rec = mbLoadRecords();
+    var history = (rec.history && Array.isArray(rec.history[rank])) ? rec.history[rank].slice() : [];
+    var excludeSet = {};
+    history.forEach(function (id) { excludeSet[id] = true; });
+
+    function poolExcluding(set) {
+      return eligible.filter(function (q) { return !set[q.id]; });
+    }
+
+    var picked = mbPickFromBuckets(mbBuildBuckets(poolExcluding(excludeSet)), mix);
+    // 除外しすぎて12問に届かない場合、履歴の古い順に1件ずつ解禁して再抽選する
+    var releaseIdx = 0;
+    while (picked.length < MB_TARGET + MB_SPARE && releaseIdx < history.length) {
+      delete excludeSet[history[releaseIdx]];
+      releaseIdx++;
+      picked = mbPickFromBuckets(mbBuildBuckets(poolExcluding(excludeSet)), mix);
+    }
+
+    // 履歴を更新：今回出題したidを「最近使った」側（配列末尾）へ移動し、
+    // 上限を超えた古いもの（配列先頭）から捨てる
+    var primaryPoolSize = eligible.filter(function (q) {
+      return mix.hasOwnProperty(mbNormalizeDiff(q.difficulty));
+    }).length;
+    var historyCap = Math.max(MB_TARGET + MB_SPARE, Math.floor(primaryPoolSize * 0.6));
+    var pickedIds = picked.map(function (q) { return q.id; });
+    var newHistory = history.filter(function (id) { return pickedIds.indexOf(id) === -1; }).concat(pickedIds);
+    if (newHistory.length > historyCap) {
+      newHistory = newHistory.slice(newHistory.length - historyCap);
+    }
+    rec.history = rec.history || {};
+    rec.history[rank] = newHistory;
+    mbSaveRecords(rec);
+
+    // 受け入れ検証用：抽選した難易度分布と重複回避状況をコンソールへ（動作には影響しない）
     var dist = {};
     picked.forEach(function (q) { var d = q.difficulty || "?"; dist[d] = (dist[d] || 0) + 1; });
-    try { console.log("[任務モード] " + rank + " 抽選難易度分布: " + JSON.stringify(dist)); } catch (e) {}
+    try {
+      console.log("[任務モード] " + rank + " 抽選難易度分布: " + JSON.stringify(dist) +
+        " / 履歴解禁件数: " + releaseIdx + " / 履歴上限: " + historyCap + " / 履歴サイズ: " + newHistory.length);
+    } catch (e) {}
     return picked;
   }
 
   // ---- バトル状態 ----
   var mbState = {
     rank: "C級", qi: 0, correct: 0, combo: 0, maxCombo: 0, hp: 3, stage: "idle",
-    questions: [], options: [], answered: [],
+    questions: [], options: [], answered: [], lastJutsuKey: null,
     fuseTimeout: null, igniteTimeout: null, fuseDeadline: null, over: false
   };
   var mbEl = {};
@@ -3382,16 +3681,19 @@
       if (mbState.correct >= MB_TARGET) {
         // 任務達成：フィニッシュ専用の木遁・真数千手
         mbPlaySenju();
-        setTimeout(function () { mbShowResult(true); }, 2800);
+        setTimeout(function () { mbShowResult(true); }, MB_SENJU_CHARGE_MS + 2800);
         return;
       }
       if (clutch) {
         mbPlayKagemane();
-        wait = 1500;
+        wait = MB_KAGEMANE_CHARGE_MS + 1500;
       } else {
-        var tier = mbTierFor(mbState.combo);
+        // 実装2：コンボ数で許可される"格"の中から、問題の内容（問題文＋正解）に
+        // 連動する術があればそれを優先し、無ければ従来のコンボ階段にフォールバックする。
+        var tier = mbSelectJutsuKey(mbState.combo, q, mbState.lastJutsuKey);
+        mbState.lastJutsuKey = tier;
         mbPlayJutsu(tier);
-        wait = MB_JUTSU[tier].wait || 1150;
+        wait = mbChargeMsFor(tier) + (MB_JUTSU[tier].wait || 1150);
       }
     } else {
       mbSetCombo(0);
@@ -3419,7 +3721,63 @@
     }, wait);
   }
 
-  function mbPlayJutsu(tier) {
+  // ---- カットイン共通ヘルパー：縦書きキメゴマ演出（実装3）。長い術名は自動で縮小する ----
+  function mbSetCutin(text, extraClass) {
+    mbEl.cutin.textContent = text;
+    var cls = "cutin play" + (extraClass ? " " + extraClass : "");
+    if (text.length >= 10) cls += " vlong";
+    else if (text.length >= 7) cls += " long";
+    mbEl.cutin.className = cls;
+    mbReplay(mbEl.cutinBurst);
+  }
+
+  // ---- 実装1：術発動前の「溜め」演出 ----
+  // A. 印を結ぶ：十二支の漢字を1文字ずつ高速切り替え（原作コマで確認済みの2種のみ）
+  function mbPlayChargeSeal(kanjiList, ms, done) {
+    mbEl.charge.className = "mb-charge seal play";
+    var stepMs = 70;
+    var idx = 0;
+    function showNext() {
+      mbEl.chargeKanji.textContent = kanjiList[idx];
+      mbReplay(mbEl.chargeKanji, "pulse");
+      idx++;
+      if (idx < kanjiList.length) {
+        setTimeout(showNext, stepMs);
+      } else {
+        // 最後の印（＝原作で確認済みの本物の印）の表示を少し保持してから発動する。
+        // 新しい印を創作するのではなく、確認済みの最後の印の「間」を伸ばすだけ。
+        var holdMs = Math.max(0, ms - kanjiList.length * stepMs);
+        setTimeout(finish, stepMs + holdMs);
+      }
+    }
+    function finish() {
+      mbEl.charge.className = "mb-charge";
+      mbEl.chargeKanji.textContent = "";
+      done();
+    }
+    showNext();
+  }
+  // B. チャクラを練る：印を結ばず、チャクラ粒子が渦を巻いて集まり球になる（螺旋丸系）
+  function mbPlayChargeChakra(ms, done) {
+    mbEl.charge.style.setProperty("--mbc-ms", ms + "ms");
+    mbEl.charge.className = "mb-charge chakra play";
+    setTimeout(function () {
+      mbEl.charge.className = "mb-charge";
+      done();
+    }, ms);
+  }
+  // C. 気を溜める：印の有無が原作で確認できないもの・体術。抽象的な収束＋一瞬の静止のみ
+  function mbPlayChargeStill(ms, done) {
+    mbEl.charge.style.setProperty("--mbc-ms", ms + "ms");
+    mbEl.charge.className = "mb-charge still play";
+    setTimeout(function () { mbHitStop(Math.min(120, Math.round(ms * 0.3))); }, Math.max(0, ms - 120));
+    setTimeout(function () {
+      mbEl.charge.className = "mb-charge";
+      done();
+    }, ms);
+  }
+
+  function mbFireJutsu(tier) {
     var info = MB_JUTSU[tier];
     // 二段メッセージ対応（砂縛柩→砂漠葬など）
     mbShowResultLine(info.preLine || ("＊「見破った！　" + info.line + "」"));
@@ -3432,10 +3790,7 @@
     }
 
     mbReplay(mbEl[info.fx]);
-    if (info.cutin) {
-      mbEl.cutin.textContent = info.cutin;
-      mbEl.cutin.className = "cutin play" + (info.cutinClass ? " " + info.cutinClass : "");
-    }
+    if (info.cutin) mbSetCutin(info.cutin, info.cutinClass);
     // 着弾：ヒットストップ→衝撃リング＋敵のけぞり＋フラッシュ
     setTimeout(function () {
       mbHitStop(70);
@@ -3450,23 +3805,37 @@
     }, info.impact);
   }
 
-  // 影真似の術：残り2秒切りの正解で発動（コンボは通常どおり加算）
-  function mbPlayKagemane() {
+  // 実装1：コンボで選ばれた術のtierに応じた溜めを挟んでから発動する
+  function mbPlayJutsu(tier) {
+    var charge = MB_CHARGE[tier];
+    if (!charge) { mbFireJutsu(tier); return; } // 手裏剣（忍具）は溜めなし＝即発動
+    if (charge.type === "seal") {
+      mbPlayChargeSeal(charge.kanji, charge.ms, function () { mbFireJutsu(tier); });
+    } else if (charge.type === "chakra") {
+      mbPlayChargeChakra(charge.ms, function () { mbFireJutsu(tier); });
+    } else {
+      mbPlayChargeStill(charge.ms, function () { mbFireJutsu(tier); });
+    }
+  }
+
+  // 影真似の術：残り2秒切りの正解で発動（コンボは通常どおり加算）。印は出さない（気を溜める）。
+  function mbFireKagemane() {
     mbShowResultLine("＊「影真似の術…成功。　間一髪だったな」");
-    mbEl.cutin.textContent = "影真似の術";
-    mbEl.cutin.className = "cutin play";
+    mbSetCutin("影真似の術");
     mbReplay(mbEl.fxKagemane);
     setTimeout(function () {
       mbHitStop(70);
       mbEl.enemyWrap.classList.add("bound");
     }, 450);
   }
+  function mbPlayKagemane() {
+    mbPlayChargeStill(MB_KAGEMANE_CHARGE_MS, mbFireKagemane);
+  }
 
-  // 木遁・真数千手：任務達成のフィニッシュ専用
-  function mbPlaySenju() {
+  // 木遁・真数千手：任務達成のフィニッシュ専用。印は出さない（気を溜める）。
+  function mbFireSenju() {
     mbShowResultLine("＊「木遁・真数千手──　すべてを　うちくだいた！」");
-    mbEl.cutin.textContent = "木遁・真数千手";
-    mbEl.cutin.className = "cutin play";
+    mbSetCutin("木遁・真数千手");
     mbReplay(mbEl.fxSenju);
     setTimeout(function () { mbReplay(mbEl.screen, "shake-hard"); }, 300);
     setTimeout(function () {
@@ -3475,6 +3844,9 @@
       setTimeout(function () { mbShakeScreen(); }, 80);
     }, 1500);
     setTimeout(function () { mbEl.enemyWrap.classList.add("vanish"); }, 1950);
+  }
+  function mbPlaySenju() {
+    mbPlayChargeStill(MB_SENJU_CHARGE_MS, mbFireSenju);
   }
 
   // 被弾1発目：クナイ飛来
@@ -3550,10 +3922,12 @@
     mbEl.enemyWrap.classList.remove("hit");
     ["fxKagemane", "fxJukai", "fxSenju", "fxShinra", "fxCbird", "fxExplosion", "fxKunai",
      "fxSabaku", "fxShuriken", "fxGoukakyu", "fxRasengan", "fxHakke", "fxRaikiri",
-     "fxRasenshuriken", "fxSennin", "fxRing"].forEach(function (k) {
+     "fxRasenshuriken", "fxSennin", "fxRing", "cutinBurst"].forEach(function (k) {
       if (mbEl[k]) mbEl[k].classList.remove("play");
     });
     mbEl.cutin.className = "cutin";
+    if (mbEl.charge) mbEl.charge.className = "mb-charge";
+    if (mbEl.chargeKanji) mbEl.chargeKanji.textContent = "";
     mbEl.screen.classList.remove("shinra");
     mbEl.screen.classList.remove("hitstop");
     mbEl.enemyShadow.style.opacity = "";
@@ -3570,7 +3944,7 @@
     }
     mbState = {
       rank: rank, qi: 0, correct: 0, combo: 0, maxCombo: 0, hp: 3, stage: "idle",
-      questions: mbDrawQuestions(rank), options: [], answered: [],
+      questions: mbDrawQuestions(rank), options: [], answered: [], lastJutsuKey: null,
       fuseTimeout: null, igniteTimeout: null, fuseDeadline: null, over: false
     };
     mbResetVisualState();
@@ -3615,7 +3989,7 @@
      "resultLine", "comboChip", "comboCount", "commandWindow", "ramen", "flashHit", "flashJutsu", "flashFire",
      "fxShuriken", "fxGoukakyu", "fxSabaku", "fxRasengan", "fxHakke", "fxRaikiri",
      "fxRasenshuriken", "fxSennin", "fxRing", "fxKunai", "fxCbird", "fxExplosion", "fxShinra",
-     "fxKagemane", "fxJukai", "fxSenju", "cutin", "resultOverlay",
+     "fxKagemane", "fxJukai", "fxSenju", "cutin", "cutinBurst", "charge", "chargeKanji", "resultOverlay",
      "resultTitle", "resultRows", "resultRestart", "resultHome", "screen", "enemyWrap", "enemyShadow", "rankBadge",
      "interruptBtn"
     ].forEach(function (key) { mbEl[key] = document.getElementById("mb-" + key); });
