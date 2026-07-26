@@ -446,14 +446,22 @@
   .wrong-list-item:last-child{border-bottom:none;}
   .wrong-q{font-weight:800;font-size:14px;margin-bottom:4px;color:var(--ink);}
   .wrong-a{font-weight:700;font-size:13px;color:var(--ink);white-space:pre-wrap;}
-  /* 実装3：術図鑑の一覧行 */
+  /* 実装3：術図鑑の一覧行（鑑賞モード：タップで再生できるbuttonなので、button既定の見た目を打ち消す） */
   .jutsu-entry{
     display:flex;
     justify-content:space-between;
     align-items:center;
     gap:8px;
+    width:100%;
     padding:12px 2px;
+    border:none;
     border-bottom:2px solid var(--border-soft);
+    background:none;
+    appearance:none;
+    -webkit-appearance:none;
+    font:inherit;
+    text-align:left;
+    cursor:pointer;
   }
   .jutsu-entry:last-child{border-bottom:none;}
   .jutsu-entry .jutsu-name{font-weight:800;font-size:14px;color:var(--ink);}
@@ -729,6 +737,10 @@
     background:var(--card);
     overflow:hidden;
     box-shadow:1px 1px 0 var(--accent);
+    appearance:none;
+    -webkit-appearance:none;
+    font-family:inherit;
+    cursor:pointer;
   }
   .jutsu-cell.locked{
     color:var(--muted);
@@ -879,6 +891,11 @@
   border:1px solid #3d445a;border-radius:3px;padding:6px 9px;cursor:pointer;
 }
 #mb-root .mb-interrupt-btn:active{background:rgba(255,255,255,.14);color:var(--ink);}
+
+/* ---- 鑑賞モード（術図鑑プレビュー再生）：出題まわりのUIを隠し、戦場と演出だけ流用する ---- */
+#mb-root.view-mode .mission-progress{display:none;}
+#mb-root.view-mode .command-window{display:none;}
+#mb-root.view-mode .status-bar{display:none;}
 
 /* ============ 2. 戦場シーン ============ */
 #mb-root .battlefield{
@@ -2140,16 +2157,17 @@
         <p class="rank-chip-note" id="rankpath-note"></p>
       </div>
 
-      <!-- 術図鑑プレビュー：全11種をマス目で表示（MB_JUTSU_BOOKをJSから参照。名前の重複定義はしない）。
-           カード全体がタップ導線＝記録タブへ（jutsu-book-jump-btnと同じswitchHomeTab('record')を再利用）。
-           グリッドは装飾的な内訳のため、ボタンのアクセシブルネームが冗長にならないようaria-hiddenにする。 -->
-      <button type="button" class="card card-tap" id="jutsu-preview-card">
-        <div class="jutsu-preview-head">
+      <!-- 術図鑑プレビュー：全30種をマス目で表示（MB_JUTSU_BOOKをJSから参照。名前の重複定義はしない）。
+           見出し部分のタップ導線＝記録タブへ（jutsu-book-jump-btnと同じswitchHomeTab('record')を再利用）。
+           各マスは鑑賞モードでその術を単発再生するボタン（buttonの中にbuttonを入れないよう、
+           見出しとグリッドを別のbuttonに分ける）。 -->
+      <div class="card" id="jutsu-preview-card">
+        <button type="button" class="card-tap jutsu-preview-head" id="jutsu-preview-head-btn">
           <label style="margin:0;">忍術コレクション</label>
           <span class="jutsu-preview-count" id="jutsu-preview-count">0 / 30種　＞</span>
-        </div>
-        <div class="jutsu-grid" id="jutsu-grid" aria-hidden="true"></div>
-      </button>
+        </button>
+        <div class="jutsu-grid" id="jutsu-grid"></div>
+      </div>
 
       <!-- 直近の任務結果／初回の遊び方：プレイ済みかどうかで出し分け -->
       <div class="card" id="mission-summary-card">
@@ -2243,7 +2261,8 @@
       <div class="card">
         <label style="margin-top:0;">術図鑑</label>
         <p style="margin:0 0 4px;font-size:14px;font-weight:900;" id="jutsu-book-progress">発動した術：0 / 30種</p>
-        <p style="margin:0 0 12px;font-size:12px;">任務モードで発動した忍術がここに記録されていきます。まだ見たことのない術は？？？で伏せられます。</p>
+        <p style="margin:0 0 12px;font-size:12px;">任務モードで発動した忍術がここに記録されていきます。まだ見たことのない術は？？？で伏せられます。行をタップすると、鑑賞モードでその術の演出だけを確認できます（記録には影響しません）。</p>
+        <button type="button" class="primary" id="jutsu-play-all-btn" style="margin-top:0;margin-bottom:14px;">▶ すべて連続再生</button>
         <div id="jutsu-book-list"></div>
       </div>
     </div>
@@ -2647,6 +2666,16 @@
             <p class="promo-title" id="mb-promoTitle">下忍</p>
             <p class="promo-sub">に　しょうかくした！</p>
             <p class="promo-tap">（タップで　とじる）</p>
+          </div>
+        </div>
+
+        <!-- 術鑑賞モード：1件の再生が終わった直後の導線（既存result-overlay/result-cardのスタイルを流用。
+             実際の任務リザルトとは別要素＝戦績・jutsuLogには一切触れない） -->
+        <div class="result-overlay" id="mb-viewDoneOverlay">
+          <div class="result-card">
+            <p class="result-title clear" id="mb-viewDoneTitle"></p>
+            <button type="button" class="result-btn" id="mb-viewAgainBtn">🔁 もう一度</button>
+            <button type="button" class="result-btn ghost" id="mb-viewBackBtn">図鑑へ　もどる</button>
           </div>
         </div>
 
@@ -3252,6 +3281,15 @@
     var currentId = getActiveScreenId();
 
     if (currentId === targetId) return; // タブ切替のreplaceStateなど、画面自体は変わらないケース
+
+    // 鑑賞モード（screen-missionを流用）からの「戻る」：プレイ中扱いではないので確認は出さず、
+    // 再生タイマーだけ止めて即座に戻る。
+    if (currentId === "screen-mission" && mbViewState.active) {
+      mbViewDeactivate();
+      restoreScreenFromHistory(targetId);
+      if (targetId === "screen-home") renderHomeStats();
+      return;
+    }
 
     if (isPlayScreen(currentId)) {
       if (CONFIRM_INTERRUPT_SCREEN_IDS.indexOf(currentId) !== -1) {
@@ -4515,6 +4553,9 @@
     { id: "kirin", name: MB_JUTSU.kirin.name },
     { id: "susanoo", name: MB_JUTSU.susanoo.name }
   ];
+  // 鑑賞モード用：idから即座に名前を引くための対応表（MB_JUTSU_BOOKが唯一の情報源）。
+  var MB_JUTSU_BOOK_BY_ID = {};
+  MB_JUTSU_BOOK.forEach(function (entry) { MB_JUTSU_BOOK_BY_ID[entry.id] = entry; });
 
   // ---- 術発動前の「溜め」演出（コンボMB_JUTSUキーごとの溜めタイプ）----
   // type: "seal"（印を結ぶ／原作コマで確認済みの2種のみ）
@@ -4695,7 +4736,9 @@
     try { window.localStorage.setItem(MB_STORAGE_KEY, JSON.stringify(rec)); } catch (e) { /* 保存不可でも進行は止めない */ }
   }
   // 実装3：発動した術を1件記録する（呼び出しはmbFireJutsu／mbFireKagemane／mbFireSenjuの3箇所のみ）
+  // 鑑賞モード（術図鑑プレビュー再生）では記録しない＝コレクションの価値を守るための唯一の関所。
   function mbRecordJutsu(id) {
+    if (mbViewState.active) return;
     var rec = mbLoadRecords();
     rec.jutsuLog = rec.jutsuLog || {};
     rec.jutsuLog[id] = (rec.jutsuLog[id] || 0) + 1;
@@ -5645,9 +5688,10 @@
     }
   }
 
-  // ---- フェーズ5：任務タブ「忍術コレクション」（術図鑑の11マスプレビュー）----
+  // ---- フェーズ5：任務タブ「忍術コレクション」（術図鑑の30マスプレビュー）----
   // MB_JUTSU_BOOKを唯一の情報源として参照し、術名はここでは定義しない。
   // 発動済みは術名、未発動は？で伏せる＝「まだ埋まっていないマスがある」ことがひと目で伝わる。
+  // 鑑賞モード：各マスはbutton化してあり、タップで単発再生する（未発動でも再生可。表示は？のまま）。
   function renderJutsuPreviewGrid() {
     var grid = document.getElementById("jutsu-grid");
     if (!grid) return;
@@ -5657,8 +5701,8 @@
     var cellsHtml = MB_JUTSU_BOOK.map(function (entry) {
       var count = log[entry.id] || 0;
       if (count > 0) unlockedCount++;
-      if (count > 0) return '<div class="jutsu-cell">' + entry.name + '</div>';
-      return '<div class="jutsu-cell locked">？</div>';
+      if (count > 0) return '<button type="button" class="jutsu-cell" data-jutsu-id="' + entry.id + '">' + entry.name + '</button>';
+      return '<button type="button" class="jutsu-cell locked" data-jutsu-id="' + entry.id + '" aria-label="未発動の術を鑑賞">？</button>';
     }).join("");
     grid.innerHTML = cellsHtml;
     var countEl = document.getElementById("jutsu-preview-count");
@@ -5723,7 +5767,8 @@
      "fxKagemane", "fxJukai", "fxSenju", "cutin", "cutinBurst", "charge", "chargeKanji", "resultOverlay",
      "resultTitle", "resultRows", "resultRestart", "resultHome", "screen", "enemyWrap", "enemyShadow", "rankBadge",
      "interruptBtn", "promoOverlay", "promoTitle", "enemyName",
-     "fxScatter", "fxFlow", "fxGround", "fxSilhouette", "fxBunshin", "fxBijudama"
+     "fxScatter", "fxFlow", "fxGround", "fxSilhouette", "fxBunshin", "fxBijudama",
+     "root", "viewDoneOverlay", "viewDoneTitle", "viewAgainBtn", "viewBackBtn"
     ].forEach(function (key) { mbEl[key] = document.getElementById("mb-" + key); });
 
     mbChoiceBtns = Array.prototype.slice.call(mbEl.commandWindow.querySelectorAll(".choice"));
@@ -5744,13 +5789,58 @@
         switchHomeTab("record");
       });
     }
-    // フェーズ5：忍術コレクション（術図鑑プレビュー）カード全体も同じ導線を共有する
-    var jutsuPreviewCard = document.getElementById("jutsu-preview-card");
-    if (jutsuPreviewCard) {
-      jutsuPreviewCard.addEventListener("click", function () {
+    // フェーズ5：忍術コレクション（術図鑑プレビュー）の見出し部分も同じ導線を共有する
+    // （グリッド本体は鑑賞モードの単発再生ボタンなので、見出しだけ別のbuttonに分けてある）
+    var jutsuPreviewHeadBtn = document.getElementById("jutsu-preview-head-btn");
+    if (jutsuPreviewHeadBtn) {
+      jutsuPreviewHeadBtn.addEventListener("click", function () {
         switchHomeTab("record");
       });
     }
+    // 鑑賞モード 入口1：記録タブの術図鑑一覧／任務タブの忍術コレクショングリッドは、
+    // どちらも再描画のたびに data-jutsu-id を持つbuttonとして生成される。
+    // 生成のたびに再バインドしなくて済むよう、常に存在する親要素へイベント委譲する。
+    var jutsuBookList = document.getElementById("jutsu-book-list");
+    if (jutsuBookList) {
+      jutsuBookList.addEventListener("click", function (e) {
+        var row = e.target.closest("[data-jutsu-id]");
+        if (!row) return;
+        mbViewEnter("single", [row.getAttribute("data-jutsu-id")]);
+      });
+    }
+    var jutsuGrid = document.getElementById("jutsu-grid");
+    if (jutsuGrid) {
+      jutsuGrid.addEventListener("click", function (e) {
+        var cell = e.target.closest("[data-jutsu-id]");
+        if (!cell) return;
+        mbViewEnter("single", [cell.getAttribute("data-jutsu-id")]);
+      });
+    }
+    // 鑑賞モード 入口2：術図鑑先頭の「すべて連続再生」ボタン
+    var jutsuPlayAllBtn = document.getElementById("jutsu-play-all-btn");
+    if (jutsuPlayAllBtn) {
+      jutsuPlayAllBtn.addEventListener("click", function () {
+        mbViewEnter("auto", MB_JUTSU_BOOK.map(function (entry) { return entry.id; }));
+      });
+    }
+    // 鑑賞モード：連続再生中は画面タップで次の術へスキップする
+    // （中断/やめるボタン・再生後の導線ボタンへのタップと二重発火しないようclosestで除外）。
+    mbEl.screen.addEventListener("click", function (e) {
+      if (!mbViewState.active || mbViewState.mode !== "auto") return;
+      if (e.target.closest(".mission-banner")) return;
+      if (e.target.closest("#mb-viewDoneOverlay")) return;
+      mbViewSkip();
+    });
+    if (mbEl.viewAgainBtn) {
+      mbEl.viewAgainBtn.addEventListener("click", function () {
+        mbViewState.idx = 0;
+        mbViewPlayOne(mbViewState.queue[0]);
+      });
+    }
+    if (mbEl.viewBackBtn) {
+      mbEl.viewBackBtn.addEventListener("click", mbViewExit);
+    }
+
     var rankBtns = document.querySelectorAll("[data-mb-rank]");
     for (var i = 0; i < rankBtns.length; i++) {
       (function (btn) {
@@ -5760,11 +5850,12 @@
       })(rankBtns[i]);
     }
 
+    // 鑑賞モード中は本物の任務ロジック（mbState）に一切触れさせない（!mbViewState.activeガード）。
     mbEl.messageWindow.addEventListener("click", function () {
-      if (mbState.stage === "intro") mbRevealQuestion();
+      if (!mbViewState.active && mbState.stage === "intro") mbRevealQuestion();
     });
     mbEl.messageWindow.addEventListener("keydown", function (e) {
-      if ((e.key === "Enter" || e.key === " ") && mbState.stage === "intro") {
+      if (!mbViewState.active && (e.key === "Enter" || e.key === " ") && mbState.stage === "intro") {
         e.preventDefault();
         mbRevealQuestion();
       }
@@ -5784,6 +5875,8 @@
     // （リザルト画面の「ホームへもどる」と同じ後始末を共有する）。
     if (mbEl.interruptBtn) {
       mbEl.interruptBtn.addEventListener("click", function () {
+        // 鑑賞モード中はこのボタンが「やめる」に差し替わっている。記録は何も無いので確認なしで即戻る。
+        if (mbViewState.active) { mbViewExit(); return; }
         if (window.confirm(INTERRUPT_CONFIRM_MSG)) {
           mbGoHome();
         }
@@ -5799,6 +5892,8 @@
   }
 
   // ---- 実装3：術図鑑の描画（発動済みは術名＋回数、未発動は？？？で伏せる）----
+  // 各行はbutton化してあり、タップすると鑑賞モードで単発再生する（未発動でも再生は可能。
+  // 図鑑上の表示自体は従来どおり？？？のまま＝data-jutsu-idにしかidを出さない）。
   function renderJutsuBook() {
     var rec = mbLoadRecords();
     var log = rec.jutsuLog || {};
@@ -5808,9 +5903,9 @@
       if (count > 0) unlockedCount++;
       var shown = count > 0 ? entry.name : "？？？";
       var countText = count > 0 ? ("×" + count) : "";
-      return '<div class="jutsu-entry' + (count > 0 ? "" : " locked") + '">' +
+      return '<button type="button" class="jutsu-entry' + (count > 0 ? "" : " locked") + '" data-jutsu-id="' + entry.id + '">' +
         '<span class="jutsu-name">' + shown + '</span>' +
-        '<span class="jutsu-count">' + countText + '</span></div>';
+        '<span class="jutsu-count">' + countText + '</span></button>';
     });
     var listEl = document.getElementById("jutsu-book-list");
     if (listEl) listEl.innerHTML = rows.join("");
@@ -5819,6 +5914,174 @@
     // フェーズ4：任務タブの小さな導線（「術図鑑 8/11種」）にも同じ進捗を反映する
     var jumpCountEl = document.getElementById("jutsu-book-jump-count");
     if (jumpCountEl) jumpCountEl.textContent = unlockedCount + " / " + MB_JUTSU_BOOK.length;
+    // 鑑賞モード：「すべて連続再生」ボタンの件数表示（固定数のハードコード禁止＝配列長から算出）
+    var playAllBtn = document.getElementById("jutsu-play-all-btn");
+    if (playAllBtn) playAllBtn.textContent = "▶ すべて連続再生（" + MB_JUTSU_BOOK.length + "種）";
+  }
+
+  // ---------------------------------------------------------------
+  // 術鑑賞モード：任務バトルの舞台（#mb-root＝夜の戦場＋敵忍シルエット）を流用し、
+  // プレイせずに術の演出だけを再生する。演出そのものは既存のmbPlayJutsu／mbPlayKagemane／
+  // mbPlaySenju／mbResetVisualStateをそのまま呼ぶだけで、演出コードは一切複製しない。
+  // mbRecordJutsu側のガード（mbViewState.active）により、jutsuLog・戦績・階級・出題履歴・
+  // つづきから保存にはいっさい触れない。
+  // ---------------------------------------------------------------
+  var mbViewState = {
+    active: false,
+    mode: null,        // "single"（図鑑タップの単発再生）｜"auto"（すべて連続再生）
+    queue: [],         // 再生するMB_JUTSU_BOOKのid配列
+    idx: -1,
+    pendingTimer: null, // 現在待機中のタイマー（スキップ時に即座に呼び出せるようpendingFnと対で保持）
+    pendingFn: null,
+    enemyPick: null     // 鑑賞用に固定した敵忍（実際の任務の敵とは無関係の見た目だけの表示）
+  };
+
+  // スキップ可能な形でsetTimeoutを張る（mbViewSkipは張られている関数を即座に呼ぶだけ）。
+  function mbViewSchedule(fn, ms) {
+    mbViewState.pendingFn = fn;
+    mbViewState.pendingTimer = setTimeout(function () {
+      mbViewState.pendingTimer = null;
+      mbViewState.pendingFn = null;
+      fn();
+    }, ms);
+  }
+
+  // 1件の再生にかかる総時間（溜め＋発動〜着弾）。mbHandleAnswerが実戦で使っている式と同じもの
+  // （新しい数値を作らず、既存の定数・MB_JUTSU/MB_CHARGEの値をそのまま再利用する）。
+  function mbViewDurationFor(id) {
+    if (id === "kagemane") return MB_KAGEMANE_CHARGE_MS + 1500;
+    if (id === "senju") return MB_SENJU_CHARGE_MS + 2800;
+    var info = MB_JUTSU[id];
+    return mbChargeMsFor(id) + ((info && info.wait) || 1150);
+  }
+
+  // vanish（真数千手の敵消滅）／bound（影真似の拘束）が残っていたら解いて敵忍を復帰させる。
+  function mbViewRestoreEnemy() {
+    if (!mbEl.enemyWrap) return;
+    if (mbEl.enemyWrap.classList.contains("vanish") || mbEl.enemyWrap.classList.contains("bound")) {
+      mbEl.enemyWrap.classList.remove("vanish");
+      mbEl.enemyWrap.classList.remove("bound");
+      mbReplay(mbEl.enemyWrap, "enter");
+    }
+  }
+
+  function mbViewOnEntryDone() {
+    mbViewRestoreEnemy();
+    if (mbViewState.mode === "single") {
+      mbViewShowDone(false);
+      return;
+    }
+    mbViewState.idx++;
+    if (mbViewState.idx >= mbViewState.queue.length) {
+      mbViewShowDone(true);
+    } else {
+      // 演出完了→0.4秒→次（間延びさせない最小の間）
+      mbViewSchedule(function () { mbViewPlayOne(mbViewState.queue[mbViewState.idx]); }, 400);
+    }
+  }
+
+  // 1件を実際に再生する。既存の発動関数（mbPlayJutsu／mbPlayKagemane／mbPlaySenju）を
+  // そのまま呼ぶだけで、溜め〜カットイン〜発動〜着弾の演出は一切新しく書かない。
+  function mbViewPlayOne(id) {
+    mbEl.viewDoneOverlay.classList.remove("show");
+    mbEl.interruptBtn.classList.remove("hidden");
+    mbResetVisualState();
+
+    var entry = MB_JUTSU_BOOK_BY_ID[id];
+    var name = entry ? entry.name : "";
+    var caption = (mbViewState.mode === "auto")
+      ? ((mbViewState.idx + 1) + "/" + mbViewState.queue.length + "　" + name)
+      : name;
+    mbEl.flavorLine.textContent = caption;
+    mbEl.flavorLine.style.display = "";
+    mbEl.questionLine.style.display = "none";
+    mbEl.resultLine.style.display = "none";
+    mbEl.messageWindow.classList.toggle("no-prompt", mbViewState.mode !== "auto");
+    mbWindowOpen(mbEl.messageWindow);
+
+    try { console.log("[鑑賞モード] 再生開始：" + (mbViewState.mode === "auto" ? caption : name)); } catch (e) {}
+
+    if (id === "kagemane") mbPlayKagemane();
+    else if (id === "senju") mbPlaySenju();
+    else mbPlayJutsu(id);
+
+    mbViewSchedule(mbViewOnEntryDone, mbViewDurationFor(id));
+  }
+
+  // 再生後の導線（単発：もう一度／図鑑へもどる。連続再生完了：もう一度さいしょから／図鑑へもどる）。
+  // 既存のresult-overlay/result-card/result-btnのスタイルを流用（新しい見た目は作らない）。
+  function mbViewShowDone(isAutoComplete) {
+    if (isAutoComplete) {
+      mbEl.viewDoneTitle.textContent = "全" + mbViewState.queue.length + "種　さいごまで再生しました";
+      mbEl.viewAgainBtn.textContent = "🔁 もう一度さいしょから";
+    } else {
+      var entry = MB_JUTSU_BOOK_BY_ID[mbViewState.queue[mbViewState.idx]];
+      mbEl.viewDoneTitle.textContent = entry ? entry.name : "";
+      mbEl.viewAgainBtn.textContent = "🔁 もう一度";
+    }
+    mbEl.interruptBtn.classList.add("hidden");
+    mbEl.viewDoneOverlay.classList.add("show");
+  }
+
+  // 連続再生中の画面タップ：現在待機中のタイマーを止め、待っていた処理を即座に呼ぶ。
+  function mbViewSkip() {
+    if (mbViewState.pendingTimer === null) return;
+    var fn = mbViewState.pendingFn;
+    clearTimeout(mbViewState.pendingTimer);
+    mbViewState.pendingTimer = null;
+    mbViewState.pendingFn = null;
+    if (fn) fn();
+  }
+
+  // 鑑賞モードの状態・見た目を後始末する（「やめる」ボタン／戻る操作の両方から呼ぶ共通処理。
+  // ここでは画面遷移そのものは行わない＝呼び出し側が状況に応じて遷移する）。
+  function mbViewDeactivate() {
+    if (mbViewState.pendingTimer !== null) clearTimeout(mbViewState.pendingTimer);
+    mbViewState.active = false;
+    mbViewState.mode = null;
+    mbViewState.queue = [];
+    mbViewState.idx = -1;
+    mbViewState.pendingTimer = null;
+    mbViewState.pendingFn = null;
+    if (mbEl.root) mbEl.root.classList.remove("view-mode");
+    if (mbEl.interruptBtn) {
+      mbEl.interruptBtn.textContent = "中断";
+      mbEl.interruptBtn.setAttribute("aria-label", "任務を中断してホームに戻る");
+      mbEl.interruptBtn.classList.remove("hidden");
+    }
+    if (mbEl.viewDoneOverlay) mbEl.viewDoneOverlay.classList.remove("show");
+    mbResetVisualState();
+  }
+
+  // 「やめる」／「図鑑へもどる」：ボタン操作からの明示的な離脱（履歴を1つ積んでホームへ戻る）。
+  function mbViewExit() {
+    mbViewDeactivate();
+    renderHomeStats();
+    showScreen("screen-home");
+  }
+
+  // 鑑賞モードに入る。mode="single"は1件だけ、mode="auto"はqueueの順に連続再生する。
+  function mbViewEnter(mode, queue) {
+    mbViewState.active = true;
+    mbViewState.mode = mode;
+    mbViewState.queue = queue;
+    mbViewState.idx = 0;
+    mbViewState.pendingTimer = null;
+    mbViewState.pendingFn = null;
+    if (!mbViewState.enemyPick) {
+      mbViewState.enemyPick = { enemy: MB_ENEMIES[Math.floor(Math.random() * MB_ENEMIES.length)], boosted: false };
+    }
+    mbResetVisualState();
+    mbRenderEnemy(mbViewState.enemyPick.enemy, mbViewState.enemyPick.boosted);
+    mbEl.enemyName.textContent = "";
+    mbEl.rankBadge.textContent = "鑑賞モード";
+    mbEl.root.classList.add("view-mode");
+    mbEl.interruptBtn.textContent = "やめる";
+    mbEl.interruptBtn.setAttribute("aria-label", "鑑賞をやめて図鑑へもどる");
+    mbEl.interruptBtn.classList.remove("hidden");
+    mbEl.viewDoneOverlay.classList.remove("show");
+    showScreen("screen-mission");
+    mbViewPlayOne(queue[0]);
   }
 
   // ---------------------------------------------------------------
