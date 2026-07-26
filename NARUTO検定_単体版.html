@@ -81,7 +81,7 @@
   .card.card-accent::before{
     content:"";
     position:absolute;
-    left:-3px; top:22px;
+    left:-4.75px; top:22px;
     width:12px; height:12px;
     background:var(--accent);
     border:2.5px solid var(--ink);
@@ -613,6 +613,137 @@
     margin:0 0 4px;
     min-height:16px;
   }
+
+  /* ---------- 任務タブ：昇格の道のり（6段の横並びステッパー） ---------- */
+  .rankpath{
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    padding-top:2px;
+  }
+  .rankpath-track,
+  .rankpath-track-fill{
+    position:absolute;
+    left:22px;
+    top:19px;
+    height:3px;
+    border-radius:2px;
+    z-index:0;
+  }
+  .rankpath-track{ right:22px; background:var(--border-soft); }
+  .rankpath-track-fill{ background:var(--ink); }
+  .rankpath-step{
+    position:relative;
+    z-index:1;
+    flex:1 1 0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+  }
+  .rankpath-node{
+    width:26px; height:26px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    font-weight:900;
+    background:var(--card);
+    border:2px solid var(--border-soft);
+    color:var(--muted);
+    flex:none;
+  }
+  .rankpath-step.done .rankpath-node{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--bg);
+  }
+  .rankpath-step.current .rankpath-node{
+    width:32px; height:32px;
+    background:var(--accent);
+    border:2.5px solid var(--ink);
+    color:var(--ink);
+    box-shadow:2px 2px 0 var(--ink);
+    font-size:13px;
+  }
+  .rankpath-step.locked .rankpath-node{
+    border-style:dashed;
+    background:repeating-linear-gradient(45deg, var(--card), var(--card) 4px, rgba(20,18,15,.07) 4px, rgba(20,18,15,.07) 8px);
+  }
+  .rankpath-label{
+    font-size:10px;
+    font-weight:700;
+    color:var(--muted);
+    text-align:center;
+    line-height:1.2;
+    max-width:54px;
+  }
+  .rankpath-step.done .rankpath-label,
+  .rankpath-step.current .rankpath-label{ color:var(--ink); }
+  .rankpath-step.current .rankpath-label{ font-weight:900; }
+
+  /* ---------- 任務タブ：カード全体がタップ導線になるボタン（術図鑑プレビュー用） ---------- */
+  .card-tap{
+    display:block;
+    width:100%;
+    text-align:left;
+    font-family:var(--font-gothic);
+    -webkit-appearance:none;
+    appearance:none;
+    cursor:pointer;
+  }
+  .card-tap:active{ background:var(--bg); }
+
+  /* ---------- 任務タブ：術図鑑プレビューグリッド ---------- */
+  .jutsu-preview-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:10px;
+  }
+  .jutsu-preview-count{
+    font-size:12.5px;
+    font-weight:800;
+    color:var(--accent);
+    flex:none;
+  }
+  .jutsu-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:6px;
+  }
+  .jutsu-cell{
+    min-height:52px;
+    border:2px solid var(--accent);
+    border-radius:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:4px 3px;
+    font-size:10px;
+    font-weight:800;
+    line-height:1.2;
+    color:var(--ink);
+    background:var(--card);
+    overflow:hidden;
+    box-shadow:1px 1px 0 var(--accent);
+  }
+  .jutsu-cell.locked{
+    color:var(--muted);
+    font-size:16px;
+    font-weight:900;
+    border-style:dashed;
+    border-color:var(--border-soft);
+    box-shadow:none;
+    background:repeating-linear-gradient(45deg, var(--card), var(--card) 5px, rgba(20,18,15,.06) 5px, rgba(20,18,15,.06) 10px);
+  }
+
+  /* ---------- 任務タブ：直近の任務結果／初回の遊び方 ---------- */
+  .mission-summary-banner{ margin-bottom:0; padding:12px; }
+  .mission-summary-banner .pass-fail-text{ font-size:19px; }
+  .mission-summary-banner .pass-fail-sub{ margin-top:6px; }
 
   /* ---------- 記録タブ：ランク別クリア回数グリッド ---------- */
   .record-rank-grid{
@@ -1797,6 +1928,30 @@
 
         <button type="button" class="primary" id="mission-entry-btn" style="margin-top:14px;">任務をうける</button>
         <button type="button" class="link" id="jutsu-book-jump-btn">術図鑑　<span id="jutsu-book-jump-count">0 / 11</span>種　＞</button>
+      </div>
+
+      <!-- 昇格の道のり：アカデミー生〜火影の6段階（MB_TITLESをJSから参照。名前の重複定義はしない） -->
+      <div class="card" id="rankpath-card">
+        <label style="margin-top:0;">昇格の道のり</label>
+        <div class="rankpath" id="rankpath"></div>
+        <p class="rank-chip-note" id="rankpath-note"></p>
+      </div>
+
+      <!-- 術図鑑プレビュー：全11種をマス目で表示（MB_JUTSU_BOOKをJSから参照。名前の重複定義はしない）。
+           カード全体がタップ導線＝記録タブへ（jutsu-book-jump-btnと同じswitchHomeTab('record')を再利用）。
+           グリッドは装飾的な内訳のため、ボタンのアクセシブルネームが冗長にならないようaria-hiddenにする。 -->
+      <button type="button" class="card card-tap" id="jutsu-preview-card">
+        <div class="jutsu-preview-head">
+          <label style="margin:0;">忍術コレクション</label>
+          <span class="jutsu-preview-count" id="jutsu-preview-count">0 / 11種　＞</span>
+        </div>
+        <div class="jutsu-grid" id="jutsu-grid" aria-hidden="true"></div>
+      </button>
+
+      <!-- 直近の任務結果／初回の遊び方：プレイ済みかどうかで出し分け -->
+      <div class="card" id="mission-summary-card">
+        <label style="margin-top:0;">直近の任務</label>
+        <div id="mission-summary-body"></div>
       </div>
     </div>
 
@@ -12251,6 +12406,10 @@ const QUESTIONS = [
     if (typeof mbRenderSelect === "function") mbRenderSelect();
     if (typeof renderMissionRecordStats === "function") renderMissionRecordStats();
     if (typeof renderJutsuBook === "function") renderJutsuBook();
+    // フェーズ5：任務タブを埋める新セクション（昇格の道のり・忍術コレクション・直近の任務）
+    if (typeof renderRankPath === "function") renderRankPath();
+    if (typeof renderJutsuPreviewGrid === "function") renderJutsuPreviewGrid();
+    if (typeof renderMissionSummaryCard === "function") renderMissionSummaryCard();
   }
 
   // 実装2：ホーム画面の任務モードカードに現在の忍者階級を表示する
@@ -13865,12 +14024,14 @@ const QUESTIONS = [
     return topCandidates[0];
   }
 
-  // ---- 任務記録（ランク別クリア回数・最高コンボ・直近出題履歴・忍者階級・術図鑑）: 既存statsとは別キーで保存 ----
+  // ---- 任務記録（ランク別クリア回数・最高コンボ・直近出題履歴・忍者階級・術図鑑・直近結果）: 既存statsとは別キーで保存 ----
   // history: { "D級": [id, id, ...], ... } 各ランクごとに直近出題したidを古い順に保持する
   // （出題重複回避のため。mbDrawQuestionsから読み書きする）。
   // titleIndex: 実装2の忍者階級（MB_TITLESの添字）。jutsuLog: 実装3の術図鑑（{ id: 発動回数 }）。
+  // lastResult: フェーズ5・任務タブの「直近の任務」表示用（{ rank, success, correct, total, maxCombo, hp, ts }）。
+  // なければnull＝ホーム側は既存の集計値（clears/bestCombo）から出せる範囲にフォールバックする。
   function mbLoadRecords() {
-    var fallback = { clears: {}, bestCombo: 0, history: {}, titleIndex: 0, jutsuLog: {} };
+    var fallback = { clears: {}, bestCombo: 0, history: {}, titleIndex: 0, jutsuLog: {}, lastResult: null };
     try {
       var raw = window.localStorage.getItem(MB_STORAGE_KEY);
       if (!raw) return fallback;
@@ -13883,7 +14044,8 @@ const QUESTIONS = [
         bestCombo: typeof parsed.bestCombo === "number" ? parsed.bestCombo : 0,
         history: (parsed.history && typeof parsed.history === "object") ? parsed.history : {},
         titleIndex: hasStoredTitleIndex ? parsed.titleIndex : mbComputeTitleIndexFromClears(clears),
-        jutsuLog: (parsed.jutsuLog && typeof parsed.jutsuLog === "object") ? parsed.jutsuLog : {}
+        jutsuLog: (parsed.jutsuLog && typeof parsed.jutsuLog === "object") ? parsed.jutsuLog : {},
+        lastResult: (parsed.lastResult && typeof parsed.lastResult === "object") ? parsed.lastResult : null
       };
       // 既存プレイヤーの救済：titleIndexが未保存の旧データは、ここで逆算した値を一度だけ書き戻す。
       if (!hasStoredTitleIndex) mbSaveRecords(rec);
@@ -14473,6 +14635,17 @@ const QUESTIONS = [
     if (success) rec.clears[mbState.rank] = (rec.clears[mbState.rank] || 0) + 1;
     if (mbState.maxCombo > rec.bestCombo) rec.bestCombo = mbState.maxCombo;
 
+    // フェーズ5：任務タブ「直近の任務」表示用に、成功でも失敗でも直近1件だけ上書き保存する
+    rec.lastResult = {
+      rank: mbState.rank,
+      success: success,
+      correct: mbState.correct,
+      total: mbState.answered.length,
+      maxCombo: mbState.maxCombo,
+      hp: mbState.hp,
+      ts: Date.now()
+    };
+
     // 実装2：昇格判定。successの時だけtitleIndexを進める＝任務失敗では絶対に降格しない。
     // 一度解禁したランクは常に選択可能なので、進める時は必ずmaxを取る（後退させない）。
     var promotedTitle = null;
@@ -14620,6 +14793,95 @@ const QUESTIONS = [
     }
   }
 
+  // ---- フェーズ5：任務タブ「昇格の道のり」（アカデミー生〜火影の6段階ステッパー）----
+  // MB_TITLESを唯一の情報源として参照し、名前はここでは定義しない。
+  // 到達済み／現在地／未到達を色だけでなく形（ノードの大きさ・実線／破線・チェック有無）でも区別する。
+  function renderRankPath() {
+    var listEl = document.getElementById("rankpath");
+    var noteEl = document.getElementById("rankpath-note");
+    if (!listEl) return;
+    var rec = mbLoadRecords();
+    var idx = Math.max(0, Math.min(MB_TITLES.length - 1, rec.titleIndex || 0));
+    var n = MB_TITLES.length;
+
+    var stepsHtml = MB_TITLES.map(function (title, i) {
+      var state = i < idx ? "done" : (i === idx ? "current" : "locked");
+      var mark = state === "done" ? "✓" : (state === "current" ? "今" : "");
+      return '<div class="rankpath-step ' + state + '">' +
+        '<span class="rankpath-node">' + mark + '</span>' +
+        '<span class="rankpath-label">' + title + '</span>' +
+        '</div>';
+    }).join("");
+    var fillFraction = n > 1 ? idx / (n - 1) : 0;
+    listEl.innerHTML =
+      '<div class="rankpath-track"></div>' +
+      '<div class="rankpath-track-fill" style="width:calc(' + fillFraction + ' * (100% - 44px));"></div>' +
+      stepsHtml;
+
+    if (noteEl) {
+      if (idx < n - 1) {
+        var requiredRank = MB_RANKS[idx]; // rankIdx===idxのランクをクリアするとtitleIndexがidx+1へ進む（mbShowResult参照）
+        noteEl.textContent = "次は" + MB_TITLES[idx + 1] + "：" + requiredRank + "任務をクリア";
+      } else {
+        noteEl.textContent = "最高位・火影に到達済み";
+      }
+    }
+  }
+
+  // ---- フェーズ5：任務タブ「忍術コレクション」（術図鑑の11マスプレビュー）----
+  // MB_JUTSU_BOOKを唯一の情報源として参照し、術名はここでは定義しない。
+  // 発動済みは術名、未発動は？で伏せる＝「まだ埋まっていないマスがある」ことがひと目で伝わる。
+  function renderJutsuPreviewGrid() {
+    var grid = document.getElementById("jutsu-grid");
+    if (!grid) return;
+    var rec = mbLoadRecords();
+    var log = rec.jutsuLog || {};
+    var unlockedCount = 0;
+    var cellsHtml = MB_JUTSU_BOOK.map(function (entry) {
+      var count = log[entry.id] || 0;
+      if (count > 0) unlockedCount++;
+      if (count > 0) return '<div class="jutsu-cell">' + entry.name + '</div>';
+      return '<div class="jutsu-cell locked">？</div>';
+    }).join("");
+    grid.innerHTML = cellsHtml;
+    var countEl = document.getElementById("jutsu-preview-count");
+    if (countEl) countEl.textContent = unlockedCount + " / " + MB_JUTSU_BOOK.length + "種　＞";
+  }
+
+  // ---- フェーズ5：任務タブ「直近の任務」（プレイ済みかどうかで出し分け）----
+  // 1) lastResultがあれば直近1回の結果をそのまま表示。
+  // 2) lastResultが無くても、過去のclears/bestComboがあれば（更新前からの既存プレイヤー）そこから出せる範囲で表示。
+  // 3) 任務の記録が何も無ければ、初回向けの遊び方ガイドを表示する。
+  function renderMissionSummaryCard() {
+    var bodyEl = document.getElementById("mission-summary-body");
+    if (!bodyEl) return;
+    var rec = mbLoadRecords();
+    var last = rec.lastResult;
+    var clearedRanks = MB_RANKS.filter(function (r) { return (rec.clears[r] || 0) > 0; });
+    var hasAnyHistory = !!last || clearedRanks.length > 0 || (rec.bestCombo || 0) > 0;
+
+    if (last) {
+      bodyEl.innerHTML =
+        '<div class="pass-banner mission-summary-banner ' + (last.success ? "pass" : "fail") + '">' +
+          '<span class="pass-fail-text">' + (last.success ? "任務完了" : "任務失敗") + '</span>' +
+          '<p class="pass-fail-sub">' + last.rank + '　見破った' + last.correct + '/' + last.total +
+            '問　最大コンボ' + last.maxCombo + '</p>' +
+        '</div>';
+    } else if (hasAnyHistory) {
+      var clearsText = clearedRanks.length > 0
+        ? clearedRanks.map(function (r) { return r + "×" + rec.clears[r]; }).join("　")
+        : "まだクリアなし";
+      bodyEl.innerHTML =
+        '<p style="margin:0 0 6px;font-size:13px;">これまでの記録：最高コンボ' + (rec.bestCombo || 0) + '</p>' +
+        '<p style="margin:0;font-size:13px;">クリア済み：' + clearsText + '</p>';
+    } else {
+      bodyEl.innerHTML =
+        '<p style="margin:0 0 6px;font-size:13px;">任務は10問の幻術を見破る4択クイズ。</p>' +
+        '<p style="margin:0 0 6px;font-size:13px;">🍜×3が体力。まちがえると1つ失い、0で任務失敗になる。</p>' +
+        '<p style="margin:0;font-size:13px;">連続で見破るほどコンボが伸び、より強い忍術が発動する。</p>';
+    }
+  }
+
   // ---- フェーズ4：記録タブのランク別クリア回数グリッド ----
   function renderMissionRecordStats() {
     var grid = document.getElementById("record-rank-grid");
@@ -14661,6 +14923,13 @@ const QUESTIONS = [
     var jutsuBookJumpBtn = document.getElementById("jutsu-book-jump-btn");
     if (jutsuBookJumpBtn) {
       jutsuBookJumpBtn.addEventListener("click", function () {
+        switchHomeTab("record");
+      });
+    }
+    // フェーズ5：忍術コレクション（術図鑑プレビュー）カード全体も同じ導線を共有する
+    var jutsuPreviewCard = document.getElementById("jutsu-preview-card");
+    if (jutsuPreviewCard) {
+      jutsuPreviewCard.addEventListener("click", function () {
         switchHomeTab("record");
       });
     }
