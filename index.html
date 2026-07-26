@@ -1000,12 +1000,31 @@
   position:absolute;inset:0;width:100%;height:100%;opacity:0;pointer-events:none;z-index:4;
 }
 #mb-root .fx-kagemane.play{opacity:1;}
+/* 視認性強化：夜の戦場に沈まないよう、影の輪郭に月光のような発光のフチを足す（造形＝ポリゴン形状は変更しない） */
 #mb-root .fx-kagemane .kg-shadow{
-  fill:#03040c;stroke:#2b3a5e;stroke-width:1;opacity:.92;
+  fill:#141a36;stroke:#dbe6ff;stroke-width:3.4;opacity:1;
+  filter:drop-shadow(0 0 3px rgba(219,230,255,1)) drop-shadow(0 0 9px rgba(184,204,255,.9)) drop-shadow(0 0 16px rgba(140,170,240,.6));
   transform-origin:6% 98%;transform:scale(0);
 }
 #mb-root .fx-kagemane.play .kg-shadow{animation:kg-extend .5s cubic-bezier(.3,.8,.3,1) forwards;}
 @keyframes kg-extend{0%{transform:scale(.05);}100%{transform:scale(1);}}
+/* 影が這う地面に月明かりのスポットを差す（造形は変えない視認性だけの補助。fill自体は不透明にし、
+   強さはelementのopacityアニメだけで制御する＝アルファの掛け算で薄まる事故を防ぐ） */
+#mb-root .fx-kagemane .kg-moonlight{
+  fill:#dfe9ff;opacity:0;filter:blur(2.5px);
+}
+#mb-root .fx-kagemane.play .kg-moonlight{animation:kg-moon-fade .55s ease-out forwards;}
+@keyframes kg-moon-fade{0%{opacity:0;}55%{opacity:.85;}100%{opacity:.55;}}
+/* 敵を捉えた瞬間の決めの明滅（視認性強化） */
+#mb-root .kg-catch{
+  fill:#f2f8ff;opacity:0;filter:drop-shadow(0 0 10px rgba(210,230,255,1)) drop-shadow(0 0 20px rgba(180,210,255,.8));
+}
+#mb-root .fx-kagemane.play .kg-catch{animation:kg-catch-flash .32s ease-out .42s forwards;}
+@keyframes kg-catch-flash{
+  0%{opacity:0;transform:scale(.3);}
+  35%{opacity:1;transform:scale(1.3);}
+  100%{opacity:0;transform:scale(1.7);}
+}
 
 /* --- 木遁・樹海降誕(6コンボ)：地面の亀裂→四方八方へ広がる太い根→木々が敵忍を絡めとる（緑は差し色のみ） --- */
 #mb-root .fx-jukai{position:absolute;inset:0;pointer-events:none;z-index:5;opacity:0;}
@@ -1700,6 +1719,11 @@
   100%{opacity:0;transform:translate(-50%,-50%) scale(.85);}
 }
 #mb-root .fxs-dot.mirror{border-radius:2px;clip-path:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);}
+/* うずまきナルト連弾：円の点ではなく「打撃の衝撃マーク」に見える星型のヒット痕（コンボ感を出す） */
+#mb-root .fxs-dot.punch{
+  border-radius:0;background:radial-gradient(circle,#fff 0%,var(--fx-color,#f0f2ec) 55%,transparent 100%);
+  clip-path:polygon(50% 0%,63% 34%,100% 30%,70% 52%,88% 86%,55% 65%,50% 100%,45% 65%,12% 86%,30% 52%,0% 30%,37% 34%);
+}
 
 /* --- 汎用B：流れ（風/水/拳が斜めに薙ぐ・流れ込む一撃） --- */
 #mb-root .fx-flow{position:absolute;inset:0;z-index:29;pointer-events:none;overflow:hidden;}
@@ -1745,6 +1769,20 @@
 }
 #mb-root .fxg-crack.play{animation:fxg-crack-anim .3s ease-out forwards;}
 @keyframes fxg-crack-anim{0%{opacity:0;transform:scaleX(0);}30%{opacity:.9;}100%{opacity:0;transform:scaleX(1);}}
+/* 土遁・心中斬首の術：ただの地割れだけでなく「地面からのびた腕」がひと目でわかるシルエットを追加 */
+#mb-root .fxg-arm{
+  position:absolute;bottom:0;width:28px;height:90px;margin-left:-14px;opacity:0;
+  transform-origin:bottom center;transform:scaleY(0);background:#1c1408;
+  clip-path:polygon(38% 100%,30% 60%,10% 55%,0% 40%,14% 32%,22% 46%,28% 34%,20% 20%,34% 14%,38% 30%,42% 12%,56% 14%,54% 32%,68% 22%,80% 32%,66% 42%,72% 55%,62% 100%);
+  filter:drop-shadow(0 0 4px rgba(122,90,52,.6));
+}
+#mb-root .fxg-arm.play{animation:fxg-arm-rise .5s cubic-bezier(.2,.7,.25,1) forwards;}
+@keyframes fxg-arm-rise{
+  0%{opacity:0;transform:scaleY(0);}
+  22%{opacity:1;}
+  62%{opacity:1;transform:scaleY(1);}
+  100%{opacity:0;transform:scaleY(1) translateY(6px);}
+}
 
 /* --- 汎用D：巨大シルエット（口寄せの蝦蟇・麒麟・須佐能乎・回天のドームが天/背後から現れる） --- */
 #mb-root .fx-silhouette{position:absolute;inset:0;z-index:27;pointer-events:none;overflow:visible;}
@@ -1766,11 +1804,7 @@
   width:80px;height:280px;margin-left:-40px;
   clip-path:polygon(50% 0%,68% 26%,56% 30%,78% 56%,58% 60%,96% 96%,42% 100%,54% 62%,28% 58%,48% 32%,34% 28%);
 }
-/* 須佐能乎：横に広い武者の輪郭シルエット（汎用形状・特定描写の複写はしない） */
-#mb-root .fxsil-shape.susanoo{
-  width:230px;height:260px;margin-left:-115px;
-  border-radius:38% 38% 46% 46% / 26% 26% 60% 60%;
-}
+/* 須佐能乎は専用CSS（fx-susanoo2／作り直し）に移行済みのため、ここでの汎用シルエット指定は不要。 */
 /* 八卦掌回天：青白いチャクラのドームが回転しながら展開する（専用CSSを増やさず本エンジンを流用） */
 #mb-root .fxsil-shape.kaiten{
   width:210px;height:210px;margin-left:-105px;top:14%;border-radius:50%;
@@ -1816,6 +1850,298 @@
 #mb-root .fx-bijudama.play .bd-smoke.s2{animation-delay:.3s;}
 #mb-root .fx-bijudama.play .bd-smoke.s3{animation-delay:.4s;}
 #mb-root .fx-bijudama.play .bd-smoke.s4{animation-delay:.36s;}
+
+/* ============================================================
+   個別作り込み（作り直し対象）：木ノ葉旋風／牙通牙／秘術・魔鏡氷晶／
+   部分倍化の術／口寄せの術／影縫いの術／蝦蟇油炎弾／須佐能乎。
+   汎用エンジン（散弾/流れ/地面/シルエット）の使い回しをやめ、
+   術ごとに専用の形・段取りを持たせる（色の原則は維持）。
+   ============================================================ */
+
+/* --- 木ノ葉旋風：回し蹴りの三日月型斬撃が高さを変えて2〜3連続（体術＝白/灰/緑、風の魔法に見せない） --- */
+#mb-root .fx-kslash{position:absolute;inset:0;z-index:29;pointer-events:none;overflow:visible;}
+#mb-root .ks-arc{position:absolute;left:50%;width:130px;height:130px;margin:-65px 0 0 -65px;opacity:0;}
+#mb-root .ks-arc svg{width:100%;height:100%;overflow:visible;}
+#mb-root .fx-kslash.play .ks-arc{animation:ks-slash .2s cubic-bezier(.15,.85,.25,1) forwards;}
+@keyframes ks-slash{
+  0%{opacity:0;transform:rotate(var(--ks-r0,-40deg)) scale(.6);}
+  25%{opacity:1;}
+  100%{opacity:0;transform:rotate(var(--ks-r1,40deg)) scale(1.15);}
+}
+#mb-root .ks-arc.k1{top:58%;--ks-r0:-50deg;--ks-r1:6deg;}
+#mb-root .ks-arc.k2{top:42%;--ks-r0:34deg;--ks-r1:-32deg;}
+#mb-root .ks-arc.k3{top:24%;--ks-r0:-56deg;--ks-r1:24deg;width:150px;height:150px;margin:-75px 0 0 -75px;}
+/* animation-delayは.fx-kslash.play .ks-arcの一括ルール（詳細度が高い）に負けるため、
+   同じ詳細度以上のセレクタで明示的に上書きする（k1は既定の0msのまま） */
+#mb-root .fx-kslash.play .ks-arc.k2{animation-delay:130ms;}
+#mb-root .fx-kslash.play .ks-arc.k3{animation-delay:260ms;}
+#mb-root .ks-core{fill:none;stroke:#fff;stroke-width:9;stroke-linecap:round;filter:drop-shadow(0 0 8px rgba(223,242,228,.9));}
+#mb-root .ks-trail2{fill:none;stroke:#dff2e4;stroke-width:5;stroke-linecap:round;opacity:.55;}
+#mb-root .ks-trail3{fill:none;stroke:#c8d2c8;stroke-width:3;stroke-linecap:round;opacity:.3;}
+/* 小さいのけぞり（多段ヒット用の汎用クラス。konoha_senpu等がmultiHitで使う） */
+#mb-root .enemy-wrap.hit-sm{animation:enemy-recoil-sm .22s ease-out 1;}
+@keyframes enemy-recoil-sm{
+  0%{transform:translateX(0) rotate(0);filter:brightness(1) drop-shadow(0 4px 8px rgba(0,0,0,.7));}
+  30%{transform:translateX(6px) rotate(3deg);filter:brightness(2.4) drop-shadow(0 0 10px rgba(223,242,228,.8));}
+  100%{transform:translateX(0) rotate(0);filter:brightness(1) drop-shadow(0 4px 8px rgba(0,0,0,.7));}
+}
+
+/* --- 牙通牙：灰色のドリル状旋風2本が別角度から交差しながら連続ヒット（回転が伝わる螺旋テクスチャ） --- */
+#mb-root .fx-gatsuga{position:absolute;inset:0;z-index:29;pointer-events:none;overflow:hidden;}
+#mb-root .gt-drill{
+  position:absolute;left:50%;top:58%;width:132px;height:38px;margin:-19px 0 0 -108px;opacity:0;
+  transform-origin:right center;border-radius:50%;
+}
+#mb-root .fx-gatsuga.play .gt-drill{animation:gt-fly .32s cubic-bezier(.2,.55,.3,1) forwards;}
+#mb-root .fx-gatsuga.play .gt-drill.d2{animation-delay:.1s;}
+@keyframes gt-fly{
+  0%{opacity:0;transform:rotate(var(--gt-ang,0deg)) translateX(-30px) scale(.7);}
+  16%{opacity:1;}
+  100%{opacity:0;transform:rotate(var(--gt-ang,0deg)) translateX(150px) scale(1.05);}
+}
+#mb-root .gt-drill.d1{--gt-ang:-16deg;}
+#mb-root .gt-drill.d2{--gt-ang:14deg;top:50%;}
+#mb-root .gt-body{position:absolute;inset:0;border-radius:50%;overflow:hidden;box-shadow:0 0 14px rgba(154,160,173,.85);}
+#mb-root .gt-body::before{
+  content:"";position:absolute;inset:-40% -20%;
+  background:repeating-linear-gradient(115deg, #eef0f4 0 4px, #9aa0ad 4px 9px, #464c58 9px 14px);
+}
+#mb-root .fx-gatsuga.play .gt-body::before{animation:gt-spin .1s linear infinite;}
+@keyframes gt-spin{0%{transform:translateX(0);}100%{transform:translateX(-14px);}}
+#mb-root .gt-tip{
+  position:absolute;right:-14px;top:50%;width:0;height:0;margin-top:-15px;
+  border-style:solid;border-width:15px 0 15px 22px;border-color:transparent transparent transparent #7d828d;
+  filter:drop-shadow(0 0 6px rgba(154,160,173,.8));
+}
+
+/* --- 秘術・魔鏡氷晶：氷の鏡（半透明の板）が敵を囲んで立ち上がり、鏡面の光条が行き交って連続ヒット --- */
+#mb-root .fx-makyo{position:absolute;inset:0;z-index:29;pointer-events:none;overflow:visible;}
+#mb-root .fx-makyo.play{animation:mk-wrap 1.1s ease-out forwards;}
+@keyframes mk-wrap{0%{opacity:1;}85%{opacity:1;}100%{opacity:0;}}
+#mb-root .mk-panel{
+  position:absolute;width:46px;height:70px;margin:-58px 0 0 -23px;opacity:0;border-radius:6px;
+  background:linear-gradient(160deg, rgba(223,244,255,.3) 0%, rgba(143,213,255,.16) 55%, rgba(191,235,255,.34) 100%);
+  border:1.5px solid rgba(223,244,255,.9);
+  box-shadow:0 0 12px rgba(191,235,255,.7), inset 0 0 8px rgba(255,255,255,.4);
+  overflow:hidden;transform-origin:bottom center;
+}
+#mb-root .fx-makyo.play .mk-panel{animation:mk-rise .26s cubic-bezier(.2,.8,.25,1) forwards;}
+@keyframes mk-rise{
+  0%{opacity:0;transform:scaleY(.1) rotate(var(--mk-rot,0deg));}
+  60%{opacity:1;}
+  100%{opacity:1;transform:scaleY(1) rotate(var(--mk-rot,0deg));}
+}
+#mb-root .mk-panel::after{
+  content:"";position:absolute;top:0;left:-70%;width:35%;height:100%;
+  background:linear-gradient(100deg, transparent, rgba(255,255,255,.9), transparent);
+  transform:skewX(-16deg);opacity:0;
+}
+#mb-root .fx-makyo.play .mk-panel::after{animation:mk-glint .45s ease-in .16s forwards;}
+@keyframes mk-glint{0%{opacity:0;left:-70%;}40%{opacity:.9;}100%{opacity:0;left:120%;}}
+#mb-root .mk-panel.p1{left:22%;top:44%;--mk-rot:-14deg;}
+#mb-root .mk-panel.p2{left:78%;top:44%;--mk-rot:14deg;}
+#mb-root .mk-panel.p3{left:14%;top:66%;--mk-rot:-6deg;}
+#mb-root .mk-panel.p4{left:86%;top:66%;--mk-rot:6deg;}
+#mb-root .mk-panel.p5{left:34%;top:26%;--mk-rot:-20deg;width:40px;height:58px;margin:-50px 0 0 -20px;}
+#mb-root .mk-panel.p6{left:66%;top:26%;--mk-rot:20deg;width:40px;height:58px;margin:-50px 0 0 -20px;}
+/* animation-delayは.fx-makyo.play .mk-panelの一括ルールに負けるため、同格以上で明示的に上書き（p1は0msのまま） */
+#mb-root .fx-makyo.play .mk-panel.p2{animation-delay:40ms;}
+#mb-root .fx-makyo.play .mk-panel.p3{animation-delay:80ms;}
+#mb-root .fx-makyo.play .mk-panel.p4{animation-delay:120ms;}
+#mb-root .fx-makyo.play .mk-panel.p5{animation-delay:160ms;}
+#mb-root .fx-makyo.play .mk-panel.p6{animation-delay:200ms;}
+#mb-root .mk-beam{
+  position:absolute;height:3px;width:0;opacity:0;
+  background:linear-gradient(90deg, transparent, #fff 40%, #dff4ff 75%, transparent);
+  box-shadow:0 0 8px rgba(223,244,255,.9);transform-origin:left center;
+}
+#mb-root .fx-makyo.play .mk-beam{animation:mk-beam-shoot .14s linear forwards;}
+@keyframes mk-beam-shoot{0%{opacity:0;width:0;}25%{opacity:1;}100%{opacity:0;width:var(--mk-len,80px);}}
+#mb-root .mk-beam.b1{left:22%;top:44%;transform:rotate(28deg);--mk-len:78px;}
+#mb-root .mk-beam.b2{left:78%;top:44%;transform:rotate(152deg);--mk-len:78px;}
+#mb-root .mk-beam.b3{left:14%;top:66%;transform:rotate(-18deg);--mk-len:90px;}
+#mb-root .mk-beam.b4{left:86%;top:66%;transform:rotate(198deg);--mk-len:90px;}
+#mb-root .mk-beam.b5{left:34%;top:26%;transform:rotate(48deg);--mk-len:95px;}
+#mb-root .mk-beam.b6{left:66%;top:26%;transform:rotate(132deg);--mk-len:95px;}
+/* animation-delayは.fx-makyo.play .mk-beamの一括ルールに負けるため、同格以上で明示的に上書き */
+#mb-root .fx-makyo.play .mk-beam.b1{animation-delay:.32s;}
+#mb-root .fx-makyo.play .mk-beam.b2{animation-delay:.38s;}
+#mb-root .fx-makyo.play .mk-beam.b3{animation-delay:.44s;}
+#mb-root .fx-makyo.play .mk-beam.b4{animation-delay:.5s;}
+#mb-root .fx-makyo.play .mk-beam.b5{animation-delay:.56s;}
+#mb-root .fx-makyo.play .mk-beam.b6{animation-delay:.62s;}
+
+/* --- 部分倍化の術：指の造形がある巨大な拳が画面端から突き出して殴打する --- */
+#mb-root .fx-fist{position:absolute;inset:0;z-index:29;pointer-events:none;overflow:hidden;}
+#mb-root .fx-fist svg{position:absolute;right:-6%;top:34%;width:230px;height:190px;overflow:visible;opacity:0;transform-origin:100% 55%;}
+#mb-root .fx-fist.play svg{animation:fist-punch .4s cubic-bezier(.25,.6,.25,1) forwards;}
+@keyframes fist-punch{
+  0%{opacity:0;transform:translateX(60%) scale(.3);}
+  20%{opacity:1;}
+  60%{opacity:1;transform:translateX(-42%) scale(1.06);}
+  100%{opacity:0;transform:translateX(-32%) scale(1);}
+}
+#mb-root .fx-fist .fst-arm{fill:#12151b;stroke:#565c66;stroke-width:2;stroke-opacity:.6;}
+#mb-root .fx-fist .fst-hi{fill:none;stroke:#dfe3e8;stroke-width:2;stroke-opacity:.45;}
+
+/* --- 口寄せの術：白煙が湧く→蝦蟇のシルエットが落下→着地の衝撃波＋土煙→白煙とともに消える --- */
+#mb-root .fx-kuchiyose{position:absolute;inset:0;z-index:27;pointer-events:none;overflow:visible;}
+#mb-root .fx-kuchiyose.play{animation:kc-wrap 1.5s ease-out forwards;}
+@keyframes kc-wrap{0%{opacity:1;}82%{opacity:1;}100%{opacity:0;}}
+#mb-root .kc-rise{
+  position:absolute;bottom:20px;width:90px;height:90px;border-radius:50%;opacity:0;
+  background:radial-gradient(circle, rgba(235,235,230,.85) 0%, rgba(235,235,230,.25) 55%, transparent 100%);
+}
+#mb-root .fx-kuchiyose.play .kc-rise{animation:kc-rise-anim .5s ease-out forwards;}
+@keyframes kc-rise-anim{0%{opacity:0;transform:translateY(10px) scale(.4);}30%{opacity:.9;}100%{opacity:0;transform:translateY(-70px) scale(1.4);}}
+#mb-root .kc-rise.r1{left:32%;}
+#mb-root .kc-rise.r2{left:58%;width:110px;height:110px;}
+#mb-root .kc-rise.r3{left:46%;width:70px;height:70px;}
+/* animation-delayは.fx-kuchiyose.play .kc-riseの一括ルールに負けるため、同格以上で明示的に上書き */
+#mb-root .fx-kuchiyose.play .kc-rise.r2{animation-delay:80ms;}
+#mb-root .fx-kuchiyose.play .kc-rise.r3{animation-delay:160ms;}
+#mb-root .kc-toad{position:absolute;left:50%;top:-4%;width:280px;height:220px;margin-left:-140px;opacity:0;transform-origin:50% 100%;}
+#mb-root .fx-kuchiyose.play .kc-toad{animation:kc-toad-fall 1.2s cubic-bezier(.3,.5,.3,1) forwards;}
+@keyframes kc-toad-fall{
+  0%{opacity:0;transform:translateY(-260px) scale(.65);}
+  10%{opacity:1;}
+  56%{opacity:1;transform:translateY(60px) scale(1.02);}
+  62%{transform:translateY(48px) scaleY(.9) scaleX(1.08);}
+  70%{transform:translateY(52px) scale(1);}
+  90%{opacity:1;transform:translateY(50px) scale(1);}
+  100%{opacity:0;transform:translateY(30px) scale(.85);filter:brightness(2.4);}
+}
+#mb-root .kc-toad svg path{fill:#0a0d0a;}
+#mb-root .kc-toad svg .toad-hi{fill:none;stroke:#4a5a4a;stroke-width:2;stroke-opacity:.5;}
+#mb-root .kc-dust{
+  position:absolute;bottom:22px;width:50px;height:50px;border-radius:50%;opacity:0;
+  background:radial-gradient(circle, rgba(210,210,200,.9) 0%, rgba(160,160,150,.5) 55%, transparent 100%);
+}
+#mb-root .fx-kuchiyose.play .kc-dust{animation:kc-dust-anim .5s ease-out .58s forwards;}
+@keyframes kc-dust-anim{0%{opacity:0;transform:translateX(0) scale(.3);}25%{opacity:.9;}100%{opacity:0;transform:translateX(var(--kc-dx,0px)) scale(1.6);}}
+#mb-root .kc-dust.d1{left:30%;--kc-dx:-40px;}
+#mb-root .kc-dust.d2{left:50%;--kc-dx:0px;width:64px;height:64px;}
+#mb-root .kc-dust.d3{left:70%;--kc-dx:40px;}
+
+/* --- 影縫いの術：足元を這う影が伸び、到達した瞬間に茨状のトゲが下から突き刺す（視認性：月光リム＋決めの明滅） --- */
+#mb-root .fx-kagenui{position:absolute;inset:0;z-index:26;pointer-events:none;overflow:visible;}
+#mb-root .fx-kagenui.play{animation:kn-wrap 1s ease-out forwards;}
+@keyframes kn-wrap{0%{opacity:1;}85%{opacity:1;}100%{opacity:0;}}
+#mb-root .kn-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
+#mb-root .kn-glow{
+  fill:none;stroke:#c8d4ff;stroke-width:16;stroke-linecap:round;opacity:0;filter:blur(3px);
+}
+#mb-root .fx-kagenui.play .kn-glow{animation:kn-glow-fade .5s ease-out forwards;}
+@keyframes kn-glow-fade{0%{opacity:0;}50%{opacity:.6;}100%{opacity:.35;}}
+#mb-root .kn-creep{
+  fill:none;stroke:#161a30;stroke-width:10;stroke-linecap:round;
+  stroke-dasharray:220;stroke-dashoffset:220;
+  filter:drop-shadow(0 0 4px rgba(184,204,255,.9)) drop-shadow(0 0 9px rgba(140,120,200,.65));
+}
+#mb-root .fx-kagenui.play .kn-creep{animation:kn-creep-draw .38s cubic-bezier(.3,.7,.3,1) forwards;}
+@keyframes kn-creep-draw{to{stroke-dashoffset:0;}}
+#mb-root .kn-spike{
+  fill:#0a0c14;stroke:#5a4a8a;stroke-width:1;stroke-opacity:.6;opacity:0;
+  transform-origin:50% 100%;transform:scaleY(0);
+  filter:drop-shadow(0 0 4px rgba(120,100,190,.6));
+}
+#mb-root .fx-kagenui.play .kn-spike{opacity:1;animation:kn-spike-up .18s cubic-bezier(.2,.9,.3,1) .38s forwards;}
+@keyframes kn-spike-up{0%{transform:scaleY(0);}100%{transform:scaleY(1);}}
+#mb-root .fx-kagenui.play .kn-spike.k2{animation-delay:.4s;}
+#mb-root .fx-kagenui.play .kn-spike.k3{animation-delay:.42s;}
+#mb-root .fx-kagenui.play .kn-spike.k4{animation-delay:.44s;}
+#mb-root .fx-kagenui.play .kn-spike.k5{animation-delay:.46s;}
+#mb-root .fx-kagenui.play .kn-spike.k6{animation-delay:.39s;}
+#mb-root .kn-flash{
+  position:absolute;left:66%;bottom:34px;width:80px;height:80px;margin-left:-40px;border-radius:50%;opacity:0;
+  background:radial-gradient(circle, rgba(220,225,255,.9) 0%, rgba(150,130,220,.5) 45%, transparent 75%);
+}
+#mb-root .fx-kagenui.play .kn-flash{animation:kn-flash-anim .3s ease-out .4s forwards;}
+@keyframes kn-flash-anim{0%{opacity:0;transform:scale(.3);}30%{opacity:1;transform:scale(1.2);}100%{opacity:0;transform:scale(1.5);}}
+
+/* --- 蝦蟇油炎弾：油の奔流（粘性）→引火して炎が軌跡を走り抜け大きく燃え上がる二段演出（豪火球＝丸い火球と区別） --- */
+#mb-root .fx-gamayu{position:absolute;inset:0;z-index:29;pointer-events:none;overflow:hidden;}
+/* 炎(gy-flame)は最後.95で止めて余韻を残す設計のため、コンテナごと確実にフェードアウトさせて
+   次の術へ持ち越さない（gy-burstの終わり際1.18s超まで不透明を保ってから消す）。 */
+#mb-root .fx-gamayu.play{animation:gy-wrap 1.3s ease-out forwards;}
+@keyframes gy-wrap{0%{opacity:1;}90%{opacity:1;}100%{opacity:0;}}
+#mb-root .gy-oil{
+  position:absolute;left:-20%;top:60%;width:140%;height:34px;margin-top:-17px;opacity:0;border-radius:50%;
+  transform:rotate(-5deg) scaleX(0);transform-origin:left center;
+  background:linear-gradient(90deg, transparent, #3a220c 20%, #6b4318 55%, #3a220c 85%, transparent);
+  box-shadow:0 4px 10px rgba(0,0,0,.5), inset 0 -4px 8px rgba(0,0,0,.4);
+  overflow:hidden;
+}
+#mb-root .fx-gamayu.play .gy-oil{animation:gy-oil-flow .5s cubic-bezier(.3,.4,.35,1) forwards;}
+@keyframes gy-oil-flow{
+  0%{opacity:0;transform:rotate(-5deg) scaleX(0);}
+  15%{opacity:1;}
+  85%{opacity:1;transform:rotate(-5deg) scaleX(1);}
+  100%{opacity:0;transform:rotate(-5deg) scaleX(1.02);}
+}
+#mb-root .gy-oil::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg, transparent, rgba(255,230,180,.05) 30%, rgba(255,240,200,.7) 48%, rgba(255,230,180,.05) 66%, transparent);
+  opacity:0;
+}
+#mb-root .fx-gamayu.play .gy-oil::after{animation:gy-oil-shine .4s ease-out .12s forwards;}
+@keyframes gy-oil-shine{0%{opacity:0;}45%{opacity:.9;}100%{opacity:0;}}
+#mb-root .gy-flame{
+  position:absolute;left:-20%;top:60%;width:140%;height:34px;margin-top:-17px;opacity:0;border-radius:50%;
+  transform:rotate(-5deg) scaleX(0);transform-origin:left center;
+  background:linear-gradient(90deg, transparent, #ff8a1e 30%, #ffd23e 55%, #ff8a1e 80%, transparent);
+  box-shadow:0 0 18px rgba(255,138,30,.9);
+}
+#mb-root .fx-gamayu.play .gy-flame{animation:gy-flame-run .38s ease-in .48s forwards;}
+@keyframes gy-flame-run{
+  0%{opacity:0;transform:rotate(-5deg) scaleX(.05);}
+  20%{opacity:1;}
+  100%{opacity:.95;transform:rotate(-5deg) scaleX(1.05);}
+}
+#mb-root .gy-burst{
+  position:absolute;left:66%;top:58%;width:150px;height:110px;margin:-55px 0 0 -75px;opacity:0;
+  border-radius:50% 50% 40% 40% / 60% 60% 40% 40%;
+  background:radial-gradient(ellipse at 50% 60%, #fff2ce 0%, #ffd23e 26%, #ff8a1e 55%, #c23a08 78%, rgba(90,20,5,.6) 100%);
+  box-shadow:0 0 30px rgba(255,120,20,.95), 0 0 60px rgba(255,80,10,.5);
+}
+#mb-root .fx-gamayu.play .gy-burst{animation:gy-burst-anim .4s ease-out .78s forwards;}
+@keyframes gy-burst-anim{0%{opacity:0;transform:scale(.3);}30%{opacity:1;transform:scale(1.1);}100%{opacity:0;transform:scale(1.5);}}
+
+/* --- 須佐能乎：肋骨のアーチ→武者の輪郭が重なって出現→大太刀の一閃→崩れて消える（tier3の重さ・合計約1.4秒） --- */
+#mb-root .fx-susanoo2{position:absolute;inset:0;z-index:29;pointer-events:none;overflow:visible;}
+#mb-root .fx-susanoo2.play{animation:ss-wrap 1.5s ease-out forwards;}
+@keyframes ss-wrap{0%{opacity:1;}88%{opacity:1;}100%{opacity:0;}}
+#mb-root .ss-svg{position:absolute;left:50%;top:2%;width:260px;height:290px;margin-left:-130px;overflow:visible;}
+#mb-root .ss-rib{
+  fill:none;stroke:#a98fe0;stroke-width:5;stroke-linecap:round;opacity:0;
+  stroke-dasharray:220;stroke-dashoffset:220;
+  filter:drop-shadow(0 0 8px rgba(169,143,224,.85));
+}
+#mb-root .fx-susanoo2.play .ss-rib{animation:ss-rib-draw .38s ease-out forwards;}
+@keyframes ss-rib-draw{0%{stroke-dashoffset:220;opacity:0;}15%{opacity:1;}100%{stroke-dashoffset:0;opacity:1;}}
+#mb-root .fx-susanoo2.play .ss-rib.r2{animation-delay:.05s;}
+#mb-root .fx-susanoo2.play .ss-rib.r3{animation-delay:.1s;}
+#mb-root .fx-susanoo2.play .ss-rib.r4{animation-delay:.15s;}
+#mb-root .fx-susanoo2.play .ss-rib.r5{animation-delay:.2s;}
+#mb-root .ss-body{
+  fill:#160b28;stroke:#a98fe0;stroke-width:2;stroke-opacity:.75;opacity:0;
+  transform-box:fill-box;transform-origin:50% 100%;transform:scale(.3);
+  filter:drop-shadow(0 0 16px rgba(150,110,230,.7));
+}
+#mb-root .fx-susanoo2.play .ss-body{animation:ss-body-rise .4s cubic-bezier(.25,.8,.3,1) .32s forwards;}
+@keyframes ss-body-rise{0%{opacity:0;transform:scale(.3);}100%{opacity:1;transform:scale(1);}}
+#mb-root .ss-blade{
+  position:absolute;left:6%;top:20%;width:220%;height:14px;margin-top:-7px;opacity:0;
+  transform:rotate(-10deg) scaleX(0);transform-origin:left center;
+  background:linear-gradient(90deg, transparent, #dfcaff 20%, #fff 50%, #dfcaff 80%, transparent);
+  box-shadow:0 0 20px rgba(200,170,255,.95);
+}
+#mb-root .fx-susanoo2.play .ss-blade{animation:ss-slash .22s cubic-bezier(.2,.7,.2,1) .68s forwards;}
+@keyframes ss-slash{
+  0%{opacity:0;transform:rotate(-10deg) scaleX(0);}
+  20%{opacity:1;}
+  100%{opacity:0;transform:rotate(-10deg) scaleX(1);}
+}
 
 /* --- クナイ被弾（1発目）：敵から手前へ飛来し拡大（被弾系＝鋼＋明るい赤） --- */
 #mb-root .fx-kunai{
@@ -2419,9 +2745,11 @@
               <path d="M28 78 L68 74 L68 82 L28 86 Z" fill="#101a30"/>
             </svg>
           </div>
-          <!-- 影真似の術：敵忍の足元へ伸びる黒い影 -->
+          <!-- 影真似の術：敵忍の足元へ伸びる黒い影（視認性強化：月光リム＋地面の月明かり＋捕縛の明滅） -->
           <svg class="fx-kagemane" id="mb-fxKagemane" viewBox="0 0 349 240" preserveAspectRatio="none" aria-hidden="true">
+            <ellipse class="kg-moonlight" cx="90" cy="216" rx="130" ry="24" transform="rotate(-6 90 216)"/>
             <polygon class="kg-shadow" points="8,240 42,230 30,218 96,212 80,200 148,204 136,192 178,210 186,218 150,216 158,226 92,224 102,236 40,238"/>
+            <circle class="kg-catch" cx="170" cy="205" r="13"/>
           </svg>
           <!-- 樹海降誕：地面の亀裂→四方八方へ広がる太い根→中心の幹が敵忍を絡めとる -->
           <div class="fx-jukai" id="mb-fxJukai">
@@ -2629,6 +2957,92 @@
             <div class="ex-ball bd-ball"></div>
             <span class="ex-smoke bd-smoke s1"></span><span class="ex-smoke bd-smoke s2"></span>
             <span class="ex-smoke bd-smoke s3"></span><span class="ex-smoke bd-smoke s4"></span>
+          </div>
+          <!-- 木ノ葉旋風：回し蹴りの三日月斬撃（低→中→高） -->
+          <div class="fx-kslash" id="mb-fxKslash">
+            <div class="ks-arc k1"><svg viewBox="0 0 100 100" aria-hidden="true">
+              <path class="ks-trail3" d="M13,80 A48,48 0 0 1 84,28"/>
+              <path class="ks-trail2" d="M17,75 A45,45 0 0 1 81,33"/>
+              <path class="ks-core" d="M22,70 A42,42 0 0 1 78,38"/>
+            </svg></div>
+            <div class="ks-arc k2"><svg viewBox="0 0 100 100" aria-hidden="true">
+              <path class="ks-trail3" d="M16,30 A48,48 0 0 0 86,72"/>
+              <path class="ks-trail2" d="M19,34 A45,45 0 0 0 82,68"/>
+              <path class="ks-core" d="M24,38 A42,42 0 0 0 78,64"/>
+            </svg></div>
+            <div class="ks-arc k3"><svg viewBox="0 0 100 100" aria-hidden="true">
+              <path class="ks-trail3" d="M13,78 A48,48 0 0 1 85,26"/>
+              <path class="ks-trail2" d="M17,73 A45,45 0 0 1 82,31"/>
+              <path class="ks-core" d="M22,68 A42,42 0 0 1 79,36"/>
+            </svg></div>
+          </div>
+          <!-- 牙通牙：灰色のドリル状旋風2本が交差 -->
+          <div class="fx-gatsuga" id="mb-fxGatsuga">
+            <div class="gt-drill d1"><div class="gt-body"></div><div class="gt-tip"></div></div>
+            <div class="gt-drill d2"><div class="gt-body"></div><div class="gt-tip"></div></div>
+          </div>
+          <!-- 秘術・魔鏡氷晶：氷の鏡が敵を囲んで立ち上がり、鏡面の光条が行き交う -->
+          <div class="fx-makyo" id="mb-fxMakyo">
+            <div class="mk-panel p1"></div><div class="mk-panel p2"></div><div class="mk-panel p3"></div>
+            <div class="mk-panel p4"></div><div class="mk-panel p5"></div><div class="mk-panel p6"></div>
+            <div class="mk-beam b1"></div><div class="mk-beam b2"></div><div class="mk-beam b3"></div>
+            <div class="mk-beam b4"></div><div class="mk-beam b5"></div><div class="mk-beam b6"></div>
+          </div>
+          <!-- 部分倍化の術：指の造形がある巨大な拳 -->
+          <div class="fx-fist" id="mb-fxFist">
+            <svg viewBox="0 0 230 190" aria-hidden="true">
+              <path class="fst-arm" d="M230,80 L150,66 C168,60 176,48 168,36 C160,24 144,26 138,38 C132,24 114,24 108,38 C102,24 84,24 78,38 C72,26 56,24 50,36 C42,48 50,60 68,66 L30,72 C10,78 -2,98 4,118 C10,138 30,150 50,146 L150,134 L230,124 Z"/>
+              <path class="fst-hi" d="M60,44 C70,34 82,32 92,38"/>
+              <path class="fst-hi" d="M92,38 C102,30 114,30 122,38"/>
+              <path class="fst-hi" d="M20,90 C24,104 34,116 48,120"/>
+            </svg>
+          </div>
+          <!-- 口寄せの術：白煙→蝦蟇のシルエットが落下→着地の衝撃 -->
+          <div class="fx-kuchiyose" id="mb-fxKuchiyose">
+            <div class="kc-rise r1"></div><div class="kc-rise r2"></div><div class="kc-rise r3"></div>
+            <div class="kc-toad">
+              <svg viewBox="0 0 300 220" aria-hidden="true">
+                <path d="M40,210 C10,190 5,150 20,120 C10,95 30,60 70,45 C60,30 75,10 100,8 C112,-2 130,-2 142,8 C165,10 180,30 170,45 C210,60 230,95 220,120 C235,150 230,190 200,210 C160,225 80,225 40,210 Z"/>
+                <ellipse cx="112" cy="26" rx="15" ry="13"/>
+                <ellipse cx="150" cy="24" rx="15" ry="13"/>
+                <path d="M20,168 C-6,163 -15,190 0,210 C15,226 42,222 47,204 C51,188 40,173 20,168 Z"/>
+                <path d="M220,168 C246,163 255,190 240,210 C225,226 198,222 193,204 C189,188 200,173 220,168 Z"/>
+                <path class="toad-hi" d="M55,150 C90,166 170,166 205,150" fill="none"/>
+              </svg>
+            </div>
+            <div class="kc-dust d1"></div><div class="kc-dust d2"></div><div class="kc-dust d3"></div>
+          </div>
+          <!-- 影縫いの術：足元を這う影→茨状のトゲが下から突き刺す -->
+          <div class="fx-kagenui" id="mb-fxKagenui">
+            <svg class="kn-svg" viewBox="0 0 349 240" preserveAspectRatio="none" aria-hidden="true">
+              <path class="kn-glow" d="M10,238 C50,232 90,222 130,214 C160,208 190,206 220,204"/>
+              <path class="kn-creep" d="M10,238 C50,232 90,222 130,214 C160,208 190,206 220,204"/>
+            </svg>
+            <div class="kn-spike k1" style="left:60%;bottom:40px;width:10px;height:60px;clip-path:polygon(50% 0%,88% 55%,64% 48%,72% 100%,28% 100%,36% 48%,12% 55%);"></div>
+            <div class="kn-spike k2" style="left:64%;bottom:38px;width:9px;height:52px;clip-path:polygon(50% 0%,86% 50%,62% 46%,70% 100%,30% 100%,38% 46%,14% 50%);"></div>
+            <div class="kn-spike k3" style="left:68%;bottom:42px;width:11px;height:66px;clip-path:polygon(50% 0%,90% 58%,66% 50%,74% 100%,26% 100%,34% 50%,10% 58%);"></div>
+            <div class="kn-spike k4" style="left:57%;bottom:36px;width:8px;height:46px;clip-path:polygon(50% 0%,84% 48%,60% 44%,68% 100%,32% 100%,40% 44%,16% 48%);"></div>
+            <div class="kn-spike k5" style="left:72%;bottom:40px;width:9px;height:54px;clip-path:polygon(50% 0%,86% 52%,62% 46%,70% 100%,30% 100%,38% 46%,14% 52%);"></div>
+            <div class="kn-spike k6" style="left:63%;bottom:44px;width:10px;height:58px;clip-path:polygon(50% 0%,88% 54%,64% 48%,72% 100%,28% 100%,36% 48%,12% 54%);"></div>
+            <div class="kn-flash"></div>
+          </div>
+          <!-- 蝦蟇油炎弾：油の奔流→引火して炎が走り抜ける -->
+          <div class="fx-gamayu" id="mb-fxGamayu">
+            <div class="gy-oil"></div>
+            <div class="gy-flame"></div>
+            <div class="gy-burst"></div>
+          </div>
+          <!-- 須佐能乎：肋骨のアーチ→武者の輪郭→大太刀の一閃 -->
+          <div class="fx-susanoo2" id="mb-fxSusanoo">
+            <svg class="ss-svg" viewBox="0 0 260 290" aria-hidden="true">
+              <path class="ss-rib r1" d="M40,150 C70,90 190,90 220,150"/>
+              <path class="ss-rib r2" d="M35,175 C68,110 192,110 225,175"/>
+              <path class="ss-rib r3" d="M45,120 C75,70 185,70 215,120"/>
+              <path class="ss-rib r4" d="M50,200 C80,145 180,145 210,200"/>
+              <path class="ss-rib r5" d="M55,95 C85,55 175,55 205,95"/>
+              <path class="ss-body" d="M130,20 L110,50 L96,46 L104,66 L84,64 L98,84 C70,92 54,116 50,148 L46,220 L92,214 L96,168 C104,150 118,140 130,138 C142,140 156,150 164,168 L168,214 L214,220 L210,148 C206,116 190,92 162,84 L176,64 L156,66 L164,46 L150,50 Z"/>
+            </svg>
+            <div class="ss-blade"></div>
           </div>
           <!-- 実装1：術発動前の「溜め」演出（印を結ぶ／チャクラを練る／気を溜める） -->
           <div class="mb-charge" id="mb-charge">
@@ -14343,9 +14757,9 @@ const QUESTIONS = [
     // ---- 追加術（6種）：キーワード連動専用。コンボ階段のデフォルト(1〜9)には一切影響しない ----
     // 印は多重影分身の「十字の印」（十二支ではない専用印）のみ。他5種は"chakra"/"still"の溜め。
     kagebunshin:  { name: "多重影分身の術",   fx: "fxBunshin",     flash: true,  cutin: "多重影分身の術",   line: "分身たちが　いっせいに　斬りかかった！", impact: 480, wait: 1250, beforePlay: "bunshin" },
-    konoha_senpu: { name: "木ノ葉旋風",       fx: "fxFlow",        flash: false, ringClass: "wind", cutin: "木ノ葉旋風",       line: "木ノ葉旋風が　たたきこまれた！", impact: 420, wait: 1150, beforePlay: "flowWind" },
-    gatsuga:      { name: "牙通牙",           fx: "fxFlow",        flash: false, cutin: "牙通牙",           line: "牙通牙が　突き刺さった！", impact: 420, wait: 1150, beforePlay: "flowDrill" },
-    makyo:        { name: "秘術・魔鏡氷晶",   fx: "fxScatter",     flash: true,  ringClass: "ice",   cutin: "秘術・魔鏡氷晶",   line: "氷の鏡が　乱れうちにした！", impact: 600, wait: 1500, beforePlay: "scatterMirror" },
+    konoha_senpu: { name: "木ノ葉旋風",       fx: "fxKslash",      flash: false, ringClass: "wind", cutin: "木ノ葉旋風",       line: "木ノ葉旋風が　たたきこまれた！", impact: 460, wait: 1150, multiHit: [90, 230] },
+    gatsuga:      { name: "牙通牙",           fx: "fxGatsuga",     flash: false, cutin: "牙通牙",           line: "牙通牙が　突き刺さった！", impact: 420, wait: 1150 },
+    makyo:        { name: "秘術・魔鏡氷晶",   fx: "fxMakyo",       flash: true,  ringClass: "ice",   cutin: "秘術・魔鏡氷晶",   line: "氷の鏡が　乱れうちにした！", impact: 780, wait: 1500 },
     oodama:       { name: "大玉螺旋丸",       fx: "fxRasengan",    flash: true,  cutin: "大玉螺旋丸",       line: "大玉螺旋丸が　さくれつ！", impact: 420, wait: 1350, fxScale: 1.5 },
     bijudama:     { name: "尾獣玉",           fx: "fxBijudama",    flash: "void", ringClass: "bijudama", cutin: "尾獣玉", cutinClass: "void", line: "尾獣玉が　大爆発した！", impact: 700, wait: 1900, shake: true },
 
@@ -14353,16 +14767,16 @@ const QUESTIONS = [
     narutorendan: { name: "うずまきナルト連弾", fx: "fxScatter", flash: false, cutin: "うずまきナルト連弾", line: "連続コンボが　たたきこまれた！", impact: 460, wait: 1300, beforePlay: "scatterCombo" },
     housenka:     { name: "火遁・鳳仙火の術",   fx: "fxScatter", flash: false, ringClass: "fire", cutin: "火遁・鳳仙火の術",   line: "火の粉の雨が　ふりそそいだ！", impact: 460, wait: 1300, beforePlay: "scatterFire" },
     shinjuzanshu: { name: "土遁・心中斬首の術", fx: "fxGround",  flash: false, cutin: "土遁・心中斬首の術", line: "地面から　のびた腕が　ひきずりこんだ！", impact: 600, wait: 1500, beforePlay: "groundPull" },
-    bubun_baika:  { name: "部分倍化の術",       fx: "fxFlow",    flash: false, cutin: "部分倍化の術",       line: "巨大な拳が　ふりおろされた！", impact: 480, wait: 1300, beforePlay: "flowFist" },
+    bubun_baika:  { name: "部分倍化の術",       fx: "fxFist",    flash: false, cutin: "部分倍化の術",       line: "巨大な拳が　ふりおろされた！", impact: 240, wait: 1300 },
     chidori:      { name: "千鳥",               fx: "fxRaikiri", flash: true,  cutin: "千鳥",               line: "千鳥が　つらぬいた！", impact: 300, wait: 1250, extraClass: "chidori", fxScale: 0.72 },
     rasenrengan:  { name: "螺旋連丸",           fx: "fxRasengan",flash: true,  cutin: "螺旋連丸",           line: "螺旋連丸が　連続でさくれつ！", impact: 420, wait: 1450, extraClass: "dual" },
-    kuchiyose:    { name: "口寄せの術",         fx: "fxSilhouette", flash: false, cutin: "口寄せの術",     line: "巨大な蝦蟇が　のしかかった！", impact: 700, wait: 1700, beforePlay: "silhouetteToad" },
+    kuchiyose:    { name: "口寄せの術",         fx: "fxKuchiyose", flash: false, cutin: "口寄せの術",     line: "巨大な蝦蟇が　のしかかった！", impact: 700, wait: 1700 },
     kaiten:       { name: "八卦掌回天",         fx: "fxSilhouette", flash: true,  ringClass: "kaiten", cutin: "八卦掌回天", line: "回天の衝撃波が　はじきとばした！", impact: 500, wait: 1350, beforePlay: "silhouetteKaiten", shake: true },
-    kagenui:      { name: "影縫いの術",         fx: "fxGround",  flash: false, ringClass: "shadow", cutin: "影縫いの術", line: "影の茨が　つらぬいた！", impact: 520, wait: 1350, beforePlay: "groundSpike" },
+    kagenui:      { name: "影縫いの術",         fx: "fxKagenui", flash: false, ringClass: "shadow", cutin: "影縫いの術", line: "影の茨が　つらぬいた！", impact: 620, wait: 1350 },
     daibakufu:    { name: "水遁・大瀑布の術",   fx: "fxFlow",    flash: false, ringClass: "water", cutin: "水遁・大瀑布の術", line: "濁流が　のみこんだ！", impact: 600, wait: 1500, beforePlay: "flowWater" },
-    gamayuendan:  { name: "蝦蟇油炎弾",         fx: "fxGoukakyu",flash: "fire", ringClass: "fire", cutin: "蝦蟇油炎弾", line: "炎の奔流が　すべてを　焼きつくした！", impact: 620, wait: 1600, fxScale: 1.55, shake: true },
+    gamayuendan:  { name: "蝦蟇油炎弾",         fx: "fxGamayu",  flash: "fire", ringClass: "fire", cutin: "蝦蟇油炎弾", line: "炎の奔流が　すべてを　焼きつくした！", impact: 900, wait: 1600, shake: true },
     kirin:        { name: "麒麟",               fx: "fxSilhouette", flash: "kirin", cutin: "麒麟", line: "麒麟の一撃が　天から　おちた！", impact: 750, wait: 1900, beforePlay: "silhouetteKirin", shake: true },
-    susanoo:      { name: "須佐能乎",           fx: "fxSilhouette", flash: true, ringClass: "purple", cutinClass: "purple", cutin: "須佐能乎", line: "須佐能乎が　なぎはらった！", impact: 700, wait: 1800, beforePlay: "silhouetteSusanoo", shake: true }
+    susanoo:      { name: "須佐能乎",           fx: "fxSusanoo", flash: true, ringClass: "purple", cutinClass: "purple", cutin: "須佐能乎", line: "須佐能乎が　なぎはらった！", impact: 900, wait: 1800, shake: true }
   };
 
   // ---- 実装3：術図鑑（発動した術のコレクション）----
@@ -15100,7 +15514,7 @@ const QUESTIONS = [
   // 専用CSSブロックを術ごとに増やさず、共通クラス＋パラメータ（色・角度・個数）で使い回す。
   function mbBuildScatter(container, count, color, opts) {
     opts = opts || {};
-    var shapeClass = opts.shape === "mirror" ? " mirror" : "";
+    var shapeClass = opts.shape === "mirror" ? " mirror" : (opts.shape === "punch" ? " punch" : "");
     var pattern = [[30, 38], [68, 30], [46, 58], [20, 62], [76, 60], [52, 22], [36, 46], [62, 48]];
     var html = "";
     for (var i = 0; i < count; i++) {
@@ -15162,19 +15576,19 @@ const QUESTIONS = [
   // beforePlay：mbFireJutsuが発動のたびに1度だけ呼ぶ準備フック名→関数の対応表
   var MB_JUTSU_FX_PREP = {
     bunshin: function () { mbBuildBunshin(mbEl.fxBunshin); },
-    flowWind: function () { mbBuildFlow(mbEl.fxFlow, [{ angle: -16, color: "#d8f2df" }]); },
-    flowDrill: function () { mbBuildFlow(mbEl.fxFlow, [{ angle: -22, color: "#c7ccd6" }, { angle: 22, color: "#9aa0ad", delay: 90 }]); },
-    scatterMirror: function () { mbBuildScatter(mbEl.fxScatter, 6, "#bfe9ff", { shape: "mirror", ring: true }); },
-    scatterCombo: function () { mbBuildScatter(mbEl.fxScatter, 5, "#f0f2ec"); },
+    scatterCombo: function () { mbBuildScatter(mbEl.fxScatter, 5, "#f0f2ec", { shape: "punch" }); },
     scatterFire: function () { mbBuildScatter(mbEl.fxScatter, 6, "#ff8a1e"); },
-    groundPull: function () { mbBuildGround(mbEl.fxGround, "#7a5a34", { cracks: 4, spikes: 0 }); },
-    flowFist: function () { mbBuildFlow(mbEl.fxFlow, [{ angle: 0, color: "#e9ece4", fist: true }]); },
-    silhouetteToad: function () { mbBuildSilhouette(mbEl.fxSilhouette, "", "#5a7a4a"); },
+    groundPull: function () {
+      mbBuildGround(mbEl.fxGround, "#7a5a34", { cracks: 4, spikes: 0 });
+      // 「地面からのびた腕」の台詞に合わせて、地割れだけでなく実際の腕シルエットを追加する
+      mbEl.fxGround.insertAdjacentHTML("beforeend", '<div class="fxg-arm play" style="left:47%;"></div>');
+    },
     silhouetteKaiten: function () { mbBuildSilhouette(mbEl.fxSilhouette, "kaiten", "#8fe3ff"); },
-    groundSpike: function () { mbBuildGround(mbEl.fxGround, "#14161e", { cracks: 2, spikes: 6 }); },
     flowWater: function () { mbBuildFlow(mbEl.fxFlow, [{ angle: -6, color: "#6fd4c9", wide: true }]); },
-    silhouetteKirin: function () { mbBuildSilhouette(mbEl.fxSilhouette, "kirin", "#dff4ff"); },
-    silhouetteSusanoo: function () { mbBuildSilhouette(mbEl.fxSilhouette, "susanoo", "#7a5fd0"); }
+    silhouetteKirin: function () { mbBuildSilhouette(mbEl.fxSilhouette, "kirin", "#dff4ff"); }
+    // konoha_senpu/gatsuga/makyo/bubun_baika/kuchiyose/kagenui/gamayuendan/susanooは
+    // 汎用エンジンの使い回しをやめ、専用CSS（fxKslash/fxGatsuga/fxMakyo/fxFist/
+    // fxKuchiyose/fxKagenui/fxGamayu/fxSusanoo）で静的に組んだため、準備フック不要。
   };
   // 既存divの使い回し先（大きさ・色の切り替えクラスを毎回作り直す対象のみ登録）
   var MB_FX_BASE_CLASS = { fxGoukakyu: "fx-goukakyu", fxRasengan: "fx-rasengan", fxRaikiri: "fx-raikiri" };
@@ -15209,6 +15623,15 @@ const QUESTIONS = [
     if (info.beforePlay && MB_JUTSU_FX_PREP[info.beforePlay]) MB_JUTSU_FX_PREP[info.beforePlay]();
     mbPlayMainFx(info);
     if (info.cutin) mbSetCutin(info.cutin, info.cutinClass);
+    // 多段ヒット（木ノ葉旋風など）：本着弾より前に小さいのけぞりを挟む
+    if (info.multiHit) {
+      info.multiHit.forEach(function (t) {
+        setTimeout(function () {
+          mbReplay(mbEl.enemyWrap, "hit-sm");
+          setTimeout(function () { mbEl.enemyWrap.classList.remove("hit-sm"); }, 240);
+        }, t);
+      });
+    }
     // 着弾：ヒットストップ→衝撃リング＋敵のけぞり＋フラッシュ
     setTimeout(function () {
       mbHitStop(70);
@@ -15616,6 +16039,7 @@ const QUESTIONS = [
      "resultTitle", "resultRows", "resultRestart", "resultHome", "screen", "enemyWrap", "enemyShadow", "rankBadge",
      "interruptBtn", "promoOverlay", "promoTitle", "enemyName",
      "fxScatter", "fxFlow", "fxGround", "fxSilhouette", "fxBunshin", "fxBijudama",
+     "fxKslash", "fxGatsuga", "fxMakyo", "fxFist", "fxKuchiyose", "fxKagenui", "fxGamayu", "fxSusanoo",
      "root", "viewDoneOverlay", "viewDoneTitle", "viewAgainBtn", "viewBackBtn"
     ].forEach(function (key) { mbEl[key] = document.getElementById("mb-" + key); });
 
