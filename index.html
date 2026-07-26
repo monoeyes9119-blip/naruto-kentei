@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#f6f3ec">
@@ -136,35 +136,6 @@
     font-size:10.5px;
     color:var(--muted);
     font-weight:700;
-  }
-  /* ---------- 漫画コマ割りヒーロー（ホーム画面のみ） ---------- */
-  .hero{
-    position:relative;
-    overflow:hidden;
-    background:var(--card);
-    border:2.5px solid var(--ink);
-    border-radius:4px;
-    padding:20px 18px 16px;
-    margin-bottom:16px;
-  }
-  .hero::before{
-    content:"";
-    position:absolute; inset:0;
-    background-image:radial-gradient(var(--ink) 1px, transparent 1.4px);
-    background-size:9px 9px;
-    opacity:.4;
-    -webkit-mask-image:linear-gradient(180deg, #000 0%, transparent 60%);
-            mask-image:linear-gradient(180deg, #000 0%, transparent 60%);
-    pointer-events:none;
-    z-index:0;
-  }
-  .hero-content{position:relative; z-index:1;}
-  .kicker{
-    display:inline-block;
-    font-size:11px; font-weight:800; letter-spacing:.1em;
-    background:var(--ink); color:var(--bg);
-    padding:3px 10px; margin-bottom:10px;
-    clip-path:polygon(0 0, 100% 0, 94% 100%, 0% 100%);
   }
   /* ---------- 家紋ウォーターマーク（ホーム画面背景のみ・非常に薄い） ---------- */
   .kamon-layer{
@@ -579,6 +550,135 @@
     font-weight:700;
     color:var(--muted);
     margin-top:4px;
+  }
+  /* ---------- フェーズ4：コンパクトヘッダー（ホーム画面） ---------- */
+  .home-header{
+    text-align:center;
+    padding:8px 0 2px;
+  }
+  .home-header .home-title{margin:0 0 2px;}
+  .home-header .home-title-icon{width:24px;height:24px;}
+  .home-header h1{font-size:22px;margin:0;}
+  .home-header .subtitle{font-size:11px;margin:2px 0 0;}
+
+  /* ---------- 続きから復帰バナー（フェーズ3） ---------- */
+  .resume-banner{border-color:var(--accent);}
+  .resume-banner-text{margin:0 0 12px;font-size:13px;font-weight:700;color:var(--ink);}
+
+  /* ---------- 任務タブ：階級プレート（大）・ランクチップ列 ---------- */
+  .rank-plate-big{
+    display:block;
+    width:100%;
+    text-align:center;
+    font-size:20px;
+    padding:10px 12px;
+    margin-bottom:16px;
+  }
+  .rank-chip-row{
+    display:flex;
+    gap:6px;
+    margin-bottom:8px;
+  }
+  .rank-chip{
+    flex:1 1 0;
+    min-height:56px;
+    min-width:44px;
+    background:var(--card);
+    color:var(--ink);
+    border:2.5px solid var(--ink);
+    border-radius:4px;
+    padding:6px 2px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:3px;
+    font-family:var(--font-gothic);
+    cursor:pointer;
+  }
+  .rank-chip-letter{font-size:17px;font-weight:900;}
+  .rank-chip-state{font-size:11px;font-weight:800;min-height:13px;}
+  .rank-chip.cleared{border-color:var(--accent);box-shadow:2px 2px 0 var(--accent);}
+  .rank-chip.cleared .rank-chip-state{color:var(--accent);}
+  .rank-chip.locked{
+    cursor:not-allowed;
+    opacity:.5;
+    box-shadow:none;
+    background:repeating-linear-gradient(45deg, var(--card), var(--card) 8px, rgba(20,18,15,.05) 8px, rgba(20,18,15,.05) 16px);
+  }
+  .rank-chip-note{
+    font-size:12px;
+    font-weight:700;
+    color:var(--muted);
+    margin:0 0 4px;
+    min-height:16px;
+  }
+
+  /* ---------- 記録タブ：ランク別クリア回数グリッド ---------- */
+  .record-rank-grid{
+    display:flex;
+    justify-content:space-between;
+    gap:4px;
+    margin-bottom:4px;
+  }
+  .record-rank-cell{
+    flex:1;
+    text-align:center;
+    padding:6px 2px;
+    border:2px solid var(--border-soft);
+    border-radius:4px;
+  }
+  .record-rank-cell .rr-label{font-size:11px;font-weight:800;color:var(--muted);display:block;}
+  .record-rank-cell .rr-count{font-size:16px;font-weight:900;color:var(--ink);display:block;font-variant-numeric:tabular-nums;}
+
+  /* ---------- 下部固定タブバー（プレイ中画面では非表示） ---------- */
+  .tab-bar{
+    position:fixed;
+    left:0; right:0; bottom:0;
+    max-width:480px;
+    margin:0 auto;
+    display:flex;
+    background:var(--card);
+    border-top:2.5px solid var(--ink);
+    padding:4px 4px calc(4px + env(safe-area-inset-bottom));
+    z-index:50;
+  }
+  .tab-bar-btn{
+    flex:1 1 0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:2px;
+    min-height:52px;
+    background:none;
+    border:none;
+    border-top:3px solid transparent;
+    color:var(--muted);
+    font-family:var(--font-gothic);
+    padding:6px 2px 2px;
+    cursor:pointer;
+  }
+  .tab-bar-btn .tab-bar-icon{
+    width:22px;height:22px;line-height:18px;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:900;
+    background:var(--bg);
+    border:2px solid currentColor;
+    border-radius:4px;
+  }
+  .tab-bar-btn .tab-bar-label{font-size:10.5px;font-weight:800;}
+  .tab-bar-btn.active{
+    color:var(--accent);
+    border-top-color:var(--accent);
+  }
+  .tab-bar-btn.active .tab-bar-icon{
+    background:var(--accent);
+    color:var(--ink);
+    border-color:var(--ink);
+  }
+  body.tabbar-visible #app{
+    padding-bottom:calc(78px + env(safe-area-inset-bottom));
   }
 </style>
 <style id="mb-style">
@@ -1636,7 +1736,7 @@
 <body>
 <div id="app">
 
-  <!-- ===== ホーム画面 ===== -->
+  <!-- ===== ホーム画面（フェーズ4：下タブ3画面＝任務／練習／記録） ===== -->
   <section id="screen-home" class="screen active">
     <div class="kamon-layer" aria-hidden="true">
       <span class="kamon-mark kamon-uzumaki" style="top:1%;right:-9%;width:92px;height:92px;"></span>
@@ -1646,9 +1746,8 @@
       <span class="kamon-mark kamon-uzumaki" style="bottom:-3%;right:-8%;width:56px;height:56px;"></span>
     </div>
     <div class="home-content">
-    <div class="hero">
-      <div class="hero-content">
-      <span class="kicker">SHINOBI QUIZ</span>
+
+    <header class="home-header">
       <div class="home-title">
         <svg class="home-title-icon" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect width="180" height="180" rx="36" fill="#ef5b2b"/>
@@ -1657,19 +1756,53 @@
         </svg>
         <h1>NARUTO検定</h1>
       </div>
-      <p class="subtitle" style="margin-bottom:0;">一問一答であなたの忍者ランクを試そう</p>
+      <p class="subtitle">一問一答であなたの忍者ランクを試そう</p>
+    </header>
+
+    <!-- フェーズ3：中断セッションの復帰バナー（自動再開はしない） -->
+    <div class="card resume-banner hidden" id="resume-banner">
+      <p class="resume-banner-text" id="resume-banner-text"></p>
+      <div class="btn-group">
+        <button type="button" class="choice-btn" id="resume-discard-btn">やめて最初から</button>
+        <button type="button" class="choice-btn selected-mode" id="resume-continue-btn">つづきから</button>
       </div>
     </div>
 
-    <div class="card" id="home-stats">
-      <div class="stats-row">
-        <div class="stat"><span class="num" id="stat-plays">0</span><span class="label">プレイ回数</span></div>
-        <div class="stat"><span class="num" id="stat-rate">--</span><span class="label">通算正答率</span></div>
-        <div class="stat"><span class="num" id="stat-total">0</span><span class="label">累計出題数</span></div>
+    <!-- ===== 任務タブ ===== -->
+    <div class="tab-content" id="tab-content-mission" data-tab-panel="mission">
+      <div class="card card-accent">
+        <div class="rank-plate-row">
+          <span class="rank-plate-label">現在の階級</span>
+        </div>
+        <div class="rank-plate rank-plate-big" id="home-rank-plate">アカデミー生</div>
+
+        <div class="rank-chip-row" id="rank-chip-row">
+          <button type="button" class="rank-chip" data-mb-rank="D級" aria-label="D級任務">
+            <span class="rank-chip-letter">D</span><span class="rank-chip-state"></span>
+          </button>
+          <button type="button" class="rank-chip" data-mb-rank="C級" aria-label="C級任務">
+            <span class="rank-chip-letter">C</span><span class="rank-chip-state"></span>
+          </button>
+          <button type="button" class="rank-chip" data-mb-rank="B級" aria-label="B級任務">
+            <span class="rank-chip-letter">B</span><span class="rank-chip-state"></span>
+          </button>
+          <button type="button" class="rank-chip" data-mb-rank="A級" aria-label="A級任務">
+            <span class="rank-chip-letter">A</span><span class="rank-chip-state"></span>
+          </button>
+          <button type="button" class="rank-chip" data-mb-rank="S級" aria-label="S級任務">
+            <span class="rank-chip-letter">S</span><span class="rank-chip-state"></span>
+          </button>
+        </div>
+        <p class="rank-chip-note" id="rank-chip-note"></p>
+
+        <button type="button" class="primary" id="mission-entry-btn" style="margin-top:14px;">任務をうける</button>
+        <button type="button" class="link" id="jutsu-book-jump-btn">術図鑑　<span id="jutsu-book-jump-count">0 / 11</span>種　＞</button>
       </div>
     </div>
 
-    <div class="card">
+    <!-- ===== 練習タブ ===== -->
+    <div class="tab-content hidden" id="tab-content-practice" data-tab-panel="practice">
+      <div class="card">
       <label style="margin-top:0;">モード</label>
       <div class="btn-group">
         <button type="button" class="choice-btn selected-mode" data-mode="quiz" id="mode-quiz-btn">4択クイズ</button>
@@ -1718,32 +1851,63 @@
       </details>
 
       <button type="button" class="primary" id="start-btn">はじめる</button>
-    </div>
-
-
-    <div class="card">
-      <label style="margin-top:0;">任務モード</label>
-      <div class="rank-plate-row">
-        <span class="rank-plate-label">現在の階級</span>
-        <span class="rank-plate" id="home-rank-plate">アカデミー生</span>
       </div>
-      <p style="margin:0 0 12px;font-size:13px;">敵忍の幻術を見破るバトル形式。正解で忍術コンボが発動、3回かかると任務失敗。</p>
-      <button type="button" class="primary" id="mission-entry-btn" style="margin-top:0;">任務をうける</button>
+
+      <div class="card card-accent">
+        <label style="margin-top:0;">苦手復習</label>
+        <p style="margin:0 0 12px;font-size:13px;" id="review-weak-desc">まだ克服していない問題を復習できます。</p>
+        <button type="button" class="secondary" id="review-weak-btn" style="margin-top:0;">苦手復習</button>
+      </div>
+
+      <div class="card">
+        <label style="margin-top:0;">模擬試験</label>
+        <p style="margin:0 0 12px;font-size:13px;">下忍・中忍・上忍の検定過去問で本番形式。制限時間内に正答率70%で合格。</p>
+        <button type="button" class="primary" id="exam-entry-btn" style="margin-top:0;">模擬試験にちょうせん</button>
+      </div>
     </div>
 
-    <div class="card card-accent">
-      <label style="margin-top:0;">苦手復習</label>
-      <p style="margin:0 0 12px;font-size:13px;" id="review-weak-desc">まだ克服していない問題を復習できます。</p>
-      <button type="button" class="secondary" id="review-weak-btn" style="margin-top:0;">苦手復習</button>
+    <!-- ===== 記録タブ ===== -->
+    <div class="tab-content hidden" id="tab-content-record" data-tab-panel="record">
+      <div class="card" id="home-stats">
+        <div class="stats-row">
+          <div class="stat"><span class="num" id="stat-plays">0</span><span class="label">プレイ回数</span></div>
+          <div class="stat"><span class="num" id="stat-rate">--</span><span class="label">通算正答率</span></div>
+          <div class="stat"><span class="num" id="stat-total">0</span><span class="label">累計出題数</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <label style="margin-top:0;">任務クリア記録</label>
+        <div class="record-rank-grid" id="record-rank-grid"></div>
+        <p class="rank-chip-note" id="record-combo-note"></p>
+      </div>
+
+      <div class="card">
+        <label style="margin-top:0;">術図鑑</label>
+        <p style="margin:0 0 4px;font-size:14px;font-weight:900;" id="jutsu-book-progress">発動した術：0 / 11種</p>
+        <p style="margin:0 0 12px;font-size:12px;">任務モードで発動した忍術がここに記録されていきます。まだ見たことのない術は？？？で伏せられます。</p>
+        <div id="jutsu-book-list"></div>
+      </div>
     </div>
 
-    <div class="card">
-      <label style="margin-top:0;">模擬試験</label>
-      <p style="margin:0 0 12px;font-size:13px;">下忍・中忍・上忍の検定過去問で本番形式。制限時間内に正答率70%で合格。</p>
-      <button type="button" class="primary" id="exam-entry-btn" style="margin-top:0;">模擬試験にちょうせん</button>
-    </div>
     </div>
   </section>
+
+  <!-- ===== フェーズ4：下部固定タブバー（ホーム画面でのみ表示） ===== -->
+  <nav class="tab-bar" id="tab-bar" aria-label="メインタブ" role="tablist">
+    <button type="button" class="tab-bar-btn active" data-tab="mission" id="tabbtn-mission" role="tab" aria-selected="true">
+      <span class="tab-bar-icon" aria-hidden="true">忍</span>
+      <span class="tab-bar-label">任務</span>
+    </button>
+    <button type="button" class="tab-bar-btn" data-tab="practice" id="tabbtn-practice" role="tab" aria-selected="false">
+      <span class="tab-bar-icon" aria-hidden="true">巻</span>
+      <span class="tab-bar-label">練習</span>
+    </button>
+    <button type="button" class="tab-bar-btn" data-tab="record" id="tabbtn-record" role="tab" aria-selected="false">
+      <span class="tab-bar-icon" aria-hidden="true">録</span>
+      <span class="tab-bar-label">記録</span>
+    </button>
+  </nav>
 
   <!-- ===== 模擬試験：試験選択画面 ===== -->
   <section id="screen-exam-select" class="screen">
@@ -1837,49 +2001,6 @@
     <button type="button" class="secondary" id="back-home-btn">ホームに戻る</button>
   </section>
 
-
-  <!-- ===== 任務モード：ランク選択画面 ===== -->
-  <section id="screen-mission-select" class="screen">
-    <h2>任務をえらぶ</h2>
-    <p style="margin:0 0 8px;font-size:13px;">1任務＝10問のバトル形式。正解するほど忍術コンボが強くなり、3回幻術にかかると任務失敗。</p>
-    <p style="margin:0 0 4px;font-size:13px;font-weight:700;color:var(--accent);" id="mission-rank-note"></p>
-    <p style="margin:0 0 16px;font-size:12px;font-weight:700;" id="mission-records-note"></p>
-
-    <button type="button" class="exam-option-btn" data-mb-rank="D級">
-      <span class="exam-option-title">D級任務</span>
-      <span class="exam-option-count">やさしい問題のみ</span>
-    </button>
-    <button type="button" class="exam-option-btn" data-mb-rank="C級">
-      <span class="exam-option-title">C級任務</span>
-      <span class="exam-option-count">やさしい問題を中心に</span>
-    </button>
-    <button type="button" class="exam-option-btn" data-mb-rank="B級">
-      <span class="exam-option-title">B級任務</span>
-      <span class="exam-option-count">ふつうの問題を中心に</span>
-    </button>
-    <button type="button" class="exam-option-btn" data-mb-rank="A級">
-      <span class="exam-option-title">A級任務</span>
-      <span class="exam-option-count">むずかしい問題まじり</span>
-    </button>
-    <button type="button" class="exam-option-btn" data-mb-rank="S級">
-      <span class="exam-option-title">S級任務</span>
-      <span class="exam-option-count">むずかしい問題を中心に</span>
-    </button>
-
-    <button type="button" class="secondary" id="jutsu-book-entry-btn" style="margin-top:4px;">術図鑑を見る</button>
-    <button type="button" class="secondary" id="mission-select-back-btn">ホームに戻る</button>
-  </section>
-
-  <!-- ===== 実装3：術図鑑（発動した術のコレクション） ===== -->
-  <section id="screen-jutsu-book" class="screen">
-    <h2>術図鑑</h2>
-    <p style="margin:0 0 4px;font-size:14px;font-weight:900;" id="jutsu-book-progress">発動した術：0 / 11種</p>
-    <p style="margin:0 0 16px;font-size:12px;">任務モードで発動した忍術がここに記録されていきます。まだ見たことのない術は？？？で伏せられます。</p>
-    <div class="card">
-      <div id="jutsu-book-list"></div>
-    </div>
-    <button type="button" class="secondary" id="jutsu-book-back-btn">ホームに戻る</button>
-  </section>
 
   <!-- ===== 任務モード：バトル画面（承認済みモックの移植・#mb-rootにスコープ） ===== -->
   <section id="screen-mission" class="screen">
@@ -12125,6 +12246,11 @@ const QUESTIONS = [
 
     renderWeakReviewButton();
     renderMissionHomeRank();
+    // フェーズ4：タブ再構成後は、ホームへ戻るたびに3タブすべての表示内容を
+    // 最新化する（今どのタブが見えているかに関わらず一貫させるため）。
+    if (typeof mbRenderSelect === "function") mbRenderSelect();
+    if (typeof renderMissionRecordStats === "function") renderMissionRecordStats();
+    if (typeof renderJutsuBook === "function") renderJutsuBook();
   }
 
   // 実装2：ホーム画面の任務モードカードに現在の忍者階級を表示する
@@ -12517,17 +12643,124 @@ const QUESTIONS = [
   }
 
   // ---------------------------------------------------------------
-  // 画面遷移
+  // 画面遷移（フェーズ2：ブラウザの「戻る」対応）
   // ---------------------------------------------------------------
-  function showScreen(id) {
+  // 設計：
+  //  - showScreen(id) はボタン操作など「アプリ内の通常の画面遷移」専用。
+  //    呼ぶたびに history.pushState で履歴を1つ積む。
+  //  - タブ切替（switchHomeTab）は showScreen を経由しない別処理なので、
+  //    タブ切替そのものは履歴を汚さない（現在の履歴エントリを
+  //    replaceState で更新するのみ）。
+  //  - ブラウザの戻る操作（左端スワイプ含む）は popstate で拾い、
+  //    restoreScreenFromHistory で「push しない」DOM切り替えだけ行う。
+  //  - プレイ中画面（quiz/flash/exam/mission）で戻る操作が来たら、
+  //    既存の「中断」ボタンと同じ後始末を必ず通す（performInterruptCleanup）。
+  //    模擬試験・任務バトルは confirm を挟み、キャンセル時は
+  //    ポップされた分を pushState で押し戻してその画面に留まる。
+  var PLAY_SCREEN_IDS = ["screen-quiz", "screen-flash", "screen-exam", "screen-mission"];
+  var CONFIRM_INTERRUPT_SCREEN_IDS = ["screen-exam", "screen-mission"];
+  var INTERRUPT_CONFIRM_MSG = "中断すると進行中の記録は保存されません。ホームに戻りますか？";
+  var isRestoringFromHistory = false;
+
+  function isPlayScreen(id) {
+    return PLAY_SCREEN_IDS.indexOf(id) !== -1;
+  }
+
+  function getActiveScreenId() {
+    var active = document.querySelector(".screen.active");
+    return active ? active.id : "screen-home";
+  }
+
+  // 実際のDOM切り替え（履歴操作は一切しない、純粋な見た目の更新のみ）
+  function applyScreenDOM(id) {
     // 模擬試験画面以外に遷移するときは必ずタイマーを止める（多重起動・残留防止）
     if (id !== "screen-exam") stopExamTimer();
     var screens = document.querySelectorAll(".screen");
     for (var i = 0; i < screens.length; i++) {
       screens[i].classList.remove("active");
     }
-    document.getElementById(id).classList.add("active");
+    var target = document.getElementById(id);
+    if (target) target.classList.add("active");
     window.scrollTo(0, 0);
+    // フェーズ4：タブバーはホーム画面（3タブ）でのみ表示する
+    var tabBar = document.getElementById("tab-bar");
+    if (tabBar) tabBar.classList.toggle("hidden", id !== "screen-home");
+    document.body.classList.toggle("tabbar-visible", id === "screen-home");
+  }
+
+  // ボタン操作など、アプリ内の通常の画面遷移から呼ぶ（履歴を1つ積む）
+  function showScreen(id) {
+    applyScreenDOM(id);
+    if (!isRestoringFromHistory) {
+      try { history.pushState({ screen: id }, "", location.href); } catch (e) { /* history不可でも画面遷移自体は継続 */ }
+    }
+  }
+
+  // popstate（ブラウザの戻る）から呼ぶ。履歴は既にブラウザ側で移動済みなので push しない。
+  function restoreScreenFromHistory(id) {
+    isRestoringFromHistory = true;
+    applyScreenDOM(id);
+    isRestoringFromHistory = false;
+  }
+
+  // プレイ中画面から離れる際の後始末（「中断」ボタンとpopstateの両方から呼ばれる共通処理）
+  function performInterruptCleanup(screenId) {
+    if (screenId === "screen-quiz" || screenId === "screen-flash") {
+      clearSavedPracticeSession();
+    } else if (screenId === "screen-exam") {
+      stopExamTimer();
+      clearSavedExamSession();
+    } else if (screenId === "screen-mission") {
+      mbStopFuse();
+      mbState.over = true; // 遅延発火の演出タイマーを無効化
+      clearSavedMissionSession();
+    }
+  }
+
+  window.addEventListener("popstate", function (e) {
+    var state = e.state;
+    var targetId = (state && state.screen) ? state.screen : "screen-home";
+    var currentId = getActiveScreenId();
+
+    if (currentId === targetId) return; // タブ切替のreplaceStateなど、画面自体は変わらないケース
+
+    if (isPlayScreen(currentId)) {
+      if (CONFIRM_INTERRUPT_SCREEN_IDS.indexOf(currentId) !== -1) {
+        if (!window.confirm(INTERRUPT_CONFIRM_MSG)) {
+          // キャンセル：ポップされた分を押し戻し、今の画面に留まる
+          try { history.pushState({ screen: currentId }, "", location.href); } catch (err) {}
+          return;
+        }
+      }
+      performInterruptCleanup(currentId);
+    }
+
+    restoreScreenFromHistory(targetId);
+    if (targetId === "screen-home") renderHomeStats();
+  });
+
+  // ---------------------------------------------------------------
+  // フェーズ4：ホーム画面の下タブ（任務／練習／記録）切替
+  // タブ切替は showScreen を経由しない＝履歴は汚さない（現在のエントリを
+  // replaceState で更新するのみ）。
+  // ---------------------------------------------------------------
+  var HOME_TABS = ["mission", "practice", "record"];
+  var currentHomeTab = "mission";
+
+  function switchHomeTab(tab) {
+    if (HOME_TABS.indexOf(tab) === -1) tab = "mission";
+    currentHomeTab = tab;
+    HOME_TABS.forEach(function (t) {
+      var panel = document.getElementById("tab-content-" + t);
+      var btn = document.getElementById("tabbtn-" + t);
+      if (panel) panel.classList.toggle("hidden", t !== tab);
+      if (btn) {
+        btn.classList.toggle("active", t === tab);
+        btn.setAttribute("aria-selected", t === tab ? "true" : "false");
+      }
+    });
+    if (getActiveScreenId() === "screen-home") window.scrollTo(0, 0);
+    try { history.replaceState({ screen: "screen-home", tab: tab }, "", location.href); } catch (e) {}
   }
 
   // ---------------------------------------------------------------
@@ -12664,6 +12897,79 @@ const QUESTIONS = [
     if (reviewBtn) {
       reviewBtn.addEventListener("click", onStartWeakReview);
     }
+
+    // フェーズ4：下タブの配線（タブ切替は履歴を汚さない＝switchHomeTab内でreplaceStateのみ）
+    HOME_TABS.forEach(function (t) {
+      var btn = document.getElementById("tabbtn-" + t);
+      if (btn) btn.addEventListener("click", function () { switchHomeTab(t); });
+    });
+    // 起動時の初期状態を確定させる（ホームを基点の履歴エントリとして固定）
+    switchHomeTab("mission");
+
+    // フェーズ3：起動時に中断中のセッションがあれば復帰バナーを出す（自動再開はしない）
+    initResumeBanner();
+  }
+
+  // ---------------------------------------------------------------
+  // フェーズ3：起動時の「つづきから」復帰バナー
+  // ---------------------------------------------------------------
+  function findMostRecentSavedSession() {
+    var candidates = [];
+    var p = loadPracticeSession();
+    if (p && Array.isArray(p.questionIds) && p.questionIds.length && typeof p.index === "number" && p.index < p.questionIds.length) {
+      candidates.push({ type: "practice", data: p, savedAt: p.savedAt || 0 });
+    }
+    var e = loadExamSession();
+    if (e && Array.isArray(e.questionIds) && e.questionIds.length && typeof e.index === "number" && e.index < e.questionIds.length) {
+      candidates.push({ type: "exam", data: e, savedAt: e.savedAt || 0 });
+    }
+    var m = loadMissionSession();
+    if (m && Array.isArray(m.questionIds) && m.questionIds.length && typeof m.qi === "number" && m.qi < m.questionIds.length) {
+      candidates.push({ type: "mission", data: m, savedAt: m.savedAt || 0 });
+    }
+    if (candidates.length === 0) return null;
+    candidates.sort(function (a, b) { return b.savedAt - a.savedAt; });
+    return candidates[0];
+  }
+
+  function hideResumeBanner() {
+    var banner = document.getElementById("resume-banner");
+    if (banner) banner.classList.add("hidden");
+  }
+
+  function initResumeBanner() {
+    var banner = document.getElementById("resume-banner");
+    var textEl = document.getElementById("resume-banner-text");
+    var continueBtn = document.getElementById("resume-continue-btn");
+    var discardBtn = document.getElementById("resume-discard-btn");
+    if (!banner || !textEl || !continueBtn || !discardBtn) return;
+
+    var resumable = findMostRecentSavedSession();
+    if (!resumable) {
+      hideResumeBanner();
+      return;
+    }
+    var labelMap = { practice: "前回の問題（4択・一問一答・苦手復習）", exam: "前回の模擬試験", mission: "前回の任務" };
+    textEl.textContent = (labelMap[resumable.type] || "前回のセッション") + "が中断されたままです。続きから再開しますか？";
+    banner.dataset.resumeType = resumable.type;
+    banner.classList.remove("hidden");
+
+    continueBtn.onclick = function () {
+      var type = banner.dataset.resumeType;
+      var ok = false;
+      if (type === "practice") ok = resumePracticeSession(loadPracticeSession());
+      else if (type === "exam") ok = resumeExamSession(loadExamSession());
+      else if (type === "mission") ok = resumeMissionSession(loadMissionSession());
+      hideResumeBanner();
+      if (!ok) {
+        clearAllSavedSessions();
+        showError("中断されたセッションの復元に失敗しました。最初からお試しください。");
+      }
+    };
+    discardBtn.onclick = function () {
+      clearAllSavedSessions();
+      hideResumeBanner();
+    };
   }
 
   // ---------------------------------------------------------------
@@ -12677,6 +12983,150 @@ const QUESTIONS = [
     wrongQuestions: [], // 実際のquestionオブジェクト
     finished: false // finishSession()の多重実行防止（模擬試験のタイマー満了と遅延回答が競合するのを防ぐ）
   };
+
+  // ---------------------------------------------------------------
+  // フェーズ3：進行中セッションの永続化（着信・アプリ切替・リロードで消えないように）
+  // 既存の成績キー（STORAGE_KEY）・任務記録キー（MB_STORAGE_KEY）とは別キーに保存する。
+  // 保存するのは「復元に必要な最小限」＝出題id列・現在位置・回答結果・
+  // （任務なら）HP/コンボ等。問題本体は questions.js から都度引き直す。
+  // ---------------------------------------------------------------
+  var PRACTICE_SESSION_KEY = "narutoKenteiSessionPractice_v1"; // 4択・一問一答・苦手復習（mixed）共通
+  var EXAM_SESSION_KEY = "narutoKenteiSessionExam_v1";
+  var MISSION_SESSION_KEY = "narutoKenteiSessionMission_v1";
+
+  function safeStorageGet(key) {
+    try {
+      var raw = window.localStorage.getItem(key);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      return (parsed && typeof parsed === "object") ? parsed : null;
+    } catch (e) { return null; }
+  }
+  function safeStorageSet(key, value) {
+    try { window.localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* 保存不可でも進行は止めない */ }
+  }
+  function safeStorageRemove(key) {
+    try { window.localStorage.removeItem(key); } catch (e) {}
+  }
+
+  // 出題id → 問題オブジェクトの逆引き（復元時にquestions.jsの現在のデータへ引き直す）
+  var QUESTIONS_BY_ID = null;
+  function getQuestionById(id) {
+    if (QUESTIONS_BY_ID === null) {
+      QUESTIONS_BY_ID = {};
+      SAFE_QUESTIONS.forEach(function (q) { QUESTIONS_BY_ID[q.id] = q; });
+    }
+    return QUESTIONS_BY_ID[id];
+  }
+  function idsToQuestions(ids) {
+    var out = [];
+    for (var i = 0; i < ids.length; i++) {
+      var q = getQuestionById(ids[i]);
+      if (!q) return null; // データが変わって解決できないidがあれば復元不能として扱う
+      out.push(q);
+    }
+    return out;
+  }
+
+  function clearAllSavedSessions() {
+    safeStorageRemove(PRACTICE_SESSION_KEY);
+    safeStorageRemove(EXAM_SESSION_KEY);
+    safeStorageRemove(MISSION_SESSION_KEY);
+  }
+
+  // ---- 4択／一問一答／苦手復習（mixed）共通 ----
+  function savePracticeSession() {
+    if (session.mode !== "quiz" && session.mode !== "flash" && session.mode !== "mixed") return;
+    if (session.finished) return;
+    safeStorageSet(PRACTICE_SESSION_KEY, {
+      mode: session.mode,
+      questionIds: session.questions.map(function (q) { return q.id; }),
+      index: session.index,
+      answered: session.answered,
+      wrongIds: session.wrongQuestions.map(function (q) { return q.id; }),
+      savedAt: Date.now()
+    });
+  }
+  function clearSavedPracticeSession() { safeStorageRemove(PRACTICE_SESSION_KEY); }
+  function loadPracticeSession() { return safeStorageGet(PRACTICE_SESSION_KEY); }
+
+  // 「つづきから」：保存内容を session へ復元し、該当モードの画面から再開する。
+  // 導火線等のタイマー要素は元々持たないモードなので特別な仕切り直しは不要。
+  function resumePracticeSession(saved) {
+    try {
+      if (!saved || !Array.isArray(saved.questionIds) || saved.questionIds.length === 0) return false;
+      var questions = idsToQuestions(saved.questionIds);
+      if (!questions || typeof saved.index !== "number" || saved.index < 0 || saved.index >= questions.length) return false;
+      var wrongQuestions = Array.isArray(saved.wrongIds) ? idsToQuestions(saved.wrongIds) : [];
+      if (wrongQuestions === null) wrongQuestions = [];
+
+      session.mode = (saved.mode === "flash" || saved.mode === "mixed") ? saved.mode : "quiz";
+      session.questions = questions;
+      session.index = saved.index;
+      session.answered = Array.isArray(saved.answered) ? saved.answered : [];
+      session.wrongQuestions = wrongQuestions;
+      session.finished = false;
+
+      if (session.mode === "mixed") {
+        startMixedSession();
+      } else if (session.mode === "flash") {
+        startFlashScreen();
+      } else {
+        startQuizScreen();
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // ---- 模擬試験 ----
+  function saveExamSession() {
+    if (session.mode !== "exam") return;
+    if (session.finished) return;
+    safeStorageSet(EXAM_SESSION_KEY, {
+      examType: session.examType,
+      questionIds: session.questions.map(function (q) { return q.id; }),
+      index: session.index,
+      answered: session.answered,
+      wrongIds: session.wrongQuestions.map(function (q) { return q.id; }),
+      examTotalSec: session.examTotalSec,
+      examRemainingSec: session.examRemainingSec,
+      savedAt: Date.now()
+    });
+  }
+  function clearSavedExamSession() { safeStorageRemove(EXAM_SESSION_KEY); }
+  function loadExamSession() { return safeStorageGet(EXAM_SESSION_KEY); }
+
+  // 「つづきから」：残り秒数はそのまま（実時刻の経過を加算しない）で再開する。
+  function resumeExamSession(saved) {
+    try {
+      if (!saved || !Array.isArray(saved.questionIds) || saved.questionIds.length === 0) return false;
+      var questions = idsToQuestions(saved.questionIds);
+      if (!questions || typeof saved.index !== "number" || saved.index < 0 || saved.index >= questions.length) return false;
+      if (typeof saved.examRemainingSec !== "number" || saved.examRemainingSec <= 0) return false;
+      var wrongQuestions = Array.isArray(saved.wrongIds) ? idsToQuestions(saved.wrongIds) : [];
+      if (wrongQuestions === null) wrongQuestions = [];
+
+      session.mode = "exam";
+      session.examType = saved.examType;
+      session.questions = questions;
+      session.index = saved.index;
+      session.answered = Array.isArray(saved.answered) ? saved.answered : [];
+      session.wrongQuestions = wrongQuestions;
+      session.finished = false;
+      session.examTotalSec = saved.examTotalSec;
+      session.examRemainingSec = saved.examRemainingSec;
+      // 所要時間表示のための起点を、実際に費やした分だけ遡って再計算する
+      // （中断していた時間は「経過」に加算しない）。
+      session.examStartedAt = Date.now() - Math.max(0, (saved.examTotalSec - saved.examRemainingSec)) * 1000;
+
+      startExamScreen(session.examRemainingSec);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
 
   function onStart() {
     if (SAFE_QUESTIONS.length === 0) {
@@ -12733,6 +13183,7 @@ const QUESTIONS = [
       count = Math.min(parseInt(countValue, 10), pool.length);
     }
 
+    clearAllSavedSessions(); // 新しいセッションを始める＝中断中の他のセッションは破棄する
     session.mode = currentMode;
     session.questions = pickRandom(pool, count);
     session.index = 0;
@@ -12758,6 +13209,7 @@ const QUESTIONS = [
       return;
     }
 
+    clearAllSavedSessions(); // 新しいセッションを始める＝中断中の他のセッションは破棄する
     session.mode = "mixed";
     session.questions = pickRandom(weakQuestions, WEAK_REVIEW_MAX);
     session.index = 0;
@@ -12813,6 +13265,7 @@ const QUESTIONS = [
     var config = EXAM_CONFIG[examType];
     var count = Math.min(config.count, inventory.length);
 
+    clearAllSavedSessions(); // 新しいセッションを始める＝中断中の他のセッションは破棄する
     session.mode = "exam";
     session.examType = examType;
     session.questions = pickRandom(inventory, count);
@@ -12827,10 +13280,12 @@ const QUESTIONS = [
     startExamScreen();
   }
 
-  function startExamScreen() {
+  // startSeconds省略時は満タンの制限時間から開始（通常の新規開始）。
+  // フェーズ3の「つづきから」再開時は残り秒数を渡す（実時刻の経過を加算しない）。
+  function startExamScreen(startSeconds) {
     showScreen("screen-exam");
     renderExamQuestion();
-    startExamTimer(session.examTotalSec);
+    startExamTimer(typeof startSeconds === "number" ? startSeconds : session.examTotalSec);
   }
 
   function renderExamQuestion() {
@@ -12860,6 +13315,9 @@ const QUESTIONS = [
       });
       optionsWrap.appendChild(btn);
     });
+
+    // フェーズ3：1問進むたびに保存（残り秒数もこの時点のスナップショット）
+    saveExamSession();
   }
 
   // 本番演出：正誤はその場で出さず、選択状態だけ見せて記録し次へ進む。
@@ -12940,6 +13398,9 @@ const QUESTIONS = [
       });
       optionsWrap.appendChild(btn);
     });
+
+    // フェーズ3：1問進むたびに保存（quiz/mixedどちらの経路で来てもここを通る）
+    savePracticeSession();
   }
 
   function onQuizAnswer(question, chosenText, options, optionsWrap) {
@@ -12972,8 +13433,10 @@ const QUESTIONS = [
     }
   });
 
-  // 中断：4択クイズ・苦手復習は途中経過を保存しないモードなので確認なしで即ホームへ。
+  // 中断：4択クイズ・苦手復習はタイマーを持たないため確認なしで即ホームへ
+  // （フェーズ3以降は保存済みの進行中セッションを破棄してからホームへ戻る）。
   document.getElementById("quiz-interrupt-btn").addEventListener("click", function () {
+    performInterruptCleanup("screen-quiz");
     renderHomeStats();
     showScreen("screen-home");
   });
@@ -13000,6 +13463,9 @@ const QUESTIONS = [
 
     document.getElementById("flash-reveal-btn").classList.remove("hidden");
     document.getElementById("flash-score-btns").classList.add("hidden");
+
+    // フェーズ3：1問進むたびに保存（quiz/mixedどちらの経路で来てもここを通る）
+    savePracticeSession();
   }
 
   document.getElementById("flash-reveal-btn").addEventListener("click", function () {
@@ -13026,8 +13492,10 @@ const QUESTIONS = [
   document.getElementById("flash-ok-btn").addEventListener("click", function () { onFlashScore(true); });
   document.getElementById("flash-ng-btn").addEventListener("click", function () { onFlashScore(false); });
 
-  // 中断：一問一答・苦手復習は途中経過を保存しないモードなので確認なしで即ホームへ。
+  // 中断：一問一答・苦手復習はタイマーを持たないため確認なしで即ホームへ
+  // （フェーズ3以降は保存済みの進行中セッションを破棄してからホームへ戻る）。
   document.getElementById("flash-interrupt-btn").addEventListener("click", function () {
+    performInterruptCleanup("screen-flash");
     renderHomeStats();
     showScreen("screen-home");
   });
@@ -13048,6 +13516,13 @@ const QUESTIONS = [
     // ごく稀に競合しても、二重採点・二重統計反映が起きないようにする安全弁。
     if (session.finished) return;
     session.finished = true;
+
+    // フェーズ3：正常に完了したら保存済みセッションは破棄する（古いセッションを復活させない）
+    if (session.mode === "exam") {
+      clearSavedExamSession();
+    } else {
+      clearSavedPracticeSession();
+    }
 
     recordSessionResult(session.answered);
 
@@ -13190,10 +13665,12 @@ const QUESTIONS = [
     // 中断：模擬試験は進行中の採点データが失われるため、誤タップ防止の確認を挟む。
     // showScreen()は screen-exam 以外へ遷移する際に必ず examTimerId を止めるので、
     // ここで改めてタイマーを止める処理は不要（多重停止による副作用もない）。
+    // フェーズ2：ブラウザの戻る操作でも同じ確認・後始末を通す（popstateハンドラ参照）。
     var examInterruptBtn = document.getElementById("exam-interrupt-btn");
     if (examInterruptBtn) {
       examInterruptBtn.addEventListener("click", function () {
-        if (window.confirm("中断すると進行中の記録は保存されません。ホームに戻りますか？")) {
+        if (window.confirm(INTERRUPT_CONFIRM_MSG)) {
+          performInterruptCleanup("screen-exam");
           renderHomeStats();
           showScreen("screen-home");
         }
@@ -13546,6 +14023,65 @@ const QUESTIONS = [
   var mbEl = {};
   var mbChoiceBtns = [];
 
+  // ---- フェーズ3：任務バトルの進行中セッション保存 ----
+  // 導火線（fuseTimeout/fuseDeadline）は意図的に保存しない。再開時は
+  // mbRevealQuestion() から通常どおり導火線を新しく着火させる＝仕切り直しになる。
+  function saveMissionSession() {
+    if (mbState.over) return;
+    safeStorageSet(MISSION_SESSION_KEY, {
+      rank: mbState.rank,
+      questionIds: mbState.questions.map(function (q) { return q.id; }),
+      qi: mbState.qi,
+      correct: mbState.correct,
+      combo: mbState.combo,
+      maxCombo: mbState.maxCombo,
+      hp: mbState.hp,
+      answered: mbState.answered,
+      lastJutsuKey: mbState.lastJutsuKey,
+      savedAt: Date.now()
+    });
+  }
+  function clearSavedMissionSession() { safeStorageRemove(MISSION_SESSION_KEY); }
+  function loadMissionSession() { return safeStorageGet(MISSION_SESSION_KEY); }
+
+  // 「つづきから」：正解数・HP・コンボ・出題位置を復元し、今の問題から再開する
+  // （導入のフレーバー画面は出さず、直接その問題を出題する）。
+  function resumeMissionSession(saved) {
+    try {
+      if (!saved || !Array.isArray(saved.questionIds) || saved.questionIds.length === 0) return false;
+      var questions = idsToQuestions(saved.questionIds);
+      if (!questions || typeof saved.qi !== "number" || saved.qi < 0 || saved.qi >= questions.length) return false;
+      if (MB_RANKS.indexOf(saved.rank) === -1) return false;
+
+      mbState = {
+        rank: saved.rank,
+        qi: saved.qi,
+        correct: typeof saved.correct === "number" ? saved.correct : 0,
+        combo: typeof saved.combo === "number" ? saved.combo : 0,
+        maxCombo: typeof saved.maxCombo === "number" ? saved.maxCombo : 0,
+        hp: typeof saved.hp === "number" ? saved.hp : 3,
+        stage: "idle",
+        questions: questions,
+        options: [],
+        answered: Array.isArray(saved.answered) ? saved.answered : [],
+        lastJutsuKey: saved.lastJutsuKey || null,
+        fuseTimeout: null, igniteTimeout: null, fuseDeadline: null, over: false
+      };
+      mbResetVisualState();
+      mbBuildGauge();
+      mbUpdateGauge();
+      mbSetCombo(mbState.combo);
+      mbUpdateRamen(false);
+      mbResetFuseVisual();
+      mbEl.rankBadge.textContent = mbState.rank + "任務";
+      showScreen("screen-mission");
+      mbRevealQuestion(); // 導入は飛ばし、中断していた問題から直接再開する
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
   // ---- 汎用（モックの replay / hitStop などの移植）----
   function mbReplay(node, cls) {
     cls = cls || "play";
@@ -13660,6 +14196,10 @@ const QUESTIONS = [
     mbResetFuseVisual();
     clearTimeout(mbState.igniteTimeout);
     mbState.igniteTimeout = setTimeout(function () { mbStartFuse(q); }, MB_IGNITE_DELAY_MS);
+
+    // フェーズ3：1問進むたびに保存。導火線は意図的に保存しない
+    // （中断中に時間切れになる理不尽を防ぐため、再開時は必ず仕切り直す）。
+    saveMissionSession();
   }
 
   function mbDisableChoices() {
@@ -13922,6 +14462,9 @@ const QUESTIONS = [
     mbState.over = true;
     mbStopFuse();
 
+    // フェーズ3：任務が終わった（成功でも失敗でも）ので保存済みセッションは破棄する
+    clearSavedMissionSession();
+
     // 既存の成績・苦手プールへ記録（間違えた/時間切れは苦手リスト入り、正解は克服）
     recordSessionResult(mbState.answered);
 
@@ -14005,6 +14548,7 @@ const QUESTIONS = [
       showError("任務モードに出題できる4択問題が足りません。");
       return;
     }
+    clearAllSavedSessions(); // 新しい任務を始める＝中断中の他のセッションは破棄する
     mbState = {
       rank: rank, qi: 0, correct: 0, combo: 0, maxCombo: 0, hp: 3, stage: "idle",
       questions: mbDrawQuestions(rank), options: [], answered: [], lastJutsuKey: null,
@@ -14021,42 +14565,73 @@ const QUESTIONS = [
     mbShowIntro();
   }
 
+  // ホームへ戻る（リザルト画面の「ホームへもどる」／中断ボタン／戻る操作の共通後始末を経由して呼ばれる）
   function mbGoHome() {
-    mbStopFuse();
-    mbState.over = true; // 遅延発火の演出タイマーを無効化
+    performInterruptCleanup("screen-mission");
     renderHomeStats();
     showScreen("screen-home");
   }
 
-  // ---- ランク選択画面の表示（クリア回数・最高コンボ・忍者階級・ランクのロック状態）----
+  // ---- フェーズ4：任務タブのランクチップ列の表示（クリア回数・忍者階級・ロック状態）----
+  // 5チップを横並びで一覧表示。解禁済み＋クリア済みは✓、解禁済み未クリアは空、
+  // ロック中は🔒＋タップ不可。次に解禁されるランクの条件だけを1行の注記で示す
+  // （5個ぶんの条件文をチップ内に詰め込むと読めなくなるため、次の1件に絞る＝Hickの法則）。
   function mbRenderSelect() {
     var rec = mbLoadRecords();
-    var note = document.getElementById("mission-records-note");
-    if (note) {
-      note.textContent = rec.bestCombo > 0 ? ("これまでの最高コンボ：" + rec.bestCombo) : "";
-    }
-    var rankNote = document.getElementById("mission-rank-note");
-    if (rankNote) {
-      rankNote.textContent = "現在の階級：" + mbTitleFor(rec.titleIndex);
-    }
     var btns = document.querySelectorAll("[data-mb-rank]");
+    var nextLockedRank = null;
     for (var i = 0; i < btns.length; i++) {
       var btn = btns[i];
       var rank = btn.getAttribute("data-mb-rank");
-      var rankIdx = MB_RANKS.indexOf(rank);
       var unlocked = mbIsRankUnlocked(rank, rec.titleIndex);
+      var stateEl = btn.querySelector(".rank-chip-state");
+      var clears = rec.clears[rank] || 0;
       btn.classList.toggle("locked", !unlocked);
+      btn.classList.toggle("cleared", unlocked && clears > 0);
       btn.disabled = !unlocked;
-      var sub = btn.querySelector(".exam-option-count");
-      if (sub) {
-        if (unlocked) {
-          var clears = rec.clears[rank] || 0;
-          sub.textContent = (MB_RANK_DESC[rank] || "") + (clears > 0 ? ("　クリア×" + clears) : "");
+      if (stateEl) {
+        if (!unlocked) {
+          stateEl.textContent = "🔒";
+          if (nextLockedRank === null) nextLockedRank = rank;
+        } else if (clears > 0) {
+          stateEl.textContent = "✓" + clears;
         } else {
-          var prevRank = rankIdx > 0 ? MB_RANKS[rankIdx - 1] : null;
-          sub.textContent = prevRank ? (prevRank + "任務をクリアで解禁") : "";
+          stateEl.textContent = "";
         }
       }
+    }
+    var noteEl = document.getElementById("rank-chip-note");
+    if (noteEl) {
+      if (nextLockedRank) {
+        var rankIdx = MB_RANKS.indexOf(nextLockedRank);
+        var prevRank = rankIdx > 0 ? MB_RANKS[rankIdx - 1] : null;
+        noteEl.textContent = prevRank ? ("次の解禁：" + prevRank + "任務をクリア") : "";
+      } else if (rec.bestCombo > 0) {
+        noteEl.textContent = "最高コンボ：" + rec.bestCombo;
+      } else {
+        noteEl.textContent = "";
+      }
+    }
+    // 「任務をうける」＝今いちばん挑みごたえのある、解禁済みの最上位ランクへ即挑戦する主導線
+    var entryBtn = document.getElementById("mission-entry-btn");
+    if (entryBtn) {
+      var recommended = mbHighestUnlockedRank(rec.titleIndex);
+      entryBtn.textContent = "任務をうける（" + recommended + "）";
+    }
+  }
+
+  // ---- フェーズ4：記録タブのランク別クリア回数グリッド ----
+  function renderMissionRecordStats() {
+    var grid = document.getElementById("record-rank-grid");
+    var note = document.getElementById("record-combo-note");
+    if (!grid) return;
+    var rec = mbLoadRecords();
+    grid.innerHTML = MB_RANKS.map(function (rank) {
+      var clears = rec.clears[rank] || 0;
+      return '<div class="record-rank-cell"><span class="rr-label">' + rank + '</span><span class="rr-count">' + clears + '</span></div>';
+    }).join("");
+    if (note) {
+      note.textContent = rec.bestCombo > 0 ? ("これまでの最高コンボ：" + rec.bestCombo) : "まだ任務の記録がありません。";
     }
   }
 
@@ -14073,33 +14648,20 @@ const QUESTIONS = [
 
     mbChoiceBtns = Array.prototype.slice.call(mbEl.commandWindow.querySelectorAll(".choice"));
 
+    // フェーズ4：任務タブが最初からランク選択そのものなので、専用の選択画面へは
+    // 遷移しない。「任務をうける」は解禁済みの最上位ランクへ直接挑む主ボタン。
     var entryBtn = document.getElementById("mission-entry-btn");
     if (entryBtn) {
       entryBtn.addEventListener("click", function () {
-        mbRenderSelect();
-        showScreen("screen-mission-select");
+        var rec = mbLoadRecords();
+        mbStartMission(mbHighestUnlockedRank(rec.titleIndex));
       });
     }
-    var backBtn = document.getElementById("mission-select-back-btn");
-    if (backBtn) {
-      backBtn.addEventListener("click", function () {
-        renderHomeStats();
-        showScreen("screen-home");
-      });
-    }
-    // 実装3：術図鑑への導線（ランク選択画面から開く。戻る先はホーム）
-    var jutsuBookBtn = document.getElementById("jutsu-book-entry-btn");
-    if (jutsuBookBtn) {
-      jutsuBookBtn.addEventListener("click", function () {
-        renderJutsuBook();
-        showScreen("screen-jutsu-book");
-      });
-    }
-    var jutsuBookBackBtn = document.getElementById("jutsu-book-back-btn");
-    if (jutsuBookBackBtn) {
-      jutsuBookBackBtn.addEventListener("click", function () {
-        renderHomeStats();
-        showScreen("screen-home");
+    // 術図鑑への小さな導線：記録タブへ切替るだけ（別画面には遷移しない＝履歴を汚さない）
+    var jutsuBookJumpBtn = document.getElementById("jutsu-book-jump-btn");
+    if (jutsuBookJumpBtn) {
+      jutsuBookJumpBtn.addEventListener("click", function () {
+        switchHomeTab("record");
       });
     }
     var rankBtns = document.querySelectorAll("[data-mb-rank]");
@@ -14135,7 +14697,7 @@ const QUESTIONS = [
     // （リザルト画面の「ホームへもどる」と同じ後始末を共有する）。
     if (mbEl.interruptBtn) {
       mbEl.interruptBtn.addEventListener("click", function () {
-        if (window.confirm("中断すると進行中の記録は保存されません。ホームに戻りますか？")) {
+        if (window.confirm(INTERRUPT_CONFIRM_MSG)) {
           mbGoHome();
         }
       });
@@ -14167,11 +14729,19 @@ const QUESTIONS = [
     if (listEl) listEl.innerHTML = rows.join("");
     var progressEl = document.getElementById("jutsu-book-progress");
     if (progressEl) progressEl.textContent = "発動した術：" + unlockedCount + " / " + MB_JUTSU_BOOK.length + "種";
+    // フェーズ4：任務タブの小さな導線（「術図鑑 8/11種」）にも同じ進捗を反映する
+    var jumpCountEl = document.getElementById("jutsu-book-jump-count");
+    if (jumpCountEl) jumpCountEl.textContent = unlockedCount + " / " + MB_JUTSU_BOOK.length;
   }
 
   // ---------------------------------------------------------------
   // 初期化
   // ---------------------------------------------------------------
+  // フェーズ2：起動時点の画面（ホーム）をタブバー表示状態も含めて確定させる。
+  // ここではまだ履歴を積まない（ページ読み込み自体がすでに1エントリのため、
+  // 以降はユーザー操作でのみ pushState する＝ホームでさらに「戻る」ければ
+  // ブラウザの通常動作＝離脱に委ねられる）。
+  applyScreenDOM("screen-home");
   initHomeControls();
   initExamControls();
   initMissionControls();
