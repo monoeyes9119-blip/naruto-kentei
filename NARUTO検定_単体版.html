@@ -14990,6 +14990,11 @@ const QUESTIONS = [
       mbRenderEnemy(pick.enemy, pick.boosted);
       mbEl.enemyWrap.classList.remove("vanish");
       mbReplay(mbEl.enemyWrap, "enter");
+      // バグ修正：enterはenemy-enter(.5s)終了後もクラスに残り続け、直後の「hit」等と
+      // 同時に付いたままになる（＝.enemy-wrap.enter と .enemy-wrap.hit が同時に animation を
+      // 奪い合う不正な状態）。WebKitでこの重複がfilterの中間状態のまま固まる不具合の温床になるため、
+      // アニメ完了と同時に必ず外す（他の専用クラス＝shishi-air/kamui-warp/tensei-blastと同じ後始末）。
+      setTimeout(function () { mbEl.enemyWrap.classList.remove("enter"); }, 500);
       mbUpdateEnemyBanner();
       mbShowResultLine("＊「" + mbEnemyDisplayName(pick) + "が　たちふさがった！」");
       saveMissionSession();
@@ -16056,6 +16061,10 @@ const QUESTIONS = [
       mbHitStop(70);
       setTimeout(function () {
         mbReplay(mbEl.enemyWrap, "hit");
+        // バグ修正：hitはenemy-recoil(.55s)終了後もクラスに残り続けたまま次の状態（enter/boosted等）
+        // と同居し、複数のfilterアニメが同じ要素の animation を奪い合う不正な状態を作っていた。
+        // 他の専用クラス（shishi-air/kamui-warp/tensei-blast/hit-sm）と同じく、終了と同時に必ず外す。
+        setTimeout(function () { mbEl.enemyWrap.classList.remove("hit"); }, 550);
         mbEl.fxRing.className = "fx-ring" + (info.ringClass ? " " + info.ringClass : "");
         if (info.ring !== false) mbReplay(mbEl.fxRing);
         // flash：値ごとに使い回すdivを決め、毎回className自体を作り直す（前回の色が残る事故を防ぐ）
@@ -16111,6 +16120,7 @@ const QUESTIONS = [
     setTimeout(function () {
       mbHitStop(70);
       mbReplay(mbEl.enemyWrap, "hit");
+      setTimeout(function () { mbEl.enemyWrap.classList.remove("hit"); }, 550); // バグ修正：後始末（上と同じ理由）
       setTimeout(function () { mbShakeScreen(); }, 80);
     }, 1500);
     setTimeout(function () { mbEl.enemyWrap.classList.add("vanish"); }, 1950);
@@ -16233,6 +16243,10 @@ const QUESTIONS = [
     mbEl.enemyWrap.classList.remove("vanish");
     mbEl.enemyWrap.classList.remove("bound");
     mbEl.enemyWrap.classList.remove("hit");
+    // バグ修正：enterも上記のsetTimeoutで通常は外れるが、中断・任務やり直し等でその
+    // setTimeoutが発火する前に画面がリセットされた場合に備え、ここでも明示的に外す
+    // （.enemy-wrap に複数のアニメ用クラスが同居する不正な状態を作らないための保険）。
+    mbEl.enemyWrap.classList.remove("enter");
     // 追加術（10種・40種化）が敵忍そのものに付与する専用アニメクラス。beforePlay内のsetTimeoutで
     // 通常は外れるが、鑑賞モードで次の術へ素早く切り替わった場合などに残らないよう明示的に外す。
     mbEl.enemyWrap.classList.remove("shishi-air");
@@ -16665,6 +16679,7 @@ const QUESTIONS = [
       mbEl.enemyWrap.classList.remove("vanish");
       mbEl.enemyWrap.classList.remove("bound");
       mbReplay(mbEl.enemyWrap, "enter");
+      setTimeout(function () { mbEl.enemyWrap.classList.remove("enter"); }, 500); // バグ修正：後始末（上と同じ理由）
     }
   }
 
