@@ -199,6 +199,47 @@
   }
   .details-settings[open] summary::after{transform:rotate(180deg);}
   .details-settings .details-body{padding-top:4px;}
+  .scroll-choice{
+    overflow:hidden;
+    border:2.5px solid var(--ink);
+    border-radius:4px;
+    background:linear-gradient(135deg,#f4dfad 0%,#fff7df 48%,#e8ce92 100%);
+    box-shadow:3px 3px 0 var(--ink);
+    margin-bottom:14px;
+  }
+  .scroll-choice[open]{animation:scroll-unroll .28s ease-out both;}
+  .scroll-choice summary{
+    min-height:58px;
+    padding:12px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    cursor:pointer;
+    list-style:none;
+    font-size:17px;
+    font-weight:900;
+  }
+  .scroll-choice summary::-webkit-details-marker{display:none;}
+  .scroll-choice summary::after{content:"＋";font-size:20px;color:var(--accent);}
+  .scroll-choice[open] summary::after{content:"−";}
+  .scroll-choice-hint{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-top:2px;}
+  .scroll-options{padding:0 12px 12px;display:grid;gap:8px;}
+  .scroll-option{
+    width:100%;min-height:62px;text-align:left;display:grid;grid-template-columns:42px 1fr auto;
+    align-items:center;gap:10px;padding:9px 12px;background:rgba(255,255,255,.78);
+    color:var(--ink);border:2px solid var(--ink);border-radius:3px;font:inherit;cursor:pointer;
+    transition:transform .12s,background-color .12s,box-shadow .12s;
+  }
+  .scroll-option:active{transform:translateY(2px);}
+  .scroll-option.selected{background:#fff;border-color:var(--accent);box-shadow:inset 4px 0 0 var(--accent);}
+  .scroll-option-mark{width:34px;height:34px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-weight:900;background:#f4dfad;}
+  .scroll-option.selected .scroll-option-mark{background:var(--accent);}
+  .scroll-option-name{font-size:14px;font-weight:900;display:block;}
+  .scroll-option-desc{font-size:11px;font-weight:700;color:var(--muted);display:block;margin-top:2px;}
+  .scroll-option-time{font-size:11px;font-weight:800;color:var(--muted);white-space:nowrap;}
+  @keyframes scroll-unroll{from{clip-path:inset(0 0 88% 0);opacity:.7}to{clip-path:inset(0);opacity:1}}
+  @media(prefers-reduced-motion:reduce){.scroll-choice[open]{animation:none}.scroll-option{transition:none}}
   .preset-group{margin-bottom:4px;}
   .preset-btn{font-size:11.5px;padding:8px 6px;}
   label{
@@ -2782,6 +2823,26 @@
     <!-- ===== 練習タブ ===== -->
     <div class="tab-content hidden" id="tab-content-practice" data-tab-panel="practice">
       <div class="card">
+      <details class="scroll-choice" id="practice-scroll-choice">
+        <summary><span>巻物をひらく<span class="scroll-choice-hint">今日の気分に合う修行を選ぼう</span></span></summary>
+        <div class="scroll-options" role="group" aria-label="練習の難易度">
+          <button type="button" class="scroll-option" data-practice-level="easy" aria-pressed="false">
+            <span class="scroll-option-mark" aria-hidden="true">○</span>
+            <span><span class="scroll-option-name">ゆっくり修行</span><span class="scroll-option-desc">やさしい問題で、気軽に腕ならし</span></span>
+            <span class="scroll-option-time">やさしめ</span>
+          </button>
+          <button type="button" class="scroll-option selected" data-practice-level="normal" aria-pressed="true">
+            <span class="scroll-option-mark" aria-hidden="true">△</span>
+            <span><span class="scroll-option-name">中忍への道</span><span class="scroll-option-desc">標準の問題で腕試し</span></span>
+            <span class="scroll-option-time">全難易度</span>
+          </button>
+          <button type="button" class="scroll-option" data-practice-level="hard" aria-pressed="false">
+            <span class="scroll-option-mark" aria-hidden="true">★</span>
+            <span><span class="scroll-option-name">影の特訓</span><span class="scroll-option-desc">難しい問題で知識を試す</span></span>
+            <span class="scroll-option-time">むずかしめ</span>
+          </button>
+        </div>
+      </details>
       <label style="margin-top:0;">モード</label>
       <div class="btn-group">
         <button type="button" class="choice-btn selected-mode" data-mode="quiz" id="mode-quiz-btn">4択クイズ</button>
@@ -14003,6 +14064,7 @@ const QUESTIONS = [
   // ホーム画面の初期化
   // ---------------------------------------------------------------
   var currentMode = "quiz";
+  var currentPracticeLevel = "normal";
   var bounds = getVolumeBounds(SAFE_QUESTIONS);
 
   function initHomeControls() {
@@ -14019,6 +14081,32 @@ const QUESTIONS = [
       currentMode = "flash";
       modeFlashBtn.classList.add("selected-mode");
       modeQuizBtn.classList.remove("selected-mode");
+    });
+
+    var levelButtons = document.querySelectorAll("[data-practice-level]");
+    Array.prototype.forEach.call(levelButtons, function (button) {
+      button.addEventListener("click", function () {
+        currentPracticeLevel = button.getAttribute("data-practice-level");
+        Array.prototype.forEach.call(levelButtons, function (other) {
+          var selected = other === button;
+          other.classList.toggle("selected", selected);
+          other.setAttribute("aria-pressed", selected ? "true" : "false");
+        });
+        var difficulty = document.getElementById("difficulty-select");
+        if (difficulty) difficulty.value = currentPracticeLevel === "easy" ? "易" : currentPracticeLevel === "hard" ? "難" : "all";
+        var scroll = document.getElementById("practice-scroll-choice");
+        if (scroll) scroll.open = false;
+      });
+    });
+    var difficultySelect = document.getElementById("difficulty-select");
+    if (difficultySelect) difficultySelect.addEventListener("change", function () {
+      var level = difficultySelect.value === "易" ? "easy" : difficultySelect.value === "難" ? "hard" : "normal";
+      currentPracticeLevel = level;
+      Array.prototype.forEach.call(levelButtons, function (button) {
+        var selected = button.getAttribute("data-practice-level") === level;
+        button.classList.toggle("selected", selected);
+        button.setAttribute("aria-pressed", selected ? "true" : "false");
+      });
     });
 
     var rangeMinSel = document.getElementById("range-min");
